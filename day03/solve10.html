@@ -1,13 +1,18 @@
 <html>
     <script>
         var angka = prompt('Masukkan angka: ')
+        angka = parseInt(angka)
         if (angka%2 == 0) {
             alert('Angka ' + angka + ' tergolong bilangan GENAP!')
             console.log('Angka ' + angka + ' tergolong bilangan GENAP!')
         }
-        else {
+        else if (angka%2 == 1) {
             alert('Angka ' + angka + ' tergolong bilangan GANJIL!')
             console.log('Angka ' + angka + ' tergolong bilangan GANJIL!')
+        }
+        else {
+            alert('Bukan angka')
+            console.log('Bukan angka')
         }
     </script>
 </html>
