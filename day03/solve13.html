@@ -1,0 +1,27 @@
+<html>
+    <script>
+        var massa = prompt('Masukkan berat (dalam satuan Kg): ')
+        var tinggi = prompt('Masukkan tinggi (dalam satuan Meter): ')
+        var imt = massa / (Math.pow(tinggi, 2))
+        // var imt = massa / (tinggi**2)
+        // alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n')
+        console.log('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m ')
+        if (imt < 18.5) {
+            alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n'+'IMT: ' + imt + ', Berat badan anda KURANG')
+            console.log('IMT: ' + imt + ', Berat badan anda KURANG')
+        }else if (imt >= 18.5 && imt <= 24.9) {
+            alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n'+'IMT: ' + imt + ', Berat badan anda IDEAL')
+            console.log('IMT: ' + imt + ', Berat badan anda IDEAL')
+        }else if (imt >= 25 && imt <= 29.9) {
+            alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n'+'IMT: ' + imt + ', Berat badan anda BERLEBIH')
+            console.log('IMT: ' + imt + ', Berat badan anda BERLEBIH')
+        }else if (imt >= 30 && imt <= 39.9) {
+            
+            alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n'+'IMT: ' + imt + ', Berat badan anda SANGAT BERLEBIH')
+            console.log('IMT: ' + imt + ', Berat badan anda SANGAT BERLEBIH')
+        }else {
+            alert('Massa ' + massa + ' Kg & Tinggi ' + tinggi + ' m \n'+'IMT: ' + imt + ', Berat badan anda OBESITAS')
+            console.log('IMT: ' + imt + ', Berat badan anda OBESITAS')
+        }
+    </script>
+</html>
