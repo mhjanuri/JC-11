@@ -3,7 +3,7 @@ let warna = 'merah'
 let harga = 'murah'
 
 switch(true){
-    case(alas=='sepatu' && warna=='merah' && harga=='murah'):
+    case (alas == 'sepatu' && warna == 'merah' && harga == 'murah'):
         console.log('Saya suka sepatu merah murah')
         break
     case (alas == 'sepatu' && warna == 'merah' && harga == 'mahal'):
@@ -15,7 +15,7 @@ switch(true){
     case (alas == 'sepatu' && warna == 'biru' && harga == 'mahal'):
         console.log('Saya suka sepatu biru mahal')
         break
-    case (alas =='sandal' && warna=='merah' && harga=='murah'):
+    case (alas == 'sandal' && warna == 'merah' && harga == 'murah'):
         console.log('Saya suka sandal merah murah')
         break
     case (alas == 'sandal' && warna == 'merah' && harga == 'mahal'):
