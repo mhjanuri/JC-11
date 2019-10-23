@@ -14,22 +14,31 @@
 //         console.log('Ada aja kerjaannya.')
 // }
 
-let alaskaki = 'sepatu';
-let warna = 'merah';
+// let alaskaki = 'sepatu';
+// let warna = 'merah';
 
-switch (true) {
-    case (alaskaki == 'sepatu' && warna == 'merah'):
-        console.log('Saya suka sepatu merah.')
-        break
-    case (alaskaki == 'sepatu' && warna == 'biru'):
-        console.log('Saya suka sepatu biru.')
-        break
-    case (alaskaki == 'sandal' && warna == 'merah'):
-        console.log('Saya suka sandal merah.')
-        break
-    case (alaskaki == 'sandal' && warna == 'biru'):
-        console.log('Saya suka sandal biru.')
-        break
-    default:
-        console.log('Tak suka alas kaki merah/biru.')
+// switch (true) {
+//     case (alaskaki == 'sepatu' && warna == 'merah'):
+//         console.log('Saya suka sepatu merah.')
+//         break
+//     case (alaskaki == 'sepatu' && warna == 'biru'):
+//         console.log('Saya suka sepatu biru.')
+//         break
+//     case (alaskaki == 'sandal' && warna == 'merah'):
+//         console.log('Saya suka sandal merah.')
+//         break
+//     case (alaskaki == 'sandal' && warna == 'biru'):
+//         console.log('Saya suka sandal biru.')
+//         break
+//     default:
+//         console.log('Tak suka alas kaki merah/biru.')
+// }
+
+var masuk=3
+var keluar=2
+var durasi=keluar-masuk
+console.log(durasi)
+if(durasi<0){
+    durasi+=12
 }
+console.log(durasi)

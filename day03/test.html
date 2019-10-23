@@ -1,0 +1,47 @@
+<html>
+<script>
+    var konfirmasi = true
+    var konfirmasi2 = true
+    var konfirmasi3 = true
+    var konfirmasi4 = true
+    while (konfirmasi = true) {
+        var waktu = 0
+        var jamMasuk = prompt('Jam berapa anda masuk parkir: ')
+        if (jamMasuk >= 1 && jamMasuk <= 12) {
+            while (konfirmasi2 = true) {
+                var ampmMasuk = prompt('1. Siang atau 2. Malam')
+                if (ampmMasuk >= 1 && ampmMasuk <= 2) {
+                    while (konfirmasi3 = true) {
+                        var jamKeluar = prompt('Jam berapa anda keluar parkir: ')
+                        if (jamKeluar >= 1 && jamKeluar <= 12) {
+                            while (konfirmasi4 = true) {
+                                var ampmKeluar = prompt('1. Siang atau 2. Malam')
+                                if (ampmKeluar >= 1 && ampmKeluar <= 2) {
+                                    alert('waktu parkir anda sebanyak ' + 'biaya parkir anda sebesar Rp ')
+                                    konfirmasi4 = false
+                                    konfirmasi3 = false
+                                    konfirmasi2 = false
+                                    konfirmasi = false
+                                } else {
+                                    alert('Error: masukkan angka 1 untuk siang atau 2 untuk malam')
+                                    konfirmasi4 = true
+                                }
+                            }
+                        } else {
+                            alert('Error: masukkan angka 1-12')
+                            konfirmasi3 = true
+                        }
+                    }
+                } else {
+                    alert('Error: masukkan angka 1 untuk siang atau 2 untuk malam')
+                    konfirmasi2 = true
+                }
+            }
+        } else {
+            alert('Error: masukkan angka 1-12')
+            konfirmasi = true
+        }
+    }
+</script>
+
+</html>

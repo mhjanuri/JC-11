@@ -1,15 +1,81 @@
 <html>
     <script>
-        var masuk = prompt('Jam berapa anda parkir? ')
-        masuk=parseInt(masuk)
-        var keluar = prompt('Jam berapa anda keluar? ')
-        keluar=parseInt(keluar)
-        if(keluar<masuk){
-            keluar+=12
+        var konfirmasi=true
+        while (konfirmasi == true) {
+            var jamMasuk = prompt('Jam berapa anda masuk parkir: ')
+            if (jamMasuk >= 1 && jamMasuk <= 12) {
+                console.log('jam masuk: angka 1-12, konfirmasi = false')
+                console.log('jam masuk '+jamMasuk)
+                konfirmasi = false
+            }else{
+                alert('error: masukkan angka 1-12')
+                console.log('jam masuk: bukan 1-12, konfirmasi = true')
+                konfirmasi = true
+            }
         }
-        var jam=keluar-masuk
-        var biaya=jam*1000
-        alert('anda parkir selama '+jam+ ' jam biayanya Rp '+biaya+',00')
-
+        var konfirmasi2=true
+        while (konfirmasi2 == true) {
+            var ampmMasuk = prompt('1. Siang atau 2. Malam: ')
+            if (ampmMasuk >= 1 && ampmMasuk <= 2) {
+                console.log('am/pm masuk: angka 1-2, konfirmasi = false')
+                console.log('am/pm masuk '+ampmMasuk)
+                konfirmasi2 = false
+            } else {
+                alert('error: masukkan angka 1 untuk Siang atau 2 untuk Malam')
+                console.log('am/pm masuk: bukan 1-2, konfirmasi = true')
+                konfirmasi2 = true
+            }
+        }
+        var konfirmasi3 = true
+        while (konfirmasi3 == true) {
+            var jamKeluar = prompt('Jam berapa anda Keluar parkir: ')
+            if (jamKeluar >= 1 && jamKeluar <= 12) {
+                console.log('jam keluar: angka 1-12, konfirmasi = false')
+                console.log('jam keluar ' +jamKeluar)
+                konfirmasi3 = false
+            } else {
+                alert('error: masukkan angka 1-12')
+                console.log('jam Keluar: bukan 1-12, konfirmasi = true')
+                konfirmasi3 = true
+            }
+        }
+        var konfirmasi4=true
+        while (konfirmasi4 == true) {
+            var ampmKeluar = prompt('1. Siang atau 2. Malam: ')
+            if (ampmKeluar >= 1 && ampmKeluar <= 2) {
+                console.log('am/pm Keluar: angka 1-2, konfirmasi = false')
+                console.log('amp/pm keluar ' +ampmKeluar)
+                konfirmasi4 = false
+            } else {
+                alert('error: masukkan angka 1 untuk Siang atau 2 untuk Malam')
+                console.log('am/pm keluar: bukan 1-2, konfirmasi = true')
+                konfirmasi4 = true
+            }
+        }
+        var durasi=(jamKeluar-jamMasuk)
+        console.log('durasi= '+durasi)
+        if(durasi>0 && ampmMasuk==1 && ampmKeluar==2){
+            durasi += 12
+            console.log('durasi if lewat 12 jam= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if(durasi<0){
+            durasi+=12
+            console.log('durasi if negatif= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if(durasi>1){
+            console.log('durasi if positif= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else{
+            console.log('durasi if null= ' + durasi)
+            let biaya = (3000)
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }
     </script>
 </html>

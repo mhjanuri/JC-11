@@ -22,3 +22,19 @@ while (angka <=4) {
 
     
 }
+
+{/* <html>
+    <script>
+        var masuk = prompt('Jam berapa anda parkir? ')
+        masuk=parseInt(masuk)
+        var keluar = prompt('Jam berapa anda keluar? ')
+        keluar=parseInt(keluar)
+        if(keluar<masuk){
+            keluar += 12
+        }
+        var jam=keluar-masuk
+        var biaya=jam*1000
+        alert('anda parkir selama '+jam+ ' jam biayanya Rp '+biaya+',00')
+
+    </script>
+</html> */}
