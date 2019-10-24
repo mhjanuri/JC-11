@@ -54,25 +54,65 @@
         }
         var durasi=(jamKeluar-jamMasuk)
         console.log('durasi= '+durasi)
-        if(durasi>0 && ampmMasuk==1 && ampmKeluar==2){
-            durasi += 12
-            console.log('durasi if lewat 12 jam= ' + durasi)
+        if(durasi>1 && ampmMasuk == 1 && ampmKeluar == 2){
+            console.log('durasi siang ke malam if positif= ' + durasi)
             let biaya = (3000 + ((durasi - 1) * 1000))
             alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
             console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
-        }else if(durasi<0){
+        }else if (durasi==0 && ampmMasuk == 1 && ampmKeluar == 2){
             durasi+=12
-            console.log('durasi if negatif= ' + durasi)
+            console.log('durasi null siang ke malam if lewat 12 jam= ' + durasi)
             let biaya = (3000 + ((durasi - 1) * 1000))
             alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
             console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
-        }else if(durasi>1){
+        }else if(durasi<0 && ampmMasuk==1 && ampmKeluar==2){
+            durasi += 12
+            console.log('durasi negatif if lewat 12 jam= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if(durasi>1 && ampmMasuk == 2 && ampmKeluar == 1){
+            durasi+=12
+            console.log('durasi malam ke siang if positif= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if (durasi==0 && ampmMasuk == 2 && ampmKeluar == 1){
+            durasi+=12
+            console.log('durasi null malam ke siang if lewat 12 jam= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if(durasi<0 && ampmMasuk == 2 && ampmKeluar == 1){
+            durasi+=12
+            console.log('durasi malam ke siang if negatif= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if ((durasi>1 && ampmMasuk == 1 && ampmKeluar == 1) || (durasi > 1 && ampmMasuk == 2 && ampmKeluar == 2)){
             console.log('durasi if positif= ' + durasi)
             let biaya = (3000 + ((durasi - 1) * 1000))
             alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
             console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
-        }else{
-            console.log('durasi if null= ' + durasi)
+        }else if ((durasi<0 && ampmMasuk == 1 && ampmKeluar == 1) || (durasi < 0 && ampmMasuk == 2 && ampmKeluar == 2)){
+            durasi+=24
+            console.log('durasi 24 jam if negatif= ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if ((durasi==0 && ampmMasuk == 1 && ampmKeluar == 1) || (durasi == 0 && ampmMasuk == 2 && ampmKeluar == 2)){
+            console.log('durasi if null = ' + durasi)
+            let biaya = (3000)
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if((durasi==1 && ampmMasuk == 1 && ampmKeluar == 2) || (durasi == 1 && ampmMasuk == 2 && ampmKeluar == 1)){
+            durasi += 12
+            console.log('durasi if 1 = ' + durasi)
+            let biaya = (3000 + ((durasi - 1) * 1000))
+            alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+            console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
+        }else if((durasi==1 && ampmMasuk == 1 && ampmKeluar == 1) || (durasi == 1 && ampmMasuk == 2 && ampmKeluar == 2)){
+            console.log('durasi if 1 = ' + durasi)
             let biaya = (3000)
             alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
             console.log('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
