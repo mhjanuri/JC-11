@@ -2,7 +2,7 @@
     <script>
         var konfirmasi=true
         while (konfirmasi == true) {
-            var jamMasuk = prompt('Jam berapa anda masuk parkir: ')
+            var jamMasuk = prompt('Selamat datang di Premium Parking\nSatu jam pertama = Rp 3000,00 jam berikutnya = Rp 1000,00\n\nJam berapa anda masuk parkir: ')
             if (jamMasuk >= 1 && jamMasuk <= 12) {
                 console.log('jam masuk: angka 1-12, konfirmasi = false')
                 console.log('jam masuk '+jamMasuk)
@@ -55,6 +55,7 @@
         var durasi=(jamKeluar-jamMasuk)
         console.log('durasi= '+durasi)
         if(durasi>1 && ampmMasuk == 1 && ampmKeluar == 2){
+            durasi+=12
             console.log('durasi siang ke malam if positif= ' + durasi)
             let biaya = (3000 + ((durasi - 1) * 1000))
             alert('Lama parkir anda= ' + durasi + ' jam, biaya parkir anda= Rp ' + biaya + ',00')
