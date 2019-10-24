@@ -1,47 +1,26 @@
 <html>
 <script>
     var konfirmasi = true
-    var konfirmasi2 = true
-    var konfirmasi3 = true
-    var konfirmasi4 = true
-    while (konfirmasi = true) {
-        var waktu = 0
-        var jamMasuk = prompt('Jam berapa anda masuk parkir: ')
-        if (jamMasuk >= 1 && jamMasuk <= 12) {
-            while (konfirmasi2 = true) {
-                var ampmMasuk = prompt('1. Siang atau 2. Malam')
-                if (ampmMasuk >= 1 && ampmMasuk <= 2) {
-                    while (konfirmasi3 = true) {
-                        var jamKeluar = prompt('Jam berapa anda keluar parkir: ')
-                        if (jamKeluar >= 1 && jamKeluar <= 12) {
-                            while (konfirmasi4 = true) {
-                                var ampmKeluar = prompt('1. Siang atau 2. Malam')
-                                if (ampmKeluar >= 1 && ampmKeluar <= 2) {
-                                    alert('waktu parkir anda sebanyak ' + 'biaya parkir anda sebesar Rp ')
-                                    konfirmasi4 = false
-                                    konfirmasi3 = false
-                                    konfirmasi2 = false
-                                    konfirmasi = false
-                                } else {
-                                    alert('Error: masukkan angka 1 untuk siang atau 2 untuk malam')
-                                    konfirmasi4 = true
-                                }
-                            }
-                        } else {
-                            alert('Error: masukkan angka 1-12')
-                            konfirmasi3 = true
-                        }
-                    }
-                } else {
-                    alert('Error: masukkan angka 1 untuk siang atau 2 untuk malam')
-                    konfirmasi2 = true
-                }
+    // var confirm1 = true
+    while (konfirmasi == true) {
+        var jamMasuk = prompt('Selamat datang di Premium Parking\nSatu jam pertama = Rp 3000,00 jam berikutnya = Rp 1000,00\n\nJam berapa anda masuk parkir: ')
+        if (jamMasuk == null) {
+            confirm1 = confirm('Anda yakin ingin keluar? ')
+            if (confirm1 == true) {
+                alert('Terima kasih, silakan datang lagi ')
+                konfirmasi == false
+            }else{
+                konfirmasi = true
             }
-        } else {
-            alert('Error: masukkan angka 1-12')
+        }else if (jamMasuk >= 1 && jamMasuk <= 12) {
+            console.log('jam masuk: angka 1-12, konfirmasi = false')
+            console.log('jam masuk ' + jamMasuk)
+            konfirmasi = false
+        }else{
+            alert('error: masukkan angka 1-12')
+            console.log('jam masuk: bukan 1-12, konfirmasi = true')
             konfirmasi = true
         }
     }
-</script>
-
+    </script>
 </html>

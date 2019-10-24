@@ -1,0 +1,27 @@
+<html>
+    <script>
+        var konfirmasi=true
+        var jamMasuk
+        while (konfirmasi == true){
+            if (jamMasuk == null) {
+                confirm1 = confirm('Anda yakin ingin keluar? ')
+                if (confirm1 == true) {
+                    alert('Terima kasih, silakan datang lagi ')
+                    konfirmasi == false
+                } else {
+                    konfirmasi = true
+                }
+            var jamMasuk = prompt('Selamat datang di Premium24 Parking\nSatu jam pertama = Rp 3000,00 jam berikutnya = Rp 1000,00\n\nJam berapa anda masuk parkir: ')
+            if (jamMasuk >= 1 && jamMasuk <= 24) {
+                console.log('jam masuk: angka 1-24, konfirmasi = false')
+                console.log('jam masuk '+jamMasuk)
+                konfirmasi = false
+            }else{
+                alert('error: masukkan angka 1-24')
+                console.log('jam masuk: bukan 1-12, konfirmasi = true')
+                konfirmasi = true
+            }
+        }
+    }
+    </script>
+</html>
