@@ -1,7 +1,7 @@
 // loop segitiga double
 var output = ''
-for (var i = 0; i <= 10; i++) {
-    for (var j = 10; i < j; j--) {
+for (var i = 0; i < 10; i++) {
+    for (var j = 10-1; i < j; j--) {
         output += ' '
     }
     for (var k = 0; k < i; k++){
@@ -10,6 +10,8 @@ for (var i = 0; i <= 10; i++) {
     for (var l = 0; l <= i; l++) {
         output += '*'
     }
-    output += '\n'
+    if (i < 10 - 1) {
+        output += '\n'
+    }
 }
 console.log(output)
