@@ -1,0 +1,65 @@
+<script>
+    // Buat fungsi bernama segitigabesar dengan parameter tinggi yang di input oleh user
+    function segitigabesar(tinggi) {
+        // Siapkan variable Z untuk di isi value bintang, spasi atau \n
+        let z = '';
+        // Buat perulangan bernama variable A dengan parameter tinggi yang di input
+        for (a = 0; a < tinggi; a++) {
+            // Jika value pada variable A kurang dari tinggi, cek value variable B untuk cetak variable Z secara vertikal
+            for (b = a; b < tinggi - 1; b++) {
+                // Selama value pada variable B memenuhi syarat, masukkan value spasi ke variable Z
+                z += ' ';
+            }
+            // Jika value pada variable B sudah tidak memenuhi syarat, cek value variable C untuk cetak variable Z secara vertikal
+            for (c = 0; c <= a; c++) {
+                // Selama value pada variable C memenuhi syarat, masukkan value * ke variable Z
+                z += '*';
+            }
+            // Jika value pada variable B sudah tidak memenuhi syarat, cek value variable D untuk cetak variable Z secara vertikal
+            for (d = 0; d <= a - 1; d++) {
+                // Selama value pada variable D memenuhi syarat, masukkan value * ke variable Z
+                z += '*';
+            }
+            // Jika value pada variable D sudah tidak memenuhi syarat, cek kondisi value variable A apakah kurang dari tinggi minus 1
+            if (a < tinggi - 1) {
+                // Jika benar, masukkan value \n ke variable Z (membuat baris baru)
+                z += '\n';
+            }
+            // Batas akhir perulangan dengan variable A
+        }
+        // Cetak value variable Z ke console log
+        console.log(z);
+    }
+
+    // Buat funsi bernama segitigabesarterbalik dengan parameter tinggi
+    function segitagabesarterbalik(tinggi) {
+        // Siapkan variable Z untuk di isi value bintang, spasi, atau \n
+        let z = '';
+        // Buat perulangan bernama variable A dengan parameter tinggi yang di input oleh user
+        for (let a = 0; a < tinggi; a++) {
+            // Jika value pada variable A kurang dari tinggi, cek value variable B untuk cetak variable Z secara vertikal
+            for (let b = 0; b <= a; b++) {
+                // Selama value pada variable B memenuhi syarat, masukkan value spasi ke variable Z
+                z += ' ';
+            }
+            // Jika value pada variable B sudah tidak memenuhi syarat, cek value pada variable C untuk cetak variable Z secara vertikal
+            for (let c = a; c < tinggi; c++) {
+                // Selama value pada variable C memenuhi syarat, masukkan value bintang ke variable Z
+                z += '*';
+            }
+            // Jika value pada variable C sudah tidak memenuhi syarat, cek value pada variable D untuk cetak variable Z secara vertikal
+            for (let d = a + 1; d < tinggi; d++) {
+                // Selama value pada variable D memenuhi syarat, masukkan value bintang ke variable Z
+                z += '*';
+            }
+            // Jika value pada variable D sudah tidak memenuhi syarat, cek kondisi value valiarbe A apakah kurang dari tinggi minus 1
+            if (a < tinggi - 1) {
+                // Jika benar, masukkan value \n ke variable Z (membuat baris baru)
+                z += '\n';
+            }
+            // Batas akhir perulangan dengan variable A
+        }
+        // Cekat value variable Z ke console log
+        console.log(z);
+    }
+</script>

@@ -2,7 +2,7 @@
     alert('selamat datang di website kami')
     do {
         var konfirmasiutama=true
-        var menuutama=prompt('menu:\n1.Belajar\n2.Belanja\n3.Exit')
+        var menuutama=prompt('menu:\n1.Belajar\n2.Belanja\n3.Segitiga Bintang\n4.Exit')
         if(menuutama==1){
             var konfirmasi1=true
             while (konfirmasi1) {
@@ -19,6 +19,10 @@
                     var lebar = parseInt(prompt('Masukkan lebar'))
                     var tinggi = parseInt(prompt('Masukkan tinggi'))
                     alert('Volume balok adalah ' + (panjang * lebar * tinggi))
+                }else if (menubelajar == null) {
+                    alert('kembali ke menu awal ')
+                    console.log('null.cancel button at 1.belajar')
+                    break
                 }
                 konfirmasi1=confirm('apakah anda ingin belajar lagi? ')
             }
@@ -55,8 +59,10 @@
                 }
             }
             alert('total belanja anda sebesar Rp. '+totalbiaya)
-
-        }else  if(menuutama==3){
+        }else if (menuutama==3){
+            var konfirmasi3 = true
+        
+        }else  if(menuutama==4){
             alert('terima kasih telah mengunjungi website kami')
             console.log('3.exit')
             break
@@ -65,5 +71,5 @@
             console.log('null.cancel button')
             break
         }
-    } while (true);
+    } while (true)
 </script>

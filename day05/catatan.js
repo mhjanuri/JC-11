@@ -1,6 +1,26 @@
+// Solusi mas dino
+let z = ''
+let tinggi = 5
+for (a = 0; a < tinggi; a++) {
+    for (b = a; b < tinggi - 1; b++) {  // Segitiga siku terbalik
+        z += ' '
+    }
+    for (c = 0; c <= a; c++) {  // Segitiga siku normal
+        z += '*'
+    }
+    for (d = 0; d <= a - 1; d++) {  // Segitiga siku normal
+        z += '*'
+    }
+    if (a < tinggi - 1) {
+        z += '\n'
+    }
+}
+console.log(z)
+
+
+
 // gaji hitungparkir operator functions
 // gaji karyawan gaji(jammasuk,jamkeluar,posisi)
-
 
 
 
@@ -10,7 +30,6 @@
 //     }
 //     console.log(i)
 // }
-
 
 
 
@@ -25,3 +44,5 @@
 //     }
 // }
 // console.log(numb)
+
+
