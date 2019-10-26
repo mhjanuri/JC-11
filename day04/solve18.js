@@ -16,8 +16,8 @@ for (var i = 1; i < 5; i++) {
     for (var j = 0; j <= i; j++) {
         output += '*'
     }
-    // if (i<5) {
+    if (i<4) {
     output += '\n'
-    // }
+    }
 }
 console.log(output)
