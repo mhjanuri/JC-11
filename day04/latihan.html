@@ -8,19 +8,72 @@
             while (konfirmasi1) {
                 var menubelajar = prompt('Belajar apa:\n1.Luas Segitiga\n2.Luas Persegi\n3.Volume Balok')
                 if (menubelajar == 1) {
-                    var alassegitiga = parseInt(prompt('Masukkan panjang alas (cm)'))
-                    var tinggisegitiga = parseInt(prompt('Masukkan tinggi segitiga (cm)'))
+                    var segitiga1 = true
+                    var segitiga2 = true
+                    while (segitiga1) {
+                        var alassegitiga = parseInt(prompt('Masukkan panjang alas (cm)'))
+                        if (isNaN(alassegitiga)) {
+                            alert('hanya menerima input number!')
+                            segitiga1 = true
+                        } else {
+                            break
+                        }                  
+                    }
+                    while (segitiga2) {
+                        var tinggisegitiga = parseInt(prompt('Masukkan tinggi segitiga (cm)'))
+                        if (isNaN(tinggisegitiga)) {
+                            alert('hanya menerima input number!!')
+                            segitiga2 = true
+                        } else {
+                            break
+                        }
+                    }
                     alert('luas segitiga adalah ' + (0.5 * alassegitiga * tinggisegitiga) + ' cm^2')
                     konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
-                    console.log(konfirmasi1)
                 } else if (menubelajar == 2) {
-                    var sisi = parseInt(prompt('Masukkan panjang sisi (cm)'))
+                    var persegi = true
+                    while (persegi) {
+                        var sisi = parseInt(prompt('Masukkan panjang sisi (cm)'))
+                        if (isNaN(sisi)) {
+                            alert('hanya menerima input number!')
+                            persegi = true
+                        } else {
+                            break
+                        }
+                    }
                     alert('luas persegi adalah ' + (sisi * sisi) + ' cm^2')
                     konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
                 } else if (menubelajar == 3) {
-                    var panjang = parseInt(prompt('Masukkan panjang balok (cm)'))
-                    var lebar = parseInt(prompt('Masukkan lebar (cm)'))
-                    var tinggi = parseInt(prompt('Masukkan tinggi (cm)'))
+                    var kubus1 = true
+                    var kubus2 = true
+                    var kubus3 = true
+                    while (kubus1) {
+                        var panjang = parseInt(prompt('Masukkan panjang balok (cm)'))
+                        if (isNaN(panjang)) {
+                            alert('hanya menerima input number!')
+                            kubus1 = true
+                        } else {
+                            break
+                        }
+                    }
+                    while (kubus2) {
+                        var lebar = parseInt(prompt('Masukkan lebar (cm)'))
+                        if (isNaN(lebar)) {
+                            alert('hanya menerima input number!!')
+                            kubus2 = true
+                        } else {
+                            break
+                        }
+                    }
+                    while (kubus3) {
+                        var tinggi = parseInt(prompt('Masukkan tinggi (cm)'))
+                        if (isNaN(tinggi)) {
+                            alert('hanya menerima input number!!!')
+                            kubus3 = true
+                        } else {
+                            break
+                        }
+                    }
                     alert('Volume balok adalah ' + (panjang * lebar * tinggi) + ' cm^3')
                     konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
                 } else if (menubelajar == null) {
@@ -36,21 +89,48 @@
                 var menubelanja = prompt('Belanja apa:\n1.Ayam Rp 10.000,00 per Kg\n2.Sapi Rp 20.000,00 per Kg\n3.Salmon Rp 30.000,00 per Kg')
                 if (menubelanja == 1) {
                     var ayam = 10000
-                    var beratayam = parseInt(prompt('Beli berapa kilogram daging ayam? '))
+                    var ayam1 = true
+                    while (ayam1) {
+                        var beratayam = parseInt(prompt('Beli berapa kilogram daging ayam? '))
+                        if (isNaN(beratayam)) {
+                            alert('hanya menerima input number!')
+                            ayam1 = true
+                        } else {
+                            break
+                        }
+                    }
                     var biayaayam = ayam * beratayam
                     totalbiaya += biayaayam
                     alert('Biaya belanja daging ayam sebanyak ' + beratayam + ' Kg, adalah Rp ' + (biayaayam))
                     konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
                 } else if (menubelanja == 2) {
                     var sapi = 20000
-                    var beratsapi = parseInt(prompt('Beli berapa kilogram daging sapi? '))
+                    var sapi2 = true
+                    while (sapi2) {
+                        var beratsapi = parseInt(prompt('Beli berapa kilogram daging sapi? '))
+                        if (isNaN(beratsapi)) {
+                            alert('hanya menerima input number!!')
+                            sapi2 = true
+                        } else {
+                            break
+                        }
+                    }
                     var biayasapi = sapi * beratsapi
                     totalbiaya += biayasapi
                     alert('Biaya belanja daging sapi sebanyak ' + beratsapi + ' Kg, adalah Rp ' + (biayasapi))
                     konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
                 } else if (menubelanja == 3) {
                     var salmon = 30000
-                    var beratsalmon = parseInt(prompt('Beli berapa kilogram daging salmon? '))
+                    var salmon3 = true
+                    while (salmon3) {
+                        var beratsalmon = parseInt(prompt('Beli berapa kilogram daging salmon? '))
+                        if (isNaN(beratsalmon)) {
+                            alert('hanya menerima input number!!!')
+                            salmon3 = true
+                        } else {
+                            break
+                        }
+                    }
                     var biayasalmon = salmon * beratsalmon
                     totalbiaya += biayasalmon
                     alert('Biaya belanja daging salmon sebanyak ' + beratsalmon + ' Kg, adalah Rp ' + (biayasalmon))
@@ -148,12 +228,13 @@
                 }
                 else if (menubintang == null) {
                     alert('kembali ke menu utama ')
+                    console.log('null.cancel button at 3.segitga bintang')
                     break
                 }
             }
         } else if (menuutama == 4) {
             alert('terima kasih telah mengunjungi website kami')
-            console.log('3.exit')
+            console.log('4.exit')
             break
         } else if (menuutama == null) {
             alert('terima kasih telah mengunjungi website kami')
