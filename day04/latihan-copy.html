@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     alert('selamat datang di website kami')
     do {
         var konfirmasiutama = true
@@ -83,6 +83,158 @@
         } else if (menuutama == 3) {
             var konfirmasi3 = true
 
+        } else if (menuutama == 4) {
+            alert('terima kasih telah mengunjungi website kami')
+            console.log('3.exit')
+            break
+        } else if (menuutama == null) {
+            alert('terima kasih telah mengunjungi website kami')
+            console.log('null.cancel button')
+            break
+        }
+    } while (true)
+</script> -->
+<!-- 
+
+
+
+########     ###    ########    ###     ######      ######  ##     ##  ######  #### 
+##     ##   ## ##      ##      ## ##   ##    ##    ##    ## ##     ## ##    ##  ##  
+##     ##  ##   ##     ##     ##   ##  ##          ##       ##     ## ##        ##  
+########  ##     ##    ##    ##     ##  ######      ######  ##     ## ##        ##  
+##     ## #########    ##    #########       ##          ## ##     ## ##        ##  
+##     ## ##     ##    ##    ##     ## ##    ##    ##    ## ##     ## ##    ##  ##  
+########  ##     ##    ##    ##     ##  ######      ######   #######   ######  #### 
+
+
+
+ -->
+<script>
+    alert('selamat datang di website kami')
+    do {
+        var konfirmasiutama = true
+        var menuutama = prompt('Menu Utama:\n1. Belajar\n2. Belanja\n3. Segitiga Bintang\n4. Exit')
+        if (menuutama == 1) {
+            var konfirmasi1 = true
+            while (konfirmasi1) {
+                var menubelajar = prompt('Belajar apa:\n1.Luas Segitiga\n2.Luas Persegi\n3.Volume Balok')
+                if (menubelajar == 1) {
+                    var alassegitiga = parseInt(prompt('Masukkan panjang alas (cm)'))
+                    var tinggisegitiga = parseInt(prompt('Masukkan tinggi segitiga (cm)'))
+                    alert('luas segitiga adalah ' + (0.5 * alassegitiga * tinggisegitiga) + ' cm^2')
+                    konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
+                    console.log(konfirmasi1)
+                } else if (menubelajar == 2) {
+                    var sisi = parseInt(prompt('Masukkan panjang sisi (cm)'))
+                    alert('luas persegi adalah ' + (sisi * sisi) + ' cm^2')
+                    konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
+                } else if (menubelajar == 3) {
+                    var panjang = parseInt(prompt('Masukkan panjang balok (cm)'))
+                    var lebar = parseInt(prompt('Masukkan lebar (cm)'))
+                    var tinggi = parseInt(prompt('Masukkan tinggi (cm)'))
+                    alert('Volume balok adalah ' + (panjang * lebar * tinggi) + ' cm^3')
+                    konfirmasi1 = confirm('apakah anda ingin belajar lagi? \n(klik cancel untuk kembali ke menu utama)')
+                } else if (menubelajar == null) {
+                    alert('kembali ke menu utama ')
+                    console.log('null.cancel button at 1.belajar')
+                    break
+                }
+            }
+        } else if (menuutama == 2) {
+            var konfirmasi2 = true
+            var totalbiaya = 0
+            while (konfirmasi2) {
+                var menubelanja = prompt('Belanja apa:\n1.Ayam Rp 10.000,00 per Kg\n2.Sapi Rp 20.000,00 per Kg\n3.Salmon Rp 30.000,00 per Kg')
+                if (menubelanja == 1) {
+                    var ayam = 10000
+                    var beratayam = parseInt(prompt('Beli berapa kilogram daging ayam? '))
+                    var biayaayam = ayam * beratayam
+                    totalbiaya += biayaayam
+                    alert('Biaya belanja daging ayam sebanyak ' + beratayam + ' Kg, adalah Rp ' + (biayaayam))
+                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+                } else if (menubelanja == 2) {
+                    var sapi = 20000
+                    var beratsapi = parseInt(prompt('Beli berapa kilogram daging sapi? '))
+                    var biayasapi = sapi * beratsapi
+                    totalbiaya += biayasapi
+                    alert('Biaya belanja daging sapi sebanyak ' + beratsapi + ' Kg, adalah Rp ' + (biayasapi))
+                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+                } else if (menubelanja == 3) {
+                    var salmon = 30000
+                    var beratsalmon = parseInt(prompt('Beli berapa kilogram daging salmon? '))
+                    var biayasalmon = salmon * beratsalmon
+                    totalbiaya += biayasalmon
+                    alert('Biaya belanja daging salmon sebanyak ' + beratsalmon + ' Kg, adalah Rp ' + (biayasalmon))
+                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+                } else if (menubelanja == null) {
+                    alert('kembali ke menu utama ')
+                    console.log('null.cancel button at 2.belanja')
+                    break
+                }
+            }
+            alert('total belanja anda sebesar Rp. ' + totalbiaya)
+        } else if (menuutama == 3) {
+            var konfirmasi3 = true
+            while (konfirmasi3) {
+                var menubintang = prompt('1.Segitiga siku \n2.Segitiga samakaki ')
+                if (menubintang == 1) {
+                    var konfirmasibintang1 = true
+                    while (konfirmasibintang1) {
+                        var posisi1 = prompt('1.Segitiga Siku Diatas (Normal) \n2.Segitiga Siku Dibawah (Terbalik)')
+                        if (posisi1 == 1) {
+                            var segitigasikuA = true
+                            while (segitigasikuA) {
+                                var tinggi1 = parseInt(prompt('Masukkan tinggi segitiga siku (normal): '))
+                                if (isNaN(tinggi1)) {
+                                    alert('hanya menerima input number!')
+                                    segitigasikuA = true
+                                } else {
+                                    alert('tinggi1 ' + tinggi1)
+                                    break                                
+                                }
+                            }
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                        if (posisi1 == 2) {
+                            var tinggi1 = parseInt(prompt('Masukkan tinggi segitiga siku (terbalik): '))
+                            alert('tinggi1 ' + tinggi1)
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                        else if (posisi1 == null) {
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                    }
+                }
+                else if (menubintang == 2) {
+                    var konfirmasibintang2 = true
+                    while (konfirmasibintang2) {
+                        var posisi2 = prompt('1.Segitiga Samakaki Diatas (Normal) \n2.Segitiga Samakaki Dibawah (Terbalik)')
+                        if (posisi2 == 1) {
+                            var tinggi2 = parseInt(prompt('masukkan tinggi segitiga samakaki (normal): '))
+                            alert('tinggi1 ' + tinggi2)
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                        else if (posisi2 == 2) {
+                            var tinggi2 = parseInt(prompt('masukkan tinggi segitiga samakaki (terbalik): '))
+                            alert('tinggi1 ' + tinggi2)
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                        else if (posisi2 == null) {
+                            alert('kembali ke menu 3.Segitiga ')
+                            break
+                        }
+                    }
+                }
+                else if (menubintang == null) {
+                    alert('kembali ke menu utama ')
+                    break
+                }
+            }
         } else if (menuutama == 4) {
             alert('terima kasih telah mengunjungi website kami')
             console.log('3.exit')
