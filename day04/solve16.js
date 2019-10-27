@@ -11,10 +11,11 @@
 // console.log(output)
 
 // Solusi mas dino
+// Segitiga siku normal
 let z = ''
 let tinggi = 5
 for (i = 0; i < tinggi; i++) {
-    for (j = 0; j <= i; j++) {  // Segitiga siku normal
+    for (j = 0; j <= i; j++) {  
         z += '*'
     }
     if (i < tinggi - 1) {

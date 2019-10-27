@@ -97,18 +97,18 @@
 <!-- 
 
 
-
-########     ###    ########    ###     ######      ######  ##     ##  ######  #### 
-##     ##   ## ##      ##      ## ##   ##    ##    ##    ## ##     ## ##    ##  ##  
-##     ##  ##   ##     ##     ##   ##  ##          ##       ##     ## ##        ##  
-########  ##     ##    ##    ##     ##  ######      ######  ##     ## ##        ##  
-##     ## #########    ##    #########       ##          ## ##     ## ##        ##  
-##     ## ##     ##    ##    ##     ## ##    ##    ##    ## ##     ## ##    ##  ##  
-########  ##     ##    ##    ##     ##  ######      ######   #######   ######  #### 
-
-
-
- -->
+    
+    ########     ###    ########    ###     ######      ######  ##     ##  ######  #### 
+    ##     ##   ## ##      ##      ## ##   ##    ##    ##    ## ##     ## ##    ##  ##  
+    ##     ##  ##   ##     ##     ##   ##  ##          ##       ##     ## ##        ##  
+    ########  ##     ##    ##    ##     ##  ######      ######  ##     ## ##        ##  
+    ##     ## #########    ##    #########       ##          ## ##     ## ##        ##  
+    ##     ## ##     ##    ##    ##     ## ##    ##    ##    ## ##     ## ##    ##  ##  
+    ########  ##     ##    ##    ##     ##  ######      ######   #######   ######  #### 
+    
+    
+    
+-->
 <script>
     alert('selamat datang di website kami')
     do {
@@ -176,7 +176,7 @@
         } else if (menuutama == 3) {
             var konfirmasi3 = true
             while (konfirmasi3) {
-                var menubintang = prompt('1.Segitiga siku \n2.Segitiga samakaki ')
+                var menubintang = prompt('Pilih Bentuk Segitiga:\n1.Segitiga siku \n2.Segitiga samakaki ')
                 if (menubintang == 1) {
                     var konfirmasibintang1 = true
                     while (konfirmasibintang1) {
@@ -184,21 +184,30 @@
                         if (posisi1 == 1) {
                             var segitigasikuA = true
                             while (segitigasikuA) {
-                                var tinggi1 = parseInt(prompt('Masukkan tinggi segitiga siku (normal): '))
-                                if (isNaN(tinggi1)) {
+                                var tinggi1a = parseInt(prompt('Masukkan tinggi segitiga siku (normal): '))
+                                if (isNaN(tinggi1a)) {
                                     alert('hanya menerima input number!')
                                     segitigasikuA = true
                                 } else {
-                                    alert('tinggi1 ' + tinggi1)
+                                    alert('segitiga siku normal \n' + segitigaSikuA(tinggi1a))
                                     break                                
                                 }
                             }
                             alert('kembali ke menu 3.Segitiga ')
                             break
                         }
-                        if (posisi1 == 2) {
-                            var tinggi1 = parseInt(prompt('Masukkan tinggi segitiga siku (terbalik): '))
-                            alert('tinggi1 ' + tinggi1)
+                        else if (posisi1 == 2) {
+                            var segitigasikuB = true
+                            while (segitigasikuB) {
+                                var tinggi1b = parseInt(prompt('Masukkan tinggi segitiga siku (terbalik): '))
+                                if (isNaN(tinggi1b)) {
+                                    alert('hanya menerima input number!')
+                                    segitigasikuB = true
+                                } else {
+                                    alert('segitiga siku terbalik \n' + segitigaSikuB(tinggi1b))
+                                    break
+                                }
+                            }
                             alert('kembali ke menu 3.Segitiga ')
                             break
                         }
@@ -213,14 +222,32 @@
                     while (konfirmasibintang2) {
                         var posisi2 = prompt('1.Segitiga Samakaki Diatas (Normal) \n2.Segitiga Samakaki Dibawah (Terbalik)')
                         if (posisi2 == 1) {
-                            var tinggi2 = parseInt(prompt('masukkan tinggi segitiga samakaki (normal): '))
-                            alert('tinggi1 ' + tinggi2)
+                            var segitigasamaA = true
+                            while (segitigasamaA) {
+                                var tinggi2a = parseInt(prompt('masukkan tinggi segitiga samakaki (normal): '))
+                                if (isNaN(tinggi2a)) {
+                                    alert('hanya menerima input number!')
+                                    segitigasamaA = true
+                                } else {
+                                    alert('segitiga samakaki normal \n' + segitigaSamaA(tinggi2a))
+                                    break
+                                }
+                            }
                             alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                         else if (posisi2 == 2) {
-                            var tinggi2 = parseInt(prompt('masukkan tinggi segitiga samakaki (terbalik): '))
-                            alert('tinggi1 ' + tinggi2)
+                            var segitigasamaB = true
+                            while (segitigasamaB) {
+                                var tinggi2b = parseInt(prompt('masukkan tinggi segitiga samakaki (terbalik): '))
+                                if (isNaN(tinggi2b)) {
+                                    alert('hanya menerima input number!!')
+                                    segitigasikuB = true
+                                } else {
+                                    alert('segitiga samakaki terbalik \n' + segitigaSamaB(tinggi2b))
+                                    break
+                                }
+                            }
                             alert('kembali ke menu 3.Segitiga ')
                             break
                         }
@@ -245,4 +272,69 @@
             break
         }
     } while (true)
-</script>
+    
+    function segitigaSikuA(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = 0; j <= i; j++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '\n'
+            }
+        }
+        return output
+    }
+
+    function segitigaSikuB(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = i; j < tinggi; j++){
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '\n'
+            }
+        }
+        return output
+    }
+
+    function segitigaSamaA(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = i; j < tinggi; j++){
+                output += ' '
+            }
+            for (var k = 0; k <= i; k++) {
+                output += '*'
+            }
+            for (var l = 0; l <= i - 1; l++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '\n'
+            }
+        }
+        return output
+    }
+
+    function segitigaSamaB(tinggi) {
+        var output = ''
+        for(var i = 0; i < tinggi; i++) {
+            for (var j = 0; j <= i; j++) {
+                output += ' '
+            }
+            for (var k = i; k < tinggi; k++) {
+                output += '*'
+            }
+            for (var l = i + 1; l < tinggi; l++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '\n'
+            }
+        }
+        return output     
+    }
+
+    </script>

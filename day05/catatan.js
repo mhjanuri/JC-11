@@ -1,21 +1,21 @@
 // Solusi mas dino
-let z = ''
-let tinggi = 5
-for (a = 0; a < tinggi; a++) {
-    for (b = a; b < tinggi - 1; b++) {  // Segitiga siku terbalik
-        z += ' '
-    }
-    for (c = 0; c <= a; c++) {  // Segitiga siku normal
-        z += '*'
-    }
-    for (d = 0; d <= a - 1; d++) {  // Segitiga siku normal
-        z += '*'
-    }
-    if (a < tinggi - 1) {
-        z += '\n'
-    }
-}
-console.log(z)
+// let z = ''
+// let tinggi = 5
+// for (a = 0; a < tinggi; a++) {
+//     for (b = a; b < tinggi - 1; b++) {  // Segitiga siku terbalik
+//         z += ' '
+//     }
+//     for (c = 0; c <= a; c++) {  // Segitiga siku normal
+//         z += '*'
+//     }
+//     for (d = 0; d <= a - 1; d++) {  // Segitiga siku normal
+//         z += '*'
+//     }
+//     if (a < tinggi - 1) {
+//         z += '\n'
+//     }
+// }
+// console.log(z)
 
 
 
@@ -45,4 +45,33 @@ console.log(z)
 // }
 // console.log(numb)
 
+// function contoh(tinggi) {
+//     var output = ''
+//     for (var i = 0; i < tinggi; i++) {
+//         for (var j = i; j < tinggi; j++) {
+//             output += '*'
+//         }
+//         if (i < tinggi - 1) {
+//             output += '\n'
+//         }
+//     }
+//     return output
+// }
 
+// console.log(contoh(10))
+
+
+
+function segitigaSikuA(tinggi) {
+    var output = ''
+    for (var i = 0; i < tinggi; i++) {
+        for (var j = 0; j <= i; j++) {
+            output += '*'
+        }
+        if (i < tinggi - 1) {
+            output += '\n'
+        }
+    }
+    return output
+}
+console.log(segitigaSikuA(10))
