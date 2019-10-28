@@ -197,62 +197,79 @@
             var konfirmasi2 = true
             var totalbiaya = 0
             while (konfirmasi2) {
-                var menubelanja = prompt('Belanja apa:\n1.Ayam Rp 10.000,00 per Kg\n2.Sapi Rp 20.000,00 per Kg\n3.Salmon Rp 30.000,00 per Kg')
-                if (menubelanja == 1) {
-                    var ayam = 10000
-                    var ayam1 = true
-                    while (ayam1) {
-                        var beratayam = parseInt(prompt('Beli berapa kilogram daging ayam? '))
-                        if (isNaN(beratayam)) {
-                            alert('hanya menerima input number!')
-                            ayam1 = true
-                        } else {
-                            break
-                        }
-                    }
-                    var biayaayam = ayam * beratayam
-                    totalbiaya += biayaayam
-                    alert('Biaya belanja daging ayam sebanyak ' + beratayam + ' Kg, adalah Rp ' + (biayaayam))
-                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
-                } else if (menubelanja == 2) {
-                    var sapi = 20000
-                    var sapi2 = true
-                    while (sapi2) {
-                        var beratsapi = parseInt(prompt('Beli berapa kilogram daging sapi? '))
-                        if (isNaN(beratsapi)) {
-                            alert('hanya menerima input number!!')
-                            sapi2 = true
-                        } else {
-                            break
-                        }
-                    }
-                    var biayasapi = sapi * beratsapi
-                    totalbiaya += biayasapi
-                    alert('Biaya belanja daging sapi sebanyak ' + beratsapi + ' Kg, adalah Rp ' + (biayasapi))
-                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
-                } else if (menubelanja == 3) {
-                    var salmon = 30000
-                    var salmon3 = true
-                    while (salmon3) {
-                        var beratsalmon = parseInt(prompt('Beli berapa kilogram daging salmon? '))
-                        if (isNaN(beratsalmon)) {
-                            alert('hanya menerima input number!!!')
-                            salmon3 = true
-                        } else {
-                            break
-                        }
-                    }
-                    var biayasalmon = salmon * beratsalmon
-                    totalbiaya += biayasalmon
-                    alert('Biaya belanja daging salmon sebanyak ' + beratsalmon + ' Kg, adalah Rp ' + (biayasalmon))
-                    konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
-                } else if (menubelanja == null) {
-                    alert('kembali ke menu utama ')
-                    console.log('null.cancel button at 2.belanja')
-                    break
+                var listbelanja = parseInt(prompt('Belanja apa:\n1.Ayam Rp 10.000,00 per Kg\n2.Sapi Rp 20.000,00 per Kg\n3.Salmon Rp 30.000,00 per Kg'))
+                var harga = 0
+                // if (listbelanja == 1) {
+                if (listbelanja == 1) {
+                    harga=10000
+                }else if (listbelanja==2) {
+                    harga = 20000
+                }else if (listbelanja==3) {
+                    harga=30000
                 }
+                var berat=parseInt(prompt('Beli berapa kilogram?'))
+                totalbiaya+=(berat*harga)
+                konfirmasi2=confirm('mau belanja lagi?')
             }
-            alert('total belanja anda sebesar Rp. ' + totalbiaya)
+            if (harga) {
+                alert('total belanja anda sebesar Rp ' + totalbiaya)
+            } else {
+                alert('anda miskin')
+            }
+                    // var ayam = 10000
+                    // var ayam1 = true
+                    // while (ayam1) {
+                    //     var beratayam = parseInt(prompt('Beli berapa kilogram daging ayam? '))
+                    //     if (isNaN(beratayam)) {
+                    //         alert('hanya menerima input number!')
+                    //         ayam1 = true
+                    //     } else {
+                    //         break
+                    //     }
+                    // }
+                    // var biayaayam = ayam * beratayam
+                    // totalbiaya += biayaayam
+                    // alert('Biaya belanja daging ayam sebanyak ' + beratayam + ' Kg, adalah Rp ' + (biayaayam))
+                    // konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+            //     } else if (listbelanja == 2) {
+            //         var sapi = 20000
+            //         var sapi2 = true
+            //         while (sapi2) {
+            //             var beratsapi = parseInt(prompt('Beli berapa kilogram daging sapi? '))
+            //             if (isNaN(beratsapi)) {
+            //                 alert('hanya menerima input number!!')
+            //                 sapi2 = true
+            //             } else {
+            //                 break
+            //             }
+            //         }
+            //         var biayasapi = sapi * beratsapi
+            //         totalbiaya += biayasapi
+            //         alert('Biaya belanja daging sapi sebanyak ' + beratsapi + ' Kg, adalah Rp ' + (biayasapi))
+            //         konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+            //     } else if (listbelanja == 3) {
+            //         var salmon = 30000
+            //         var salmon3 = true
+            //         while (salmon3) {
+            //             var beratsalmon = parseInt(prompt('Beli berapa kilogram daging salmon? '))
+            //             if (isNaN(beratsalmon)) {
+            //                 alert('hanya menerima input number!!!')
+            //                 salmon3 = true
+            //             } else {
+            //                 break
+            //             }
+            //         }
+            //         var biayasalmon = salmon * beratsalmon
+            //         totalbiaya += biayasalmon
+            //         alert('Biaya belanja daging salmon sebanyak ' + beratsalmon + ' Kg, adalah Rp ' + (biayasalmon))
+            //         konfirmasi2 = confirm('apakah anda ingin berbelanja lagi? ')
+            //     } else if (menubelanja == null) {
+            //         alert('kembali ke menu utama ')
+            //         console.log('null.cancel button at 2.belanja')
+            //         break
+            //     }
+            // }
+            // alert('total belanja anda sebesar Rp. ' + totalbiaya)
         } else if (menuutama == 3) {
             var konfirmasi3 = true
             while (konfirmasi3) {
@@ -273,7 +290,7 @@
                                     break
                                 }
                             }
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                         else if (posisi1 == 2) {
@@ -288,11 +305,11 @@
                                     break
                                 }
                             }
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                         else if (posisi1 == null) {
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                     }
@@ -313,7 +330,7 @@
                                     break
                                 }
                             }
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                         else if (posisi2 == 2) {
@@ -328,11 +345,11 @@
                                     break
                                 }
                             }
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                         else if (posisi2 == null) {
-                            alert('kembali ke menu 3.Segitiga ')
+                            // alert('kembali ke menu 3.Segitiga ')
                             break
                         }
                     }
@@ -342,6 +359,7 @@
                     console.log('null.cancel button at 3.segitga bintang')
                     break
                 }
+                konfirmasi3 = confirm('kembali ke menu segitiga?')
             }
         } else if (menuutama == 4) {
             alert('terima kasih telah mengunjungi website kami')
