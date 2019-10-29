@@ -1,14 +1,13 @@
 // // buat function yang menerima 1 parameter 
-// function hitung(number) {
-//     var output = ''
-//     for (i = 0; i < number; i++) {
-//         output += (i+1)
-//         output += ' '
-//     }
-//     return output
-// }
+function hitung(number) {
+    var output = ''
+    for (i = 0; i < number; i++) {
+        output += (i+1) + ' '
+    }
+    return output
+}
 
-// console.log(hitung(10))
+console.log(hitung(10))
 
 // function urutan(number) {
 //     var output = ''
@@ -44,13 +43,13 @@
 // console.log(Permen(100))
 
 //
-function hitung(angka,batas) {
-    var output = ''
-    for (i = 1; i <= batas; i++) {
-        output += angka+'x'+i+'='+(angka*i)
-        output += ' \n'
-    }
-    return output
-}
+// function hitung(angka,batas) {
+//     var output = ''
+//     for (i = 1; i <= batas; i++) {
+//         output += angka+'x'+i+'='+(angka*i)
+//         output += ' \n'
+//     }
+//     return output
+// }
 
-console.log(hitung(10,20))
+// console.log(hitung(10,20))
