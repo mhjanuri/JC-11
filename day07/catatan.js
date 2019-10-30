@@ -46,7 +46,7 @@
 // console.log(faktorial(9))
 
 
-let = mobil = ['calya', 'xenia', 'terios','avanza']
+let mobil = ['calya', 'xenia', 'terios','avanza']
 
 // console.log(mobil)
 // console.log(mobil.toString())
@@ -59,10 +59,11 @@ let = mobil = ['calya', 'xenia', 'terios','avanza']
 // console.log(mobil[3])
 
 console.log(mobil.length)
+
 for (i=0;i<mobil.length;i++) {
     console.log(mobil[i])
 }
 
 console.log(mobil.sort())
 console.log(mobil.reverse())
-// console.log(mobil.indexOf('avanza'))
+console.log(mobil.indexOf('brio'))
