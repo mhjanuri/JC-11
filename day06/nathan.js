@@ -1,6 +1,5 @@
 function hoursCyclingToLitresDrank(hours) {
-    var litres = hours * 0.5
-    litres = Math.floor(litres)
+    var litres = Math.floor(hours * 0.5)
     return litres
 }
 var jam = 11.8

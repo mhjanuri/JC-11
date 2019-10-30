@@ -1,0 +1,16 @@
+<script>
+    function hoursCyclingToLitresDrank(hours) {
+            var litres = Math.round(hours * 0.5)
+            return litres
+        }
+    do {
+        var jam = parseInt(prompt('Berapa jam bersepeda? '))
+        if (isNaN(jam)) {
+            alert('Numbers only!!')
+        } else {
+            break
+        }
+    } while (true);
+    alert('time = ' + jam + ' hours  ---> litres = ' + hoursCyclingToLitresDrank(jam) + ' L')
+    console.log('time = ' + jam + ' hours ---> litres = ' + hoursCyclingToLitresDrank(jam) + ' L')
+</script>
