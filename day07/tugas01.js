@@ -7,10 +7,10 @@ function jumlah(array) {
     return output
 }
 
-function modusPosisiGanjil(array) {
-    array=(array.length+1)/2
-    return array
-}
+// function modusPosisiGanjil(array) {
+//     array=(array.length+1)/2
+//     return array
+// }
 
 var arr = [16,24,28,38,41,56,1]   // Array set
 console.log(arr)                // Print array set
