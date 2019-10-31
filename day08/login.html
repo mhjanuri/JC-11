@@ -1,20 +1,20 @@
 <script>
-    // function checkname(array) {
-    //     if (array.indexOf(array)<0) {
-    //         return false
-    //     } else {
-    //         return true
-    //     }
-    // }
-    // solusi mas dino
-    function checkname(namalogin) {
-        for(i=0;i<datanama.length;i++) {
-            if (datanama[i]==namalogin) {
-                return true
-            }
+    function checkname(array) {
+        if (datanama.indexOf(array)<0) {
+            return false
+        } else {
+            return true
         }
-        return false
     }
+    // solusi mas dino
+    // function checkname(namalogin) {
+    //     for(i=0;i<datanama.length;i++) {
+    //         if (datanama[i]==namalogin) {
+    //             return true
+    //         }
+    //     }
+    //     return false
+    // }
 
     var datanama=['dino','ali']
     alert('selamat datang')
