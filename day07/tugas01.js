@@ -17,8 +17,8 @@ console.log(arr)                // Print array set
 console.log('sum dari array set: '+arr+' adalah '+jumlah(arr))                 // Sum dari array set
 console.log('mean dari array set: '+arr+' adalah '+(jumlah(arr)/arr.length))   // Mean dari array set
 var sortedArr=arr.sort()        // Sorting nilai array dari kecil ke besar
-if (sortedArr.length%2==1) {
-    console.log('median dari array set: '+arr+' adalah '+(sortedArr[(modusPosisiGanjil(arr) - 1)])) // median dari sorted array jika jumlah element ganjil
-} else {
-    console.log('median dari array set: ' + arr + ' adalah '+((sortedArr[((sortedArr.length) / 2) - 1]+sortedArr[((sortedArr.length) / 2)]) / 2)) // median dari sorted array jika jumlah element genap
-}
+// if (sortedArr.length%2==1) {
+//     console.log('median dari array set: '+arr+' adalah '+(sortedArr[(modusPosisiGanjil(arr) - 1)])) // median dari sorted array jika jumlah element ganjil
+// } else {
+//     console.log('median dari array set: ' + arr + ' adalah '+((sortedArr[((sortedArr.length) / 2) - 1]+sortedArr[((sortedArr.length) / 2)]) / 2)) // median dari sorted array jika jumlah element genap
+// }

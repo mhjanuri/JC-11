@@ -1,5 +1,5 @@
 function cari(mobil) {
-    var array = ['calya', 'xenia', 'terios', 'avanza']
+    var array = ['calya', 'xenia', 'terios', 'avanza', 'jazz', 'sigra', 'crv']
     if (array.indexOf(mobil)<0) {
         console.log('hasil pencarian anda nihil')
         return false
@@ -9,6 +9,6 @@ function cari(mobil) {
     }
 }
 
-var string='TErios'
+var string='TEriOs'
 var namaMobil=string.toLowerCase()
 console.log(cari(namaMobil))
