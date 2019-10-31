@@ -23,12 +23,15 @@
         if (menu==1) {
             var namalogin=prompt('masukkan nama anda')
             if (checkname(namalogin)) {
-                alert('true')
+                alert('berhasil login')
             } else{
-                alert('false')
+                alert('login gagal')
             }
         } else if (menuutama == 2) {
-            
+            var register=prompt('masukkan nama untuk register')
+            datanama.push(register)
+            alert('berhasil register coba login dulu ')
+
         } else if (menuutama == 3) {
             alert('selamat tinggal')
             break
