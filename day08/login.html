@@ -1,0 +1,37 @@
+<script>
+    // function checkname(array) {
+    //     if (array.indexOf(array)<0) {
+    //         return false
+    //     } else {
+    //         return true
+    //     }
+    // }
+    // solusi mas dino
+    function checkname(namalogin) {
+        for(i=0;i<datanama.length;i++) {
+            if (datanama[i]==namalogin) {
+                return true
+            }
+        }
+        return false
+    }
+
+    var datanama=['dino','ali']
+    alert('selamat datang')
+    do {
+        var menu=prompt('1.login\n2.register\n3.exit')
+        if (menu==1) {
+            var namalogin=prompt('masukkan nama anda')
+            if (checkname(namalogin)) {
+                alert('true')
+            } else{
+                alert('false')
+            }
+        } else if (menuutama == 2) {
+            
+        } else if (menuutama == 3) {
+            alert('selamat tinggal')
+            break
+        }
+    } while (true);
+</script>
