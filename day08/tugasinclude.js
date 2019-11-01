@@ -13,6 +13,5 @@ function includesendiri(a) {
     // }
 }
 
-
 var string='hello world!'
 console.log(includesendiri('hello'))
