@@ -1,0 +1,121 @@
+<script>
+    class Produk{
+        constructor(namaproduk,harga){
+            this.namaproduk=namaproduk,
+            this.harga=harga
+        }
+    }
+    var produk=[
+                new Produk('Anggur',1000),
+                new Produk('Apel',20000),
+                new Produk('Jeruk',5000)
+            ]
+    class Cartuser{
+        constructor(namaproduk,harganya,qty){
+            this.namaproduk=namaproduk,
+            this.harganya=harganya,
+            this.qty=qty
+        }
+    }
+    var cart=[]
+    // ==========function start==============
+    function printProd(a){
+        var output=''
+        for(var i=0;i<a.length;i++){
+            output+=(i+1)+' '+produk[i].namaproduk.toUpperCase()+' Rp.'+produk[i].harga+',00 \n'
+        }
+        return output
+    }
+    function printCart(cartuser){
+        var output=''
+        if(cart.length==0){
+            return 'Cart kosong mohon diisi kakak'
+        }
+        for(var i=0;i<cartuser.length;i++){
+            output+=`${i+1}. ${cart[i].namaproduk} dengan harga Rp. ${cart[i].harganya},00 sebanyak ${cart[i].qty} dengan total harga ${cart[i].harganya*cart[i].qty}\n`    
+        }
+        return output
+    }
+    function cartStruk (cartuser){
+        var output=printCart(cartuser)+'==========================\n'
+        var totalbelanjaanharga=0
+        for(var i=0;i<cartuser.length;i++){
+            totalbelanjaanharga+=(cart[i].qty*cart[i].harganya)
+        }
+        output+=`total belanjaan kakak adalah Rp. ${totalbelanjaanharga},00 `
+        return output
+    }
+    // ============ function end============
+    alert(printProd(produk))
+    do {
+        var menuutama=prompt('1.user\n2.admin\n3.Exit')
+        if(menuutama==1){
+            do {
+                var menuuser=prompt('1.Show\n2.Belanja')
+                if(menuuser==1){
+                    alert(printCart(cart))
+                }else{
+                    var konfirmasiuser=true
+                    var pilih_belanja=prompt(printProd(produk)+'mau pilih yang mana kakak')
+                    var jumlah_belanja=parseInt(prompt('Mau beli berapa Kg ?'))
+                    var ada=false
+                    var index=0
+                    //for ini gunanya untuk ngecek ada apa nggak produk yang saama
+                    for(var i=0;i<cart.length;i++){
+                        if(produk[pilih_belanja-1].namaproduk==cart[i].namaproduk){
+                            ada=true
+                            index=i
+                        }
+                    }
+                    if(ada){
+                        cart[index].qty+=jumlah_belanja
+                    }else{
+                        cart.push(new Cartuser(produk[pilih_belanja-1].namaproduk,
+                                                produk[pilih_belanja-1].harga,
+                                                jumlah_belanja
+                                ))
+                    }
+                    konfirmasiuser=confirm('belanja lagi nggak kakak?')
+                    if(konfirmasiuser==false){
+                        alert(cartStruk(cart))
+                    }
+                }
+            } while (konfirmasiuser);
+        }else if(menuutama==2){
+            do {
+                var menuadmin=prompt('1.Tambah data\n2.Update data\n3.Hapus data\n4.kembali ke menu utama')
+                if(menuadmin==1){
+                    do {
+                        var newprod=prompt('masukkan produk baru kaka')
+                        var newprice=parseInt(prompt('masukkan harga baru kakak')) 
+                        produk.push(newprod)
+                        harga.push(newprice)
+                        alert(printProd(produk))
+                        var konfirmasi1=confirm('mau ulang lagi nggak kaka')
+                    } while (konfirmasi1);  
+                }else if(menuadmin==2){
+                    do {
+                        alert(printProd(produk))
+                        var pilihan=parseInt(prompt(printProd(produk))+'\nPilih produk ') 
+                        var updateprod=prompt('masukkan nama product untuk menggantikan '+produk[pilihan-1])
+                        var updateconfirm=confirm('yakin nggak mengganti produk dengan nama '+produk[pilihan-1]+' dengan '+updateprod)
+                        if(updateconfirm){
+                            produk.splice(pilihan-1,1,updateprod)
+                            alert(printProd(produk))
+                        }else{
+                            alert('tidak jadi update')
+                        }
+                        var konfirmasi2=confirm('mau ulang update lagi nggak kaka')
+                    } while (konfirmasi2);
+                }else if(menuadmin==3){
+        
+                }else{
+                    break
+                }
+            } while (true);
+        }else{
+            alert('selamat tinggal semoga kembali lagi')
+            break
+        }
+    } while (true);
+    </script>
