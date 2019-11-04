@@ -23,16 +23,17 @@
 
 
 // buat function 1 array of number 
-function jumlah(array) {
+function jumlah(a) {
     var output = 0
-    for (i = 0; i < array.length; i++) {
-        output+=array[i]
+    for (i = 0; i < a.length; i++) {
+        output+=a[i]
     }
     return output
 }
 
-
-console.log(jumlah([1,2,3,4]))
+var array = [1,2,3,4]
+console.log(jumlah(array))
+console.log(array.length)
 
 
 // pr 1 = 1 set array cari Rata-rata

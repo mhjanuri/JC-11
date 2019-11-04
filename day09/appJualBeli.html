@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Aplikasi Jual Beli</title>
+  </head>
+  <body>
+    <script>
+      // Array produk (Admin & User)
+      let produk = ['Anggur', 'Jeruk', 'Mangga'];
+
+      // Array harga (Admin & User)
+      let harga = [1000, 2000, 3000];
+
+      // Array barang (User)
+      let barang = [];
+
+      // Array banyak (User)
+      let banyak = [];
+
+      // Array biaya (User)
+      let biaya = [];
+
+      // Function untuk tampilkan produk dan harga
+      displayAll = a => {
+        let output = '';
+        for (i = 0; i < a.length; i++) {
+          output += i + 1 + '. ' + produk[i] + ' = Rp ' + harga[i] + ',-\n';
+        }
+        return output;
+      };
+
+      // Function untuk tampilkan produk
+      displayProduk = a => {
+        let output = '';
+        for (i = 0; i < a.length; i++) {
+          output += i + 1 + '. ' + produk[i] + '\n';
+        }
+        return output;
+      };
+
+      // Fungsi untuk tampilkan daftar belanja dan harga sementera
+      printHargaSementara = a => {
+        let output = '';
+        for (i = 0; i < a.length; i++) {
+          output += produk[i] + ' (' + banyak[i] + ' Kg) - Rp ' + biaya[i] + '\n';
+        }
+        return output;
+      };
+
+      // Fungsi untuk tampilkan total belanja keseluruhan
+      printHargaTotal = arr => {
+        return arr.reduce((a, b) => {
+          return a + b;
+        }, 0);
+      };
+
+      /** Aplikasi Start */
+      // Tampilkan alert 'Selamat Datang'
+      alert('Selamat datang di aplikasi BukaToko');
+
+      // Variable konfirmasi aplikasi
+      let konfirmasiUtama = true;
+
+      /** Perulangan Aplikasi Start */
+      while (konfirmasiUtama) {
+        // Tampilkan prompt daftar menu aplikasi
+        const menuUtama = parseInt(
+          prompt('Masuk sebagai :\n1. Admin\n2. User\n3. Keluar aplikasi')
+        );
+
+        // Jika masuk sebagai Admin
+        /** Admin Start */
+        if (menuUtama === 1) {
+          // Variable konfirmasi admin
+          let konfirmasiAdmin = true;
+
+          /** Perulangan Admin Start */
+          while (konfirmasiAdmin) {
+            // Tampilkan prompt menu Admin
+            const menuAdmin = parseInt(
+              prompt(
+                '1. Tambah Data\n2. Update Data\n3. Hapus Data\n4. Lihat Data\n5. Kembali Ke Menu Utama'
+              )
+            );
+
+            // Jika memilih tambah data
+            if (menuAdmin === 1) {
+              // Variable konfirmasi tambah data
+              let tambahData = true;
+
+              /** Perulangan Tambah Data Start */
+              while (tambahData) {
+                // Tampilkan prompt konfirmasi ulang
+                const menuTambah = parseInt(
+                  prompt('Ingin tambah data?\n1. Ya\n2. Kembali ke menu admin')
+                );
+
+                // Jika memilih 1
+                if (menuTambah === 1) {
+                  // Tampilkan prompt untuk memasukkan produk baru
+                  const produkBaru = prompt(
+                    displayAll(produk) + 'Masukkan nama produk baru :'
+                  );
+
+                  // Masukkan produk baru ke array Produk
+                  produk.push(produkBaru);
+
+                  // Tampilkan prompt untuk harga produk baru
+                  const hargaBaru = parseInt(prompt('Masukkan harga produk :'));
+
+                  // Masukkan harga produk baru ke array Harga
+                  harga.push(hargaBaru);
+
+                  // Tampilkan alert data berhasil di tambah & tampilkan data terbaru
+                  alert('Data berhasil di tambah!\n' + displayAll(produk));
+
+                  // Konfirmasi ulang tambah data
+                  const tambahDataLagi = confirm('Tambah data lagi?');
+
+                  // Jika memilih tidak
+                  if (tambahDataLagi === false) {
+                    // Keluar dari menu tambah data
+                    tambahData = false;
+                  }
+                  // Jika memilih 2
+                } else if (menuTambah === 2) {
+                  // Keluar dari menu tambah
+                  tambahData = false;
+                  // Jika memilih selain nomor 1 dan 2
+                } else if (menuTambah === '' || menuTambah === false) {
+                  // Tampilkan alert pilih menu dengan benar
+                  alert('Pilih menu dengan benar!');
+                } else {
+                  // Tampilkan alert pilih menu dengan benar
+                  alert('Pilih menu dengan benar!');
+                }
+                /** Perulangan Tambah Data End */
+              }
+              // Jika memilih update data
+            } else if (menuAdmin === 2) {
+              // Variable konfirmasi update data
+              let updateData = true;
+
+              /** Perulangan Update Data Start */
+              while (updateData) {
+                // Tampilkan prompt menu update
+                const menuUpdate = parseInt(
+                  prompt('Update :\n1. Produk\n2. Harga\n3. Kembali ke menu admin')
+                );
+
+                // Jika memilih update produk
+                if (menuUpdate === 1) {
+                  // Tampilkan prompt untuk memilih produk yang ingin di update
+                  const pilihProduk = prompt(
+                    'Silahkan pilih produk yang ingin di update :\n' +
+                      displayProduk(produk)
+                  );
+
+                  // Tampilkan prompt untuk mengupdate produk
+                  const updateProduk = prompt(
+                    'Masukkan nama baru untuk : ' + produk[pilihProduk - 1]
+                  );
+
+                  // Konfirmasi ulang update data yang di pilih
+                  const updateConfirm = confirm(
+                    'Update produk ' +
+                      produk[pilihProduk - 1] +
+                      ' menjadi ' +
+                      updateProduk +
+                      ' ?'
+                  );
+
+                  // Jika memilih ya
+                  if (updateConfirm === true) {
+                    // Update produk yang berada di array produk
+                    produk.splice(pilihProduk - 1, 1, updateProduk);
+
+                    // Tampilkan alert data berhasil di update & tampilkan data terbaru
+                    alert('Produk berhasil di update!\n' + displayAll(produk));
+
+                    // Jika memilih tidak
+                  } else {
+                    // Tampilkan alert produk tikak di update
+                    alert('Produk tidak di update!');
+                  }
+
+                  // Jika memilih update harga
+                } else if (menuUpdate === 2) {
+                  // Tampilkan prompt untuk memilih harga produk yang ingin di update
+                  const pilihHarga = parseInt(
+                    prompt(
+                      'Silahkan pilih harga yang ingin di update :\n' +
+                        displayAll(produk)
+                    )
+                  );
+
+                  // Tampilkan promt untuk update harga
+                  const updateHarga = parseInt(
+                    prompt(
+                      'Masukkan harga baru untuk produk ' +
+                        produk[pilihHarga - 1] +
+                        ' : Rp ' +
+                        harga[pilihHarga - 1] +
+                        ',-'
+                    )
+                  );
+
+                  // Konfirmasi ulang update harga yang di pilih
+                  const updateConfirm = confirm(
+                    'Update harga ' +
+                      produk[pilihHarga - 1] +
+                      ' menjadi Rp ' +
+                      updateHarga +
+                      ',- ?'
+                  );
+
+                  // Jika memilih ya
+                  if (updateConfirm === true) {
+                    // Update harga yang berada di array Harga
+                    harga.splice(pilihHarga - 1, 1, updateHarga);
+
+                    // Tampilkan alert harga berhasil di update & tampilkan data terbaru
+                    alert('Harga berhasil di update!\n' + displayAll(produk));
+
+                    // Jika memilih tidak
+                  } else {
+                    // Tampilkan alert harga tidak di update
+                    alert('Harga tidak di update!');
+                  }
+
+                  // Jika memilih kembali ke menu utama
+                } else if (menuUpdate === 3) {
+                  updateData = false;
+
+                  // Jika memilih selain 1, 2 dan 3
+                } else if (menuUpdate === '' || menuUpdate === false) {
+                  // Tampilkan alert pilih menu dengan benar
+                  alert('Pilih menu dengan benar!');
+                } else {
+                  // Tampilkan alert pilih menu dengan benar
+                  alert('Pilih menu dengan benar!');
+                }
+                /** Perulangan Update Data End */
+              }
+
+              // Jika memilih hapus data
+            } else if (menuAdmin === 3) {
+              // Tampilkan konfirmasi ulang hapus data
+              const hapusData = confirm('Yakin ingin menghapus data?');
+
+              // Jika memilih ya
+              if (hapusData === true) {
+                // Tampilkan promt pilih produk yang ingin di hapus
+                const hapusProduk = parseInt(
+                  prompt(
+                    'Silahkan pilih data mana yang ingin di hapus :\n' +
+                      displayAll(produk)
+                  )
+                );
+
+                // Konfirmasi ulang hapus data yang di pilih
+                const konfirmasiHapus = confirm(
+                  'Yakin ingin menghapus ' +
+                    produk[hapusProduk - 1] +
+                    ' dari database?'
+                );
+
+                // Jika memilih ya
+                if (konfirmasiHapus === true) {
+                  // Hapus produk dari array Barang
+                  produk.splice(hapusProduk - 1, 1);
+
+                  // Hapus harga produk dari array Harga
+                  harga.splice(hapusProduk - 1);
+
+                  // Tampilkan alert data berhasil di hapus
+                  alert('Data berhasil di hapus!');
+                }
+              }
+
+              // Jika memilih lihat data
+            } else if (menuAdmin === 4) {
+              // Tampilkan alert data & harga
+              alert(displayAll(produk));
+
+              // Jika memilih kembali ke menu utama
+            } else if (menuAdmin === 5) {
+              // Keluar dari perulangan admin
+              konfirmasiAdmin = false;
+
+              // Jika memilih selain 1, 2, 3, 4 atau 5
+            } else if (menuAdmin === '' || menuAdmin === false) {
+              // Tampilkan alert pilih menu dengan benar
+              alert('Pilih menu dengan benar!');
+            } else {
+              // Tampilkan alert pilih menu dengan benar
+              alert('Pilih menu dengan benar!');
+            }
+          }
+          /** Perulangan Admin End */
+          /** Admin End */
+
+          // Jika masuk sebagai User
+          /** User Start */
+        } else if (menuUtama === 2) {
+          // Variable konfirmasi User
+          let konfirmasiUser = true;
+
+          /** Perulangan User Start */
+          while (konfirmasiUser) {
+            // Tampilkan prompt daftar produk dan harga
+            const pilihBarang = parseInt(
+              prompt(
+                'Selamat datang di BukaToko, ingin belanja apa?\n' +
+                  displayAll(produk)
+              )
+            );
+
+            // Masukkan barang yang di pilih ke array Barang
+            barang.push(produk[pilihBarang - 1]);
+
+            // Tampilkan prompt banyak barang yang ingin di beli
+            const banyakBarang = parseInt(prompt('Ingin beli berapa Kg?'));
+
+            // Masukkan banyak barang yang di beli ke array Banyak
+            banyak.push(banyakBarang);
+
+            // Hitung harga barang sementara
+            const hargaBarang = banyakBarang * harga[pilihBarang - 1];
+
+            // Masukkan harga barang sementara ke array biaya
+            biaya.push(hargaBarang);
+
+            // Tampilkan konfirmasi lanjut belanja atau tidak
+            const belanjaLagi = confirm(
+              'Belanja anda saat ini adalah :\n' +
+                printHargaSementara(barang) +
+                '\nTotal belanja : Rp ' +
+                printHargaTotal(biaya) +
+                ',-\nBelanja lagi?'
+            );
+
+            // Jika memilih tidak
+            if (belanjaLagi === false) {
+              // Tampilkan alert biaya yang harus di bayar ke kasir
+              alert(
+                'Total belanja anda adalah Rp ' +
+                  printHargaTotal(biaya) +
+                  ',-\nSilahkan di bayar ke kasir.\nTerimakasih sudah belanja di aplikasi kami.'
+                // Keluar dari perulangan user
+              );
+              konfirmasiUser = false;
+            }
+          }
+          /** Perulangan User End */
+          /** User End */
+
+          // Jika memilih keluar aplikasi
+        } else if (menuUtama === 3) {
+          // Tampilkan alert terimakasi telah berkunjung ke aplikasi BukaToko
+          alert('Terimakasih telah berkunjung ke aplikasi BukaToko.');
+          konfirmasiUtama = false;
+
+          // Jika input selain 1, 2, atau 3
+        } else if (menuUtama === '' || menuUtama === 0 || menuUtama === false) {
+          // Tampilkan alert pilih menu dengan benar
+          alert('Pilih menu dengan benar!');
+        } else {
+          // Tampilkan alert pilih menu dengan benar
+          alert('Pilih menu dengan benar!');
+        }
+      }
+      /** Perulangan Aplikasi End */
+      /** Aplikasi End */
+    </script>
+  </body>
+</html>

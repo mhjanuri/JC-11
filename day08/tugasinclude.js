@@ -1,5 +1,5 @@
-function includesendiri(a) {
-    if (string.indexOf(a)<0) {
+function includesendiri(search,start) {
+    if (string.indexOf(search)<0) {
         return false
     } else {
         return true
@@ -7,11 +7,10 @@ function includesendiri(a) {
     // for (i=0;i<string.length;i++) {
     //     if (string[i] == a) {
     //         return true
-    //     } else {
-    //         return false
     //     }
+    //     return false
     // }
 }
 
 var string='hello world!'
-console.log(includesendiri('hello'))
+console.log(includesendiri('ello'))

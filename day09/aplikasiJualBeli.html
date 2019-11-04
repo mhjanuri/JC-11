@@ -1,0 +1,129 @@
+<script>
+    var produk=["anggur", "apel", "jeruk"]
+    var harga=[1000,2000,3000]
+    var barang=[]
+    var banyak=[]
+    var biaya=[]
+    function printProduk(a){
+        var output=""
+        for(i=0;i<a.length;i++){
+            output+=(i+1)+"."+produk[i].toUpperCase()+" ===> Rp. "+harga[i]+",00\n"
+        }
+        return output
+    }
+    function cart(a){
+            let output = ''
+            for (i = 0; i < a.length; i++) {
+                output += produk[i]+' ('+banyak[i]+' Kg) - Rp '+biaya[i]+'\n';
+            }
+            return output
+    }
+    function jumlahSemua(a) {
+            var output = 0
+            for (i = 0; i < a.length; i++) {
+                output += a[i]
+            }
+            return output
+    }
+
+    alert('selamat datang')
+    do{
+        var menuutama=prompt("1. user\n2. admin\n3. exit")
+        if(menuutama==1){
+            var konfirmasiUser
+            do {
+                var pilihProduk=parseInt(prompt('selamat datang, ingin belanja apa? \n'+printProduk(produk)))
+                if (pilihProduk<0 || pilihProduk>produk.length) {
+                    alert('hanya boleh masukkan nomor 1 - '+produk.length)
+                    konfirmasiUser=true
+                } else if (isNaN(pilihProduk)) {
+                    alert('hanya boleh masukkan nomor')
+                    konfirmasiUser=true
+                } else {
+                    barang.push(produk[pilihProduk-1])
+                    var konfirmasiBanyak
+                    do {
+                        var banyakProduk=parseInt(prompt('ingin beli berapa kg?'))
+                        if (banyakProduk<0 || isNaN(banyakProduk)) {
+                            alert('hanya boleh masukkan nomor dan nomor bernilai positif')
+                            konfirmasiBanyak=true
+                        } else {
+                            break
+                        }                        
+                    } while (konfirmasiBanyak);
+                    banyak.push(banyakProduk)
+                    var hargaBarang=banyakProduk*harga[pilihProduk-1]
+                    biaya.push(hargaBarang)
+                    var belanjaConfirm=confirm('Keranjang belanja anda saat ini adalah: \n'+cart(barang)+'\nTotal Belanja: Rp '+jumlahSemua(biaya)+'\nApakah anda ingin berbelanja lagi?')
+                    if (belanjaConfirm===false) {
+                        alert('Total Semua Belanjaan anda: Rp ' + jumlahSemua(biaya))
+                        break
+                    }
+                }
+            } while (konfirmasiUser);
+        }else if(menuutama==2){
+            do{
+            var menuadmin=prompt("1. Tambah data\n2. Update data\n3. Hapus data\n4. Kembali ke menu utama")
+                if(menuadmin==1){
+                    do{
+                    var newproduk=prompt("masukkan produk baru")
+                    var newprice=prompt("masukkan harga baru")
+                    produk.push(newproduk)
+                    harga.push(newprice)
+                    alert(printProduk(produk))
+                    var konfirmasi1=confirm("mau tambah lagi engga?")
+                    }while(konfirmasi1)
+
+                }else if(menuadmin==2){
+                    do{
+                        alert(printProduk(produk))
+                        var menuupdate=parseInt(prompt('Produk data yang mau di update \n1.Produk \n2.Harga'))
+                        if (menuupdate==1) {
+                            var ProdukanProduk=parseInt(prompt("Produk produk yang akan di update \n"+printProduk(produk)))
+                            var updateProduk=prompt("masukkan nama produk yang kamu Produk untuk mengganti produk "+produk[ProdukanProduk-1])
+                            var updateProdukConfirm=confirm("yakin enggak mau ganti produk dengan nama "+updateProduk)
+                            if(updateProdukConfirm==true){
+                                produk.splice(ProdukanProduk-1,1,updateProduk)
+                                alert(printProduk(produk))
+                            }else{
+                                alert("tidak jadi update produk")
+                            }                            
+                        } else if (menuupdate==2) {
+                            var ProdukanHarga=parseInt(prompt('Produk harga yang akan di update \n'+printProduk(produk)))
+                            var updateHarga=prompt('masukkan harga yang kamu Produk untuk mengganti harga '+produk[ProdukanHarga-1])
+                            var updateHargaConfirm=confirm('yakin enggak mau ganti harga sebesar '+updateHarga)
+                            if(updateHargaConfirm==true) {
+                                harga.splice(ProdukanHarga-1,1,updateHarga)
+                            }else{
+                                alert('tidak jadi update harga')
+                            }
+                        }
+                        var konfirmasi2=confirm("mau update ulang lagi?")
+                    }while(konfirmasi2)
+                }else if(menuadmin==3){
+                    do {
+                        alert(printProduk(produk))
+                        var hapus=parseInt(prompt('pilih produk yang akan dihapus \n'+printProduk(produk)))
+                        var hapusConfirm=confirm('yakin enggak mau hapus data '+produk[hapus-1])
+                        if (hapusConfirm==true) {
+                            produk.splice(hapus-1,1)
+                            harga.splice(hapus-1,1)
+                            alert(printProduk(produk))
+                        } else {
+                            alert("tidak jadi hapus")
+                        }
+                        var konfirmasi3=confirm('mau hapus data lagi?')
+                    } while (konfirmasi3);
+                }else if(menuadmin==4) {
+                    alert('kembali ke menu utama')
+                    break
+                }
+            }while(true)
+        }else if(menuutama==3){
+            alert("selamat tinggal semoga kembali lagi")
+            break
+        }
+    }while(true)
+</script>
+
+<!-- Muhammad Hendri Januri -->
