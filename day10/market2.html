@@ -1,0 +1,202 @@
+<html>
+    <script>
+    
+        var produk=['Sushi','Ayam','Milo']
+        var harga=[13000,10000,14000]
+        var cart=[]
+        var cartharga=[]
+        var carttqty=[]
+        function printProd(a){
+            var output=''
+            for(var i=0;i<a.length;i++){
+                output+=(i+1)+'. '+produk[i].toUpperCase()+' Rp.'+harga[i]+',00 \n'
+    
+            } return output
+        }
+        function printCart(cartuser){
+            var output=''
+            if(cart.length==0){
+                return 'Keranjang kosong, mohon diisi'
+            }
+            for(var i=0;i<cartuser.length;i++){
+                output+=`${i+1}.${cart[i]} dengan harga Rp. ${cartharga[i]},00
+                        sebanyak ${carttqty[i]} dengan total harga ${cartharga[i]*carttqty[i]}\n`
+            }
+            return output
+        }
+        function cartStruk(cartuser){
+            var output=printCart(cartuser)+'_________________________________________\n'
+            var totalbelanjaharga = 0
+            for(var i=0;i<cartuser.length;i++){
+                totalbelanjaharga+=(carttqty[i]*cartharga[i])
+            }
+            output +=`Total belanja anda Rp. ${totalbelanjaharga},00`
+            return output
+        }
+    
+        function belanja(barang, harga, jumlah) {
+            var total = harga * jumlah
+            var output = ''
+            output += barang + ' ' + jumlah + ' kg, dengan harga satuan Rp.' + harga + ', total Rp.' + total + '\n'
+            return  output
+        }
+        function totalSemuanya(harga, jumlah) {
+            var total = harga * jumlah
+            var totalBayar = 0
+            totalBayar += total
+            return totalBayar
+        }
+    
+        alert( 'Selamat datang di website kami!' )
+        do {
+            var menuutama=prompt('Pilih Menu: \n1. User\n2. Admin\n3. Keluar')
+            if(menuutama==1){
+                do {
+                    var konfirmasiuser=true
+                    var pilih_belanja=prompt(printProd(produk)+'Ingin beli apa?')
+                    var jumlah_belanja=parseInt(prompt('Ingin beli berapa banyak?'))
+                    var ada=false
+                    var index=0 //for ini gunanya untuk ngecek ada apa engga suatu barang yang sama
+                    for(var i=0;i<cart.length;i++){
+                        if(produk[pilih_belanja-1]==cart[i]){
+                            ada = true
+                            index=i
+                        }
+                    }
+                    if(ada){
+                        carttqty[index]+=jumlah_belanja
+                    }else{
+                    cart.push(produk[pilih_belanja-1])
+                    cartharga.push(harga[pilih_belanja-1])
+                    carttqty.push(jumlah_belanja)
+                    }
+                    konfirmasiuser=confirm('Ingin belanja lagi?')
+                    if(konfirmasiuser==false){
+                        alert(cartStruk(cart))
+                    }
+                } while (konfirmasiuser);
+                // var output = ''
+                // var totalBayar = 0
+                // do {
+                //     var pilihan = parseInt(prompt(printProd(produk)+ '\nIngin beli apa?'))
+                //     var jumlah = parseInt(prompt('Beli berapa banyak?'))
+                //     output += belanja(produk[pilihan-1], harga[pilihan-1], jumlah)
+                //     totalBayar += totalSemuanya(harga[pilihan-1],jumlah)
+                //     alert('Berhasil masuk keranjang!')
+                //     var belanjaLagi = confirm('Belanja lagi?')
+                //     if (belanjaLagi) {
+                //         konfBelanja = true
+                //     } else {
+                //         konfBelanja = false
+                //         alert( 'Daftar Belanja:\n' +output +  '____________________________________\nTotal Semuanya: \nRp.' + totalBayar)
+                //     }
+                    
+                // } while (konfBelanja);
+        
+            }else if(menuutama==2){
+                do {
+                    var menuadmin=prompt('1. Tambah data\n2. Update data\n3. Hapus data\n4. Menu utama')
+                    if(menuadmin==1){
+                        do {
+                            var newprod=prompt('Masukkan nama produk baru')
+                            var newprice=parseInt(prompt('Masukkan harga produknya: ')) 
+                            produk.push(newprod)
+                            harga.push(newprice)
+                            alert(printProd(produk))
+                            var konfirmasi1=confirm('Mau tambah lagi?')
+                        } while (konfirmasi1);  
+                    }
+                    else if(menuadmin==2){
+                        var konfirmasi2 = true
+                        while (konfirmasi2) {
+                            var update = prompt('Mau update apa: \n1. Update Nama\n2. Update Harga\n3. Update Keduanya\n4. Kembali')
+                            if (update == 1) {
+                                do {
+                                    var pilihan=parseInt(prompt( 'Pilih produk yang anda ingin update: \n'+ printProd(produk))) 
+                                    var updateprod=prompt('Masukkan nama produk baru untuk menggantikan '+produk[pilihan-1])
+                                    var updateconfirm=confirm('Anda yakin mengganti produk dengan nama '+produk[pilihan-1]+ ' menjadi '+updateprod + '?')
+                                    if(updateconfirm){
+                                        produk.splice(pilihan-1,1,updateprod)
+                                        alert( 'Daftar Menu:\n' + printProd(produk))
+                                    }else{
+                                        alert('Batal update')
+                                    }
+                                    var konfNamaProduk=confirm('Mau update nama produk yang lain lagi?')
+                                    if (konfNamaProduk) {
+                                        konfirmasi2 = false
+                                    } else {
+                                        konfirmasi2 = true
+                                    }
+                                } while (konfNamaProduk);
+                            } 
+                            else if (update == 2) {
+                                do {
+                                    var pilihan=parseInt(prompt( 'Pilih Produk yang mau di update: \n'+ printProd(produk))) 
+                                    var updateHarga=prompt('Masukkan harga baru untuk menggantikan harga '+produk[pilihan-1] + ' yang lama: ')
+                                    var updateconfirm=confirm('Yakin mengganti harga produk dengan nama '+produk[pilihan-1]+ ' dari harga Rp.' +harga[pilihan-1] +' menjadi Rp.'+updateHarga + '?')
+                                    if(updateconfirm){
+                                        harga.splice(pilihan-1,1,updateHarga)
+                                        alert( 'Daftar Menu:\n' + printProd(harga))
+                                    }else{
+                                        alert('Batal update')
+                                    }
+                                    var konfHargaProduk=confirm('Mau update harga produk lagi?')
+                                    if (konfHargaProduk) {
+                                        konfirmasi2 = false
+                                    } else {
+                                        konfirmasi2 = true
+                                    }
+                                } while (konfHargaProduk);
+                            } else if (update == 3) {
+                                do {
+                                    var pilihan=parseInt(prompt( 'Pilih Produk yang mau di update: \n'+ printProd(produk)))
+                                    var updateprod=prompt('Masukkan nama produk untuk menggantikan '+produk[pilihan-1]) 
+                                    var updateHarga=prompt('Masukkan harga baru untuk menggantikan harga '+produk[pilihan-1] + ' yang lama: ')
+                                    var updateconfirm=confirm('Anda yakin mengganti harga produk dengan nama '+produk[pilihan-1]+ ' dari harga Rp.' +harga[pilihan-1] +' menjadi ' + updateprod + ' dengan harga Rp.' + updateHarga + '?')
+                                    if(updateconfirm){
+                                        produk.splice(pilihan-1,1,updateprod)
+                                        harga.splice(pilihan-1,1,updateHarga)
+                                        alert( 'Daftar Menu:\n' + printProd(harga))
+                                    }else{
+                                        alert('Batal update')
+                                    }
+                                    var konfUpdate=confirm('Mau update produk yang lain lagi?')
+                                    if (konfUpdate) {
+                                        konfirmasi2 = false
+                                    } else {
+                                        konfirmasi2 = true
+                                    }
+                                } while (konfUpdate);
+                                
+                            } else if (update == 4) {
+                                break
+                            }
+                        }
+                    }
+                    else if(menuadmin==3){
+                        do {
+                            var pilihan=parseInt(prompt('Masukkan product untuk dihapus: \n' + printProd(produk))) 
+                            var deleteconfirm=confirm('Yakin ingin menghapus '+produk[pilihan-1] + '?')
+                            if(deleteconfirm){
+                                    produk.splice(pilihan-1,1)
+                                    alert('Daftar Menu:\n' +printProd(produk))
+                            }else{
+                                alert('Batal hapus')
+                            }
+                            var konfirmasi3 = confirm('Ingin hapus lagi?')
+                        } while (konfirmasi3);
+                    }else{
+                        break
+                    }
+                } while (true);
+            }else{
+                alert('Selamat tinggal\nTerima kasih telah mengunjungi website kami<3')
+                break
+            }
+        } while (true);
+        
+        
+        
+        
+        </script>
+</html>
