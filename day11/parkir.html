@@ -62,7 +62,14 @@
         }
         if(masuk>=keluar && kondisi1 !==kondisi2) {
             keluar+=24
+        }else if (kondisi1!==kondisi2) {
+            keluar+=12
+        }else if (kondisi1==kondisi2&&masuk>=keluar) {
+            keluar+=24
         }
+        var totaljam=keluar-masuk
+        var biaya = totaljam*1000
+        document.getElementsByTagName('p')[0].innerHTML=`lama parkir ${totaljam}, biaya anda Rp. ${biaya},00`
         
     }
 </script>
