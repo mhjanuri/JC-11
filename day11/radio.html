@@ -1,0 +1,14 @@
+
+<input type="radio" name="sex" onclick="fungsiKu1(this.value)" value="Pria"> Pria
+<input type="radio" name="sex" onclick="fungsiKu1(this.value)" value="Wanita"> Wanita
+<button id="klikini" onclick="fungsiKu2(this.value)"> klik </button>
+<p id="output"></p>
+
+<script>
+    function fungsiKu1(x) {
+        document.getElementById("klikini").value = x
+    }
+    function fungsiKu2(y) {
+        document.getElementById("output").innerHTML = y
+    }
+</script>

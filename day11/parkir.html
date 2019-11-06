@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>parkir bang</title>
+</head>
+
+<body>
+    <center>
+        <!-- <h1>Parkir</h1>
+        <br>
+        <p>Jam Masuk : <input id="nama" type="number" placeholder="masukkan angka 1-12">
+        <br>
+        <p>AM/PM : <input type="radio" name="ampm1" onclick="ampm1(this.value)" value="0"> AM
+        <input type="radio" name="ampm1" onclick="ampm1(this.value)" value="12"> PM
+        <br>
+        <p>Jam Keluar : <input id="umur" type="number" placeholder="masukkan angka 1-12">
+        <br>
+        <p>AM/PM : <input type="radio" name="ampm2" onclick="ampm2(this.value)" value="0"> AM
+        <input type="radio" name="ampm2" onclick="ampm2(this.value)" value="12"> PM
+        <br><br>
+        <button id="klik1" onclick="klik(this.value)">Bayar</button>
+        <h1>====================</h1>
+        <p style="color: #0c0b0c;"></p> -->
+        <h1>Latihan Dom</h1>
+        <input type="number" placeholder="jam masuk" id="masuk">
+        <br>
+        <input type="radio" name="kondisi1"/> AM
+        <input type="radio" name="kondisi1"/> PM
+        <br>
+        <input type="number" placeholder="jam keluar" id="keluar">
+        <br>
+        <input type="radio" name="kondisi2" /> AM
+        <input type="radio" name="kondisi2" /> PM
+        <br>
+        <input type="button" value="hitung" onclick="parkir()">
+        <p>Biaya parkir anda sebesar Rp. 00000,00</p>
+    </center>
+</body>
+
+<script>
+    const parkir=()=>{
+        console.log('masuk')
+        var masuk=document.getElementById('masuk').value 
+        masuk=parseInt(masuk)
+        var keluar=document.getElementById('keluar').value
+        keluar=parseInt(keluar)
+        var kondisi1=0
+        var kondisi2=0
+        if(document.getElementsByName('kondisi1')[0].checked) {
+            kondisi1=1
+        }else {
+            kondisi1=2
+        }
+        if(document.getElementsByName('kondisi2')[0].checked) {
+            kondisi2=1
+        }else {
+            kondisi2=2
+        }
+        if(masuk>=keluar && kondisi1 !==kondisi2) {
+            keluar+=24
+        }
+        
+    }
+</script>
+</html>
+

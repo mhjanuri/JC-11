@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gender </title>
+</head>
+
+<body style="background: #9fccff;">
+    <center>
+        <h1 style="color: #fff7ab;">Sensus Penduduk Mars</h1>
+        <br>
+        <p style="color: #fff7ab;">Nama : <input id="nama" type="text" placeholder="Masukkan nama disini">
+        <br>
+        <p style="color: #fff7ab;">Umur : <input id="umur" type="number" placeholder="Masukkan usia kamu">
+        <br>
+        <p style="color: #fff7ab;">Jenis Kelamin : <input type="radio" name="sex" onclick="sex2(this.value)" value="Pria"> Pria
+        <input type="radio" name="sex" onclick="sex2(this.value)" value="Wanita"> Wanita
+        <br><br>
+        <button id="klikini" onclick="klik(this.value)">Confirm</button>
+        <h1 style="color: #fff7ab;">====================</h1>
+        <h2 style="color: #fface3;"></h2>
+        <h2 style="color: #fface3;"></h2>
+        <h2 style="color: #fface3;"></h2>
+    </center>
+</body>
+
+<script>
+    var sex2=(x)=> {
+        document.getElementById('klikini').value = x
+    }
+    var klik=(y)=>{
+        var nama=document.getElementById('nama').value
+        var usia=document.getElementById('umur').value
+        document.getElementsByTagName('h2')[0].innerHTML=`Nama : ${nama}`
+        document.getElementsByTagName('h2')[1].innerHTML=`Usia : ${usia}`
+        document.getElementsByTagName('h2')[2].innerHTML=`Jenis Kelamin : ${y}`
+    }
+    
+</script>
+
+</html>

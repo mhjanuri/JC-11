@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Latihan Array of Object</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>NO</td>
+                    <td>TODO</td>
+                    <td>HARI</td>
+                    <td>Gambar</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </center>
+</body>
+
+<script>
+    class Todo{
+        constructor(a,b,c) {
+            this.kegiatan=a,
+            this.hari=b,
+            this.gambar=c
+        }
+    }
+    var listdata=[
+        new Todo('Mancing','Senin','https://cdn2.tstatic.net/bangka/foto/bank/images/pemancing_20180915_092536.jpg'),
+        new Todo('Galau','Selasa','https://cdn-image.hipwee.com/wp-content/uploads/2016/06/hipwee-galau2-600x422.jpg'),
+        new Todo('Kondangan','Minggu','https://cdn-asset.jawapos.com/wp-content/uploads/2019/01/kondangan-ini-doa-jokowi-buat-pernikahan-anak-mantan-sopirnya_m_189447-640x421.jpeg')
+    ]
+    const Printdata=(a)=>{
+        var output=''
+        a.forEach((val,index) => {
+            output+= `<tr>
+                        <td>${index+1}</td>
+                        <td>${val.kegiatan}</td>
+                        <td>${val.hari}</td>
+                        <td> <img src=${val.gambar} height='100px'/> </td>
+                        <td><button>delete</button><button>edit</button></td>                
+                    </tr>`
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+    // Printdata(listdata)
+    // const onAddTodoClick=()=>{
+    //     var input=document.getElementsByClassName('addtodo')
+    //     var todobaru=input[0].value
+    //     var haribaru=input[1].value
+    //     var imagebaru=input[2].value
+    //     listdata.push(new Todo(todobaru,haribaru,imagebaru))
+    //     Printdata(listdata)
+    // }
+</script>
+
+</html>
