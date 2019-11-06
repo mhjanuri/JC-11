@@ -5,22 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TO DO</title>
     <style>
+        html {
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background: linear-gradient(to right, #00ffff 0%, #ff9966 100%);
+            font-family: 'Roboto', sans-serif;
+            color: #333333;
+
+        }
+        h1{
+            color: #333333;
+            font-family: 'Permanent Marker', cursive;font-size: 80px;
+        }
         tr,td,table{
-            border: 4px black;
+            border: 6px solid #ebebeb;
             border-collapse: collapse;
             padding: 10px;
         }
-        
-    </style>
+        .button1{
+            background-color: rgb(67, 160, 67);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .button2{
+            background-color: rgb(42, 42, 185);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .button3{
+            background-color: rgb(189, 47, 47);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <center>
-        <h1>Latihan Array of Object</h1>
+        <h1>TO DO </h1>
         <table>
             <thead>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="addtodo" placeholder="Insert TODO"/></td>
+                    <td>
+                        <select class="addtodo" aria-placeholder="Pilih Hari">
+                            <option value="Undefined" disabled selected hidden> Pilih hari...</option>
+                            <option> Senin</option>
+                            <option> Selasa</option>
+                            <option> Rabu</option>
+                            <option> Kamis</option>
+                            <option> Jumat</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="addtodo" placeholder="insert image URL"></td>
+                    <td><button class="button1" onclick="onAddTodoClick()">Add TODO</button></td>
+                </tr>
                 <tr>
                     <td>NO</td>
                     <td>TODO</td>
@@ -32,6 +80,8 @@
             <tbody>
 
             </tbody>
+            <tfoot>
+            </tfoot>
         </table>
     </center>
 </body>
@@ -47,7 +97,7 @@
     var listdata=[
         new Todo('Mancing','Senin','https://cdn2.tstatic.net/bangka/foto/bank/images/pemancing_20180915_092536.jpg'),
         new Todo('Galau','Selasa','https://cdn-image.hipwee.com/wp-content/uploads/2016/06/hipwee-galau2-600x422.jpg'),
-        new Todo('Kondangan','Minggu','https://cdn-asset.jawapos.com/wp-content/uploads/2019/01/kondangan-ini-doa-jokowi-buat-pernikahan-anak-mantan-sopirnya_m_189447-640x421.jpeg')
+        new Todo('Kondangan','Kamis','https://cdn-asset.jawapos.com/wp-content/uploads/2019/01/kondangan-ini-doa-jokowi-buat-pernikahan-anak-mantan-sopirnya_m_189447-640x421.jpeg')
     ]
     const Printdata=(a)=>{
         var output=''
@@ -57,20 +107,54 @@
                         <td>${val.kegiatan}</td>
                         <td>${val.hari}</td>
                         <td> <img src=${val.gambar} height='100px'/> </td>
-                        <td><button>delete</button><button>edit</button></td>                
+                        <td><button class="button2" onclick="onEditClick(${index})">Edit</button><button class="button3" onclick="onDeleteClick(${index})">Delete</button></td>                
                     </tr>`
         });
         document.getElementsByTagName('tbody')[0].innerHTML=output
     }
-    // Printdata(listdata)
-    // const onAddTodoClick=()=>{
-    //     var input=document.getElementsByClassName('addtodo')
-    //     var todobaru=input[0].value
-    //     var haribaru=input[1].value
-    //     var imagebaru=input[2].value
-    //     listdata.push(new Todo(todobaru,haribaru,imagebaru))
-    //     Printdata(listdata)
-    // }
+    Printdata(listdata)
+    const onAddTodoClick=()=>{
+        var addCheck=confirm("Are you sure to add this data?")
+        if (addCheck==true) {
+            var input=document.getElementsByClassName('addtodo')
+            var todobaru=input[0].value
+            var haribaru=input[1].value
+            var imagebaru=input[2].value
+            listdata.push(new Todo(todobaru,haribaru,imagebaru))            
+        }
+        Printdata(listdata)
+    }
+    const onDeleteClick=(index)=>{
+        var deleteCheck=confirm("Are you sure to delete this data?")
+        if (deleteCheck==true) {
+            listdata.splice(index,1)            
+        }
+        Printdata(listdata)
+    }
+    const onEditClick=(index)=>{
+        var editKegiatan=prompt('Masukkan nama kegiatan yang baru.')
+        var editHari=prompt('Masukkan angka 1-5 sesuai hari yg anda pilih. \n1.Senin\n2.Selasa\n3.Rabu\n4.Kamis\n5.Jumat\n')
+        var editGambar=prompt('Masukkan alamat URL gambar yang baru.')
+        var editCheck=confirm("Are you sure to modify the data?")
+        if (editCheck==true) {
+            listdata[index].kegiatan=editKegiatan
+            if (editHari==1) {
+                listdata[index].hari="Senin"                
+            } else if (editHari==2) {
+                listdata[index].hari="Selasa"                
+            } else if (editHari==3) {
+                listdata[index].hari="Rabu"                
+            } else if (editHari==4) {
+                listdata[index].hari="Kamis"                
+            } else if (editHari==5) {
+                listdata[index].hari="Jumat"                
+            } else {         
+                listdata[index].hari="Undefined"                
+            }
+            listdata[index].gambar=editGambar
+        }
+        Printdata(listdata)
+    }
 </script>
 
 </html>
