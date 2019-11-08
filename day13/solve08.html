@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Ketik kalimat:</p>
+    <p><input type="text" id="kalimat" placeholder="Kalimat?"></p>
+    <p>Karakter yang dicari:</p>
+    <p><input type="text" id="cari" placeholder="Cari?"></p>
+    <p><button onclick="carikarakter()">Cari!</button></p>
+    <h1 id="hasil"></h1>
+</body>
+<script>
+    function carikarakter() {
+        var string=document.getElementById("kalimat").value
+        var huruf=document.getElementById("cari").value  
+        function charCount(str, letter) {
+            var hurufCount=0
+            for (i=0;i<string.length; i++) {
+                if (string.charAt(i)==letter) {
+                    hurufCount+=1
+                }
+            }
+            return hurufCount
+        }
+        var hasilnya=charCount(string,huruf)
+        document.getElementById("hasil").innerHTML = `Jumlah huruf '${huruf}' sebanyak ${hasilnya} buah`
+    }
+</script>
+</html>

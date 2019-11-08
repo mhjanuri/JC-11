@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuadratkanlah</title>
+</head>
+<body>
+    <p>Kuadrat<sup>2</sup></p>
+    <p><input type="number" id="kuadrat" placeholder="Masukkan angka"/></p>
+    <button onclick="kuadrat()">Kuadratkan!</button>
+    <h1 id="hasil"></h1>
+</body>
+<script>
+    var kuadrat=()=>{
+        var angka=document.getElementById("kuadrat").value
+        console.log(angka)
+        var hasil=Math.pow(angka,2)
+        console.log(hasil)
+        document.getElementById("hasil").innerHTML=`hasil ${angka}<sup>2</sup> = ${hasil}`
+    }
+</script>
+</html>
