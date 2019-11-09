@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <center>
+        <h1>Kalkulator Sederhana</h1>
+        <p>Masukkan angka 1: <input type="number" id="angka1"></p>
+        <p>Masukkan angka 2: <input type="number" id="angka2"></p>
+        <button onclick="tambah()">Tambah +</button>
+        <button onclick="kurang()">Kurang -</button>
+        <button onclick="kali()">Kali x</button>
+        <button onclick="bagi()">Bagi :</button>
+        <br>
+        <button onclick="modulus()">Modulus %</button>
+        <button onclick="pangkat()">Pangkat ^</button>
+        <h2 id="hasil"></h2>
+    </center>
+
+</body>
+<script>
+    var tambah=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=a+b
+        document.getElementById("hasil").innerHTML=`${a} tambah ${b} = ${hasil}`
+    }
+    var kurang=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=a-b
+        document.getElementById("hasil").innerHTML=`${a} kurang ${b} = ${hasil}`
+    }
+    var kali=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=a*b
+        document.getElementById("hasil").innerHTML=`${a} kali ${b} = ${hasil}`
+    }
+    var bagi=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=a/b
+        document.getElementById("hasil").innerHTML=`${a} bagi ${b} = ${hasil}`
+    }
+    var modulus=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=a%b
+        document.getElementById("hasil").innerHTML=`${a} modulus ${b} = ${hasil}`
+    }
+    var pangkat=()=>{
+        let a=document.getElementById("angka1").value
+        let b=document.getElementById("angka2").value
+        let hasil=Math.pow(a,b)
+        document.getElementById("hasil").innerHTML=`${a} pangkat ${b} = ${hasil}`
+    }
+</script>
+</html>
