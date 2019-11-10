@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar</title>
+    <style>
+        div[id="box"] {
+            background-color: white;
+            width: 300px;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: left;
+        }
+        input[type=text], input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            width: 100%;
+            background-color: #3b5998 ;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #2f477a;
+        }
+        .sort {
+            background-color: #3b5998 ;
+            color: white;
+            padding: 5px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .sort:hover {
+            background-color: #2f477a;
+        }
+        tr,td,table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px 50px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Daftar User</h1>
+        <div id="box">
+            <input type="text" id="nama" class="adduser" placeholder="Masukkan nama...">
+            <input type="number" id="umur" class="adduser" placeholder="Masukkan umur...">
+            <br>
+            Kelamin : <input type="radio" id="sex1" onclick="sex1()" value="Pria">Pria<input type="radio" id="sex2" onclick="sex2()" value="Wanita">Wanita
+            <input type="text" id="pekerjaan" class="adduser" placeholder="Pekerjaan...">
+            <br>
+            <input type="submit" onclick="onAddUserClick()" value="Submit">
+        </div>
+        <br>
+        <h2>List user terdaftar</h2>
+        <div>Sort Berdasarkan</div>
+        <button class="sort">Nama</button>
+        <button class="sort">Umur</button>
+        <button class="sort">Kelamin</button>
+        <button class="sort">Pekerjaan</button>
+        <table>
+            <thead style="background-color: burlywood;">
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Usia</td>
+                    <td>Kelamin</td>
+                    <td>Pekerjaan</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </center>
+</body>
+<script>
+    class List {
+        constructor(a, b, c, d){
+            this.nama = a,
+            this.umur = b,
+            this.kelamin = c,
+            this.pekerjaan = d
+        }
+    }
+    var listdata = [
+        new List('ujang','21','Pria','Mahasiswa'),
+        new List('budi', '32', 'Pria', 'Programmer'),
+        new List('rihanna', '31', 'Wanita', 'Penyanyi')
+    ]
+    const printList = (a) => {
+        var output = ''
+        a.forEach((val, index) => {
+            output +=   `<tr>
+                            <td>${index + 1}</td>
+                            <td>${val.nama}</td>
+                            <td>${val.umur}</td>
+                            <td>${val.kelamin}</td>
+                            <td>${val.pekerjaan}</td>
+                        </tr>`
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML = output
+    }
+    printList(listdata)
+    const onAddUserClick = () => {
+        var input=document.getElementsByClassName("adduser")
+        var namauser=input[0].value
+        var umuruser=input[1].value
+        var pekerjaanuser=input[2].value
+        listdata.push(new List(namauser,umuruser,'Pria',pekerjaanuser))
+        printList(listdata)
+    }
+</script>
+</html>
