@@ -64,7 +64,7 @@
             <input type="text" id="nama" class="adduser" placeholder="Masukkan nama...">
             <input type="number" id="umur" class="adduser" placeholder="Masukkan umur...">
             <br>
-            Kelamin : <input type="radio" name="sex" onclick="sex1()" value="Pria">Pria<input type="radio" name="sex" onclick="sex2()" value="Wanita">Wanita
+            Kelamin : <input type="radio" name="sex" value="Pria">Pria<input type="radio" name="sex" value="Wanita">Wanita
             <input type="text" id="pekerjaan" class="adduser" placeholder="Pekerjaan...">
             <br>
             <input type="submit" onclick="onAddUserClick()" value="Submit">
@@ -72,10 +72,15 @@
         <br>
         <h2>List user terdaftar</h2>
         <div>Sort Berdasarkan</div>
-        <button class="sort">Nama</button>
-        <button class="sort">Umur</button>
-        <button class="sort">Kelamin</button>
-        <button class="sort">Pekerjaan</button>
+        <button onclick="sortnamadesc()" class="sort">Nama &#8593</button>
+        <button onclick="sortumurdesc()" class="sort">Umur &#8593</button>
+        <button onclick="sortkelamindesc()" class="sort">Kelamin &#8593</button>
+        <button onclick="sortpekerjaandesc()" class="sort">Pekerjaan &#8593</button>
+        <br>
+        <button onclick="sortnama()" class="sort">Nama &#8595</button>
+        <button onclick="sortumur()" class="sort">Umur &#8595</button>
+        <button onclick="sortkelamin()" class="sort">Kelamin &#8595</button>
+        <button onclick="sortpekerjaan()" class="sort">Pekerjaan &#8595</button>
         <table>
             <thead style="background-color: burlywood;">
                 <tr>
@@ -127,11 +132,43 @@
         var kelaminuser=''
         if (document.getElementsByName("sex")[0].checked) {
             kelaminuser='Pria'
-        } else if (document.getElementsByName("sex")[0].checked) {
+        } else if (document.getElementsByName("sex")[1].checked) {
             kelaminuser='Wanita'
         }
         var pekerjaanuser=input[2].value
         listdata.push(new List(namauser,umuruser,kelaminuser,pekerjaanuser))
+        printList(listdata)
+    }
+    const sortnama = () => {
+        listdata.sort((a, b) => (a.nama > b.nama) ? 1 : -1)
+        printList(listdata)
+    }
+    const sortumur = () => {
+        listdata.sort(function (a, b) {return a.umur - b.umur})
+        printList(listdata)
+    }
+    const sortkelamin = () => {
+        listdata.sort((a, b) => (a.kelamin > b.kelamin) ? 1 : -1)
+        printList(listdata)
+    }
+    const sortpekerjaan = () => {
+        listdata.sort((a, b) => (a.pekerjaan > b.pekerjaan) ? 1 : -1)
+        printList(listdata)
+    }
+    const sortnamadesc = () => {
+        listdata.sort((a, b) => (a.nama > b.nama) ? -1 : 1)
+        printList(listdata)
+    }
+    const sortumurdesc = () => {
+        listdata.sort(function (a, b) {return b.umur - a.umur})
+        printList(listdata)
+    }
+    const sortkelamindesc = () => {
+        listdata.sort((a, b) => (a.kelamin > b.kelamin) ? -1 : 1)
+        printList(listdata)
+    }
+    const sortpekerjaandesc = () => {
+        listdata.sort((a, b) => (a.pekerjaan > b.pekerjaan) ? -1 : 1)
         printList(listdata)
     }
 </script>
