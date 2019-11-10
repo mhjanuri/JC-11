@@ -64,7 +64,7 @@
             <input type="text" id="nama" class="adduser" placeholder="Masukkan nama...">
             <input type="number" id="umur" class="adduser" placeholder="Masukkan umur...">
             <br>
-            Kelamin : <input type="radio" id="sex1" onclick="sex1()" value="Pria">Pria<input type="radio" id="sex2" onclick="sex2()" value="Wanita">Wanita
+            Kelamin : <input type="radio" name="sex" onclick="sex1()" value="Pria">Pria<input type="radio" name="sex" onclick="sex2()" value="Wanita">Wanita
             <input type="text" id="pekerjaan" class="adduser" placeholder="Pekerjaan...">
             <br>
             <input type="submit" onclick="onAddUserClick()" value="Submit">
@@ -124,8 +124,14 @@
         var input=document.getElementsByClassName("adduser")
         var namauser=input[0].value
         var umuruser=input[1].value
+        var kelaminuser=''
+        if (document.getElementsByName("sex")[0].checked) {
+            kelaminuser='Pria'
+        } else if (document.getElementsByName("sex")[0].checked) {
+            kelaminuser='Wanita'
+        }
         var pekerjaanuser=input[2].value
-        listdata.push(new List(namauser,umuruser,'Pria',pekerjaanuser))
+        listdata.push(new List(namauser,umuruser,kelaminuser,pekerjaanuser))
         printList(listdata)
     }
 </script>
