@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tikipidi'i</title>
     <style>
         tr,td,table{
             border: 1px solid black;
@@ -44,6 +44,7 @@
         </table>
         <br>
         <div id="divbayar"></div>
+        <p id="timer"></p>
     </center>
 </body>
 <script>
@@ -99,7 +100,7 @@
         if (jumlah!==0) {
             document.getElementsByTagName('h1')[1].innerHTML=`Item belanja anda ada ${jumlah}`
             document.getElementById('cart').innerHTML=`Total belanja anda sebesar Rp. ${totalcart}`
-            document.getElementById('divbayar').innerHTML=`<button onclick="checkout()">Checkout</button>`
+            document.getElementById('divbayar').innerHTML=`<button onclick="checkout(),start()">Checkout</button>`
         } else {
             document.getElementsByTagName('h1')[1].innerHTML=`Keranjang masih kosong`
             document.getElementById('cart').innerHTML = ``           
@@ -144,6 +145,27 @@
         return output
     }
     
+    var time = 30
+    var timer
+    function start() {
+        time = time + 1
+        timer = setInterval(waktu, 1000)
+    }
+    function waktu() {
+        time -= 1
+        document.getElementById("timer").innerHTML = `waktu tersisa ${time}`
+        if (time <= 0) {
+            clearInterval(timer)
+            alert("Waktu checkout habis...")
+            document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
+            document.getElementById('cart').innerHTML = ``
+            document.getElementsByTagName('thead')[1].innerHTML = ''
+            document.getElementsByTagName('tbody')[1].innerHTML = ''
+            document.getElementById('divbayar').innerHTML = ''
+            document.getElementById('timer').innerHTML = ''
+        }
+    }
+
     const checkout=()=>{
         document.getElementById('divbayar').innerHTML=`<input type="number" id="inputbayar"><button onclick="bayar()">Bayar</button>`
     }
@@ -152,12 +174,14 @@
         if (document.getElementById("inputbayar").value < sumArray(listcart)) {
             alert("Uang anda tidak cukup")
         } else if (document.getElementById("inputbayar").value >= sumArray(listcart)) {
+            clearInterval(timer)
             alert("Terima Kasih sudah belanja di toko kami. kembalian anda Rp. "+(document.getElementById("inputbayar").value - sumArray(listcart)))
             document.getElementsByTagName('h1')[1].innerHTML=`Keranjang masih kosong`
             document.getElementById('cart').innerHTML = ``
             document.getElementsByTagName('thead')[1].innerHTML = ''
             document.getElementsByTagName('tbody')[1].innerHTML = ''
             document.getElementById('divbayar').innerHTML=''
+            document.getElementById('timer').innerHTML=''
         }
     }
 
