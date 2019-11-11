@@ -144,7 +144,8 @@
         printList(listdata)
     }
     const sortumur = () => {
-        listdata.sort(function (a, b) {return a.umur - b.umur})
+        listdata.sort((a, b) => (a.umur > b.umur) ? 1 : -1)
+        // listdata.sort(function (a, b) {return a.umur - b.umur})
         printList(listdata)
     }
     const sortkelamin = () => {
@@ -160,7 +161,8 @@
         printList(listdata)
     }
     const sortumurdesc = () => {
-        listdata.sort(function (a, b) {return b.umur - a.umur})
+        listdata.sort((a, b) => (a.umur > b.umur) ? -1 : 1)
+        // listdata.sort(function (a, b) {return b.umur - a.umur})
         printList(listdata)
     }
     const sortkelamindesc = () => {
