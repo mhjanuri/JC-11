@@ -9,13 +9,12 @@
 <body>
     <center>
         <h1>Login & Register</h1>
-        Username: <input type="text" id="uname" placeholder="Username..."> <br>
+        Username: <input type="text" id="username" placeholder="Username..."> <br>
         Password: <input type="text" id="pass" placeholder="Password..."> <br>
-        <button id="register">Register</button>
-        <button id="login" onclick="onLoginClick()">Login</button> <br>
+        <button id="register">Register</button> <button id="login" onclick="login()">Login</button> <br>
         <h1></h1>
         <h1></h1>
-        <div id="logoutBtn"></div>
+        <p</p>
     </center>
 </body>
 <script>
@@ -27,28 +26,52 @@
         }
     }
     
-    var datauser=[
+    var datausers=[
         new List('admin','admin','admin'),
-        new List('user01','user','user'),
         new List('hendri','hendri','user'),
     ]
 
     var datauserlogin={}
 
-    const onLoginClick=()=>{
-        var uname= document.getElementById("uname").value
+    const login=()=>{
+        var username= document.getElementById("username").value
         var pass= document.getElementById("pass").value
-        var login=false
-        for(i=0;i<datauser.length;i++){
-            if (uname == datauser[i].username && pass==datauser[i].password) {
-                login=true
-                datauserlogin=datauser[i]
+        // var login=false
+        // for(i=0;i<datausers.length;i++){
+        //     if (username == datausers[i].username && pass==datausers[i].password) {
+        //         login=true
+        //         datauserlogin=datausers[i]
+        //     }
+        // }
+        var arrbaru=datausers.filter((val)=>val.username==username && val.password==pass)
+        datauserlogin=arrbaru[0]
+        console.log(login)
+        if (datauserlogin) {
+            document.getElementsByTagName('h1')[1].innerHTML=datauserlogin.username
+            if (datauserlogin.role=='admin') {
+                document.getElementsByTagName('h1')[2].innerHTML='Sebagai admin kece'
+            } else {
+                document.getElementsByTagName('h1')[2].innerHTML = 'Sebagai user unyu'
             }
+            document.getElementsByTagName('p')[0].innerHTML=`<button onclick="logoutuser()">Logout</button>`
+        }else{
+            document.getElementsByTagName('h1')[1].innerHTML='user tidak ditemukan atau password salah'
+            document.getElementsByTagName('h1')[2].innerHTML=''
+            document.getElementsByTagName('p')[0].innerHTML=''
         }
     }
 
     const logoutuser=()=>{
-        
+        datauserlogin={}
+        document.getElementsByTagName('h1')[1].innerHTML=''
+        document.getElementsByTagName('h1')[2].innerHTML = ''
+        document.getElementsByTagName('p')[0].innerHTML = ''
+    }
+    const register=()=>{
+        var username=document.getElementById('username').value
+        var pass=document.getElementById('password').value
+        datausers.push(new List(username,pass,'user'))
+        document.getElementsByTagName('h1')[1].innerHTML='berhasil register'
     }
     
 </script>
