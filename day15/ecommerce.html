@@ -103,9 +103,9 @@
     Printcart(listcart)
 
     const onAddCartClick=(index)=>{
-        var addCheck=confirm("Anda yakin mau beli ini?")
+        var addCheck=confirm("Anda yakin mau beli "+listdata[index].produk+"?")
         var head=''
-        if (addCheck==true) {
+        if (addCheck) {
             head=   `<tr>
                         <td>Produk</td>
                         <td>Harga</td>
@@ -121,12 +121,12 @@
     const onDeleteClick=(index)=>{
         var deleteCheck=confirm('Anda yakin ingin menghapus barang ini?')
         var head=''
-        if (deleteCheck==true) {
+        if (deleteCheck) {
             if (listcart.length==1) {
                 document.getElementsByTagName('thead')[1].innerHTML = head
                 document.getElementById('divbayar').innerHTML=''
             }
-            listcart.splice(index,1)
+            listcart.splice(index,1) 
         }
         Printcart(listcart)
     }

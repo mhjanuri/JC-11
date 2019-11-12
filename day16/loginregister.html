@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Login & Register</h1>
+        Username: <input type="text" id="uname" placeholder="Username..."> <br>
+        Password: <input type="text" id="pass" placeholder="Password..."> <br>
+        <button id="register">Register</button>
+        <button id="login" onclick="onLoginClick()">Login</button> <br>
+        <h1></h1>
+        <h1></h1>
+        <div id="logoutBtn"></div>
+    </center>
+</body>
+<script>
+    class List{
+        constructor(a,b,c) {
+            this.username=a
+            this.password=b
+            this.role=c
+        }
+    }
+    
+    var datauser=[
+        new List('admin','admin','admin'),
+        new List('user01','user','user'),
+        new List('hendri','hendri','user'),
+    ]
+
+    var datauserlogin={}
+
+    const onLoginClick=()=>{
+        var uname= document.getElementById("uname").value
+        var pass= document.getElementById("pass").value
+        var login=false
+        for(i=0;i<datauser.length;i++){
+            if (uname == datauser[i].username && pass==datauser[i].password) {
+                login=true
+                datauserlogin=datauser[i]
+            }
+        }
+    }
+
+    const logoutuser=()=>{
+        
+    }
+    
+</script>
+
+</html>
