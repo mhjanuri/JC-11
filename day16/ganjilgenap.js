@@ -8,4 +8,6 @@ const ganjilgenap=(plat,tanggal)=> {
         return 'anda tidak boleh lewat'
     }  
 }
-console.log(ganjilgenap('B 1234 AR',24))
+console.log(ganjilgenap('B 1234 AR',23))
+console.log(ganjilgenap('B 1234 AR', 22))
+
