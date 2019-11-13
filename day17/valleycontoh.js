@@ -13,8 +13,6 @@ function countingValleys(s) {
             steps++
         }
     }
-    console.log(stepHistory)
-    // console.log(steps)
     let sumValley = 0
     for (let i = 0; i < stepHistory.length; i++) {
         if (stepHistory[i] === 0 && stepHistory[i - 1] < 0) {
