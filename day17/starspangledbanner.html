@@ -57,6 +57,8 @@
                 <option value="ssrka">Segitiga Siku: rata kanan</option>
                 <option value="sskrkn">Segitiga Sama Kaki: Normal</option>
                 <option value="sskrkt">Segitiga Sama Kaki: Terbalik</option>
+                <option value="nepal">Bendera Nepal</option>
+                <option value="diamond">Diamond</option>
             </select>
             <br>
             <div>Masukkan Tinggi:</div>
@@ -76,13 +78,17 @@
         if (x == "persegi") {
             document.getElementById("canvas").innerHTML= persegi(document.getElementById("inputnumber").value)
         } else if (x == "ssrki") {
-            document.getElementById("canvas").innerHTML=segitigaSikuKiri(document.getElementById("inputnumber").value)
+            document.getElementById("canvas").innerHTML= segitigaSikuKiri(document.getElementById("inputnumber").value)
         } else if (x == "ssrka") {
             document.getElementById("canvas").innerHTML = segitigaSikuKanan(document.getElementById("inputnumber").value)
         } else if (x == "sskrkn") {
             document.getElementById("canvas").innerHTML = segitigaSamaAtas(document.getElementById("inputnumber").value)
         } else if (x == "sskrkt") {
             document.getElementById("canvas").innerHTML = segitigaSamaBawah(document.getElementById("inputnumber").value)
+        } else if (x == "nepal") {
+            document.getElementById("canvas").innerHTML = `${atas(document.getElementById("inputnumber").value)} ${bawah(document.getElementById("inputnumber").value)}`
+        } else if (x == "diamond") {
+            document.getElementById("canvas").innerHTML = `${segitigaSamaAtas(Math.ceil((document.getElementById("inputnumber").value)/2))} ${segitigaSamaBawah(Math.floor(((document.getElementById("inputnumber").value)-1)/2))}`
         }
     }
 
@@ -140,7 +146,7 @@
             for (var l = 0; l <= i - 1; l++) {
                 output += '*'
             }
-            if (i < tinggi - 1) {
+            if (i < tinggi) {
                 output += '<br>'
             }
         }
@@ -150,7 +156,7 @@
     function segitigaSamaBawah(tinggi) {
         var output = ''
         for (var i = 0; i < tinggi; i++) {
-            for (var j = 0; j <= i; j++) {
+            for (var j = 0; j <= i+1; j++) {
                 output += '&#8199'
             }
             for (var k = i; k < tinggi; k++) {
@@ -166,6 +172,33 @@
         return output
     }
 
-    
+    function atas(tinggi) {
+        var stengah=Math.ceil(tinggi/2)
+        let output = ''
+        for (i = 0; i < stengah; i++) {
+            for (j = 0; j <= i; j++) {  // Segitiga siku normal
+                output += '* '
+            }
+            if (i < stengah) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    function bawah(tinggi) {
+        var stengah=Math.floor(tinggi/2)
+        let output = ''
+        for (i = 0; i < stengah; i++) {
+            for (j = 0; j <= i; j++) {  // Segitiga siku normal
+                output += '* '
+            }
+            if (i < stengah - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
 </script>
 </html>

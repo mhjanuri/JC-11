@@ -21,26 +21,31 @@
 // console.log(output1+output2)
 
 // Solusi mas dino
-let z = ''
-var tinggi = 5
-for (a = 0; a < tinggi; a++) {
-    for (b = a; b <= tinggi; b++) {  // Segitiga siku terbalik  // add <= to stop print the last star
-        z += '*'
+
+function atas(tinggi) {
+    let output = ''
+    for (i = 0; i < tinggi; i++) {
+        for (j = 0; j <= i; j++) {  // Segitiga siku normal
+            output += '* '
+        }
+        if (i < tinggi) {
+            output += '\n'
+        }
     }
-    if (a < tinggi) {
-        z += '\n'
-    }
+    return output
 }
 
-let x = ''
-var tinggi = 5
-for (i = 0; i < tinggi; i++) {
-    for (j = 0; j <= i; j++) {  // Segitiga siku normal
-        x += '*'
+function bawah(tinggi) {
+    let output = ''
+    for (i = 0; i < tinggi; i++) {
+        for (j = 0; j <= i; j++) {  // Segitiga siku normal
+            output += '* '
+        }
+        if (i < tinggi - 1) {
+            output += '\n'
+        }
     }
-    if (i < tinggi - 1) {
-        x += '\n'
-    }
+    return output
 }
 
-console.log(z+x)
+console.log(atas(6)+bawah(6))
