@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div[id="box"] {
+            background-color: white;
+            width: fit-content;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: left;
+        }
+        #bentuk {
+            width: 205px;
+            height: 25px;
+        }
+        input {
+            width: 200px;
+            height: 20px;
+        }
+        input:focus::-webkit-input-placeholder {
+            color: transparent;
+        }
+        .generate {
+            background-color: #1bbe28;
+            color: white;
+            width: 202px;
+            height: 40px;
+            align-items: center;
+        }
+        .generate:hover {
+            background-color: green;
+            color: white;
+        }
+        div[id="canvas"] {
+            font-family: 'Courier New', Courier, monospace;
+            text-align: left;
+
+        }
+    </style>
+
+</head>
+<body>
+    <center>
+        <h1>Pembuat bintang Ajaib</h1>
+        <div id="box">
+            <br>
+            <div>Pilih Bentuk:</div>
+            <select id="bentuk" >
+                <option id="undefined" disabled selected hidden>Bentuk...</option>
+                <option value="persegi">Persegi</option>
+                <option value="ssrki">Segitiga Siku: rata kiri</option>
+                <option value="ssrka">Segitiga Siku: rata kanan</option>
+                <option value="sskrkn">Segitiga Sama Kaki: Normal</option>
+                <option value="sskrkt">Segitiga Sama Kaki: Terbalik</option>
+            </select>
+            <br>
+            <div>Masukkan Tinggi:</div>
+            <input id="inputnumber" type="number" placeholder="Input number...">
+            <br>
+            <br>
+            <button class="generate" onclick="generate()">Generate</button>
+            <br>
+            <br>
+            <div id="canvas"></div>
+        </div>
+    </center>
+</body>
+<script>
+    function generate() {
+        var x = document.getElementById("bentuk").value
+        if (x == "persegi") {
+            document.getElementById("canvas").innerHTML= persegi(document.getElementById("inputnumber").value)
+        } else if (x == "ssrki") {
+            document.getElementById("canvas").innerHTML=segitigaSikuKiri(document.getElementById("inputnumber").value)
+        } else if (x == "ssrka") {
+            document.getElementById("canvas").innerHTML = segitigaSikuKanan(document.getElementById("inputnumber").value)
+        } else if (x == "sskrkn") {
+            document.getElementById("canvas").innerHTML = segitigaSamaAtas(document.getElementById("inputnumber").value)
+        } else if (x == "sskrkt") {
+            document.getElementById("canvas").innerHTML = segitigaSamaBawah(document.getElementById("inputnumber").value)
+        }
+    }
+
+    function persegi(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = 0; j < tinggi; j++) {
+                output += '* '
+            }
+            if (i < tinggi - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    function segitigaSikuKiri(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = 0; j <= i; j++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    function segitigaSikuKanan(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = i; j < tinggi; j++) {
+                output += '&#8199'
+            }
+            for (var k = 0; k <= i; k++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    function segitigaSamaAtas(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = i; j < tinggi; j++) {
+                output += '&#8199'
+            }
+            for (var k = 0; k <= i; k++) {
+                output += '*'
+            }
+            for (var l = 0; l <= i - 1; l++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    function segitigaSamaBawah(tinggi) {
+        var output = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = 0; j <= i; j++) {
+                output += '&#8199'
+            }
+            for (var k = i; k < tinggi; k++) {
+                output += '*'
+            }
+            for (var l = i + 1; l < tinggi; l++) {
+                output += '*'
+            }
+            if (i < tinggi - 1) {
+                output += '<br>'
+            }
+        }
+        return output
+    }
+
+    
+</script>
+</html>
