@@ -12,6 +12,8 @@
             padding: 2px 50px;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
     <center>
@@ -69,7 +71,7 @@
                         <td>${val.produk}</td>
                         <td>Rp. ${val.harga}</td>
                         <td> <img src=${val.gambar} height='100px'/> </td>
-                        <td><button class="addcart" onclick="onAddCartClick(${index})">Add to Cart</button>              
+                        <td><button class="addcart btn btn-outline-primary" onclick="onAddCartClick(${index})">Add to Cart</button>              
                     </tr>`
         });
         document.getElementsByTagName('tbody')[0].innerHTML=output

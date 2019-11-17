@@ -9,8 +9,7 @@ class User {
 var dataUser=[
     new User('aris','123','user'),
     new User('surya','123','admin')
-
-]
+    ]
 
 var dataUserLogin = {}
 
@@ -25,7 +24,6 @@ const LoginCLick=()=> {
         }
     }
     
-
     if(login) {
         document.getElementsByTagName('h2')[0].innerHTML=`Selamat Datang User : ${dataUserLogin.nama}`
         if(dataUserLogin.role=='admin') {
@@ -56,9 +54,6 @@ const LoginCLick=()=> {
             
             printProdukAdmin(listdata)
               
-
-
-
         } else {
             document.getElementsByTagName('h1')[1].innerHTML=`Apa yang ingin kamu beli?`
             document.getElementsByTagName('p')[1].innerHTML=`<table>

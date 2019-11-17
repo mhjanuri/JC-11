@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar</title>
+    <style>
+        div[id="box"] {
+            background-color: white;
+            width: 300px;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: left;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #3b5998;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #2f477a;
+        }
+
+        .sort {
+            background-color: #3b5998;
+            color: white;
+            padding: 5px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .sort:hover {
+            background-color: #2f477a;
+        }
+
+        tr,
+        td,
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px 50px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Daftar User Shopeepedia</h1>
+        <div id="box">
+            <input type="text" id="nama" class="adduser" placeholder="Masukkan Username...">
+            <input type="number" id="umur" class="adduser" placeholder="Masukkan Umur...">
+            <br>
+            Kelamin : <input type="radio" name="sex" value="Pria">Pria<input type="radio" name="sex"
+                value="Wanita">Wanita
+            <input type="password" id="password" class="adduser" placeholder="Password...">
+            <br>
+            <input type="submit" onclick="onRegisterUserClick()" value="Submit">
+        </div>
+        <br>
+
+    </center>
+</body>
+<script>
+
+
+    const onRegisterUserClick = () => {
+        var input = document.getElementsByClassName("adduser")
+        var namauser = input[0].value
+        var passworduser = input[2].value
+        dataUser.push(new User(namauser, passworduser, 'user'))
+        alert("Berhasil register. Kembali ke halaman utama")
+        document.getElementById("container").innerHTML =`
+            <h1>Selamat datang di Shopeepedia</h1>
+            <h4 style="font-style: italic; color: grey;">Best E-Commerce in Indonesia</h4>
+            <br>
+            <br>
+            <div id="box">
+                <br>
+                Username : <input type="text" id="username" /> <br><br>
+                Password : <input type="password" id="password" /> <br><br>
+                <button onclick="register()">Register</button> <button onclick="login()">Login</button><br><br>
+            </div>
+
+        `
+    }
+</script>
+
+</html>
