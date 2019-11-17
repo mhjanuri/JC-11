@@ -85,7 +85,39 @@ const toLogin = () => {
 
     if (login) {
         if (dataUserLogin.role == 'admin') {
-            
+            document.getElementById("container").innerHTML = `
+                <div id="box">
+                    <p style="color: tomato;">Peringatan!!! <br>Halaman ini hanya boleh diakses oleh pengguna dengan role admin.</p>
+                </div>
+                <br>
+                <h1>SELAMAT DATANG, ${dataUserLogin.nama}</h1>
+                <button id="logout" onclick="logout()">Logout</button>
+                <br>
+                <br>
+                <table>
+                    <thead style="background-color:silver">
+                        <tr>
+                            <td>PRODUK</td>
+                            <td>HARGA</td>
+                            <td>GAMBAR</td>
+                            <td>ACTION</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><input type="text" id="prod" class="additem" /></td>
+                            <td><input type="number" id="harg" class="additem" min="0" max="99999999999999" step="1000" >
+                            </td>
+                            <td><input type="text" id="imag" class="additem"></td>
+                            <td><button onclick="onAddItemClick(), document.getElementById('prod').value='', document.getElementById('harg').value='', document.getElementById('imag').value=''">TAMBAH DATA</button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            `
+            printData(listdata)
         } else {
             document.getElementById("container").innerHTML = `
                 <h1>Selamat Berbelanja, ${dataUserLogin.nama} </h1>
@@ -249,6 +281,89 @@ const bayar = () => {
         clearInterval(timer)
     }
 }
+
+var indexedit = -1
+var inddexdel = -2
+const printData = (a) => {
+    var output = ''
+    a.forEach((val, index) => {
+        if (index == indexedit) {
+            output += `<tr>
+                            <td><input type="text" id="editproduk${index}"></td>
+                            <td><input type="number" id="editharga${index}" min="0" max="99999999999999" step="1000" ></td>
+                            <td><input type="text" id="editimg${index}"></td>
+                            <td><button onclick="cancel()">cancel</button><button onclick="save(${index})">save</button></td>
+                        </tr>`
+        } else if (index == inddexdel) {
+            output += `<tr>
+                            <td>${val.produk}</td>
+                            <td>${val.harga}</td>
+                            <td><img src=${val.gambar} height='100px'/></td>
+                            <td><button onclick="cancelDel()">No</button><button onclick="confirmDel(${index})">Yes</button></td>
+                        </tr>`
+        } else {
+            output += `<tr>
+                            <td>${val.produk}</td>
+                            <td>${val.harga}</td>
+                            <td><img src=${val.gambar} height='100px'/></td>
+                            <td><button onclick="hapus(${index})">delete</button><button onclick="edit(${index})">edit</button></td>
+                        </tr>`
+
+        }
+    });
+    document.getElementsByTagName('tbody')[0].innerHTML = output
+}
+// printData(listdata)
+
+const hapus = (bebas) => {
+    inddexdel = bebas
+    printData(listdata)
+}
+const cancelDel = () => {
+    inddexdel = -2
+    printData(listdata)
+}
+const confirmDel = (bebas) => {
+    listdata.splice(bebas, 1)
+    inddexdel = -1
+    printData(listdata)
+}
+const edit = (bebas) => {
+    indexedit = bebas
+    printData(listdata)
+}
+
+const cancel = () => {
+    indexedit = -1
+    printData(listdata)
+}
+
+const save = (bebas) => {
+    var newproduk = document.getElementById(`editproduk${bebas}`).value
+    var newharga = document.getElementById(`editharga${bebas}`).value
+    var newimg = document.getElementById(`editimg${bebas}`).value
+    if (newproduk) {
+        listdata[bebas].produk = newproduk
+    }
+    if (newharga !== listdata[bebas].harga) {
+        listdata[bebas].harga = newharga
+    }
+    if (newimg) {
+        listdata[bebas].gambar = newimg
+    }
+    indexedit = -1
+    printData(listdata)
+}
+
+const onAddItemClick = () => {
+    var input = document.getElementsByClassName('additem')
+    var produkbaru = input[0].value
+    var hargabaru = input[1].value
+    var imagebaru = input[2].value
+    listdata.push(new List(produkbaru, hargabaru, imagebaru))
+    printData(listdata)
+}
+
 
 const logout=()=>{
     var konfirmLogout = confirm("Anda yakin ingin Log Out?")
