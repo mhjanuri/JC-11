@@ -14,20 +14,20 @@
 //     return gcd(a, b - a);
 // }
 
-function fpb(x,y) {
+function fpb_kpk(x, y) {
     let a=x
     let b=y
+
     while (y) {
         var t = y;
         y = x % y;
         x = t;
     }
+    let kpk = (a * b) / x
     // return x;
-    return console.log("FPB "+a+" & "+b+ " = " + x)
+    console.log("FPB " + a + " & " + b + " = " + x)
+    return console.log("KPK " + a + " & " + b + " = " + kpk)
 }
-    
-// var a = 2
-// var b = 3
-// console.log("FPB of " + a + " and " + b + " is " + fpb(a, b))
-console.log(fpb(2,3))
 
+console.log(fpb_kpk(2, 3))
+// console.log(fpb_kpk(5, 7))
