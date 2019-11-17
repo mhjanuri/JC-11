@@ -16,7 +16,6 @@
 
 // same thing is going on....
 
-
 var bubbleSort = (arr) => {
     for (i = arr.length-1; i>=0; i--) {
         for (j = 1; j <= i; j++) {
