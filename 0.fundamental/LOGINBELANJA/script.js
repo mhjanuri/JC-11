@@ -40,8 +40,8 @@ const toRegister = () => {
         <div id="box">
             <input type="text" id="nama" class="adduser" placeholder="Masukkan Username..."><br>
             <input type="text" id="umur" class="adduser" placeholder="Masukkan Email..."><br>
-            Kelamin : <input type="radio" name="sex" value="Pria">Pria<input type="radio" name="sex"
-                value="Wanita">Wanita
+            Kelamin : <input type="radio" name="sex" value="Pria"> Pria <input type="radio" name="sex"
+                value="Wanita"> Wanita 
             <input type="password" id="password" class="adduser" placeholder="Password...">
             <br>
             <input type="submit" onclick="onRegisterUserClick()" value="Submit">
