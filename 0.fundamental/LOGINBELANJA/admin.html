@@ -5,12 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>list todo</title>
+    <title>Admin Page</title>
     <style>
         tr,td,table{
             border: 2px solid black;
             border-collapse: collapse;
             padding: 5px 30px;
+        }
+        div[id="box"] {
+            background-color: white;
+            width: 300px;
+            border: 5px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
         }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,7 +27,14 @@
 
 <body>
     <center>
-        <h1>SELAMAT DATANG, </h1>
+        <div id="box">
+            <p style="color: tomato;">Peringatan!!! <br>Halaman ini hanya boleh diakses oleh pengguna dengan role admin.</p>
+        </div>
+        <br>
+        <h1>SELAMAT DATANG, ${dataUserLogin.nama}</h1>
+        <button id="logout" onclick="logout()">Logout</button>
+        <br>
+        <br>
         <table>
             <thead style="background-color:silver">
                 <tr>
@@ -34,11 +49,11 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td><input type="text" class="addtodo" /></td>
-                    <td><input type="number" class="addtodo" min="0" max="99999999999999" step="1000" >
+                    <td><input type="text" id="prod" class="additem" /></td>
+                    <td><input type="number" id="harg" class="additem" min="0" max="99999999999999" step="1000" >
                     </td>
-                    <td><input type="text" class="addtodo"></td>
-                    <td><button onclick="onAddItemClick()">TAMBAH DATA</button></td>
+                    <td><input type="text" id="imag" class="additem"></td>
+                    <td><button onclick="onAddItemClick(), document.getElementById('prod').value='', document.getElementById('harg').value='', document.getElementById('imag').value=''">TAMBAH DATA</button></td>
                 </tr>
             </tfoot>
         </table>
@@ -46,13 +61,6 @@
 
 </body>
 <script>
-    class Todo {
-        constructor(a, b, c) {
-            this.produk = a,
-            this.harga = b,
-            this.gambar = c
-        }
-    }
 
     class List {
             constructor(a, b, c) {
@@ -63,12 +71,6 @@
         }
 
     var listdata = [
-        new Todo('Mancing', 'Senin', 'https://explorewisata.com/wp-content/uploads/2018/12/asyiknya-mancing-ikan-di-kolam-pemancingan-ikan-mabuk-manding-malang.jpg'),
-        new Todo('Galau', 'Selasa', 'https://i0.wp.com/titikdua.net/wp-content/uploads/2018/07/Kata-kata-galau-patah-hati-800x533.jpg'),
-        new Todo('Kondangan', 'Jumat', 'https://awsimages.detik.net.id/community/media/visual/2019/03/18/226701be-86ea-4f48-a165-4a82c835539c_43.jpeg?w=700&q=90')
-    ]
-
-    var listdata1 = [
         new List('Cheetos', 4000, 'https://images-na.ssl-images-amazon.com/images/I/91Mduj3AZOL._SL1500_.jpg'),
         new List('Pringles', 10000, 'https://cdn.bmstores.co.uk/images/hpcProductImage/imgFull/327355-pringles-original-40g.jpg'),
         new List('Chitato', 5000, 'https://img10.jd.id/Indonesia/s746x746_/nHBfsgAAEwAAABYAEqa5qwABvAM.jpg.webp')
@@ -147,12 +149,13 @@
         indexedit = -1
         printData(listdata)
     }
+
     const onAddItemClick = () => {
-        var input = document.getElementsByClassName('addtodo')
+        var input = document.getElementsByClassName('additem')
         var produkbaru = input[0].value
         var hargabaru = input[1].value
         var imagebaru = input[2].value
-        listdata.push(new Todo(produkbaru, hargabaru, imagebaru))
+        listdata.push(new List(produkbaru, hargabaru, imagebaru))
         printData(listdata)
     }
 
