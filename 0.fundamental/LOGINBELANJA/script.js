@@ -38,7 +38,7 @@ const toRegister = () => {
         <br>
         <div id="box">
             <input type="text" id="nama" class="adduser" placeholder="Masukkan Username..."><br>
-            <input type="password" id="password" class="adduser" placeholder="Password...">
+            <input type="password" id="password" class="adduser" placeholder="Masukkan Password...">
             Kelamin : <input type="radio" name="sex" value="Pria"> Pria <input type="radio" name="sex"
             value="Wanita"> Wanita 
             <input type="text" id="mail" class="adduser" placeholder="Masukkan Email..."><br>
@@ -237,7 +237,7 @@ const bayar = () => {
         alert("Uang anda tidak cukup")
     } else if (document.getElementById("inputbayar").value >= sumArray(listcart)) {
         clearInterval(timer)
-        alert("Terima Kasih sudah belanja di toko kami. kembalian anda Rp. " + (document.getElementById("inputbayar").value - sumArray(listcart)))
+        alert("Terima Kasih sudah belanja di toko kami. Kembalian anda Rp. " + (document.getElementById("inputbayar").value - sumArray(listcart)))
         listcart = []
         document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
         document.getElementById('cart').innerHTML = ``
