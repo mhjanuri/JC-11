@@ -9,8 +9,7 @@ function fpb_kpk(x, y) {
     }
     let kpk = (a * b) / x
     // return x;
-    console.log("FPB " + a + " & " + b + " = " + x)
-    return console.log("KPK " + a + " & " + b + " = " + kpk)
+    return console.log("FPB " + a + " & " + b + " = " + x + "\nKPK " + a + " & " + b + " = " + kpk)
 }
 
 console.log(fpb_kpk(2, 3))
