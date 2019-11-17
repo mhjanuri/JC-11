@@ -38,10 +38,10 @@ const toRegister = () => {
         <br>
         <div id="box">
             <input type="text" id="nama" class="adduser" placeholder="Masukkan Username..."><br>
-            <input type="text" id="umur" class="adduser" placeholder="Masukkan Email..."><br>
-            Kelamin : <input type="radio" name="sex" value="Pria"> Pria <input type="radio" name="sex"
-                value="Wanita"> Wanita 
             <input type="password" id="password" class="adduser" placeholder="Password...">
+            Kelamin : <input type="radio" name="sex" value="Pria"> Pria <input type="radio" name="sex"
+            value="Wanita"> Wanita 
+            <input type="text" id="mail" class="adduser" placeholder="Masukkan Email..."><br>
             <br>
             <input type="submit" onclick="onRegisterUserClick()" value="Submit">
         </div>
@@ -52,7 +52,7 @@ const toRegister = () => {
 const onRegisterUserClick = () => {
     var input = document.getElementsByClassName("adduser")
     var namauser = input[0].value
-    var passworduser = input[2].value
+    var passworduser = input[1].value
     dataUser.push(new User(namauser, passworduser, 'user'))
     alert("Berhasil register. Kembali ke halaman utama")
     document.getElementById("container").innerHTML = `
@@ -229,7 +229,7 @@ function waktu() {
 }
 
 const checkout = () => {
-    document.getElementById('divbayar').innerHTML = `<input type="number" id="inputbayar" placeholder="Silakan bayar..."><button onclick="bayar()">Bayar</button>`
+    document.getElementById('divbayar').innerHTML = `<input type="number" min="0" max="99999999999999" step="1000" id="inputbayar" placeholder="Silakan bayar..."><button onclick="bayar()">Bayar</button>`
 }
 
 const bayar = () => {
