@@ -27,7 +27,7 @@ var listdata = [
     new List('Chitato', 5000, 'https://img10.jd.id/Indonesia/s746x746_/nHBfsgAAEwAAABYAEqa5qwABvAM.jpg.webp')
 ]
 
-var listCart = [
+var listcart = [
 
 ]
 
@@ -123,7 +123,7 @@ const toLogin = () => {
                 <p id="timer"></p>
             `
             printProduk(listdata)
-            printCart(listCart)         
+            printCart(listcart)         
         }
     } else {
         document.getElementsByTagName('h2')[0].innerHTML = `User tidak ditemukan atau Password salah`
@@ -144,9 +144,63 @@ const printProduk = (a) => {
     document.getElementsByTagName('tbody')[0].innerHTML = output
 }
 
+const printCart = (a) => {
+    var output = ''
+    var jumlah = 0
+    var totalcart = 0
+    a.forEach((val, index) => {
+        output += `<tr>
+                        <td>${val.produk}</td>
+                        <td>Rp. ${val.harga}</td>
+                        <td> <img src=${val.gambar} height='100px'/> </td>
+                        <td><button class="delete" onclick="onDeleteClick(${index})">Delete</button>              
+                    </tr>`
+        jumlah++
+        totalcart += val.harga
+    });
+    document.getElementsByTagName('tbody')[1].innerHTML = output
+    if (jumlah !== 0) {
+        document.getElementsByTagName('h1')[1].innerHTML = `Item belanja anda ada ${jumlah}`
+        document.getElementById('cart').innerHTML = `Total belanja anda sebesar Rp. ${totalcart}`
+        document.getElementById('divbayar').innerHTML = `<button onclick="checkout(),start()">Checkout</button>`
+    } else {
+        document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
+        document.getElementById('cart').innerHTML = ``
+    }
+}
+
+const onAddCartClick = (index) => {
+    var addCheck = confirm("Anda yakin mau beli " + listdata[index].produk + "?")
+    var head = ''
+    if (addCheck) {
+        head = `<tr>
+                        <td>Produk</td>
+                        <td>Harga</td>
+                        <td>gambar</td>
+                        <td>Action</td>
+                    </tr>`
+        document.getElementsByTagName('thead')[1].innerHTML = head
+        listcart.push(listdata[index])
+    }
+    printCart(listcart)
+}
+
+const onDeleteClick = (index) => {
+    var deleteCheck = confirm(`Anda yakin ingin menghapus ${listcart[index].produk}?`)
+    if (deleteCheck == true) {
+        if (listcart.length == 1) {
+            document.getElementsByTagName('thead')[1].innerHTML = ''
+            document.getElementById('divbayar').innerHTML = ''
+        }
+        listcart.splice(index, 1)
+    }
+    printCart(listcart)
+}
+
 const logout=()=>{
     var konfirmLogout = confirm("Anda yakin ingin Log Out?")
     if (konfirmLogout) {
+        listcart = []
         document.getElementById("container").innerHTML = `
                 <h1>Selamat datang di Shopeepedia</h1>
                 <h4 style="font-style: italic; color: grey;">Best E-Commerce in Indonesia</h4>

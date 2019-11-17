@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tikipidii</title>
+    <style>
+        tr,
+        td,
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-        <h1>Selamat Berbelanja, ${dataUserLogin.nama} </h1>
+    <center>
+        <h1>Aplikasi e-commerce sederhana</h1>
         <br>
         <table>
             <thead>
@@ -19,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-        
+
             </tbody>
         </table>
         <br>
@@ -28,16 +42,16 @@
         <br>
         <table>
             <thead>
-        
+
             </thead>
             <tbody>
-        
+
             </tbody>
         </table>
         <br>
         <div id="divbayar"></div>
         <p id="timer"></p>
-    
+    </center>
 </body>
 <script>
     class List {
@@ -57,7 +71,7 @@
 
     ]
 
-    const Printdata = (a) => {
+    const PrintProduk = (a) => {
         var output = ''
         a.forEach((val, index) => {
             output += `<tr>
@@ -70,9 +84,9 @@
         console.log(output)
         document.getElementsByTagName('tbody')[0].innerHTML = output
     }
-    Printdata(listdata)
+    PrintProduk(listdata)
 
-    const Printcart = (a) => {
+    const printCart = (a) => {
         var output = ''
         var jumlah = 0
         var totalcart = 0
@@ -96,7 +110,7 @@
             document.getElementById('cart').innerHTML = ``
         }
     }
-    Printcart(listcart)
+    printCart(listcart)
     const onAddCartClick = (index) => {
         var addCheck = confirm("Anda yakin mau beli " + listdata[index].produk + " ini?")
         var head = ''
@@ -110,7 +124,7 @@
             document.getElementsByTagName('thead')[1].innerHTML = head
             listcart.push(listdata[index])
         }
-        Printcart(listcart)
+        printCart(listcart)
     }
     const onDeleteClick = (index) => {
         var deleteCheck = confirm(`Anda yakin ingin menghapus ${listcart[index].produk}  ini?`)
@@ -122,7 +136,7 @@
             }
             listcart.splice(index, 1)
         }
-        Printcart(listcart)
+        printCart(listcart)
     }
     function sumArray(array) {
         var output = 0
@@ -174,6 +188,5 @@
         }
     }
 </script>
+
 </html>
-
-
