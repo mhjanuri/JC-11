@@ -87,7 +87,7 @@ const toLogin = () => {
         if (dataUserLogin.role == 'admin') {
             document.getElementById("container").innerHTML = `
                 <div id="box">
-                    <p style="color: tomato;">Peringatan!!! <br>Halaman ini hanya boleh diakses oleh pengguna dengan role admin.</p>
+                    <p style="color: tomato;">Peringatan!!! <br>Halaman ini hanya boleh diakses oleh pengguna dengan role admin. <br>Kalo bukan admin, ya gapapa juga sih.</p>
                 </div>
                 <br>
                 <h1>SELAMAT DATANG, ${dataUserLogin.nama}</h1>
@@ -108,10 +108,10 @@ const toLogin = () => {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><input type="text" id="prod" class="additem" /></td>
-                            <td><input type="number" id="harg" class="additem" min="0" max="99999999999999" step="1000" >
+                            <td><input type="text" id="prod" class="additem" placeholder="Nama produk baru..."></td>
+                            <td><input type="number" id="harg" class="additem" min="0" max="99999999999999" step="1000" placeholder="Harga baru...">
                             </td>
-                            <td><input type="text" id="imag" class="additem"></td>
+                            <td><input type="text" id="imag" class="additem" placeholder="URL gambar baru..."></td>
                             <td><button onclick="onAddItemClick(), document.getElementById('prod').value='', document.getElementById('harg').value='', document.getElementById('imag').value=''">TAMBAH DATA</button></td>
                         </tr>
                     </tfoot>
@@ -269,7 +269,7 @@ const bayar = () => {
         alert("Uang anda tidak cukup")
     } else if (document.getElementById("inputbayar").value >= sumArray(listcart)) {
         clearInterval(timer)
-        alert("Terima Kasih sudah belanja di toko kami. Kembalian anda Rp. " + (document.getElementById("inputbayar").value - sumArray(listcart)))
+        alert("Terima Kasih sudah belanja di toko kami. Kembalian anda Rp. " + (document.getElementById("inputbayar").value - sumArray(listcart)) + ",00")
         listcart = []
         document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
         document.getElementById('cart').innerHTML = ``
