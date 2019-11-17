@@ -7,27 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>list todo</title>
     <style>
-        tr,
-        td,
-        table {
-            border: 1px solid lightcoral;
+        tr,td,table{
+            border: 2px solid black;
             border-collapse: collapse;
-            padding: 10px
+            padding: 5px 30px;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
     <center>
-        <h1>Latihan Array of object</h1>
+        <h1>SELAMAT DATANG, </h1>
         <table>
-            <thead>
+            <thead style="background-color:silver">
                 <tr>
-                    <td>NO</td>
-                    <td>TODO</td>
-                    <td>HARI</td>
+                    <td>PRODUK</td>
+                    <td>HARGA</td>
                     <td>Gambar</td>
-                    <td>ACT</td>
+                    <td>ACTION</td>
                 </tr>
             </thead>
             <tbody>
@@ -35,36 +34,11 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td></td>
-                    <td><input oninput="onBtnSearchclick()" type="text" class="searchtodo" /></td>
-                    <td>
-                        <select oninput="onBtnSearchclick()" class="searchtodo">
-                            <option>Allday</option>
-                            <option> Senin</option>
-                            <option> Selasa</option>
-                            <option> Rabu</option>
-                            <option> Kamis</option>
-                            <option> Jumat</option>
-                        </select>
-                    </td>
-                    <td><button onclick="onBtnSearchclick()">Search</button> </td>
-                </tr>
-            </tfoot>
-            <tfoot>
-                <tr>
-                    <td></td>
                     <td><input type="text" class="addtodo" /></td>
-                    <td>
-                        <select class="addtodo">
-                            <option> Senin</option>
-                            <option> Selasa</option>
-                            <option> Rabu</option>
-                            <option> Kamis</option>
-                            <option> Jumat</option>
-                        </select>
+                    <td><input type="number" class="addtodo" min="0" max="99999999999999" step="1000" >
                     </td>
                     <td><input type="text" class="addtodo"></td>
-                    <td><button onclick="onAddTodoClick()">add</button></td>
+                    <td><button onclick="onAddItemClick()">TAMBAH DATA</button></td>
                 </tr>
             </tfoot>
         </table>
@@ -74,51 +48,56 @@
 <script>
     class Todo {
         constructor(a, b, c) {
-            this.kegiatan = a,
-                this.hari = b,
-                this.gambar = c
+            this.produk = a,
+            this.harga = b,
+            this.gambar = c
         }
     }
+
+    class List {
+            constructor(a, b, c) {
+                this.produk = a,
+                this.harga = b,
+                this.gambar = c
+            }
+        }
 
     var listdata = [
         new Todo('Mancing', 'Senin', 'https://explorewisata.com/wp-content/uploads/2018/12/asyiknya-mancing-ikan-di-kolam-pemancingan-ikan-mabuk-manding-malang.jpg'),
         new Todo('Galau', 'Selasa', 'https://i0.wp.com/titikdua.net/wp-content/uploads/2018/07/Kata-kata-galau-patah-hati-800x533.jpg'),
         new Todo('Kondangan', 'Jumat', 'https://awsimages.detik.net.id/community/media/visual/2019/03/18/226701be-86ea-4f48-a165-4a82c835539c_43.jpeg?w=700&q=90')
     ]
+
+    var listdata1 = [
+        new List('Cheetos', 4000, 'https://images-na.ssl-images-amazon.com/images/I/91Mduj3AZOL._SL1500_.jpg'),
+        new List('Pringles', 10000, 'https://cdn.bmstores.co.uk/images/hpcProductImage/imgFull/327355-pringles-original-40g.jpg'),
+        new List('Chitato', 5000, 'https://img10.jd.id/Indonesia/s746x746_/nHBfsgAAEwAAABYAEqa5qwABvAM.jpg.webp')
+    ]
+
+
     var indexedit = -1
     var inddexdel = -2
-    const Printdata = (a) => {
+    const printData = (a) => {
         var output = ''
         a.forEach((val, index) => {
             if (index == indexedit) {
                 output += `<tr>
-                            <td>${index + 1}</td>
-                            <td><input type="text" id="edittodo${index}"></td>
-                            <td>
-                                <select id="edithari${index}">
-                                    <option> Senin</option>
-                                    <option> Selasa</option>
-                                    <option> Rabu</option>
-                                    <option> Kamis</option>
-                                    <option> Jumat</option>
-                                </select>    
-                            </td>
+                            <td><input type="text" id="editproduk${index}"></td>
+                            <td><input type="number" id="editharga${index}" min="0" max="99999999999999" step="1000" ></td>
                             <td><input type="text" id="editimg${index}"></td>
                             <td><button onclick="cancel()">cancel</button><button onclick="save(${index})">save</button></td>
                         </tr>`
             } else if (index == inddexdel) {
                 output += `<tr>
-                            <td>${index + 1}</td>
-                            <td>${val.kegiatan}</td>
-                            <td>${val.hari}</td>
+                            <td>${val.produk}</td>
+                            <td>${val.harga}</td>
                             <td><img src=${val.gambar} height='100px'/></td>
                             <td><button onclick="cancelDel()">No</button><button onclick="confirmDel(${index})">Yes</button></td>
                         </tr>`
             } else {
                 output += `<tr>
-                            <td>${index + 1}</td>
-                            <td>${val.kegiatan}</td>
-                            <td>${val.hari}</td>
+                            <td>${val.produk}</td>
+                            <td>${val.harga}</td>
                             <td><img src=${val.gambar} height='100px'/></td>
                             <td><button onclick="hapus(${index})">delete</button><button onclick="edit(${index})">edit</button></td>
                         </tr>`
@@ -127,64 +106,54 @@
         });
         document.getElementsByTagName('tbody')[0].innerHTML = output
     }
-    Printdata(listdata)
+    printData(listdata)
 
     const hapus = (bebas) => {
         inddexdel = bebas
-        Printdata(listdata)
+        printData(listdata)
     }
     const cancelDel = () => {
         inddexdel = -2
-        Printdata(listdata)
+        printData(listdata)
     }
     const confirmDel = (bebas) => {
         listdata.splice(bebas, 1)
         inddexdel = -1
-        Printdata(listdata)
+        printData(listdata)
     }
     const edit = (bebas) => {
         indexedit = bebas
-        Printdata(listdata)
+        printData(listdata)
     }
 
     const cancel = () => {
         indexedit = -1
-        Printdata(listdata)
+        printData(listdata)
     }
 
-
     const save = (bebas) => {
-        var newtodo = document.getElementById(`edittodo${bebas}`).value
-        var newhari = document.getElementById(`edithari${bebas}`).value
+        var newproduk = document.getElementById(`editproduk${bebas}`).value
+        var newharga = document.getElementById(`editharga${bebas}`).value
         var newimg = document.getElementById(`editimg${bebas}`).value
-        console.log(newtodo, newhari, newimg)
-        if (newtodo) {
-            listdata[bebas].kegiatan = newtodo
+        if (newproduk) {
+            listdata[bebas].produk = newproduk
         }
-        if (newhari !== listdata[bebas].hari) {
-            listdata[bebas].hari = newhari
+        if (newharga !== listdata[bebas].harga) {
+            listdata[bebas].harga = newharga
         }
         if (newimg) {
             listdata[bebas].gambar = newimg
         }
         indexedit = -1
-        Printdata(listdata)
+        printData(listdata)
     }
-    const onAddTodoClick = () => {
+    const onAddItemClick = () => {
         var input = document.getElementsByClassName('addtodo')
-        var todobaru = input[0].value
-        var haribaru = input[1].value
+        var produkbaru = input[0].value
+        var hargabaru = input[1].value
         var imagebaru = input[2].value
-        listdata.push(new Todo(todobaru, haribaru, imagebaru))
-        Printdata(listdata)
-    }
-    const onBtnSearchclick = () => {
-        var input = document.getElementsByClassName("searchtodo")
-        var namasearch = input[0].value
-        var hariSearch = input[1].value
-        var newarr = listdata.filter((val) => val.kegiatan.toLowerCase().startsWith(namasearch.toLowerCase()) && (val.hari.toLowerCase().startsWith(hariSearch.toLowerCase()) || hariSearch == 'Allday'))
-        // console.log(newarr)
-        Printdata(newarr)
+        listdata.push(new Todo(produkbaru, hargabaru, imagebaru))
+        printData(listdata)
     }
 
 </script>

@@ -9,8 +9,8 @@ class User {
 class List {
     constructor(a, b, c) {
         this.produk = a,
-            this.harga = b,
-            this.gambar = c
+        this.harga = b,
+        this.gambar = c
     }
 }
 
