@@ -39,7 +39,7 @@ const toRegister = () => {
         <br>
         <div id="box">
             <input type="text" id="nama" class="adduser" placeholder="Masukkan Username..."><br>
-            <input type="number" id="umur" class="adduser" placeholder="Masukkan Umur..."><br>
+            <input type="text" id="umur" class="adduser" placeholder="Masukkan Email..."><br>
             Kelamin : <input type="radio" name="sex" value="Pria">Pria<input type="radio" name="sex"
                 value="Wanita">Wanita
             <input type="password" id="password" class="adduser" placeholder="Password...">
@@ -65,7 +65,7 @@ const onRegisterUserClick = () => {
                 <br>
                 Username : <input type="text" id="username" /> <br>
                 Password : <input type="password" id="password" /> <br><br>
-                <button onclick="register()">Register</button> <button onclick="login()">Login</button><br><br>
+                <button onclick="register()">Register</button> <button onclick="toLogin()">Login</button><br><br>
             </div>
             <h2></h2>
         `
@@ -90,6 +90,8 @@ const toLogin = () => {
         } else {
             document.getElementById("container").innerHTML = `
                 <h1>Selamat Berbelanja, ${dataUserLogin.nama} </h1>
+                <button id="logout" onclick="logout()">Logout</button>
+                <br>
                 <br>
                 <table>
                     <thead>
@@ -143,7 +145,7 @@ const printProduk = (a) => {
 }
 
 const logout=()=>{
-    var konfirmLogout = confirm("Anda yakin ingin Logout?")
+    var konfirmLogout = confirm("Anda yakin ingin Log Out?")
     if (konfirmLogout) {
         document.getElementById("container").innerHTML = `
                 <h1>Selamat datang di Shopeepedia</h1>
@@ -154,7 +156,7 @@ const logout=()=>{
                     <br>
                     Username : <input type="text" id="username" /> <br>
                     Password : <input type="password" id="password" /> <br><br>
-                    <button onclick="register()">Register</button> <button onclick="login()">Login</button><br><br>
+                    <button onclick="toRegister()">Register</button> <button onclick="toLogin()">Login</button><br><br>
                 </div>
                 <h2></h2>
             `    
