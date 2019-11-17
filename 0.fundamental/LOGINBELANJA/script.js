@@ -224,11 +224,14 @@ function waktu() {
         document.getElementById('divbayar').innerHTML = ''
         document.getElementById('timer').innerHTML = ''
         time = 30
+        clearInterval(timer)
     }
 }
+
 const checkout = () => {
     document.getElementById('divbayar').innerHTML = `<input type="number" id="inputbayar" placeholder="Silakan bayar..."><button onclick="bayar()">Bayar</button>`
 }
+
 const bayar = () => {
     if (document.getElementById("inputbayar").value < sumArray(listcart)) {
         alert("Uang anda tidak cukup")
@@ -243,6 +246,7 @@ const bayar = () => {
         document.getElementById('divbayar').innerHTML = ''
         document.getElementById('timer').innerHTML = ''
         time = 30
+        clearInterval(timer)
     }
 }
 
@@ -250,7 +254,8 @@ const logout=()=>{
     var konfirmLogout = confirm("Anda yakin ingin Log Out?")
     if (konfirmLogout) {
         listcart = []
-        timer = 30
+        time = 30
+        clearInterval(timer)
         document.getElementById("container").innerHTML = `
                 <h1>Selamat datang di Shopeepedia</h1>
                 <h4 style="font-style: italic; color: grey;">Best E-Commerce in Indonesia</h4>
