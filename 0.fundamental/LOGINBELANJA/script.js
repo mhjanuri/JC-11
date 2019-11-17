@@ -14,7 +14,6 @@ class List {
     }
 }
 
-
 var dataUser = [
     new User('admin', '123', 'admin'),
     new User('hendri', '123', 'user'),
