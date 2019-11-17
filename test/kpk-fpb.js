@@ -14,7 +14,7 @@
 //     return gcd(a, b - a);
 // }
 
-function gcd(x,y) {
+function fpb(x,y) {
     let a=x
     let b=y
     while (y) {
@@ -28,6 +28,6 @@ function gcd(x,y) {
     
 // var a = 2
 // var b = 3
-// console.log("FPB of " + a + " and " + b + " is " + gcd(a, b))
-console.log(gcd(2,3))
+// console.log("FPB of " + a + " and " + b + " is " + fpb(a, b))
+console.log(fpb(2,3))
 
