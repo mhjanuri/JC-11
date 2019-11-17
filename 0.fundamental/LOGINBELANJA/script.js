@@ -197,10 +197,61 @@ const onDeleteClick = (index) => {
     printCart(listcart)
 }
 
+function sumArray(array) {
+    var output = 0
+    for (i = 0; i < array.length; i++) {
+        output += array[i]["harga"]
+    }
+    return output
+}
+
+var time = 30
+var timer
+function start() {
+    time = time + 1
+    timer = setInterval(waktu, 1000)
+}
+function waktu() {
+    time -= 1
+    document.getElementById("timer").innerHTML = `waktu tersisa ${time}`
+    if (time < 0) {
+        clearInterval(timer)
+        alert("Waktu checkout habis...")
+        listcart = []
+        document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
+        document.getElementById('cart').innerHTML = ``
+        document.getElementsByTagName('thead')[1].innerHTML = ''
+        document.getElementsByTagName('tbody')[1].innerHTML = ''
+        document.getElementById('divbayar').innerHTML = ''
+        document.getElementById('timer').innerHTML = ''
+        time = 30
+    }
+}
+const checkout = () => {
+    document.getElementById('divbayar').innerHTML = `<input type="number" id="inputbayar" placeholder="Silakan bayar..."><button onclick="bayar()">Bayar</button>`
+}
+const bayar = () => {
+    if (document.getElementById("inputbayar").value < sumArray(listcart)) {
+        alert("Uang anda tidak cukup")
+    } else if (document.getElementById("inputbayar").value >= sumArray(listcart)) {
+        clearInterval(timer)
+        alert("Terima Kasih sudah belanja di toko kami. kembalian anda Rp. " + (document.getElementById("inputbayar").value - sumArray(listcart)))
+        listcart = []
+        document.getElementsByTagName('h1')[1].innerHTML = `Keranjang masih kosong`
+        document.getElementById('cart').innerHTML = ``
+        document.getElementsByTagName('thead')[1].innerHTML = ''
+        document.getElementsByTagName('tbody')[1].innerHTML = ''
+        document.getElementById('divbayar').innerHTML = ''
+        document.getElementById('timer').innerHTML = ''
+        time = 30
+    }
+}
+
 const logout=()=>{
     var konfirmLogout = confirm("Anda yakin ingin Log Out?")
     if (konfirmLogout) {
         listcart = []
+        timer = 30
         document.getElementById("container").innerHTML = `
                 <h1>Selamat datang di Shopeepedia</h1>
                 <h4 style="font-style: italic; color: grey;">Best E-Commerce in Indonesia</h4>
