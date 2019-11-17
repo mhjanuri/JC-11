@@ -65,7 +65,7 @@ const onRegisterUserClick = () => {
                 <br>
                 Username : <input type="text" id="username" /> <br>
                 Password : <input type="password" id="password" /> <br><br>
-                <button onclick="register()">Register</button> <button onclick="toLogin()">Login</button><br><br>
+                <button onclick="toRegister()">Register</button> <button onclick="toLogin()">Login</button><br><br>
             </div>
             <h2></h2>
         `
