@@ -11,7 +11,6 @@ const lelang = (a) => {
             var discount20 = harga * (20/100)
             harga = harga + discount20
             menit++
-            
         }
     }
 
