@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MADING</title>
+    <link rel='icon'
+        href='data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAARIphAEmMUwAGAAAAP41ZAD+MXABBjFwARY1ZABEiFABCi18A9PPyAP/9/wBDdlAAPo1aAECNWgBBjVoAT49lADt/WQD/OwcAOZBbAPxEDwACAwIA/0YBAEwYBgA4V6EANlmkADuOWQAtYTsA/v7+AECNZAA/jlkAOFeqADt7VQA0WqIAR2ibAPr+/wA7jloAPI5aAECPVwAGCAYA//7/AEeUYgD/QQkAPJBVAIAvGABBXJ0AQXtWAEiJYABEiFsAPpJYADBhoQA4kFYASYlhAP3//gDz+/EAQolqAEyPYQBAWpwAR2GIAD+KVwBKfF0ARHxVAPr//wD///8AQoxaAEWMWgBKc14AQ4dgAE+FXQBHi10AN5BYAEKFXgD9/PgANVmhAEWIXgBIk2AAQIhWACVjOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqFhQXPTgFEiM/Pz8/AAAALEoNBg0NGiYrKD4/PwAAAA0NNDcwOhk5LSEfPz8AAAANDQ0YMkkNDUACIhw/AAAADQ0NDQ0ODQ0ODQ8/PwAAACUNDQ0NJA0eEEc1Pz8AAAAvDQ0zHQMVEQ0nCA0/AAAACyANLkM/PzZCCj8NPwAAAD9IBw5BDQ1LAQ07Pz8AAAA/P0QpG01MEwQxPz8/AAAAPz8cPEZFIwwJPz8/PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD//wAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAD//wAA//8AAP//AAA='
+        type='image/x-icon' />
+    <style>
+        tr,
+        td,
+        table {
+            background-color: white;
+            border: 2px solid tomato;
+            border-collapse: collapse;
+            padding: 5px 10px;
+        }
+
+        div[id="box"] {
+            background-color: white;
+            width: 300px;
+            border: 5px solid black;
+            padding: 10px;
+            margin: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="container">
+            <h1>Madding</h1>
+            <div id="box">
+                <br>
+                Username : <input type="text" id="username" /> <br><br>
+                Password : <input type="password" id="password" /> <br><br>
+                <button onclick="toLogin()">Login</button><br>
+            </div>
+            <h2></h2>
+        </div>
+        <div>
+            <table id="table">
+                <thead style="background-color:silver">
+                    <tr>
+                        <td>No</td>
+                        <td>Kegiatan</td>
+                        <td>Hari</td>
+                        <td>Poster</td>
+                        <td>Act</td>
+                    </tr>
+                </thead>
+                <tbody id="body">
+
+                </tbody>
+                <tfoot id="foot">
+
+                </tfoot>
+            </table>
+        <h3></h3>
+        <p></p>
+        </div>
+    </center>
+    <script src="mading.js"></script>
+</body>
+
+</html>

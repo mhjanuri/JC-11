@@ -231,7 +231,7 @@ const jumlahHarga=(k)=> {
 var output=0 
 for (i=0;i<k.length;i++) {
     output+=k[i]['harga']
-}
+    }
 return output
 }
 
