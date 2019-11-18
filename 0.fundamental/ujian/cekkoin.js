@@ -6,12 +6,12 @@ function cekkoin(koin) {
         sisa = koin % 25;
         koin = sisa;
     }
-    if (koin % .1 < koin) {
+    if (koin % 10 < koin) {
         sum  += parseInt(koin / 10);
         sisa = koin % 10;
         koin = sisa;
     }
-    if (koin % .05 < koin) {
+    if (koin % 5 < koin) {
         sum += parseInt(koin / 5);
         sisa = koin % 5;
         koin = sisa;
