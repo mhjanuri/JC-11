@@ -1,6 +1,6 @@
 * {
     font-family: 'Varela Round', sans-serif;
-    
+    margin: 0;
 }
 
 .container {
@@ -10,29 +10,31 @@
 .container-side {
     display: flex;
     flex-direction: row;
-    width: 100%;
+
 }
 
 .headfoot {
-    color: whitesmoke;
+    color: #ffffff;
     background-color: #4a7337;
-    padding: 10px;
     width: 100%;
-    height: 100px;
+    height: 134px;
 }
 
 .sidebar {
     color: black;
     background-color:#ddd48f;
-    margin: 0%;
-    padding: 10px;
-    width: 200px;
-    height: 100%;
+    width: 50%;
+    height: 700px;
 }
 
 .content {
-    color: whitesmoke;
+    color: #ffffff;
     background-color: #704012;
-    padding: 10px;
-    height: 100%;
+    width: max-content;
+    height: 700px;
+}
+
+h1, h2, p {
+    padding-left: 20px;
+    padding-top: 20px;
 }
