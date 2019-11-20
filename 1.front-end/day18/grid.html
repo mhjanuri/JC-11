@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="box1">
+            <div class="num">1</div>
+        </div>
+        <div class="box2">
+            <div class="num">2</div>
+        </div>
+        <div class="box1">
+            <div class="num">3</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box2">
+            <div class="num">4</div>
+        </div>
+        <div class="box1">
+            <div class="num">5</div>
+        </div>
+        <div class="box2">
+            <div class="num">6</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box1">
+            <div class="num">7</div>
+        </div>
+        <div class="box2">
+            <div class="num">8</div>
+        </div>
+        <div class="box1">
+            <div class="num">9</div>
+        </div>
+    </div>
+</body>
+<style>
+
+    * {
+        margin: 0px;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .box1 {
+        background-color: #57a99a;
+        /* flex-grow: 1; */
+        width: 33.33%;
+        height: 100px;
+        text-align: center;
+    }
+
+    .box1:hover {
+        background-color: #ecf4f3;
+        color: grey;
+    }
+
+    .box2 {
+        background-color: #d1eecc;
+        /* flex-grow: 1; */
+        width: 33.33%;
+        height: 100px;           
+        text-align: center;
+    }
+
+    .box2:hover {
+        background-color: #76dbd1;
+        color: white;
+    }
+
+    .num {
+        padding-top: 40px;
+    }
+
+</style>
+</html>
