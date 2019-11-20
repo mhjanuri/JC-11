@@ -23,21 +23,27 @@
 .sidebar {
     color: black;
     background-color:#ddd48f;
-    width: 20%;
     height: 70vh;
+    width: 25%;
 }
 
 .content {
     color: #ffffff;
     background-color: #704012;
-    width: 80%;
     height: 70vh;
+    width: 75%;
     overflow: hidden;
 }
 
 .content:hover {
     overflow: auto;
 }
+
+.content > p {
+    padding-left: 30px;
+    text-align: justify;
+}
+
 
 h1, h2, p {
     padding: 20px;
