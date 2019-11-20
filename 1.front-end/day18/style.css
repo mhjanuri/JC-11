@@ -14,6 +14,7 @@ font-family: 'Cabin', sans-serif;
 .headfoot {
     color: aliceblue;
     background-color: grey;
+    padding: 10px;
     width: 100%;
     height: 100px;
 }
@@ -22,13 +23,15 @@ font-family: 'Cabin', sans-serif;
     color: black;
     background-color:silver;
     margin: 0%;
-    width: 200px;
-    height: 100%;
+    padding: 10px;
+    width: 220px;
+    height: 70vh;
 }
 
 .content {
     color: black;
     background-color: wheat;
+    padding: 10px;
     width: 100%;
-    height: 100%;
+    height: 70vh;
 }
