@@ -21,6 +21,7 @@ body {
     color: var(--text-color);
     background-color: var(--latar-color);
     padding: 20px 40px;
+    height: 80px;
     display: flex;
     position: absolute;
     top: 0;
@@ -86,11 +87,10 @@ body {
 /* Header end */
 /* jumbotron start */
 .jumbotron1-container {
-    height: 120vh;
+    height: 100vh;
     background-color: var(--latar-color);
     padding-top: 88px;
     color: white;
-    /* margin-top: 83px; */
 }
 .jumbotron1-component{
     padding-top: 70px;
@@ -99,6 +99,7 @@ body {
     text-align: center;
     font-family: 'Overpass', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 56px;
+    font-weight: 1000;
     line-height: 56px;
 }
 .jumbotron1-textsecond {
@@ -124,6 +125,13 @@ body {
 .jumbotron1-btn {
     display: flex;
     justify-content: center;
+}
+
+.jumbotron2-container {
+    height: 100vh;
+    background-color: white;
+    padding-top: 88px;
+    color: white;
 }
 /* jumbotron end */
 /* For tablet display start */
