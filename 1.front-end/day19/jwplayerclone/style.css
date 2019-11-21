@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+/* div {
+    border: 1px orange solid;
+} */
+:root {
+    --ukuran-font: 16px;
+    --latar-color: #0B1124;
+    --tombol-color: #EB0E5B;
+    --text-color: white;
+}
+body {
+   font-family: 'Lato','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+
+/* Header start */
+.header-container {
+    font-size: var(--ukuran-font);
+    color: var(--text-color);
+    background-color: var(--latar-color);
+    padding: 20px 40px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.brand-container {
+    margin-right: 30px;
+}
+.menu-container {
+    padding-top: 12px;
+    display: flex;
+}
+.menu {
+    margin-right: 20px;
+    font-weight: 100;
+}
+.menu:hover {
+    color: var(--tombol-color);
+    cursor: pointer;
+    transition: 1000ms;
+}
+.menu span {
+    font-size: 12px;
+    padding-left: 5px;
+}
+.menukanan-container {
+    margin-left: auto;
+    padding-top: 0px;
+    display: flex;
+}
+.menukanan-container .signin {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.menumakanan-container .signin:hover {
+    color: var(--tombol-color);
+    cursor: pointer;
+    transition: 1000ms;
+}
+.menukanan-container .getstarted {
+    border: 2px solid var(--tombol-color);
+    width: 130px;
+    font-size: 15px;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 0px;
+}
+.getstarted span {
+    color: var(--tombol-color);
+    margin-left: 10px;
+    font-size: 12px;
+}
+.bars-container{
+    display: none;
+}
+.brand {
+    height: 43px;
+    width: 115px;
+}
+/* Header end */
+/* jumbotron start */
+.jumbotron1-container {
+    height: 120vh;
+    background-color: var(--latar-color);
+    padding-top: 88px;
+    color: white;
+    /* margin-top: 83px; */
+}
+.jumbotron1-component{
+    padding-top: 70px;
+}
+.jumbotron1-textbig {
+    text-align: center;
+    font-family: 'Overpass', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 56px;
+    line-height: 56px;
+}
+.jumbotron1-textsecond {
+    text-align: center;
+    font-family: 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24px;
+    line-height: 38.4px;
+}
+.button-container {
+    border: 2px solid var(--tombol-color);
+    width: 130px;
+    font-size: 18px;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 20px;
+    margin-top: 10px;
+    background-color: var(--tombol-color);
+}
+.jumbotron1-btn {
+    display: flex;
+    justify-content: center;
+}
+/* jumbotron end */
+/* For tablet display start */
+@media only screen and (max-width: 1200px) {
+    .menu-container {
+        display: none;
+    }
+    .brand {
+        height: 35px;
+        width: 90px;
+    }
+    .header-container {
+        padding: 10px 40px;
+    }
+    .bars-container {
+        display: block;
+        margin-left: auto;
+        margin-top: 5px;
+        font-size: 25px;
+    }
+    .menukanan-container {
+        display: none;
+    }
+}
+/* for tablet end */
