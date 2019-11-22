@@ -2,7 +2,22 @@
     margin: 0;
     padding: 0;
 }
-
+/* div {
+    border: orange 1px solid;
+} */
 .kartu {
     border-radius: 10px;
+}
+.gambar:hover {
+    transform: scale(1.1);
+    border-radius: 10px;
+
+}
+.gambar {
+    border-radius: 10px;
+    transition: ;
+}
+.gambaar1 {
+    border-radius: 10px;
+    overflow: hidden;
 }
