@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+/* div{
+    border:1px solid orange;
+} */
 :root{
     --ukuran-font:16px;
     --latar-color:#0c1328;
@@ -11,9 +14,6 @@
 body{
     font-family: 'Lato','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-/* div{
-    border:1px solid yellow;
-} */
 /* header start */
 .header-container{
     font-size: var(--ukuran-font);
@@ -84,7 +84,7 @@ body{
 /* jumbotron1 start */
 .jumbotron1-container{
     height: 120vh;
-    background-color: var(--latar-color);
+    background: linear-gradient(to bottom, #0b1124 0%, #12244c 100%);
     padding-top: 88px;
     color: white;
 }
@@ -126,8 +126,8 @@ body{
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .image-container .image-component {
@@ -135,9 +135,14 @@ body{
     width: 750px;
     z-index: 1;
 }
+
+.imgmobil {
+    border-radius: 15px;
+}
 /* jumbotron1 end */
 .jumbotron2-container {
     height: 800px;
+    background-color: white;
   }
 
 
@@ -157,7 +162,7 @@ body{
 
 
 
-/* for tablet stasrt */
+/* for tablet start */
 @media only screen and (max-width:1200px){
     .menu-kontainer{
         display: none;
