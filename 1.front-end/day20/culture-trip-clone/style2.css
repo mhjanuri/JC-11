@@ -15,7 +15,7 @@
 }
 .gambar {
     border-radius: 10px;
-    transition: 700ms;
+    transition: 350ms;
 }
 .gambaar1 {
     border-radius: 10px;
@@ -35,12 +35,60 @@ main {
 }
 .right-header {
     justify-content: right;
+    display: flex;
+    height: 35px;
+    font-size: 14px;
 }
-
+.sections-menu{
+    color: white;
+    font-weight: 500;
+    margin: 7px 5px;
+    padding: 0px 5px;
+    cursor: pointer;
+}
+.signup-btn {
+    margin: 0px;
+    font-size: 14px;
+    opacity: 50%;
+    font-weight: 500;
+}
+.signup-btn:hover {
+    opacity: 80%;
+}
 .container-header ul img {
     width: 210px;
 }
-
+.title-box {
+    text-align: center;
+    height: 161px;
+}
+.title1{
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 8px #a0a0a0;
+    font-weight: bold;
+    font-size: 48px;
+}
+.search-box {
+    border: white;
+    background-color: white;
+    margin: auto;
+    margin-top: 40px;
+    padding: 0px;
+    height: 58px;
+    width: 508px;
+}
+.search1 {
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+.inputsearch {
+    border: transparent;
+    margin-right: 70px;
+    height: 55px;
+    width: 368px;
+}
 .sectionbody {
     margin: 25px 300px;
 }
@@ -60,4 +108,9 @@ main {
     background-position: center center;
     padding: 0;
     margin: 0;
+    border-radius: 0px;
+}
+
+.container-body {
+    height: 100vh;
 }
