@@ -7,6 +7,7 @@
 } */
 .kartu {
     border-radius: 10px;
+    border: transparent;
 }
 .gambar:hover {
     transform: scale(1.1);
