@@ -529,6 +529,58 @@ li {
 
 /* Responsive Tablet */
 
+/* ERROR 404 start*/
+#myVideo404 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content-404 {
+    position: fixed;
+    color: black;
+    width: 100%;
+    margin-top: 30vh;
+    padding: 1px;
+    text-align: center;
+
+}
+
+.center-box-404 {
+    display: inline-block;
+    padding: 30px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 8px;
+    width: 530px;
+    text-align: center;
+}
+
+.myBtn404 {
+    color: white; 
+    width: 134px;
+    font-size: 16px;
+    padding: 13px 32px 13px 29px;
+    border: none;
+    border-radius: 30px;
+    background: #EB064C;
+    cursor: pointer;
+}
+
+.myBtn404:hover {
+    background: #EB105E;
+}
+
+.link-myBtn404 {
+    text-decoration: none;
+    color: white;
+
+}
+
+/* ERROR 404 end */
+
 @media only screen and (max-width:1200px) {
     .nav-left  {
         display: none;
