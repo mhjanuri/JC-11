@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.section1 {
+    background: linear-gradient(180deg,#0b1124,#12244d);
+
+    height: 900px;
+    width: 100%;
+    
+   
+}
+
+
+:root { 
+    --ukuran-font: 16px;
+    --warna-tombol: #ec0041 ;
+    --warna-text: white;
+}
+
+body {
+    font-family: Lato,Trebuchet MS,Arial,sans-serif;
+}
+
+div {
+    border: 1px solid transparent;
+}
+
+
+li {
+    list-style-type: none;
+}
+
+.menu:hover {
+    cursor: pointer;
+    color: red;
+    
+}
+
+.menu1:hover {
+    cursor: pointer;
+    border: 2px solid whitesmoke;
+    
+}
+.navigation {
+    font-size: var(--ukuran-font);
+    color: var(--warna-text);
+    padding: 20px 50px;
+    display: flex;
+}
+
+.nav-menu {
+    padding-left: 20px;
+    padding-top: 16px;
+    
+   
+}
+
+.nav-logo > img {
+    height : 53px; 
+    width : 115px;
+}
+.nav-logo {
+    margin-right: 15px;
+}
+.nav-sign {
+    margin-left: auto;
+}
+
+.nav-left {
+    display: flex;
+    padding-right: 10px;
+}
+
+.nav-left > li {
+    padding-right: 25px;
+    font-weight: 300;
+}
+
+.nav-right {
+    display: flex;
+    padding-top: 5px;
+    
+}
+
+.nav-right > li {
+    padding-top: 13px;
+    padding-right: 25px;
+}
+
+.get-started {
+    border: 2px solid #ec0041;
+    border-radius: 20px;
+    width: 110px;
+    padding: 15px 25px ;
+   
+    
+}
+
+.bars-mobile {
+    display: none;
+}
+
+
+/* Jumbroton Section */
+
+.jumbroton {
+    background-color: transparent;
+    width: 100%;
+    height: 120vh;
+}
+
+.heading1 {
+    text-align: center;
+}
+
+.heading1 > h1 {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 55px;
+    font-weight: 900;
+    margin-top: 80px;
+    color: white;
+}
+
+.heading1 > p {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: 100;
+    color: white;
+}
+
+.buttonstarted  {
+   border: 1px solid#ec0041;
+   font-size: 20px;
+   margin-top: 20px;
+   background-color: #ec0041;
+   border-radius: 25px;
+   padding: 15px 30px;
+   color: whitesmoke;
+}
+
+.buttonstarted:hover {
+    cursor: pointer;
+   border: 1px solid#ffffff;
+   font-size: 20px;
+   margin-top: 20px;
+   background-color: red;
+   border-radius: 25px;
+   padding: 15px 30px;
+   color: #ffffff;
+   font-size: 20px;
+}
+
+.imgOne > img {
+    width: 750px;
+    padding-top: 100px;
+}
+
+.imgTwo > img {
+    width: 300px;
+    padding-top: 60px;
+}
+
+
+.imgFour > img {
+    width: 300px;
+    padding-top: 60px;
+    padding-left: 40px;
+}
+
+.imgMiddle {
+    position: absolute;
+}
+
+.imgOne {
+    transform: translate(50%,0); 
+    position: absolute; z-index: 1;
+    box-shadow: 10px 20px 70px -15px rgba(44,44,56,.2);   
+}
+
+.imgTwo {
+
+    position: absolute; z-index: 2;
+    transform: translate(310%,0); 
+}
+
+.imgThree {
+
+    position: absolute; z-index: 3;
+    transform: translate(310%,0); 
+    padding-top: 150px;
+}
+
+.imgFour {
+    position: absolute; z-index: 4;
+    transform: translate(50%,0); 
+    padding-top: 150px;
+}
+
+
+/* END Jumbroton Section */
+
+/* Start LOGO Section */
+
+.bodyDua {
+    margin-top: 350px;
+    margin-bottom: 180px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.imageLogo {
+    padding: 25px;
+}
+
+.imageLogo3 {
+    padding: 20px;
+}
+
+#imageLogo4 > img {
+    width: 90px;
+    padding: 0;
+}
+
+#imageLogo9 > img{
+    width: 90px;
+}
+
+.imageLogo4 {
+    padding: 15px;
+}
+
+.imageLogo > img {
+    width: 150px;
+}
+
+
+/* End LOGO Section */
+
+
+/* Start Body Tiga */
+
+.bodyTiga {
+    margin-left: 100px;
+    margin-bottom: 90px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.tigaKanan {
+    transform: translate(18%,0); 
+}
+.tigaKanan > img {
+    width: 900px;
+}
+
+.tigaKiri {
+    width: 500px;
+    margin-left: 100px;
+}
+
+.tigaKiri > h1 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    color: grey;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.tigaKiri > h3 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 55px;
+    padding-top: 20px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+.tigaKiri > p {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    padding-top: 20px;
+    font-size: 21px;
+    text-align: left;
+    line-height: 1.8;
+    font-weight: 100;
+    color: black;
+}
+
+
+
+/* Ending Body TIga */
+
+/* Start Body Empat */
+
+
+.bodyEmpat {
+    margin-left: 100px;
+    margin-bottom: 90px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.empatKiri {
+    transform: translate(-30%);
+    padding-right: 50px;
+}
+
+.empatKiri > img {
+    width: 900px;
+    filter: drop-shadow(10px 20px 55px rgba(47,53,66,.3)) drop-shadow(5px 10px 15px rgba(47,53,66,.1));
+}
+
+.empatKanan {
+    transform: translate(-50%);
+    padding-top: 50px;
+    width: 500px;
+}
+
+
+.empatKanan > h1 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    color: grey;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.empatKanan > h3 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 55px;
+    padding-top: 20px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+.empatKanan > p {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    padding-top: 20px;
+    font-size: 21px;
+    text-align: left;
+    line-height: 1.8;
+    font-weight: 100;
+    color: black;
+}
+/* Ending Body Empat */
+
+/* Start Body Lima */
+
+.bodyLima {
+    margin-left: 100px;
+    margin-bottom: 90px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.limaKanan {
+    transform: translate(18%,0); 
+}
+.limaKanan > img {
+    width: 900px;
+}
+
+.limaKiri {
+    width: 500px;
+    margin-left: 100px;
+}
+
+.limaKiri > h1 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    color: grey;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.limaKiri > h3 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 55px;
+    padding-top: 20px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+.limaKiri > p {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    padding-top: 20px;
+    font-size: 21px;
+    text-align: left;
+    line-height: 1.8;
+    font-weight: 100;
+    color: black;
+}
+
+/* Ending Body Lima */
+
+/* Start Body Enam */
+
+
+.bodyEnam {
+    margin-left: 100px;
+    margin-bottom: 120px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.enamKiri {
+    transform: translate(-30%);
+    padding-right: 50px;
+}
+
+.enamKiri > img {
+    width: 900px;
+    filter: drop-shadow(10px 20px 55px rgba(47,53,66,.3)) drop-shadow(5px 10px 15px rgba(47,53,66,.1));
+}
+
+.enamKanan {
+    transform: translate(-50%);
+    padding-top: 50px;
+    width: 500px;
+}
+
+
+.enamKanan > h1 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    color: grey;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.enamKanan > h3 {
+    
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    font-size: 55px;
+    padding-top: 20px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+.enamKanan > p {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    padding-top: 20px;
+    font-size: 21px;
+    text-align: left;
+    line-height: 1.8;
+    font-weight: 100;
+    color: black;
+}
+/* Ending Body Enam */
+
+/* Ending Footer */
+.elemen {
+    background-image: url(img/footerimg.svg);
+    background-size: cover;
+    height: 420px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.elemen > h2 {
+    padding-top: 100px;
+    font-family: Lato,Trebuchet MS,Arial,sans-serif;
+    font-size: 40px;
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+.elemen > h4 {
+    padding-top: 20px;
+    font-family: Lato,Trebuchet MS,Arial,sans-serif;
+    font-size: 30px;
+    color: whitesmoke;
+    font-weight: 300;
+    line-height: 1.4;
+}
+.elemenbawah {
+    height: 70px;
+    background-color: #21252e;
+    display: flex;
+    flex: row wrap;
+    color: whitesmoke;
+    font-weight: 400;
+    font-family: Lato,Trebuchet MS,Arial,sans-serif;
+    font-size: 15px;
+}
+.logobawah > img {
+    padding-top: 17px;
+    padding-left: 0px;
+    padding-right: 80px;
+    width : 115px;
+}
+.copyright {
+    padding-top: 30px;
+}
+
+.policy {
+    padding-top: 30px;
+    margin-left: auto;
+    padding-right: 60px;
+}
+
+.elemen > h2, h4 {
+    font-family: Overpass,Trebuchet MS,Arial,sans-serif;
+    text-align: center;
+}
+
+/* Ending Footer */
+
+/* Responsive Tablet */
+
+@media only screen and (max-width:1200px) {
+    .nav-left  {
+        display: none;
+
+    }
+
+    .nav-sign {
+        display: none;
+    }
+
+    .bars-mobile {
+        display: block;
+        margin-left: auto;
+        padding-top: 20px;
+        font-size: 25px;
+    }
+}
