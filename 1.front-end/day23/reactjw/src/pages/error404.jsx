@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Jumbotron1 from './../components/jumbotron1'
+// import Jumbotron1 from './../components/jumbotron1'
 
 class Error404 extends Component {
     constructor(props) {
