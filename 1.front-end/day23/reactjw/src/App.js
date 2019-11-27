@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
 import './App.css';
-import Header from './components/header'
-import Jumbotron1 from './components/jumbotron1';
-
+import Header from './components/Header'
+import Homepage from './pages/Homepage'
+import About from './pages/about'
+import Error404 from './pages/error404'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   state = {  }
   
   render() { 
     return (
-      <div className='section1'> 
+      <section className='section1'> 
         <Header />
-        <Jumbotron1/>
-      </div>
+        <Switch>
+          <Route exact path='/' component={Homepage} />
+          <Route exact path='/about' component={About} />
+          <Route path='/*' component={Error404} />
+        </Switch>
+      </section>
     );
   }
 }

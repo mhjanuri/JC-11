@@ -32,6 +32,10 @@ li {
     list-style-type: none;
 }
 
+.menu {
+    text-decoration: none;
+    color: white;
+}
 .menu:hover {
     cursor: pointer;
     color: red;
