@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from "../img/logo.png"
 import {FaCaretDown} from 'react-icons/fa'
+import { FaPlay } from 'react-icons/fa'
+
 
 class Header extends Component {
     state = {  }
@@ -13,7 +15,8 @@ class Header extends Component {
                 </div>
                 <div className="nav-menu">
                     <ul className="nav-left">
-                        <li className="menu">Product &nbsp; <FaCaretDown/></li>
+                        <li className="menu">
+                            Product &nbsp; <FaCaretDown/></li>
                         <li className="menu">Solution &nbsp; <FaCaretDown/></li>
                         <li className="menu">Developer &nbsp; <FaCaretDown/></li>
                         <li className="menu">Product &nbsp; <FaCaretDown/></li>
@@ -27,7 +30,7 @@ class Header extends Component {
                 <div className="nav-sign">
                     <ul className="nav-right">
                         <li className="menu">Sign In</li>
-                        <li className=" menu1 get-started">Get Started &nbsp;<i className="fas fa-play-circle" /></li>
+                        <li className=" menu1 get-started">Get Started &nbsp;<FaPlay/></li>
                     </ul>
                 </div>
             </div>
