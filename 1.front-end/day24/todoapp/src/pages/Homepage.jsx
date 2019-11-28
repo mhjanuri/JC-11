@@ -34,7 +34,7 @@ class Home extends Component {
             status:false,
             tanggal
         }
-        if(kegiatan=='' || tanggal=='') {
+        if(kegiatan==='' || tanggal==='') {
             MySwal.fire(
                 'TETOT!!!',
                 'Tolong diiisii WOOOOOOOYYYYY bisa baca gak?',
@@ -44,6 +44,39 @@ class Home extends Component {
             var newdata=[...this.state.data, obj]
             this.setState({data:newdata, isopen:false})
         }
+    }
+
+    onDeleteDataClick=(index)=>{
+        MySwal.fire({
+            title: 'Yakin mau hapus ' +this.state.data[index].kegiatan+'?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.value) {
+                var data=this.state.data
+                data.splice(index,1)
+                this.setState({
+                    data:data
+                })
+                MySwal.fire(
+                'Deleted!',
+                'Data has been deleted.',
+                'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                MySwal.fire(
+                'Cancelled',
+                '',
+                'error'
+                )
+            }
+        })
     }
 
     renderTodo=()=>{
@@ -56,7 +89,7 @@ class Home extends Component {
                 <td> {val.tanggal}</td>
                 <td>
                   <button className="btn btn-primary mr-3">Edit</button>
-                  <button className="btn btn-danger">Delete</button>
+                  <button className="btn btn-danger" onClick={()=>this.onDeleteDataClick(index)}>Delete</button>
                 </td>
               </tr>
             );
