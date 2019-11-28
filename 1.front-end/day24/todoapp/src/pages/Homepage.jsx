@@ -6,6 +6,10 @@ import {
     ModalBody,
     ModalFooter 
 } from 'reactstrap'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 class Home extends Component {
     state = {
@@ -25,7 +29,21 @@ class Home extends Component {
     onAdddataClick=()=>{
         var kegiatan=this.refs.kegiatan.value
         var tanggal=this.refs.tanggal.value
-        console.log(tanggal)
+        var obj={
+            kegiatan,
+            status:false,
+            tanggal
+        }
+        if(kegiatan=='' || tanggal=='') {
+            MySwal.fire(
+                'TETOT!!!',
+                'Tolong diiisii WOOOOOOOYYYYY bisa baca gak?',
+                'error'
+            )
+        } else {
+            var newdata=[...this.state.data, obj]
+            this.setState({data:newdata, isopen:false})
+        }
     }
 
     renderTodo=()=>{
@@ -53,7 +71,7 @@ class Home extends Component {
                       Add Todo
                   </ModalHeader>
                   <ModalBody>
-                      <input className='form-control ' placeholder='Input Kegiatan' type="text" ref='kegiatan'/>
+                      <input className='form-control mb-3' placeholder='Input Kegiatan' type="text" ref='kegiatan'/>
                       <input className='form-control' placeholder='Input Tanggal' type="Date" ref='tanggal'/>
 
                   </ModalBody>
