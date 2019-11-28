@@ -81,9 +81,52 @@ class Home extends Component {
     }
 
     saveData=(index)=>{
-        let newKegiatan = 
-        let newStatus = 
-        let NewTanggal = 
+        let newKegiatan = this.refs.newkegiatan.value
+        console.log(newKegiatan)
+        let newStatus = this.refs.newstatus.value
+        console.log(newStatus)
+        let newTanggal = this.refs.newtanggal.value
+        console.log(newTanggal)
+
+        MySwal.fire({
+            title: 'Anda Yakin ?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.value) {
+                if (newKegiatan) {
+                    // eslint-disable-next-line
+                    this.state.data[index].kegiatan = newKegiatan
+                }
+                if (newStatus) {
+                    // eslint-disable-next-line
+                    this.state.data[index].status = newStatus
+                }
+                if (newTanggal) {
+                    // eslint-disable-next-line
+                    this.state.data[index].tanggal = newTanggal
+                }
+                MySwal.fire(
+                    'Success!',
+                    'Data has been edited.',
+                    'success'
+                )
+                this.setState({ indexedit: -1 })
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                MySwal.fire(
+                    'Cancelled',
+                    '',
+                    'error'
+                )
+                this.setState({ indexedit: -1 })
+            }
+        })
     }
 
     renderTodo=()=>{
@@ -94,9 +137,10 @@ class Home extends Component {
                         <td>{index + 1}</td>
                         <td> <input type="text" placeholder='Input Kegiatan' ref='newkegiatan'/></td>
                         <td>
-                            <select id="editstatus${index}">
-                                <option> Belum</option>
-                                <option> Sudah</option>
+                            <select ref='newstatus'>
+                                <option value=''>Pilih status...</option>
+                                <option value='false'> Belum</option>
+                                <option value='true'> Sudah</option>
                             </select>
                         </td>
                         <td> <input type="date" placeholder='Input Tanggal' ref='newtanggal'/></td>
