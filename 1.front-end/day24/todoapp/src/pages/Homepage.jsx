@@ -14,7 +14,8 @@ const MySwal = withReactContent(Swal);
 class Home extends Component {
     state = {
         data:[],
-        isopen: false
+        isopen: false,
+        indexedit: -1
     }
 
     componentDidMount(){
@@ -79,22 +80,49 @@ class Home extends Component {
         })
     }
 
+    saveData=(index)=>{
+        let newKegiatan = 
+        let newStatus = 
+        let NewTanggal = 
+    }
+
     renderTodo=()=>{
         return this.state.data.map((val,index)=>{
-            return (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td> {val.kegiatan}</td>
-                <td> {val.status? 'Sudah' : 'Belum'}</td>
-                <td> {val.tanggal}</td>
-                <td>
-                  <button className="btn btn-primary mr-3">Edit</button>
-                  <button className="btn btn-danger" onClick={()=>this.onDeleteDataClick(index)}>Delete</button>
-                </td>
-              </tr>
-            );
+            if (index===this.state.indexedit) {
+                return (
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td> <input type="text" placeholder='Input Kegiatan' ref='newkegiatan'/></td>
+                        <td>
+                            <select id="editstatus${index}">
+                                <option> Belum</option>
+                                <option> Sudah</option>
+                            </select>
+                        </td>
+                        <td> <input type="date" placeholder='Input Tanggal' ref='newtanggal'/></td>
+                        <td>
+                            <button className="btn btn-warning mr-3 rounded-pill" onClick={()=>this.setState({indexedit:-1})}>Cancel</button>
+                            <button className="btn btn-success rounded-pill" onClick={()=>this.saveData(index)}>Save</button>
+                        </td>
+                    </tr>
+                );
+            } else {
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td> {val.kegiatan}</td>
+                    <td> {val.status? 'Sudah' : 'Belum'}</td>
+                    <td> {val.tanggal}</td>
+                    <td>
+                      <button className="btn btn-primary mr-3 rounded-pill" onClick={()=>this.setState({indexedit:index})}>Edit</button>
+                      <button className="btn btn-danger rounded-pill" onClick={()=>this.onDeleteDataClick(index)}>Delete</button>
+                    </td>
+                  </tr>
+                );
+            }
         })
     }
+
 
     render() { 
         return (

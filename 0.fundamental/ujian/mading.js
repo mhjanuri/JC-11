@@ -106,7 +106,7 @@ const printData = (a) => {
     var output = ''
     a.forEach((val, index) => {
         if (index == indexedit) {
-            output += `<tr>
+            output +=   `<tr>
                             <td>${index + 1}</td>
                             <td><input type="text" id="edititem${index}"></td>
                             <td>
@@ -117,7 +117,8 @@ const printData = (a) => {
                                     <option> Kamis</option>
                                     <option> Jumat</option>
                                 </select>    
-                            </td>                            <td><input type="text" id="editimg${index}"></td>
+                            </td>                            
+                            <td><input type="text" id="editimg${index}"></td>
                             <td><button onclick="cancel()">cancel</button><button onclick="save(${index})">save</button></td>
                         </tr>`
         } else if (index == inddexdel) {
@@ -134,7 +135,10 @@ const printData = (a) => {
                             <td>${val.item}</td>
                             <td>${val.hari}</td>
                             <td><img src=${val.gambar} height='100px'/></td>
-                            <td><button onclick="hapus(${index})">delete</button><button onclick="edit(${index})">edit</button></td>
+                            <td>
+                                <button onclick="hapus(${index})">delete</button>
+                                <button onclick="edit(${index})">edit</button>
+                            </td>
                         </tr>`
 
         }
