@@ -23,6 +23,8 @@ class Home extends Component {
           data: [
             { kegiatan: "Lari", status: true, tanggal: "2019-11-27" },
             { kegiatan: "Sarapan", status: false, tanggal: "2019-11-28" }
+            // { kegiatan: "Lari", status: "Sudah", tanggal: "2019-11-27" },
+            // { kegiatan: "Sarapan", status: "Belum", tanggal: "2019-11-28" }
           ]
         });
     }
@@ -83,7 +85,7 @@ class Home extends Component {
     saveData=(index)=>{
         let newKegiatan = this.refs.newkegiatan.value
         console.log(newKegiatan)
-        let newStatus = this.refs.newstatus.value
+        let newStatus = this.refs.newstatus.value==='true'?true:false
         console.log(newStatus)
         let newTanggal = this.refs.newtanggal.value
         console.log(newTanggal)
@@ -155,6 +157,7 @@ class Home extends Component {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td> {val.kegiatan}</td>
+                    {/* <td> {val.status}</td> */}
                     <td> {val.status? 'Sudah' : 'Belum'}</td>
                     <td> {val.tanggal}</td>
                     <td>
@@ -200,7 +203,7 @@ class Home extends Component {
                     {this.renderTodo()}
                 </tbody>
               </Table>
-              <div>
+              <div style={{textAlign: 'center'}}>
                   <button onClick={()=>this.setState({isopen:true})} className='btn btn-success rounded-pill'>Add Todo</button>
               </div>
             </div>
