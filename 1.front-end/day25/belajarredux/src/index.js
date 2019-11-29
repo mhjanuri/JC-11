@@ -4,8 +4,16 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import * as serviceWorker from './serviceWorker';
+import {createStore} from 'redux'
+import {provider} from 'react-redux'
+import {BrowserRouter} from 'react-router-dom'
+import Reducer from './redux/reducers'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const bebas= createStore(Reducer)
+
+
+ReactDOM.render(
+<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
