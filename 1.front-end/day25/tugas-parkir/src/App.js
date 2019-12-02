@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/header'
+import Header from './components/header'
 import {connect} from 'react-redux'
 import {Pay,Jam} from './../src/redux/actions/bayaractions'
 
@@ -46,7 +46,7 @@ class App extends React.Component{
              Rp.{this.props.bayar},00
           </div>
           <input type='button' className='btn btn-primary mr-5 mt-5' value='Bayar' onClick={()=>this.BtnBayar('mobil')}/>
-          <br></br>
+          <div>{this.state.parkir} Jam</div>
           <br></br>
           <br></br>
           <br></br>
@@ -69,7 +69,7 @@ class App extends React.Component{
              Rp.{this.props.bayar},00
           </div>
           <input type='button' className='btn btn-primary mr-5 mt-5' value='Bayar' onClick={()=>this.BtnBayar('motor')}/>
-          <br></br>
+          <div>{this.state.parkir} Jam</div>
           <br></br>
           <br></br>
           <br></br>
@@ -82,12 +82,14 @@ class App extends React.Component{
   onBtnMobil=()=>{
     this.setState({selecteditems:1})
     this.setState({ride:'Mobil'})
+    this.setState({parkir:0})
     this.props.Pay(0)
     this.props.Jam(0)
   }
   onBtnMotor=()=>{
     this.setState({selecteditems:2})
     this.setState({ ride: 'Motor' })
+    this.setState({parkir:0})
     this.props.Pay(0)
     this.props.Jam(0)
   }
