@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import counter from './counterReducers'
+import Counter from './counterReducers'
 
 export default combineReducers({
-    bebas:counter
+    bebas:Counter
 })

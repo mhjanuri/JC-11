@@ -57,7 +57,7 @@ const Header = (props) => {
         </div>
     );
 }
-const MapStateToProps=()=>{
+const MapStateToProps=(state)=>{
     return {
         Angka:state.bebas
     }
