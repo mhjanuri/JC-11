@@ -1,4 +1,4 @@
-import { TAMBAH,KURANG} from "../type"
+import { TAMBAH,KURANG,RESET} from "../type"
 
 const INITIAL_STATE=0
 
@@ -8,6 +8,8 @@ export default (state=INITIAL_STATE,action)=>{
         return state + 1;
       case KURANG:
         return state - 1;
+      case RESET:
+        return INITIAL_STATE;
       default:
         return state;
     }

@@ -1,4 +1,4 @@
-import { TAMBAH, KURANG } from "../type"
+import { TAMBAH, KURANG, RESET } from "../type"
 
 export const Tambahactions=()=>{
     return{
@@ -12,6 +12,6 @@ export const Kurangctions=()=>{
 }
 export const ResetActions=()=>{
     return{
-        type:'RESET'
+        type:RESET
     }
 }
