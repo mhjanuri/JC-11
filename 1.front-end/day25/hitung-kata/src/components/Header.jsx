@@ -24,15 +24,21 @@ const Header = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">BelajarRedux</NavbarBrand>
+                <NavbarBrand href="/">Hitung Kata</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                            <NavLink href="/">{props.Angka} Words</NavLink>
                         </NavItem>
                         <NavItem>
-                            {props.Angka}
+                            <NavLink href="/">Text-Area</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/">ToDo</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/">Redux</NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
