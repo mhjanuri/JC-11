@@ -14,6 +14,8 @@ import {
 
 } from 'reactstrap';
 
+import { connect } from 'react-redux'
+
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -30,23 +32,23 @@ const Header = (props) => {
                             <NavLink href="/components/">Components</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                            {props.Angka}
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Options
-              </DropdownToggle>
+                            </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
                                     Option 1
-                </DropdownItem>
+                                </DropdownItem>
                                 <DropdownItem>
                                     Option 2
-                </DropdownItem>
+                                </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
                                     Reset
-                </DropdownItem>
+                                </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
@@ -55,5 +57,9 @@ const Header = (props) => {
         </div>
     );
 }
-
-export default Header;
+const MapStateToProps=()=>{
+    return {
+        Angka:state.bebas
+    }
+}
+export default connect(MapStateToProps)(Header);

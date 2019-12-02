@@ -10,3 +10,8 @@ export const Kurangctions=()=>{
         type:KURANG
     }
 }
+export const ResetActions=()=>{
+    return{
+        type:'RESET'
+    }
+}
