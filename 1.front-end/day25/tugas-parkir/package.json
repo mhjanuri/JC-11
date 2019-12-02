@@ -1,20 +1,16 @@
 {
-  "name": "tugas-parkir",
+  "name": "aplikasiparkir",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-icons": "^3.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^7.1.3",
-    "react-reveal": "^1.2.2",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "3.0.1",
     "reactstrap": "^8.1.1",
-    "redux": "^4.0.4",
-    "sweetalert2": "^9.4.1",
-    "sweetalert2-react-content": "^2.0.2"
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
