@@ -9,11 +9,11 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import Reducer from './redux/reducers'
 
-const bebas= createStore(Reducer)
+const Bebas= createStore(Reducer)
 
 
 ReactDOM.render(
-    <Provider store={bebas}>
+    <Provider store={Bebas}>
         <BrowserRouter>
             <App />
         </BrowserRouter>

@@ -5,7 +5,7 @@ export const Tambahactions=()=>{
         type:TAMBAH
     }
 }
-export const Kurangctions=()=>{
+export const Kurangactions=()=>{
     return{
         type:KURANG
     }
