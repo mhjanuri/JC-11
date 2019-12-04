@@ -20,7 +20,6 @@ class Home extends Component {
     }
 
     onProvinsiChange=(a)=>{
-        // console.log(a.target.value)
         var idprov=a.target.value
         Axios.get(`${APIURL}MeP7c5ne${TOKEN}/m/wilayah/kabupaten?idpropinsi=${idprov}`)
         .then((res)=>{
