@@ -24,8 +24,8 @@ class Home extends Component {
         var idprov=a.target.value
         Axios.get(`${APIURL}MeP7c5ne${TOKEN}/m/wilayah/kabupaten?idpropinsi=${idprov}`)
         .then((res)=>{
-            console.log(res.data)
-            // this.setState({dataprovinsi:res.data.data})
+            console.log(res.data.data)
+            this.setState({datakabupaten:res.data.data})
         }).catch((err)=>{
             console.log(err)
         })
@@ -42,6 +42,14 @@ class Home extends Component {
     }
 
     renderKabupaten=()=>{
+        if(this.state.datakabupaten.length===0){
+            return <option>pilih provinsi dulu... </option>
+        }
+        return this.state.datakabupaten.map((val,index)=>{
+            return(
+                <option value={val.id} key={index}>{val.name}</option>
+            ) 
+        })
 
     }
 
@@ -55,9 +63,8 @@ class Home extends Component {
                     <option defaultValue='Pilih Nama Provinsi...' hidden>Pilih Nama Provinsi... </option>
                     {this.renderProvinsi()}
                 </select>
-                <br/>
                 <select>
-
+                    {this.renderKabupaten()}
                 </select>
 
             </div>
