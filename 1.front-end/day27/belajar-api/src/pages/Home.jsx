@@ -4,7 +4,8 @@ import { APIURL, TOKEN } from '../support/ApiUrl';
 
 class Home extends Component {
     state = {
-        dataprovinsi:[]
+        dataprovinsi:[],
+        datakabupaten:[]
     }
 
     componentDidMount(){
@@ -19,7 +20,17 @@ class Home extends Component {
     }
 
     onProvinsiChange=(a)=>{
-        console.log(a.target.value)
+        // console.log(a.target.value)
+        var idprov=a.target.value
+        Axios.get(`${APIURL}MeP7c5ne${TOKEN}/m/wilayah/kabupaten?idpropinsi=${idprov}`)
+        .then((res)=>{
+            console.log(res.data)
+            // this.setState({dataprovinsi:res.data.data})
+        }).catch((err)=>{
+            console.log(err)
+        })
+        console.log("masuk sini PROVINSI")
+
     }
 
     renderProvinsi=()=>{
@@ -30,13 +41,18 @@ class Home extends Component {
         })
     }
 
+    renderKabupaten=()=>{
+
+    }
+
     render() {
         if (this.state.dataprovinsi.length===0) {
             return <div>Loading...</div>
         }
         return (
-            <div onChange={this.onProvinsiChange} className='mt-3'>
-                <select ref='provinsi'>
+            <div className='mt-3'>
+                <select onChange={this.onProvinsiChange} ref='provinsi'>
+                    <option defaultValue='Pilih Nama Provinsi...' hidden>Pilih Nama Provinsi... </option>
                     {this.renderProvinsi()}
                 </select>
                 <br/>
