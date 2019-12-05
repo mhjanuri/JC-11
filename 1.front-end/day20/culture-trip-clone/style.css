@@ -7,15 +7,17 @@
 } */
 .kartu {
     border-radius: 10px;
+    overflow: hidden;
+
+}
+.gambar {
+    /* border-radius: 10px; */
+    transition: 700ms;
 }
 .gambar:hover {
     transform: scale(1.1);
     border-radius: 10px;
 
-}
-.gambar {
-    border-radius: 10px;
-    transition: 700ms;
 }
 .gambaar1 {
     border-radius: 10px;
