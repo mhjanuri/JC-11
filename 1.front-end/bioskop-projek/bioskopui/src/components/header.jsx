@@ -24,7 +24,7 @@ const Header = (props) => {
                 <NavbarBrand href="/">reactstrap</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
+                    <Nav className="ml-auto" navbar>
                         <NavItem>
                             <NavLink href="/components/">Components</NavLink>
                         </NavItem>
