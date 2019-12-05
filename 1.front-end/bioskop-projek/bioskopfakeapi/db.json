@@ -1,0 +1,30 @@
+{
+    "users":[
+        {
+            "id":1,
+            "username":"admin",
+            "password":"1234"            
+        },
+        {
+            "id":2,
+            "username":"dobleh",
+            "password":"qwe"
+        },
+        {
+            "id":3,
+            "username":"jamal",
+            "password":"qwe"
+        }
+    ],
+    "movies":[
+        {
+            "id":1,
+            "title":"Jumanji: The Next Level",
+            "sutradara":"Jack Kasdan",
+            "sinopsis":"Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+            "image":"https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
+            "genre":"Action",
+            "produksi":"Columbia Pictures"
+        }
+    ]
+}
