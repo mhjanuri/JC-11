@@ -22,7 +22,7 @@ const Header = props => {
     return (
         <div>
             <Navbar color="dark" dark expand="md">
-                <NavbarBrand href="/">TodoApp</NavbarBrand>
+                <NavbarBrand href="/">RAJA-API</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
-import { APIURL, TOKEN } from '../support/ApiUrl';
+import { APIURL, TOKEN, TOKENN, } from '../support/ApiUrl';
 
 class Home extends Component {
     state = {
@@ -11,19 +11,21 @@ class Home extends Component {
     componentDidMount(){
         Axios.get(`${APIURL}MeP7c5ne${TOKEN}/m/wilayah/provinsi`)
         .then((res)=>{
-            console.log(res.data.data)
+            // console.log(res.data.data)
             this.setState({dataprovinsi:res.data.data})
         }).catch((err)=>{
             console.log(err)
         })
         console.log("masuk sini")
+        console.log(TOKENN)
     }
 
     onProvinsiChange=(a)=>{
         var idprov=a.target.value
+        // console.log(idprov)
         Axios.get(`${APIURL}MeP7c5ne${TOKEN}/m/wilayah/kabupaten?idpropinsi=${idprov}`)
         .then((res)=>{
-            console.log(res.data.data)
+            // console.log(res.data.data)
             this.setState({datakabupaten:res.data.data})
         }).catch((err)=>{
             console.log(err)
@@ -58,11 +60,14 @@ class Home extends Component {
         }
         return (
             <div className='mt-3'>
-                <select onChange={this.onProvinsiChange} ref='provinsi'>
+                <select onChange={this.onProvinsiChange} ref='provinsi' style={{ width: '400px' }}>
                     <option defaultValue='Pilih Nama Provinsi...' hidden>Pilih Nama Provinsi... </option>
                     {this.renderProvinsi()}
                 </select>
-                <select>
+                <br/>
+                <br/>
+                <select style={{width: '400px'}}>
+                    <option defaultValue='Pilih Nama Kabupaten...' hidden>Pilih Nama Kabupaten... </option>
                     {this.renderKabupaten()}
                 </select>
 
