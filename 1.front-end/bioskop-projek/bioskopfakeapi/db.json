@@ -25,6 +25,15 @@
             "image":"https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
             "genre":"Action",
             "produksi":"Columbia Pictures"
+        },
+        {
+            "id": 2,
+            "title": "Star Wars: The Rise of Skywalker",
+            "sutradara": "J.J. Abrams",
+            "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
+            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
+            "genre": "Action, Adventure, Fantasy",
+            "produksi": "Walt Disney Pictures"
         }
     ]
 }
