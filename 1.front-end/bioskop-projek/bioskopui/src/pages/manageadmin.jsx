@@ -33,7 +33,7 @@ class ManageAdmin extends Component {
     splitData = (a = '') => {
     // eslint-disable-next-line
         let b = a.split('').filter(index => {
-            return index <= 1;
+            return index <= 100;
         });
     };
 
@@ -45,7 +45,7 @@ class ManageAdmin extends Component {
                     <TableCell>{val.title}</TableCell>
                     <TableCell><img src={val.image} alt={`gambar`} height='200px'/> </TableCell>
                     { this.state.readMoreSelected===index?(
-                        <TableCell style={{width:'1045px'}}>
+                        <TableCell style={{width:'800px'}}>
                             {val.sinopsis}
                             <br/>
                             <span 
@@ -55,7 +55,7 @@ class ManageAdmin extends Component {
                             </span>
                         </TableCell>)
                         :
-                        (<TableCell style={{width:'1045px'}}> 
+                        (<TableCell style={{width:'800px'}}> 
                             {this.splitData(val.sinopsis)}
                             <br/>
                             <span 
@@ -70,8 +70,8 @@ class ManageAdmin extends Component {
                     <TableCell>{val.sutradara}</TableCell>
                     <TableCell>{val.genre}</TableCell>
                     <TableCell>{val.durasi}</TableCell>
-                    <TableCell>
-                        <button className='btn btn-outline-primary mb-1' style={{ width: '72.25px' }}>Edit</button>
+                    <TableCell style={{ width: '200px' }}>
+                        <button className='btn btn-outline-primary mr-1' style={{ width: '72.25px' }}>Edit</button>
                         <button className='btn btn-outline-danger'>Delete</button>
                     </TableCell>
                 </TableRow>
