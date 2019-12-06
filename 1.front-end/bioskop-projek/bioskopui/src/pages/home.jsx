@@ -31,9 +31,9 @@ class Home extends Component {
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{val.title}</h5>
-                            <p className="card-text">{val.sinopsis}</p>
+                            {/* <p className="card-text">{val.sinopsis}</p> */}
                             {/* eslint-disable-next-line */}
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                            {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                         </div>
                     </div>
                 </div>

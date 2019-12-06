@@ -34,6 +34,25 @@
             "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
             "genre": "Action, Adventure, Fantasy",
             "produksi": "Walt Disney Pictures"
+        },
+        {
+            "id": 3,
+            "title": "Frozen II",
+            "sutradara": "Chris Buck, Jennifer Lee",
+            "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
+            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+            "genre": "Animation, Adventure, Comedy",
+            "produksi": "Walt Disney Pictures"
+        },
+        {
+            "id": 4,
+            "title": "Ford v Ferrari",
+            "sutradara": "James Mangold",
+            "durasi":152,
+            "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
+            "genre": "Action, Biography, Drama",
+            "produksi": "20th Century Fox"
         }
     ]
 }
