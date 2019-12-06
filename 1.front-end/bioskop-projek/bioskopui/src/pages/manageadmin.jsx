@@ -1,81 +1,108 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, { Component } from 'react';
+import Axios from 'axios';
+// import { makeStyles } from '@material-ui/core/styles';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import {APIURL} from '../support/ApiUrl'
 
-const StyledTableCell = withStyles(theme => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    body: {
-        fontSize: 14,
-    },
-}))(TableCell);
+// const APIURL = 'http://localhost:2000'
+// const useStyles = makeStyles({
+//     root: {
+//         width: '100%',
+//         overflowX: 'auto',
+//     },
+//     table: {
+//         minWidth: 650,
+//     },
+// });
 
-const StyledTableRow = withStyles(theme => ({
-    root: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
-        },
-    },
-}))(TableRow);
+class ManageAdmin extends Component {
+    state = {
+        dataFilm: [],
+        readMoreSelected:-1
+    }
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+    componentDidMount() {
+        Axios.get(`${APIURL}/movies`)
+            .then((res) => {
+                this.setState({ dataFilm: res.data })
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+    splitData = (a = '') => {
+    // eslint-disable-next-line
+        let b = a.split('').filter(index => {
+            return index <= 1;
+        });
+    };
+
+    renderMovies = () => {
+        return this.state.dataFilm.map((val, index) => {
+            return (
+                <TableRow key={index}>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{val.title}</TableCell>
+                    <TableCell><img src={val.image} alt={`gambar`} height='200px'/> </TableCell>
+                    { this.state.readMoreSelected===index?(
+                        <TableCell style={{width:'1045px'}}>
+                            {val.sinopsis}
+                            <br/>
+                            <span 
+                                style={{ color: 'red', cursor: 'pointer'}} 
+                                onClick={() => this.setState({ readMoreSelected: -1 })}>
+                                Read Less
+                            </span>
+                        </TableCell>)
+                        :
+                        (<TableCell style={{width:'1045px'}}> 
+                            {this.splitData(val.sinopsis)}
+                            <br/>
+                            <span 
+                                style={{ color: 'red', cursor: 'pointer'}} 
+                                onClick={() => this.setState({ readMoreSelected: index })}>
+                                Read More
+                            </span>  
+                        </TableCell>)
+                    }
+                    {/* <TableCell>{val.sinopsis}</TableCell> */}
+                    <TableCell>{val.jadwal}</TableCell>
+                    <TableCell>{val.sutradara}</TableCell>
+                    <TableCell>{val.genre}</TableCell>
+                    <TableCell>{val.durasi}</TableCell>
+                    <TableCell>
+                        <button className='btn btn-outline-primary mb-1' style={{ width: '72.25px' }}>Edit</button>
+                        <button className='btn btn-outline-danger'>Delete</button>
+                    </TableCell>
+                </TableRow>
+            )
+        })
+    }
+
+    render() {
+        return (
+            <div className='mx-3'>
+                <Table >
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>No.</TableCell>
+                            <TableCell>Judul</TableCell>
+                            <TableCell>Image</TableCell>
+                            <TableCell>Sinopsis</TableCell>
+                            <TableCell>Jadwal</TableCell>
+                            <TableCell>Sutradara</TableCell>
+                            <TableCell>Genre</TableCell>
+                            <TableCell>Durasi</TableCell>
+                            <TableCell>Action</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.renderMovies()}
+                    </TableBody>
+                </Table>
+            </div>
+        );
+    }
 }
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-const useStyles = makeStyles({
-    root: {
-        width: '100%',
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
-});
-
-export default function CustomizedTables() {
-    const classes = useStyles();
-
-    return (
-        <Paper className={classes.root}>
-            <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                        <StyledTableCell align="right">Calories</StyledTableCell>
-                        <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map(row => (
-                        <StyledTableRow key={row.name}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.name}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                            <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                            <StyledTableCell align="right">{row.protein}</StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </Paper>
-    );
-}
+export default ManageAdmin;
