@@ -33,7 +33,46 @@ class ManageAdmin extends Component {
             })
     }
 
-
+    onSaveAddDataClick = () => {
+        var jadwaltemplate = [12, 14, 16, 18, 20]
+        var jadwal = []
+        for (var i = 0; i < jadwaltemplate.length; i++) {
+            if (this.refs[`jadwal${i}`].checked) {
+                jadwal.push(jadwaltemplate[i])
+            }
+        }
+        var iniref = this.refs
+        var title = iniref.title.value
+        var image = iniref.image.value
+        var sinopsis = iniref.sinopsis.value
+        var sutradara = iniref.sutradara.value
+        var genre = iniref.genre.value
+        var durasi = iniref.durasi.value
+        var produksi = iniref.produksi.value
+        var data = {
+            title: title,
+            sutradara,
+            durasi,
+            jadwal,
+            sinopsis,
+            image,
+            genre,
+            produksi
+        }
+        Axios.post(`${APIURL}/movies`, data)
+            .then(() => {
+                Axios.get(`${APIURL}/movies`)
+                    .then((res) => {
+                        this.setState({ datafilm: res.data, modaladd: false })
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }).catch((err) => {
+                console.log(err)
+            })
+        this.setState({modalAdd:false})
+    }
 
     renderMovies = () => {
         return this.state.dataFilm.map((val, index) => {
@@ -91,8 +130,9 @@ class ManageAdmin extends Component {
                         <input type="checkbox" ref='jadwal3' /><span className='mr-2'>18.00</span>
                         <input type="checkbox" ref='jadwal4' /><span className='mr-2'>20.00</span>
                         <input type="text" ref='sutradara' placeholder='sutradara' className='form-control mt-2' />
-                        <input type="number" ref='durasi' placeholder='durasi' className='form-control mt-2' />
                         <input type="text" ref='genre' placeholder='genre' className='form-control mt-2' />
+                        <input type="number" ref='durasi' placeholder='durasi' className='form-control mt-2' />
+                        <input type="text" ref='produksi' placeholder='produksi' className='form-control mt-2' />
                     </ModalBody>
                     <ModalFooter>
                         <button className='btn btn-success' onClick={this.onSaveAddDataClick} style={{ width: '72.7344px' }}>Save</button>
