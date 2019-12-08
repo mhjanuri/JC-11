@@ -5,6 +5,10 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/c
 import {APIURL} from '../support/ApiUrl'
 import Fade from 'react-reveal/Fade'
 import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+
+const MySwal = withReactContent(Swal)
 
 // const APIURL = 'http://localhost:2000'
 // const useStyles = makeStyles({
@@ -72,6 +76,13 @@ class ManageAdmin extends Component {
                 console.log(err)
             })
         this.setState({modalAdd:false})
+        MySwal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 
     renderMovies = () => {
