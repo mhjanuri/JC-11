@@ -95,8 +95,8 @@ class ManageAdmin extends Component {
                         <input type="text" ref='genre' placeholder='genre' className='form-control mt-2' />
                     </ModalBody>
                     <ModalFooter>
-                        <button onClick={this.onSaveAddDataClick}>Save</button>
-                        <button onClick={() => this.setState({ modalAdd: false })}>Cancel</button>
+                        <button className='btn btn-success' onClick={this.onSaveAddDataClick} style={{ width: '72.7344px' }}>Save</button>
+                        <button className='btn btn-outline-danger' onClick={() => this.setState({ modalAdd: false })}>Cancel</button>
                     </ModalFooter>
                 </Modal>
                 <Fade>
