@@ -3,6 +3,8 @@ import Axios from 'axios';
 // import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import {APIURL} from '../support/ApiUrl'
+import Fade from 'react-reveal/Fade'
+import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
 
 // const APIURL = 'http://localhost:2000'
 // const useStyles = makeStyles({
@@ -18,7 +20,8 @@ import {APIURL} from '../support/ApiUrl'
 class ManageAdmin extends Component {
     state = {
         dataFilm: [],
-        readMoreSelected:-1
+        readMoreSelected:-1,
+        modalAdd:false
     }
 
     componentDidMount() {
@@ -30,12 +33,7 @@ class ManageAdmin extends Component {
             })
     }
 
-    splitData = (a = '') => {
-    // eslint-disable-next-line
-        let b = a.split('').filter(index => {
-            return index <= 100;
-        });
-    };
+
 
     renderMovies = () => {
         return this.state.dataFilm.map((val, index) => {
@@ -54,7 +52,7 @@ class ManageAdmin extends Component {
                         </TableCell>)
                         :
                         (<TableCell style={{width:'500px'}}> 
-                            {this.splitData(val.sinopsis)}
+                            {val.sinopsis.split('').filter((val,index)=>index<=50)}
                             <br/>
                             <span style={{ color: 'red', cursor: 'pointer'}} onClick={() => this.setState({ readMoreSelected: index })}>
                                 Read More
@@ -78,24 +76,50 @@ class ManageAdmin extends Component {
     render() {
         return (
             <div className='mx-3'>
-                <Table >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>No.</TableCell>
-                            <TableCell>Judul</TableCell>
-                            <TableCell>Image</TableCell>
-                            <TableCell>Sinopsis</TableCell>
-                            <TableCell>Jadwal</TableCell>
-                            <TableCell>Sutradara</TableCell>
-                            <TableCell>Genre</TableCell>
-                            <TableCell>Durasi</TableCell>
-                            <TableCell>Action</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.renderMovies()}
-                    </TableBody>
-                </Table>
+                <Modal isOpen={this.state.modalAdd} toggle={() => this.setState({ modaladd: false })}>
+                    <ModalHeader>
+                        Add Data
+                    </ModalHeader>
+                    <ModalBody>
+                        <input type="text" ref='title' placeholder='title' className='form-control mt-2' />
+                        <input type="text" ref='image' placeholder='image' className='form-control mt-2' />
+                        <input type="text" ref='sinopsis' placeholder='sinopsis' className='form-control mt-2 mb-2' />
+                        Jadwal:
+                        <input type="checkbox" ref='jadwal0' /> <span className='mr-2'>12.00</span>
+                        <input type="checkbox" ref='jadwal1' /><span className='mr-2'>14.00</span>
+                        <input type="checkbox" ref='jadwal2' /><span className='mr-2'>16.00</span>
+                        <input type="checkbox" ref='jadwal3' /><span className='mr-2'>18.00</span>
+                        <input type="checkbox" ref='jadwal4' /><span className='mr-2'>20.00</span>
+                        <input type="text" ref='sutradara' placeholder='sutradara' className='form-control mt-2' />
+                        <input type="number" ref='durasi' placeholder='durasi' className='form-control mt-2' />
+                        <input type="text" ref='genre' placeholder='genre' className='form-control mt-2' />
+                    </ModalBody>
+                    <ModalFooter>
+                        <button onClick={this.onSaveAddDataClick}>Save</button>
+                        <button onClick={() => this.setState({ modalAdd: false })}>Cancel</button>
+                    </ModalFooter>
+                </Modal>
+                <Fade>
+                    <button className='btn btn-success' onClick={()=>this.setState({modalAdd:true})}>Add Data</button>
+                    <Table >
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>No.</TableCell>
+                                <TableCell>Judul</TableCell>
+                                <TableCell>Image</TableCell>
+                                <TableCell>Sinopsis</TableCell>
+                                <TableCell>Jadwal</TableCell>
+                                <TableCell>Sutradara</TableCell>
+                                <TableCell>Genre</TableCell>
+                                <TableCell>Durasi</TableCell>
+                                <TableCell>Action</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.renderMovies()}
+                        </TableBody>
+                    </Table>
+                </Fade>
             </div>
         );
     }
