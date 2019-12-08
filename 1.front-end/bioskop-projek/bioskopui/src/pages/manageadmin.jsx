@@ -45,22 +45,18 @@ class ManageAdmin extends Component {
                     <TableCell>{val.title}</TableCell>
                     <TableCell><img src={val.image} alt={`gambar`} height='200px'/> </TableCell>
                     { this.state.readMoreSelected===index?(
-                        <TableCell style={{width:'800px'}}>
+                        <TableCell style={{width:'500px'}}>
                             {val.sinopsis}
                             <br/>
-                            <span 
-                                style={{ color: 'red', cursor: 'pointer'}} 
-                                onClick={() => this.setState({ readMoreSelected: -1 })}>
+                            <span style={{ color: 'red', cursor: 'pointer'}} onClick={() => this.setState({ readMoreSelected: -1 })}>
                                 Read Less
                             </span>
                         </TableCell>)
                         :
-                        (<TableCell style={{width:'800px'}}> 
+                        (<TableCell style={{width:'500px'}}> 
                             {this.splitData(val.sinopsis)}
                             <br/>
-                            <span 
-                                style={{ color: 'red', cursor: 'pointer'}} 
-                                onClick={() => this.setState({ readMoreSelected: index })}>
+                            <span style={{ color: 'red', cursor: 'pointer'}} onClick={() => this.setState({ readMoreSelected: index })}>
                                 Read More
                             </span>  
                         </TableCell>)
