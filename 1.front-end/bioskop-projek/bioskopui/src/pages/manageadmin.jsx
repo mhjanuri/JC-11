@@ -204,7 +204,7 @@ class ManageAdmin extends Component {
         // })
         for(var i=0;i<datafilmedit.length;i++){
             for(var j=0;j<this.state.jadwal.length;j++){
-                indexarr.push[j]
+                indexarr.push(j)
             }
         }
         var checkbox=this.state.jadwal
@@ -216,17 +216,18 @@ class ManageAdmin extends Component {
             checkboxnew[val].tampiledit=true
         })
         return checkboxnew.map((val,index)=>{
-            if(val,tampiledit){
+            if(val.tampiledit){
                 return (
                     <div key={index}>
                         <input type='checkbox' defaultChecked ref={`editjadwal${index}`} value={val.jam} />
-                        <span className='mr-2'>{val}.00</span>
+                        <span className='mr-2'>{val.jam}.00</span>
                     </div>
                 )
             } else {
                 return (
                     <div key={index}>
-
+                        <input type='checkbox' ref={`editjadwal${index}`} value={val.jam}/>
+                        <span className='mr-2'>{val.jam}.00</span>
                     </div>
                 )
             }
