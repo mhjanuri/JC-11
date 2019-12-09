@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { APIURL } from '../support/ApiUrl';
 import {Link,Redirect} from 'react-router-dom';
-import {} from 'react-redux'
+import {connect} from 'react-redux'
 import {LoginSuccessAction} from './../redux/actions'
 
 class Login extends Component {
     state = {
-        error:''
+        error:'',
+        loading:false
     }
 
     onLoginClick=()=>{
@@ -18,7 +19,7 @@ class Login extends Component {
             if(res.data.length){
                 localStorage.setItem('dino',res.data[0].id)
                 this.props.LoginSuccessAction(res.data[0])
-                this.setState(login)
+                // this.setState(login)
             }else{
                 this.setState({error:'salah masukkan password'})
             }
@@ -28,7 +29,7 @@ class Login extends Component {
     }
 
     render() {
-        if (this.state.login) {
+        if (this.props.AuthLog) {
             return <Redirect to={'/'}/>
         }
         return (
@@ -55,7 +56,6 @@ class Login extends Component {
                         <div className='mt-2'>
                             belum ada akun? <Link>Register</Link> aja dulu
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -63,10 +63,10 @@ class Login extends Component {
     }
 }
 
-const MapStateToProps=()=>{
+const MapStateToProps=(state)=>{
     return {
-        Authlog:state.Auth.login
+        AuthLog:state.Auth.login
     }
 }
  
-export default connect(null, {LoginSuccessAction}) (Login);
+export default connect(MapStateToProps, {LoginSuccessAction}) (Login);

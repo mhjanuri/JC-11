@@ -21,7 +21,10 @@ class App extends Component {
     console.log(id)
     Axios.get(`${APIURL}/users/${id}`)
     .then((res)=>{
-      this.props
+      this.props.LoginSuccessAction(res.data)
+      this.setState({loading:false})
+    }).catch((err)=>{
+      console.log(err)
     })
   }
 
@@ -45,4 +48,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const MapStateToProps=(state)=>{
+  return{
+    AuthLog:state.Auth.login
+  }
+}
+
+export default connect(MapStateToProps, {LoginSuccessAction}) (App);

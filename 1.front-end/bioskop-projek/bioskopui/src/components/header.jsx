@@ -6,12 +6,13 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
 } from 'reactstrap';
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,15 +26,20 @@ const Header = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                        <NavItem className='mr-2'>
+                            <Link to="/manageadmin/">Admin</Link>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
+                        {props.namauser===''?
+                            <NavItem>
+                                <Link to="/login">Login</Link>
+                            </NavItem>
+                            :
+                            null
+                        }
+
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
-                                Options
+                                {props.namauser}
                             </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
@@ -55,4 +61,10 @@ const Header = (props) => {
     );
 }
 
-export default Header;
+const MapStateToProps=(state)=>{
+    return{
+        namauser:state.Auth.username
+    }
+}
+
+export default connect(MapStateToProps) (Header);
