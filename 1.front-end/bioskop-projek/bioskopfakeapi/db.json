@@ -30,6 +30,8 @@
       "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
       "genre": "Action",
+      "studioId": "",
+      "trailer": "",
       "produksi": "Columbia Pictures"
     },
     {
@@ -45,6 +47,8 @@
       "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Adventure, Fantasy",
+      "studioId": "",
+      "trailer": "",
       "produksi": "Walt Disney Pictures"
     },
     {
@@ -60,6 +64,8 @@
       "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
       "genre": "Animation, Adventure, Comedy",
+      "studioId": "",
+      "trailer": "",
       "produksi": "Walt Disney Pictures"
     },
     {
@@ -75,6 +81,8 @@
       "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
       "genre": "Action, Biography, Drama",
+      "studioId": "",
+      "trailer": "",
       "produksi": "20th Century Fox"
     },
     {
@@ -91,17 +99,7 @@
       "genre": "6",
       "produksi": "RANS ENTERTAINMENT",
       "id": 5
-    },
-    {
-      "title": "",
-      "sutradara": "",
-      "durasi": "",
-      "jadwal": [],
-      "sinopsis": "",
-      "image": "",
-      "genre": "",
-      "produksi": "",
-      "id": 6
     }
+    
   ]
 }
