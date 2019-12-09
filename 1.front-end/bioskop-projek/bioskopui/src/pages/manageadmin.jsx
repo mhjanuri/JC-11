@@ -56,8 +56,9 @@ class ManageAdmin extends Component {
         var sutradara = iniref.sutradara.value
         var genre = iniref.genre.value
         var durasi = iniref.durasi.value
-        var produksi = iniref.produksi.value
         var trailer = iniref.trailer.value
+        var studioID = iniref.studio.value
+        var produksi = iniref.produksi.value
 
         var data = {
             title: title,
@@ -68,7 +69,8 @@ class ManageAdmin extends Component {
             image,
             genre,
             produksi,
-            trailer
+            trailer,
+            studioID
         }
         Axios.post(`${APIURL}/movies`, data)
             .then(() => {
@@ -83,6 +85,59 @@ class ManageAdmin extends Component {
                 console.log(err)
             })
         this.setState({modalAdd:false})
+        MySwal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your new data has been added',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+    onUpdateDataClick = () => {
+        var jadwaltemplate = this.state.jadwal
+        var jadwal = []
+        for (var i = 0; i < jadwaltemplate.length; i++) {
+            if (this.refs[`jadwal${i}`].checked) {
+                jadwal.push(jadwaltemplate[i])
+            }
+        }
+        var iniref = this.refs
+        var title = iniref.edittitle.value
+        var image = iniref.editimage.value
+        var sinopsis = iniref.editsinopsis.value
+        var sutradara = iniref.editsutradara.value
+        var genre = iniref.editgenre.value
+        var durasi = iniref.editdurasi.value
+        var trailer = iniref.edittrailer.value
+        var studioID = iniref.editstudio.value
+        var produksi = iniref.editproduksi.value
+
+        var data = {
+            title: title,
+            sutradara,
+            durasi,
+            jadwal,
+            sinopsis,
+            image,
+            genre,
+            produksi,
+            trailer,
+            studioID
+        }
+        Axios.post(`${APIURL}/movies`, data)
+            .then(() => {
+                Axios.get(`${APIURL}/movies`)
+                    .then((res) => {
+                        this.setState({ datafilm: res.data, modaladd: false })
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }).catch((err) => {
+                console.log(err)
+            })
+        this.setState({ modalAdd: false })
         MySwal.fire({
             position: 'center',
             icon: 'success',
@@ -144,9 +199,14 @@ class ManageAdmin extends Component {
     renderEditCheckbox = (indexedit) =>{
         var indexarr=[]
         var datafilmedit=this.state.dataFilm[indexedit].jadwal
-        datafilmedit.forEach((val)=>{
-            indexarr.push(this.state.jadwal.indexOf(val))
-        })
+        // datafilmedit.forEach((val)=>{
+        //     indexarr.push(this.state.jadwal.indexOf(val))
+        // })
+        for(var i=0;i<datafilmedit.length;i++){
+            for(var j=0;j<this.state.jadwal.length;j++){
+                indexarr.push[j]
+            }
+        }
         var checkbox=this.state.jadwal
         var checkboxnew=[]
         checkbox.forEach((val)=>{
@@ -195,16 +255,16 @@ class ManageAdmin extends Component {
                         <div className='d-flex'>
                             {this.renderEditCheckbox(indexedit)}
                         </div>
-                        <input type="text" ref='edittrailer' placeholder='link trailer' className='form-control mt-2' />
+                        <input type="text" defaultValue={dataFilm[indexedit].trailer} ref='edittrailer' placeholder='link trailer' className='form-control mt-2' />
                         <select ref="editstudio" className='form-control mt-2'>
                             <option value="1">Studio 1</option>
                             <option value="2">Studio 2</option>
                             <option value="3">Studio 3</option>
                         </select>
-                        <input type="text" ref='editsutradara' placeholder='sutradara' className='form-control mt-2' />
-                        <input type="text" ref='editgenre' placeholder='genre' className='form-control mt-2' />
-                        <input type="number" ref='editdurasi' placeholder='durasi' className='form-control mt-2' />
-                        <input type="text" ref='editproduksi' placeholder='produksi' className='form-control mt-2' />
+                        <input type="text" defaultValue={dataFilm[indexedit].sutradara} ref='editsutradara' placeholder='sutradara' className='form-control mt-2' />
+                        <input type="text" defaultValue={dataFilm[indexedit].genre} ref='editgenre' placeholder='genre' className='form-control mt-2' />
+                        <input type="number" defaultValue={dataFilm[indexedit].durasi} ref='editdurasi' placeholder='durasi' className='form-control mt-2' />
+                        <input type="text" defaultValue={dataFilm[indexedit].produksi} ref='editproduksi' placeholder='produksi' className='form-control mt-2' />
                     </ModalBody>
                     <ModalFooter>
                         <button className='btn btn-success' onClick={this.onSaveAddDataClick} style={{ width: '72.7344px' }}>Save</button>
