@@ -21,5 +21,9 @@
     border-radius: 10px;
     overflow: hidden;
 }
+.username:focus{
+  outline: transparent;
+}
+
 
 

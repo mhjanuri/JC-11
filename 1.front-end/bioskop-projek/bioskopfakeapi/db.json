@@ -18,88 +18,70 @@
   ],
   "movies": [
     {
-      "id": 1,
       "title": "Jumanji: The Next Level",
       "sutradara": "Jack Kasdan",
-      "durasi": 152,
+      "durasi": "123",
       "jadwal": [
-        9,
         12,
         16
       ],
       "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
-      "genre": "Action",
-      "studioId": "",
-      "trailer": "",
-      "produksi": "Columbia Pictures"
+      "genre": "Action, Adventure, Comedy",
+      "produksi": "Columbia Pictures",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157286348374133.mp4",
+      "studioID": "1",
+      "id": 1
     },
     {
-      "id": 2,
       "title": "Star Wars: The Rise of Skywalker",
       "sutradara": "J.J. Abrams",
-      "durasi": 152,
+      "durasi": "155",
       "jadwal": [
-        9,
         12,
+        14,
         16
       ],
       "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Adventure, Fantasy",
-      "studioId": "",
-      "trailer": "",
-      "produksi": "Walt Disney Pictures"
+      "produksi": "Walt Disney Pictures",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157416305191305.mp4",
+      "studioID": "1",
+      "id": 2
     },
     {
-      "id": 3,
       "title": "Frozen II",
       "sutradara": "Chris Buck, Jennifer Lee",
-      "durasi": 152,
+      "durasi": "103",
       "jadwal": [
-        9,
         12,
         16
       ],
       "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
       "genre": "Animation, Adventure, Comedy",
-      "studioId": "",
-      "trailer": "",
-      "produksi": "Walt Disney Pictures"
+      "produksi": "Walt Disney Pictures",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157588566572972.mp4",
+      "studioID": "1",
+      "id": 3
     },
     {
-      "id": 4,
       "title": "Ford v Ferrari",
       "sutradara": "James Mangold",
-      "durasi": 152,
+      "durasi": "152",
       "jadwal": [
-        9,
         12,
-        16
+        16,
+        20
       ],
       "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
       "genre": "Action, Biography, Drama",
-      "studioId": "",
-      "trailer": "",
-      "produksi": "20th Century Fox"
-    },
-    {
-      "title": "1",
-      "sutradara": "4",
-      "durasi": "5",
-      "jadwal": [
-        14,
-        16,
-        18
-      ],
-      "sinopsis": "3",
-      "image": "2",
-      "genre": "6",
-      "produksi": "RANS ENTERTAINMENT",
-      "id": 5
+      "produksi": "20th Century Fox",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157061938943803.mp4",
+      "studioID": "1",
+      "id": 4
     }
-    
   ]
 }
