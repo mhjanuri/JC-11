@@ -7,52 +7,57 @@ import {Switch,Route} from 'react-router-dom'
 import ManageAdmin from './pages/manageadmin';
 import Login from './pages/login';
 import MovieDetail from './pages/moviedetail'
+import BeliTiket from './pages/belitiket';
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
 import Axios from 'axios';
 import { APIURL } from './support/ApiUrl';
 
 class App extends Component {
-  state={
-    
-  }
+  state = {
+	loading: false
+  };
 
-  componentDidMount(){
-    var id=localStorage.getItem('dino')
-    console.log(id)
-    Axios.get(`${APIURL}/users/${id}`)
-    .then((res)=>{
-      this.props.LoginSuccessAction(res.data)
-      this.setState({loading:false})
-    }).catch((err)=>{
-      console.log(err)
-    })
+  componentDidMount() {
+	var id = localStorage.getItem("dino");
+	Axios.get(`${APIURL}/users/${id}`)
+	  .then(res => {
+		this.props.LoginSuccessAction(res.data);
+		this.setState({ loading: false });
+	  })
+	  .catch(err => {
+		console.log(err);
+	  });
   }
 
   render() {
-    return (
-      <div>
-        <Header/>
-        <Switch>
-          <Route exact path={'/'}>
-            <Home/>
-          </Route>
-          <Route exact path={'/manageadmin'}>
-            <ManageAdmin/>
-          </Route>
-          <Route exact path='/moviedetail/:id' component={MovieDetail} />
-          <Route exact path={'/login'} component={Login}>
-            <Login/>
-          </Route>
-        </Switch>
-      </div>
-    );
+	if (this.state.loading) {
+	  return <div>loading</div>;
+	}
+	return (
+	  <div>
+		<Header />
+		<Switch>
+		  <Route exact path={"/"}>
+			<Home />
+		  </Route>
+		  <Route exact path={"/manageadmin"}>
+			<ManageAdmin />
+		  </Route>
+		  <Route exact path="/moviedetail/:id" component={MovieDetail} />
+		  <Route exact path="/belitiket" component={BeliTiket} />
+		  <Route exact path={"/login"} component={Login}>
+			<Login />
+		  </Route>
+		</Switch>
+	  </div>
+	);
   }
 }
 
 const MapStateToProps=(state)=>{
   return{
-    AuthLog:state.Auth.login
+	AuthLog:state.Auth.login
   }
 }
 

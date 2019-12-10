@@ -42,10 +42,10 @@ class Login extends Component {
                     <div style={{width:'500px',border:'1px solid black'}} className='rounded p-2'>
                         <h1>Login</h1>
                         <div className='p-1' style={{borderBottom:'1px solid black'}}>
-                            <input type='text' className='username' style={{border:'transparent',width:'100%',fontsize:'20px'}} ref='username' placeholder='username' />
+                            <input type='text' className='username' style={{border:'transparent',width:'100%',fontsize:'20px'}} ref='username' placeholder='input username' />
                         </div>
                         <div className='p-1' style={{ borderBottom: '1px solid black' }}>
-                            <input type='password' className='username' style={{ border: 'transparent', width: '100%', fontsize: '20px' }} ref='password' placeholder='password' />
+                            <input type='password' className='username' style={{ border: 'transparent', width: '100%', fontsize: '20px' }} ref='password' placeholder='input password' />
                         </div>
                         {this.state.error===''?
                             null
@@ -58,9 +58,9 @@ class Login extends Component {
                             {this.state.loading?
                                 <Loader
                                     type="Triangle"
-                                    color="#00BFFF"
-                                    height={500}
-                                    width={500}
+                                    color="#FF6969"
+                                    height={100}
+                                    width={100}
                                 />
                                 :
                                 <button className='btn btn-primary' onClick={this.onLoginClick}>Login</button>

@@ -40,7 +40,8 @@
       "durasi": "123",
       "jadwal": [
         12,
-        16
+        16,
+        18
       ],
       "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
@@ -99,6 +100,73 @@
       "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157061938943803.mp4",
       "studioID": "1",
       "id": 4
+    },
+    {
+      "title": "Knives Out",
+      "sutradara": "Rian Johnson",
+      "durasi": "120",
+      "jadwal": [
+        18,
+        20
+      ],
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.  Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.  Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "genre": "Comedy, Crime, Drama",
+      "produksi": "Mongrel Media",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/15725177229909.mp4",
+      "studioID": "1",
+      "id": 5
+    },
+    {
+      "title": "21 Bridges",
+      "sutradara": "Brian Kirk",
+      "durasi": "99",
+      "jadwal": [
+        16,
+        18
+      ],
+      "sinopsis": "Pasca terbunuhnya delapan kepolisian NYPD. Andre Davis (Chadwick Boseman) memutuskan menyegel pulau Manhattan. 21 Jembatan, 3 jalur sungai dan kereta ditutup demi menangkap pelaku pembunuhan.\nNamun dibalik pengejaran ini terungkap konspirasi besar yang menghubungkan kejadian masa lalu Davis dan kasus yang sedang dikerjakannya.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157018191975549_287x421.jpg",
+      "genre": "Action, Crime, Drama",
+      "produksi": "VVS Films",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157018187696571.mp4",
+      "studioID": "1",
+      "id": 6
+    },
+    {
+      "title": "Rumah Kentang: The Beginning",
+      "sutradara": "Rizal Mantovan",
+      "durasi": "102",
+      "jadwal": [
+        18,
+        20
+      ],
+      "sinopsis": "Adrian adalah seorang penulis novel horor yang buku-bukunya mulai ditinggalkan pembacanya.\nUntuk menulis novel terbarunya, ia bersama istrinya, Sophie,\nmemutuskan kembali ke rumah masa kecil Sophie yang sudah lama tidak dikunjungi Sophie,\nsejak kedua orang tua Sophie tiba-tiba menghilang tanpa jejak. Kini ditemani Uwa-nya dan ketiga anaknya;\nNina, Nala dan Bayu; Sophie akhirnya menginjakkan kaki kembali di rumah tersebut.\nNamun sesampainya mereka disana, gangguan demi gangguan segera menyerang mereka.\nGangguan yang mereka hiraukan pada awalnya sampai akhirnya anak tertua mereka, Nina,\ntiba-tiba juga menghilang tanpa jejak.\nKini demi mendapatkan kembali Nina,\nSophie dan Adrian harus mencari tahu apa yang sebenarnya terjadi di rumah ini,\nsebuah rumah yang berdiri di perkebunan kentang orang tua Sophie,\nterlebih ketika Uwa diberitahu oleh seorang warga desa,\nDadang, bahwa rumah itu lebih buruk dari apa yang mereka bayangkan.\nBahwa tidak hanya Nina yang berada dalam bahaya. Tapi mereka semua.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157129577038373_287x421.jpg",
+      "genre": "Horror",
+      "produksi": "Hitmaker Studios",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157371653891448.mp4",
+      "studioID": "1",
+      "id": 7
+    },
+    {
+      "title": "Habibie & Ainun 3",
+      "sutradara": "Hanung Bramantyo",
+      "durasi": "121",
+      "jadwal": [
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "sinopsis": "Kisah Ainun (Maudy Ayunda) sebagaimana remaja di usianya ,punya kisah kasih yang cukup unik, menggelitik dan menarik.Saat di SMA, Ainun dikenal sebagai sosok cerdas yang menjadi pujaan di sekolahnya dan menjadi incaran banyak siswa laki-laki, termasuk Habibie. Hubungan mereka bermula dari sebuah pertemanan. Di bangku kuliah Ainun, Sebagai mahasiswi kedokteran menjadi sosok yang popular di lingkungan kampusnya dan menjadi sosok dambaan setiap pria.Ahmad (Jefri Nichols), Pria tampan yang berasal dari keluarga terpandang dan kawan sekampus Ainun adalah pria yang akhirnya ia berani menyatakan cintanya kepada Ainun. Lantas apa yang membuat BJ Habibie menjadi pelabuhan terakhir perjalanan cinta Ainun. Habibie Ainun 3, Terinspirasi dari masa muda almarhumah Hasri Ainun Besari Habibie dan kenangan BJ Habibie atas belahan jiwanya.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
+      "genre": "Drama",
+      "produksi": "MD Pictures",
+      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157414474532243.mp4",
+      "studioID": "1",
+      "id": 8
     }
   ],
   "orders": [],

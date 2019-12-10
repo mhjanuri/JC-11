@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-// import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import {APIURL} from '../support/ApiUrl'
 import Fade from 'react-reveal/Fade'
@@ -9,17 +8,6 @@ import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 
 const MySwal = withReactContent(Swal)
-
-// const APIURL = 'http://localhost:2000'
-// const useStyles = makeStyles({
-//     root: {
-//         width: '100%',
-//         overflowX: 'auto',
-//     },
-//     table: {
-//         minWidth: 650,
-//     },
-// });
 
 class ManageAdmin extends Component {
     state = {
@@ -187,7 +175,9 @@ class ManageAdmin extends Component {
                     <TableCell>{val.durasi}</TableCell>
                     <TableCell style={{ width: '200px' }}>
                         <button className='btn btn-outline-primary mr-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>
-                        <button className='btn btn-outline-danger' onClick={this.onDeleteClick()} >Delete</button>
+                        <button className='btn btn-outline-danger' >Delete</button>
+                        {/* <button className='btn btn-outline-danger' onClick={this.onDeleteClick()} >Delete</button> */}
+
                     </TableCell>
                 </TableRow>
             )
@@ -293,13 +283,13 @@ class ManageAdmin extends Component {
                     </ModalHeader>
                     <ModalBody>
                         <input type="text" ref='title' placeholder='title' className='form-control mt-2' />
-                        <input type="text" ref='image' placeholder='image' className='form-control mt-2' />
-                        <input type="text" ref='sinopsis' placeholder='sinopsis' className='form-control mt-2 mb-2' />
+                        <input type="text" ref='image' placeholder='image url' className='form-control mt-2' />
+                        <textarea rows='5' ref='sinopsis' placeholder='sinopsis' className='form-control mt-2 mb-2' />
                         Jadwal:
                         <div className='d-flex'>
                             {this.renderAddCheckbox()}
                         </div>
-                        <input type="text" ref='trailer' placeholder='link trailer' className='form-control mt-2' />
+                        <input type="text" ref='trailer' placeholder='trailer url' className='form-control mt-2' />
                         <select ref="studio" className='form-control mt-2'>
                             <option value="1">Studio 1</option>
                             <option value="2">Studio 2</option>

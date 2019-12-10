@@ -25,5 +25,11 @@
   outline: transparent;
 }
 
+.trailer{
+    background-color: transparent;
+    height: 500px;
+    padding: 0;
+}
+
 
 
