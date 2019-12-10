@@ -4,6 +4,7 @@ import { APIURL } from '../support/ApiUrl';
 import {Link,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './../redux/actions'
+import Loader from 'react-loader-spinner'
 
 class Login extends Component {
     state = {
@@ -14,6 +15,7 @@ class Login extends Component {
     onLoginClick=()=>{
         var username=this.refs.username.value 
         var password=this.refs.password.value
+        this.setState({loading:true})
         Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
         .then(res=>{
             if(res.data.length){
@@ -23,8 +25,10 @@ class Login extends Component {
             }else{
                 this.setState({error:'salah masukkan password'})
             }
+            this.setState({ loading: false })
         }).catch((err)=>{
             console.log(err)
+            this.setState({loading:false})
         })
     }
 
@@ -51,7 +55,16 @@ class Login extends Component {
                             </div>
                         }
                         <div className='mt-4'>
-                            <button className='btn btn-primary' onClick={this.onLoginClick}>Login</button>
+                            {this.state.loading?
+                                <Loader
+                                    type="Triangle"
+                                    color="#00BFFF"
+                                    height={500}
+                                    width={500}
+                                />
+                                :
+                                <button className='btn btn-primary' onClick={this.onLoginClick}>Login</button>
+                            }
                         </div>
                         <div className='mt-2'>
                             belum ada akun? <Link>Register</Link> aja dulu
