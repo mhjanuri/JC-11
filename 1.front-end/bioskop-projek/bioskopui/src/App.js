@@ -6,6 +6,7 @@ import './App.css';
 import {Switch,Route} from 'react-router-dom'
 import ManageAdmin from './pages/manageadmin';
 import Login from './pages/login';
+import MovieDetail from './pages/moviedetail'
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
 import Axios from 'axios';
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path={'/manageadmin'}>
             <ManageAdmin/>
           </Route>
+          <Route exact path='/moviedetail/:id' component={MovieDetail} />
           <Route exact path={'/login'} component={Login}>
             <Login/>
           </Route>

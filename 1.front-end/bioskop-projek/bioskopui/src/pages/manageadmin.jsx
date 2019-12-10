@@ -146,6 +146,16 @@ class ManageAdmin extends Component {
         })
     }
 
+    // onDeleteClick=()=>{
+    //     var id=this.state.datafilm[this.state.indexedit].id
+    //     Axios.delete(`${APIURL}/movies/${id}`)
+    //         .then((res) => {
+    //             console.log(res.data)
+    //         }).catch((err) => {
+    //             console.log(err)
+    //         })
+    // }
+
     renderMovies = () => {
         return this.state.datafilm.map((val, index) => {
             return (
@@ -163,7 +173,7 @@ class ManageAdmin extends Component {
                         </TableCell>)
                         :
                         (<TableCell style={{width:'500px'}}> 
-                            {val.sinopsis.split('').filter((val,index)=>index<=50)}
+                            {val.sinopsis.split('').filter((val,index)=>index<=100)}...
                             <br/>
                             <span style={{ color: 'red', cursor: 'pointer'}} onClick={() => this.setState({ readmoreSelected: index })}>
                                 Read More
@@ -177,7 +187,7 @@ class ManageAdmin extends Component {
                     <TableCell>{val.durasi}</TableCell>
                     <TableCell style={{ width: '200px' }}>
                         <button className='btn btn-outline-primary mr-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>
-                        <button className='btn btn-outline-danger'>Delete</button>
+                        <button className='btn btn-outline-danger' onClick={this.onDeleteClick()} >Delete</button>
                     </TableCell>
                 </TableRow>
             )

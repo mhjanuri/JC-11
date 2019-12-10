@@ -16,6 +16,23 @@
       "password": "qwe"
     }
   ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "Studio 1",
+      "jumlahKursi": 260
+    },
+    {
+      "id": 2,
+      "nama": "Studio 2",
+      "jumlahKursi": 240
+    },
+    {
+      "id": 3,
+      "nama": "Studio 3",
+      "jumlahKursi": 200
+    }
+  ],
   "movies": [
     {
       "title": "Jumanji: The Next Level",
@@ -83,5 +100,7 @@
       "studioID": "1",
       "id": 4
     }
-  ]
+  ],
+  "orders": [],
+  "ordersDetails": []
 }
