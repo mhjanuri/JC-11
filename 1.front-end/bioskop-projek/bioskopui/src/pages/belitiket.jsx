@@ -101,7 +101,7 @@ class Belitiket extends Component {
                         val.map((val1,i)=>{
                             if(val1===3){
                                 return(
-                                    <button key={i} disabled className='rounded btn-disble mr-2 mt-2 bg-danger text-center'>
+                                    <button key={i} disabled className='rounded btn-disble mr-2 mt-2 text-center'>
                                         {alphabet[index] +(i+1)} 
                                     </button>
                                 )

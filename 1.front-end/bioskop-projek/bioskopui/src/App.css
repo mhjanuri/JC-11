@@ -1,34 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
+*{
+  margin: 0;
+  padding: 0;
 }
-/* div {
-    border: orange 1px solid;
+/* div{
+  border: yellow 1px solid;
 } */
-.kartu {
-    border-radius: 10px;
+.kartu{
+  border-radius: 10px;
+  overflow: hidden;
 }
-.gambar:hover {
-    transform: scale(1.1);
-    border-radius: 10px;
+.gambar{
+  transition: 700ms;
+}
+.gambar:hover{
+  transform: scale(1.1);
+  border-radius: 10px;
 
 }
-.gambar {
-    border-radius: 10px;
-    transition: 700ms;
-}
-.gambaar1 {
-    border-radius: 10px;
-    overflow: hidden;
+.gambaar1{
+  border-radius: 10px;
+  overflow: hidden;
 }
 .username:focus{
   outline: transparent;
 }
-
 .trailer{
-    background-color: transparent;
-    height: 500px;
-    padding: 0;
+  background-color: transparent;
+  height: 500px;
+  padding: 0;
 }
 
 .btn-order{
@@ -51,8 +50,8 @@
 .btn-disble{
   width: 43px;
   height: 40px;
-  background-color:whitesmoke;
-  color: #5b0008;
+  background-color:#dc3545;
+  color: #000000;
   border: 1px solid #5b0008;
 }
 .btn-pilih{
@@ -62,5 +61,3 @@
   width: 43px;
   height: 40px;
 }
-
-
