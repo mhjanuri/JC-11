@@ -169,6 +169,68 @@
       "id": 8
     }
   ],
-  "orders": [],
-  "ordersDetails": []
+  "orders": [
+    {
+      "userId": 1,
+      "movieId": 3,
+      "studioId": 3,
+      "jadwal": 12,
+      "totalHarga": 50000,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "studioId": 2,
+      "jadwal": 12,
+      "totalHarga": 70000,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "studioId": 2,
+      "jadwal": 12,
+      "totalHarga": 105000,
+      "id": 3
+    }
+  ],
+  "ordersDetails": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "row": 2,
+      "seat": 4
+    },
+    {
+      "id": 2,
+      "orderId": 1,
+      "row": 2,
+      "seat": 5
+    },
+    {
+      "id": 2,
+      "orderId": 2,
+      "row": 2,
+      "seat": 6
+    },
+    {
+      "id": 2,
+      "orderId": 2,
+      "row": 2,
+      "seat": 7
+    },
+    {
+      "id": 2,
+      "orderId": 3,
+      "row": 2,
+      "seat": 8
+    },
+    {
+      "id": 2,
+      "orderId": 3,
+      "row": 2,
+      "seat": 9
+    }
+  ]
 }
