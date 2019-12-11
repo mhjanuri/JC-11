@@ -134,23 +134,42 @@ class ManageAdmin extends Component {
         })
     }
 
-    // onDeleteClick=()=>{
-    //     var id=this.state.datafilm[this.state.indexedit].id
-    //     Axios.delete(`${APIURL}/movies/${id}`)
-    //         .then((res) => {
-    //             console.log(res.data)
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    // }
+    onDeleteClick = (val) => {
+        Swal.fire({
+            title: `Are you sure want to delete <br/> ${val.title}?`,
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                Axios.delete(`${APIURL}/movies/${val.id}`, this.state.datafilm)
+                    .then((res) => {
+                        Axios.get(`${APIURL}/movies`)
+                            .then((res) => {
+                                this.setState({ datafilm: res.data, modaledit: false })
+                            })
+                    }).catch((err) => {
+                        console.log(err)
+                    })
+            }
+        })
+    }
 
     renderMovies = () => {
         return this.state.datafilm.map((val, index) => {
             return (
                 <TableRow key={index}>
                     <TableCell>{index + 1}</TableCell>
-                    <TableCell>{val.title}</TableCell>
-                    <TableCell><img src={val.image} alt={`gambar`} height='200px'/> </TableCell>
+                    <TableCell style={{width:'200px'}}>{val.title}</TableCell>
+                    <TableCell style={{ width: '100px' }}><img src={val.image} alt={`gambar`} width='100px'/> </TableCell>
                     { this.state.readmoreSelected===index?(
                         <TableCell style={{width:'500px'}}>
                             {val.sinopsis}
@@ -169,14 +188,16 @@ class ManageAdmin extends Component {
                         </TableCell>)
                     }
                     {/* <TableCell>{val.sinopsis}</TableCell> */}
-                    <TableCell>{val.jadwal}</TableCell>
+                    <TableCell>{val.jadwal.join(', ')}</TableCell>
                     <TableCell>{val.sutradara}</TableCell>
                     <TableCell>{val.genre}</TableCell>
                     <TableCell>{val.durasi}</TableCell>
-                    <TableCell style={{ width: '200px' }}>
-                        <button className='btn btn-outline-primary mr-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>
-                        <button className='btn btn-outline-danger' >Delete</button>
-                        {/* <button className='btn btn-outline-danger' onClick={this.onDeleteClick()} >Delete</button> */}
+                    <TableCell>{val.studioID}</TableCell>
+                    <TableCell>{val.produksi}</TableCell>
+                    <TableCell style={{ width: '100px' }}>
+                        <button className='btn btn-outline-primary mb-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>
+                        {/* <button className='btn btn-outline-danger' >Delete</button> */}
+                        <button className='btn btn-outline-danger' onClick={()=>this.onDeleteClick(val)} >Delete</button>
 
                     </TableCell>
                 </TableRow>
@@ -321,6 +342,8 @@ class ManageAdmin extends Component {
                                 <TableCell>Sutradara</TableCell>
                                 <TableCell>Genre</TableCell>
                                 <TableCell>Durasi</TableCell>
+                                <TableCell>Studio</TableCell>
+                                <TableCell>Produksi</TableCell>
                                 <TableCell>Action</TableCell>
                             </TableRow>
                         </TableHead>

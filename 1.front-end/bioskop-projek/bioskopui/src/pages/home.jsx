@@ -14,7 +14,7 @@ class Home extends Component {
         Axios.get(`${url}/movies`)
         .then((res)=>{
             this.setState({dataMovies:res.data})
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch((err)=>{
             console.log(err)

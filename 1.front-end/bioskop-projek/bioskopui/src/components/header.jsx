@@ -22,7 +22,7 @@ const Header = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">BIOSKOP TransTV</NavbarBrand>
+                <NavbarBrand href="/">BIOSKOP</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
