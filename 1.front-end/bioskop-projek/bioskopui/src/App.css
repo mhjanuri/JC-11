@@ -31,5 +31,36 @@
     padding: 0;
 }
 
+.btn-order{
+  width: 43px;
+  height: 40px;
+  background-color:whitesmoke;
+  color: #5b0008;
+  border: 1px solid #5b0008;
+  transition: 200ms;
+}
+
+.btn-order:focus{
+  outline-color: #5b0008;
+}
+
+.btn-order:hover{
+  font-weight: bolder;
+}
+
+.btn-disble{
+  width: 43px;
+  height: 40px;
+  background-color:whitesmoke;
+  color: #5b0008;
+  border: 1px solid #5b0008;
+}
+.btn-pilih{
+  color: whitesmoke;
+  background-color: #5b0008d7;
+  border: 1px solid whitesmoke;
+  width: 43px;
+  height: 40px;
+}
 
 

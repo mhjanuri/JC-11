@@ -45,7 +45,7 @@ class MovieDetail extends Component {
                     contentClassName=' trailer' >
                     <ModalBody className='p-0 bg-transparent'>
                         <iframe width="100%" title={this.state.datadetailfilm.title} height="100%" src={this.state.datadetailfilm.trailer}
-                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
                         </iframe>
                     </ModalBody>
                 </Modal>
