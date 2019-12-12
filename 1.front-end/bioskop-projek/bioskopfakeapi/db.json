@@ -174,9 +174,9 @@
       "id": 1,
       "userId": 2,
       "movieId": 3,
-      "jadwal":12,
+      "jadwal": 12,
       "totalHarga": 50000,
-      "bayar":false
+      "bayar": false
     },
     {
       "userId": 3,
@@ -184,7 +184,7 @@
       "jadwal": 12,
       "totalHarga": 50000,
       "id": 2,
-      "bayar":false
+      "bayar": false
     },
     {
       "userId": 2,
@@ -192,7 +192,28 @@
       "jadwal": 14,
       "totalHarga": 50000,
       "id": 3,
-      "bayar":false
+      "bayar": false
+    },
+    {
+      "movieId": 3,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 4
+    },
+    {
+      "movieId": 3,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 5
+    },
+    {
+      "movieId": 3,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 6
     }
   ],
   "ordersDetails": [
@@ -218,7 +239,7 @@
       "id": 4,
       "orderId": 2,
       "row": 2,
-      "seat":7
+      "seat": 7
     },
     {
       "id": 5,
@@ -230,7 +251,13 @@
       "id": 6,
       "orderId": 3,
       "row": 2,
-      "seat":9
+      "seat": 9
+    },
+    {
+      "orderId": 6,
+      "seat": 9,
+      "row": 2,
+      "id": 7
     }
   ]
 }

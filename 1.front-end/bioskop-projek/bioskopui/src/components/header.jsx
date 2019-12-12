@@ -27,7 +27,7 @@ const Header = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem className='mr-2'>
-                            <Link to="/manageadmin/">Admin</Link>
+                            <Link to="/manageadmin/">Manage</Link>
                         </NavItem>
                         {props.namauser===''?
                             <NavItem>
@@ -50,7 +50,7 @@ const Header = (props) => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    Reset
+                                    <Link to="/logout">Logout</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>

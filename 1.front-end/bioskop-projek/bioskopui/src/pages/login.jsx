@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
-import { APIURL } from '../support/ApiUrl';
+// import Axios from 'axios';
+// import { APIURL } from '../support/ApiUrl';
 import {Link,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux'
-import {LoginSuccessAction} from './../redux/actions'
+import {LoginSuccessAction,Loginthunk,Login_error} from './../redux/actions'
 import Loader from 'react-loader-spinner'
 
 class Login extends Component {
@@ -15,21 +15,23 @@ class Login extends Component {
     onLoginClick=()=>{
         var username=this.refs.username.value 
         var password=this.refs.password.value
-        this.setState({loading:true})
-        Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
-        .then(res=>{
-            if(res.data.length){
-                localStorage.setItem('dino',res.data[0].id)
-                this.props.LoginSuccessAction(res.data[0])
-                // this.setState(login)
-            }else{
-                this.setState({error:'salah masukkan password'})
-            }
-            this.setState({ loading: false })
-        }).catch((err)=>{
-            console.log(err)
-            this.setState({loading:false})
-        })
+        this.props.Loginthunk(username,password)
+        
+        // this.setState({loading:true})
+        // Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
+        // .then(res=>{
+        //     if(res.data.length){
+        //         localStorage.setItem('dino',res.data[0].id)
+        //         this.props.LoginSuccessAction(res.data[0])
+        //         // this.setState(login)
+        //     }else{
+        //         this.setState({error:'salah masukkan password'})
+        //     }
+        //     this.setState({ loading: false })
+        // }).catch((err)=>{
+        //     console.log(err)
+        //     this.setState({loading:false})
+        // })
     }
 
     render() {
@@ -47,15 +49,15 @@ class Login extends Component {
                         <div className='p-1' style={{ borderBottom: '1px solid black' }}>
                             <input type='password' className='username' style={{ border: 'transparent', width: '100%', fontsize: '20px' }} ref='password' placeholder='input password' />
                         </div>
-                        {this.state.error===''?
+                        {this.props.Auth.error===''?
                             null
                             :
                             <div className="alert alert-danger mt-2">
-                                {this.state.error} <span onClick={()=>this.setState({error:''})} className='float-right font-weight-bold'>x</span>
+                                {this.props.Auth.error} <span onClick={this.props.Login_error} className='float-right font-weight-bold'>x</span>
                             </div>
                         }
                         <div className='mt-4'>
-                            {this.state.loading?
+                            {this.props.Auth.loading?
                                 <Loader
                                     type="Triangle"
                                     color="#FF6969"
@@ -67,7 +69,7 @@ class Login extends Component {
                             }
                         </div>
                         <div className='mt-2'>
-                            belum ada akun? <Link>Register</Link> aja dulu
+                            belum ada akun? <Link to='/register'>Register</Link> aja dulu
                         </div>
                     </div>
                 </div>
@@ -78,8 +80,9 @@ class Login extends Component {
 
 const MapStateToProps=(state)=>{
     return {
-        AuthLog:state.Auth.login
+        AuthLog:state.Auth.login,
+        Auth:state.Auth
     }
 }
  
-export default connect(MapStateToProps, {LoginSuccessAction}) (Login);
+export default connect(MapStateToProps, {LoginSuccessAction, Loginthunk, Login_error}) (Login);

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import Axios from 'axios'
 import { APIURL } from '../support/ApiUrl';
+import Numeral from 'numeral'
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import {Redirect} from 'react-router-dom' 
 
 class Belitiket extends Component {
     state = {  
@@ -11,7 +14,11 @@ class Belitiket extends Component {
         booked:[],
         loading:true,
         jam:12,
-        pilihan:[]
+        pilihan:[],
+        harga:0,
+        jumlahtiket:0,
+        openModalCart:false,
+        redirectHome:false
     }
 
     componentDidMount(){
@@ -62,6 +69,59 @@ class Belitiket extends Component {
         var pilihan=this.state.pilihan
         pilihan.push({row:row,seat})//seat:seat bisa juga ditulis begitu 
         this.setState({pilihan:pilihan})
+    }
+
+    onOrderClick=()=>{
+        var userId=this.props.UserId
+        var movieId=this.state.datamovie.id
+        var pilihan=this.state.pilihan
+        var jadwal=this.state.jam
+        var totalharga=this.state.pilihan.length*25000
+        var bayar=false
+        var dataorders={
+            userId,
+            movieId,
+            totalharga,
+            jadwal,
+            bayar
+        }
+        Axios.post(`${APIURL}/orders`,dataorders)
+        .then((res)=>{
+            // console.log(res.data.id)
+            const dataordersdetail=[]
+            pilihan.forEach((val)=>{
+                dataordersdetail.push({
+                    orderId:res.data.id,
+                    seat:val.seat,
+                    row:val.row
+                })
+            })
+            // console.log(dataordersdetail)
+            var dataordersdetail2=[]
+            dataordersdetail.forEach((val)=>{
+                dataordersdetail2.push(Axios.post(`${APIURL}/ordersDetails`,val))
+            })
+            Axios.all(dataordersdetail2)
+            .then((res1)=>{
+                // console.log(res1)
+                this.setState({openModalCart:true})
+            }).catch((err)=>{
+                console.log(err)
+            })
+        }).catch((err)=>{
+            console.log(err)
+        })
+    }
+
+    renderHargadanQuantity=()=>{
+        var jumlahtiket=this.state.pilihan.length
+        var harga=jumlahtiket*25000
+        return (
+            <div>
+                {jumlahtiket} tiket X {Numeral(25000).format('Rp0,0.00')} = {Numeral(harga).format('Rp0,0.00')}
+            </div>
+        )
+        
     }
     
     onCancelseatClick=(row,seat)=>{
@@ -124,6 +184,7 @@ class Belitiket extends Component {
         })
         return jsx
     }
+
     renderbutton=()=>{
         return this.state.datamovie.jadwal.map((val,index)=>{
             if(this.state.jam===val){
@@ -138,14 +199,35 @@ class Belitiket extends Component {
     }
     render(){
         if(this.props.location.state &&this.props.AuthLog){
+            if (this.state.redirectHome) {
+                return <Redirect to={'/'} />
+            } 
             return (
+                
                 <div>
+                    <Modal isOpen={this.state.openModalCart}>
+                        <ModalBody >Cart berhasil ditambahkan</ModalBody>
+                        <ModalFooter>
+                            <button 
+                                onClick={()=>this.setState({redirectHome:true})}
+                                className='btn btn-success'>Okay
+                            </button>
+                        </ModalFooter>
+                    </Modal>
+
                     <center className='mt-1'>
                         {this.state.loading?null:this.renderbutton()}
                         <div>
-                            {this.state.pilihan.length?<button className='btn btn-primary mt-3'>Order</button> :null}
+                            {this.state.pilihan.length? (
+                                <button className='btn btn-primary mt-3' onClick={this.onOrderClick}>
+                                    Order
+                                </button>
+                            ) : null
+                            }
                         </div>
+                        {this.state.pilihan.length ? this.renderHargadanQuantity():null}
                     </center>
+
                     <div className="d-flex justify-content-center mt-4">
                         <div>
                             {this.state.loading?null:this.renderseat()} 
@@ -167,4 +249,5 @@ const MapstateToprops=(state)=>{
         AuthLog:state.Auth.login
     }
 }
+
 export default connect(MapstateToprops) (Belitiket);
