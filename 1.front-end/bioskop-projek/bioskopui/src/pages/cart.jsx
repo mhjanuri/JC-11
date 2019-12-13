@@ -12,7 +12,7 @@ class Cart extends Component {
     componentDidMount(){
         Axios.get(`${APIURL}/orders?_expand=movie&userId=${this.props.UserId}&bayar=false`)
         .then(res=>{
-            this.setState({datacart:res.data})
+            var datacart=res.data
             var qtyarr=[]
             res.data.forEach(element => {
                 qtyarr.push(`${APIURL}/ordersDetails?orderId=${element.id}`)
@@ -65,10 +65,10 @@ class Cart extends Component {
                     <Table style={{width:600}}>
                         <thead>
                             <tr>
-                                <th style={{ width: 100 }}> </th>
-                                <th style={{ width: 300 }}> </th>
-                                <th style={{ width: 100 }}> </th>
-                                <th style={{ width: 100 }}> </th>
+                                <th style={{ width: 100 }}>No</th>
+                                <th style={{ width: 300 }}>Judul</th>
+                                <th style={{ width: 100 }}>Jadwal</th>
+                                <th style={{ width: 100 }}>Action</th>
                             </tr>
                         </thead>
                         <tbody>

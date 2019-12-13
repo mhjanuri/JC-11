@@ -56,7 +56,7 @@ const Header = (props) => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <Link onClick={()=>onSignOutClick()} >Logout</Link>
+                                    <Link to='/login' onClick={()=>onSignOutClick()} >Logout</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
