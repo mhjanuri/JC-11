@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import {Table, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import {APIURL} from '../support/ApiUrl'
+import zIndex from '@material-ui/core/styles/zIndex';
 
 class Cart extends Component {
     state = {
@@ -13,6 +14,17 @@ class Cart extends Component {
         Axios.get(`${APIURL}/orders?_expand=movie&userId=${this.props.UserId}&bayar=false`)
         .then(res=>{
             this.setState({datacart:res.data})
+            var qtyarr=[]
+            res.data.forEach(element => {
+                qtyarr.push(`${APIURL}/ordersDetails?orderId=${element.id}`)
+            })
+            var qtyarrfinal=[]
+            Axios.all(qtyarr)
+            .then(res1=>{
+                res1.forEach((val) =>{
+                    qtyarrfinal.push(...val.data)
+                })
+            })
         }).catch(err=>{
             console.log(err)
         })
@@ -27,7 +39,15 @@ class Cart extends Component {
                     </tr>
                 )
             }
-        return
+        return this.state.datacart.map((val,index)=>{
+            return (
+                <tr key={Index}>
+                    <td style={{}}>{index + 1}</td>
+                    <td>{val.movie.title}</td>
+
+                </tr>
+            )
+        })
         }
     }
 
