@@ -19,7 +19,16 @@ class Cart extends Component {
     }
 
     renderCart(){
-        
+        if (this.state.datacart!==null) {
+            if (this.state.datacart.length===0) {
+                return (
+                    <tr>
+                        <td>Belum ada barang di Cart</td>
+                    </tr>
+                )
+            }
+        return
+        }
     }
 
     render() { 
@@ -38,11 +47,18 @@ class Cart extends Component {
                         <tbody>
                             {this.renderCart()}
                         </tbody>
+                        <tfoot>
+                            <button>Checkout</button>
+                        </tfoot>
                     </Table>
                 </center>
             </div>
         );
     }
 }
+
+MapStateToProps(state){
+
+}
  
-export default Cart;
+export default connect(MapStateToProps) (Cart);
