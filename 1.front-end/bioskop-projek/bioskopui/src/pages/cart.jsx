@@ -3,7 +3,6 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import {Table, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import {APIURL} from '../support/ApiUrl'
-import zIndex from '@material-ui/core/styles/zIndex';
 
 class Cart extends Component {
     state = {
@@ -22,8 +21,14 @@ class Cart extends Component {
             Axios.all(qtyarr)
             .then(res1=>{
                 res1.forEach((val) =>{
-                    qtyarrfinal.push(...val.data)
+                    qtyarrfinal.push(val.data)
                 })
+                var datafinal=[]
+                datacart.forEach((val,index)=>{
+                    datafinal.push({...val,qty:qtyarrfinal[index]})
+                })
+            }).catch(err1=>{
+                console.log(err1)
             })
         }).catch(err=>{
             console.log(err)
@@ -41,9 +46,11 @@ class Cart extends Component {
             }
         return this.state.datacart.map((val,index)=>{
             return (
-                <tr key={Index}>
-                    <td style={{}}>{index + 1}</td>
-                    <td>{val.movie.title}</td>
+                <tr key={index}>
+                    <td style={{width:100}}>{index + 1}</td>
+                    <td style={{width:300}}>{val.movie.title}</td>
+                    <td style={{width:100}}>{val.jadwal}</td>
+                    <td style={{width:100}}><button className='btn btn-primary'>Details</button></td>
 
                 </tr>
             )
@@ -77,8 +84,11 @@ class Cart extends Component {
     }
 }
 
-MapStateToProps(state){
-
+const MapStateToProps=(state)=>{
+    return{
+        AuthLog:state.Auth.login,
+        userId:state.Auth.id
+    }
 }
  
 export default connect(MapStateToProps) (Cart);
