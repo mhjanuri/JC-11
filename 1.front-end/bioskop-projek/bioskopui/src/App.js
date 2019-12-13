@@ -10,6 +10,7 @@ import Logout from "./pages/logout";
 import Register from "./pages/register";
 import MovieDetail from './pages/moviedetail'
 import BeliTiket from './pages/belitiket';
+import Cart from './pages/cart';
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
 import Axios from 'axios';
