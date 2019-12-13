@@ -214,6 +214,20 @@
       "jadwal": 12,
       "bayar": false,
       "id": 6
+    },
+    {
+      "movieId": 3,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 7
+    },
+    {
+      "movieId": 3,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 8
     }
   ],
   "ordersDetails": [
@@ -258,6 +272,24 @@
       "seat": 9,
       "row": 2,
       "id": 7
+    },
+    {
+      "orderId": 7,
+      "seat": 10,
+      "row": 2,
+      "id": 8
+    },
+    {
+      "orderId": 8,
+      "seat": 8,
+      "row": 2,
+      "id": 9
     }
+  ],
+  "transactions":[
+
+  ],
+  "transactionsDetails":[
+    
   ]
 }

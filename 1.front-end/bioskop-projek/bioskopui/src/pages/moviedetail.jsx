@@ -49,14 +49,16 @@ class MovieDetail extends Component {
                         </iframe>
                     </ModalBody>
                 </Modal>
+
                 <Modal isOpen={this.state.notloginyet} centered toggle={() => this.setState({ notloginyet: false })}>
                     <ModalBody>
                         anda belum login, untuk melakukan order silakan login dahulu
                     </ModalBody>
                     <ModalFooter>
-                        <button onClick={() => this.setState({ kelogin: true })}>Ok</button>
+                        <button onClick={() => this.setState({ kelogin: true })} className='btn btn-primary'>Okay</button>
                     </ModalFooter>
                 </Modal>
+
                 <div className="row p-3 mx-3 my-4">
                     <div className="col-md-4">
                         <img src={this.state.datadetailfilm.image} height='400' alt="film" />

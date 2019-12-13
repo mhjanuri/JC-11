@@ -13,6 +13,9 @@ import {
 } from 'reactstrap';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import { URL } from '../support/Url';
+import { FaShoppingCart } from 'react-icons/fa'
+
 
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +29,14 @@ const Header = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-                        <NavItem className='mr-2'>
-                            <Link to="/manageadmin/">Manage</Link>
+                        <NavItem className='mr-2 pt-2'>
+                            <Link to={"/manageadmin/"}>Manage</Link>
+                        </NavItem>
+                        <NavItem className='mr-2 pt-2'>
+                            <Link to={"/cart"}> <FaShoppingCart/> </Link>
                         </NavItem>
                         {props.namauser===''?
-                            <NavItem>
+                            <NavItem className='mr-2 pt-2'>
                                 <Link to="/login">Login</Link>
                             </NavItem>
                             :
@@ -50,7 +56,7 @@ const Header = (props) => {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <Link to="/logout">Logout</Link>
+                                    <Link onClick={()=>onSignOutClick()} >Logout</Link>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
@@ -59,6 +65,12 @@ const Header = (props) => {
             </Navbar>
         </div>
     );
+}
+
+const onSignOutClick=()=>{
+    localStorage.clear()
+    window.location.reload()
+    window.location.assign(`${URL}/login`)
 }
 
 const MapStateToProps=(state)=>{
