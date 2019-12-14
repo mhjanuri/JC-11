@@ -225,92 +225,34 @@
       "jadwal": 12,
       "bayar": false,
       "id": 7
+    },
+    {
+      "movieId": 1,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 8
+    },
+    {
+      "movieId": 1,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 9
     }
   ],
   "ordersDetails": [
     {
-      "id": 1,
-      "orderId": 1,
-      "row": 2,
-      "seat": 4
+      "orderId": 8,
+      "seat": 5,
+      "row": 0,
+      "id": 1
     },
     {
-      "id": 2,
-      "orderId": 1,
-      "row": 2,
-      "seat": 5
-    },
-    {
-      "id": 3,
-      "orderId": 2,
-      "row": 2,
-      "seat": 6
-    },
-    {
-      "id": 4,
-      "orderId": 2,
-      "row": 2,
-      "seat": 7
-    },
-    {
-      "id": 5,
-      "orderId": 3,
-      "row": 2,
-      "seat": 8
-    },
-    {
-      "id": 6,
-      "orderId": 3,
-      "row": 2,
-      "seat": 9
-    },
-    {
-      "orderId": 4,
+      "orderId": 9,
       "seat": 7,
       "row": 0,
-      "id": 7
-    },
-    {
-      "orderId": 4,
-      "seat": 8,
-      "row": 0,
-      "id": 8
-    },
-    {
-      "orderId": 5,
-      "seat": 11,
-      "row": 0,
-      "id": 9
-    },
-    {
-      "orderId": 5,
-      "seat": 12,
-      "row": 0,
-      "id": 10
-    },
-    {
-      "orderId": 6,
-      "seat": 9,
-      "row": 0,
-      "id": 11
-    },
-    {
-      "orderId": 6,
-      "seat": 10,
-      "row": 0,
-      "id": 12
-    },
-    {
-      "orderId": 7,
-      "seat": 8,
-      "row": 0,
-      "id": 13
-    },
-    {
-      "orderId": 7,
-      "seat": 9,
-      "row": 0,
-      "id": 14
+      "id": 2
     }
   ],
   "transactions": [],

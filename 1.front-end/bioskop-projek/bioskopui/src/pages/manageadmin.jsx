@@ -29,6 +29,14 @@ class ManageAdmin extends Component {
             })
     }
 
+    jadwalWithEmbelEmbel = (arr) => {
+        var tempArr = []
+        for (var i = 0; i < arr.length; i++) {
+            tempArr.push(arr[i] + ':00PM, ')
+        }
+        return tempArr
+    }
+
     onSaveAddDataClick = () => {
         var jadwaltemplate = [12, 14, 16, 18, 20]
         var jadwal = []
@@ -188,7 +196,7 @@ class ManageAdmin extends Component {
                         </TableCell>)
                     }
                     {/* <TableCell>{val.sinopsis}</TableCell> */}
-                    <TableCell>{val.jadwal.join(', ')}</TableCell>
+                    <TableCell>{this.jadwalWithEmbelEmbel(val.jadwal)}</TableCell>
                     <TableCell>{val.sutradara}</TableCell>
                     <TableCell>{val.genre}</TableCell>
                     <TableCell>{val.durasi}</TableCell>
