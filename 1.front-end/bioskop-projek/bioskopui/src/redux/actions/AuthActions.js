@@ -1,6 +1,5 @@
 import Axios from "axios"
 import { APIURL } from "../../support/ApiUrl"
-
 export const LoginSuccessAction=(datauser)=>{
     return{
         type:'LOGIN_SUCCESS',

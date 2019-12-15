@@ -3,6 +3,8 @@ const INITIAL_STATE={
     username:'',
     password:'',
     login:false,
+    error: '',
+    loading: false
 }
 
 export default (state=INITIAL_STATE,action)=>{

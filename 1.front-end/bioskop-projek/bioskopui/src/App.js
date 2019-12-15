@@ -6,8 +6,7 @@ import './App.css';
 import {Switch,Route} from 'react-router-dom'
 import ManageAdmin from './pages/manageadmin';
 import Login from './pages/login';
-// import Logout from "./pages/logout";
-// import Register from "./pages/register";
+import Register from "./pages/register";
 import MovieDetail from './pages/moviedetail'
 import BeliTiket from './pages/belitiket';
 import Cart from './pages/cart';
@@ -43,17 +42,12 @@ class App extends Component {
     <div>
       <Header />
       <Switch>
-        <Route exact path={"/"}>
-          <Home />
-        </Route>
-        <Route exact path={"/manageadmin"}>
-          <ManageAdmin />
-        </Route>
+        <Route exact path={"/"}> <Home /> </Route>
+        <Route exact path={"/manageadmin"}> <ManageAdmin /> </Route>
         <Route exact path="/moviedetail/:id" component={MovieDetail} />
         <Route exact path="/belitiket" component={BeliTiket} />
         <Route exact path={"/login"} component={Login} />
-        {/* <Route exact path={"/logout"} component={Logout} /> */}
-        {/* <Route exact path={"/register"} component={Register} /> */}
+        <Route exact path={"/register"} component={Register} />
         <Route exact path={"/cart"} component={Cart} />
       </Switch>
     </div>

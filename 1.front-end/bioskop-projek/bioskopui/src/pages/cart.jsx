@@ -44,6 +44,10 @@ class Cart extends Component {
         })
     }
 
+    jadwalWithEmbelEmbel = (arr) => {
+        return arr + ':00PM'
+    }
+
     renderCart(){
         if (this.state.datacart!==null) {
             if (this.state.datacart.length===0) {
@@ -54,12 +58,12 @@ class Cart extends Component {
                 )
             }
             return this.state.datacart.map((val,index)=>{
-                // console.log(val)
+                console.log('VAL.JADWAL '+val.jadwal)
                 return (
                     <tr key={index}>
                         <td style={{ width: 100 }}>{index + 1}</td>
                         <td style={{ width: 300 }}>{val.movie.title}</td>
-                        <td style={{ width: 100 }}>{val.jadwal}</td>
+                        <td style={{ width: 100 }}>{this.jadwalWithEmbelEmbel(val.jadwal)}</td>
                         <td style={{ width: 100 }}>{val.qty.length}</td>
                         <td style={{ width: 100 }}><button>Details</button></td>
                     </tr>

@@ -49,7 +49,7 @@ class Login extends Component {
                         <div className='p-1' style={{ borderBottom: '1px solid black' }}>
                             <input type='password' className='username' style={{ border: 'transparent', width: '100%', fontsize: '20px' }} ref='password' placeholder='input password' />
                         </div>
-                        {this.props.Auth.error===''?
+                        {this.props.Auth.error === ''?
                             null
                             :
                             <div className="alert alert-danger mt-2">
@@ -59,7 +59,7 @@ class Login extends Component {
                         <div className='mt-4'>
                             {this.props.Auth.loading?
                                 <Loader
-                                    type="Triangle"
+                                    type="Puff"
                                     color="#FF6969"
                                     height={100}
                                     width={100}
