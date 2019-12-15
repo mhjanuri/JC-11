@@ -17,7 +17,7 @@ import { APIURL } from './support/ApiUrl';
 
 class App extends Component {
   state = {
-	loading: false
+	  loading: false
   };
 
   componentDidMount() {

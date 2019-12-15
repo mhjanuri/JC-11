@@ -23,6 +23,12 @@
       "password": "qwe",
       "role": "user",
       "id": 4
+    },
+    {
+      "username": "hendri",
+      "password": "qwe",
+      "role": "user",
+      "id": 5
     }
   ],
   "studios": [

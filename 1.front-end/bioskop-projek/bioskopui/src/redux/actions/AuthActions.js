@@ -27,6 +27,6 @@ export const Loginthunk=(username,password)=>{
 
 export const Login_error=()=>{
     return(dispatch)=>{
-        dispatch({type:'LOGIN_ERROR',payload:''})
+        dispatch({type:'LOGIN_ERROR',payload:'Login_error'})
     }
 }
