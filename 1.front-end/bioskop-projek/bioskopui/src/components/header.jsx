@@ -70,7 +70,7 @@ const Header = (props) => {
 const onSignOutClick=()=>{
     localStorage.clear()
     window.location.reload()
-    window.location.assign(`${URL}/login`)
+    window.location.assign(`${URL}/`)
 }
 
 const MapStateToProps=(state)=>{

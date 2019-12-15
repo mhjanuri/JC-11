@@ -3,17 +3,26 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "1234"
+      "password": "1234",
+      "role": "admin"
     },
     {
       "id": 2,
       "username": "dobleh",
-      "password": "qwe"
+      "password": "qwe",
+      "role": "user"
     },
     {
       "id": 3,
       "username": "jamal",
-      "password": "qwe"
+      "password": "qwe",
+      "role": "user"
+    },
+    {
+      "username": "kabur",
+      "password": "qwe",
+      "role": "user",
+      "id": 4
     }
   ],
   "studios": [
