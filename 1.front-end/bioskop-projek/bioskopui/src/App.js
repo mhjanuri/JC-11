@@ -10,6 +10,8 @@ import Register from "./pages/register";
 import MovieDetail from './pages/moviedetail'
 import BeliTiket from './pages/belitiket';
 import Cart from './pages/cart';
+import History from './pages/history'
+import Pagenotfound from './pages/pagenotfound'
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
 import Axios from 'axios';
@@ -49,6 +51,9 @@ class App extends Component {
         <Route exact path={"/login"} component={Login} />
         <Route exact path={"/register"} component={Register} />
         <Route exact path={"/cart"} component={Cart} />
+        <Route exact path='/history' component={History} />
+        <Route exact path='/404' component={Pagenotfound} />
+        <Route path='/*' component={Pagenotfound} />
       </Switch>
     </div>
   );

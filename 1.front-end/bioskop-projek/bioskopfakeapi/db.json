@@ -62,8 +62,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
       "genre": "Action, Adventure, Comedy",
       "produksi": "Columbia Pictures",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157286348374133.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
+      "studioID": "1",
       "id": 1
     },
     {
@@ -79,8 +79,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Adventure, Fantasy",
       "produksi": "Walt Disney Pictures",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157416305191305.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg",
+      "studioID": "1",
       "id": 2
     },
     {
@@ -95,8 +95,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
       "genre": "Animation, Adventure, Comedy",
       "produksi": "Walt Disney Pictures",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157588566572972.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/Zi4LMpSDccc",
+      "studioID": "1",
       "id": 3
     },
     {
@@ -112,8 +112,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
       "genre": "Action, Biography, Drama",
       "produksi": "20th Century Fox",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157061938943803.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/I3h9Z89U9ZA",
+      "studioID": "1",
       "id": 4
     },
     {
@@ -128,8 +128,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
       "genre": "Comedy, Crime, Drama",
       "produksi": "Mongrel Media",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/15725177229909.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/qGqiHJTsRkQ",
+      "studioID": "1",
       "id": 5
     },
     {
@@ -144,8 +144,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157018191975549_287x421.jpg",
       "genre": "Action, Crime, Drama",
       "produksi": "VVS Films",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157018187696571.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/qaZoSTG10lw",
+      "studioID": "1",
       "id": 6
     },
     {
@@ -160,8 +160,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157129577038373_287x421.jpg",
       "genre": "Horror",
       "produksi": "Hitmaker Studios",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157371653891448.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/GlF3cMCh2mk",
+      "studioID": "1",
       "id": 7
     },
     {
@@ -179,8 +179,8 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
       "genre": "Drama",
       "produksi": "MD Pictures",
-      "trailer": "https://media.21cineplex.com/webcontent/movie/trailer/video/157414474532243.mp4",
-      "studioId": "1",
+      "trailer": "https://www.youtube.com/embed/CIP0esJ6MMs",
+      "studioID": "1",
       "id": 8
     }
   ],

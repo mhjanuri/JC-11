@@ -25,7 +25,7 @@ class Belitiket extends Component {
         this.onJamchange()
     }
     onJamchange=()=>{
-        var studioId=this.props.location.state.studioId
+        var studioId=this.props.location.state.studioID
         var movieId=this.props.location.state.id
         Axios.get(`${APIURL}/studios/${studioId}`)
         .then((res1)=>{
@@ -237,16 +237,15 @@ class Belitiket extends Component {
               );
         }
         return(
-            <div>
-                404 not found
-            </div>
+            <Redirect to={'/404'} />
         )
     }
 }
 
 const MapstateToprops=(state)=>{
     return{
-        AuthLog:state.Auth.login
+        AuthLog:state.Auth.login,
+        Auth:state.Auth
     }
 }
 

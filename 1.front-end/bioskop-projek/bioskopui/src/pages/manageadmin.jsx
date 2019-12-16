@@ -4,6 +4,9 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/c
 import {APIURL} from '../support/ApiUrl'
 import Fade from 'react-reveal/Fade'
 import {Modal,ModalBody,ModalFooter,ModalHeader} from 'reactstrap'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+// import Pagenotfound from '../pages/pagenotfound'
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 
@@ -267,6 +270,16 @@ class ManageAdmin extends Component {
     render() {
         const {datafilm,indexedit}=this.state
         const {length}=datafilm
+
+        if (this.props.Auth.id === '') {
+            return (<Redirect to='/'/>)
+        }
+        if (this.props.Auth.role !== 'admin') {
+            return (<Redirect to='/404'/>)
+            // return (<Pagenotfound />)
+        }
+
+        console.log(this.props.Auth)
         if (length===0) {
             return <div>Loading..</div>
         }
@@ -365,4 +378,10 @@ class ManageAdmin extends Component {
     }
 }
 
-export default ManageAdmin;
+const mapStateToProps = (state) => {
+    return {
+        Auth: state.Auth
+    }
+} 
+
+export default connect(mapStateToProps) (ManageAdmin);
