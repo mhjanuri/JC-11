@@ -24,6 +24,7 @@ class Belitiket extends Component {
     componentDidMount(){
         this.onJamchange()
     }
+    
     onJamchange=()=>{
         var studioId=this.props.location.state.studioID
         var movieId=this.props.location.state.id
@@ -31,6 +32,7 @@ class Belitiket extends Component {
         .then((res1)=>{
             Axios.get(`${APIURL}/orders?movieId=${movieId}&jadwal=${this.state.jam}`)
             .then((res2)=>{
+                console.log(this.state.jam)
                 var arrAxios=[]
                 res2.data.forEach((val)=>{
                     arrAxios.push(Axios.get(`${APIURL}/ordersDetails?orderId=${val.id}`))
@@ -60,6 +62,7 @@ class Belitiket extends Component {
             console.log(err1)
         })
     }
+
     onButtonjamclick=(val)=>{
         this.setState({jam:val,pilihan:[]})
         this.onJamchange()   
@@ -199,6 +202,9 @@ class Belitiket extends Component {
     }
     render(){
         if(this.props.location.state &&this.props.AuthLog){
+            if (this.props.Auth.role==="admin") {
+                return <Redirect to={'/404'} />
+            }
             if (this.state.redirectHome) {
                 return <Redirect to={'/'} />
             } 
