@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import Axios from 'axios'
 import { APIURL } from '../support/ApiUrl';
+import {URL} from '../support/Url'
 import Numeral from 'numeral'
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import {Redirect} from 'react-router-dom' 
@@ -199,6 +200,8 @@ class Belitiket extends Component {
             )
         })
     }
+
+    
     render(){
         if(this.props.location.state &&this.props.AuthLog){
             if (this.props.UserRole==="admin") {
@@ -214,7 +217,7 @@ class Belitiket extends Component {
                         <ModalBody >Cart berhasil ditambahkan</ModalBody>
                         <ModalFooter>
                             <button 
-                                onClick={()=>this.setState({redirectHome:true})}
+                                onClick={() => onOkModalClick()}
                                 className='btn btn-success'>Okay
                             </button>
                         </ModalFooter>
@@ -228,7 +231,7 @@ class Belitiket extends Component {
                                     Order
                                 </button>
                             ) : null
-                            }
+                        }
                         </div>
                         {this.state.pilihan.length ? this.renderHargadanQuantity():null}
                     </center>
@@ -240,18 +243,23 @@ class Belitiket extends Component {
                     </div>
                 </div>
               );
+            }
+            return(
+                <Redirect to={'/404'} />
+                )
+            }
         }
-        return(
-            <Redirect to={'/404'} />
-        )
-    }
-}
+        
+        const onOkModalClick = () => {
+            window.location.reload()
+            window.location.assign(`${URL}/`)
+        }
 
-const mapStateToProps=(state)=>{
-    return{
-        AuthLog:state.Auth.login,
-        UserRole:state.Auth.role
-    }
-}
-
-export default connect(mapStateToProps) (Belitiket);
+        const mapStateToProps=(state)=>{
+            return{
+                AuthLog:state.Auth.login,
+                UserRole:state.Auth.role
+            }
+        }
+        
+        export default connect(mapStateToProps) (Belitiket);

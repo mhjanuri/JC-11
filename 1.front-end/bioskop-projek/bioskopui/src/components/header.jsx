@@ -47,9 +47,13 @@ const Header = (props) => {
                         <NavItem className='mr-2 pt-2'>
                             <Link to={"/cart"}> <FaShoppingCart/> </Link>
                         </NavItem>
-                        <NavItem className='mr-2 pt-2'>
-                            {props.Cart}
-                        </NavItem>
+                        {props.Cart===0 || props.AuthLog===false?
+                            null
+                            :
+                            <NavItem className='mr-2 pt-2'>
+                                {props.Cart}
+                            </NavItem>
+                        }
                         {props.namauser===''?
                             <NavItem className='mr-2 pt-2'>
                                 <Link to="/login">Login</Link>
@@ -91,7 +95,8 @@ const onSignOutClick=()=>{
 const mapStateToProps=(state)=>{
     return{
         namauser:state.Auth.username,
-        Cart:state.Cart
+        Cart:state.Cart,
+        AuthLog:state.Auth.login
     }
 }
 

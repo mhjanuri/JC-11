@@ -186,45 +186,32 @@
   ],
   "orders": [
     {
-      "movieId": 3,
+      "movieId": 4,
       "totalharga": 25000,
       "jadwal": 12,
       "bayar": false,
-      "id": 10
+      "id": 1
     },
     {
-      "movieId": 3,
+      "movieId": 2,
       "totalharga": 25000,
       "jadwal": 12,
       "bayar": false,
-      "id": 11
-    },
-    {
-      "movieId": 3,
-      "totalharga": 25000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 12
+      "id": 2
     }
   ],
   "ordersDetails": [
     {
-      "orderId": 10,
-      "seat": 4,
+      "orderId": 1,
+      "seat": 8,
       "row": 2,
-      "id": 3
+      "id": 1
     },
     {
-      "orderId": 11,
-      "seat": 5,
-      "row": 2,
-      "id": 4
-    },
-    {
-      "orderId": 12,
-      "seat": 6,
-      "row": 2,
-      "id": 5
+      "orderId": 2,
+      "seat": 11,
+      "row": 0,
+      "id": 2
     }
   ],
   "transactions": [],

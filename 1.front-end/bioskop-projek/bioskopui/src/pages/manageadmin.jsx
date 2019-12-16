@@ -31,6 +31,7 @@ class ManageAdmin extends Component {
                 console.log(err)
             })
     }
+    
 
     jadwalWithEmbelEmbel = (arr) => {
         var tempArr = []
@@ -38,6 +39,7 @@ class ManageAdmin extends Component {
             tempArr.push(arr[i] + ':00PM, ')
         }
         return tempArr
+        
     }
 
     onSaveAddDataClick = () => {
@@ -146,7 +148,7 @@ class ManageAdmin extends Component {
     }
 
     onDeleteClick = (val) => {
-        Swal.fire({
+        MySwal.fire({
             title: `Are you sure want to delete <br/> ${val.title}?`,
             text: "",
             icon: 'warning',
@@ -214,6 +216,7 @@ class ManageAdmin extends Component {
                 </TableRow>
             )
         })
+        
     }
 
     renderAddCheckbox=()=>{
@@ -279,7 +282,7 @@ class ManageAdmin extends Component {
             // return (<Pagenotfound />)
         }
 
-        console.log(this.props.Auth)
+        console.log(this.state.datafilm)
         if (length===0) {
             return <div>Loading..</div>
         }
@@ -287,7 +290,7 @@ class ManageAdmin extends Component {
         return (
             <div className='mx-3'>
 
-
+            
             {/* EDIT DATA START */}
                 <Modal isOpen={this.state.modaledit} toggle={() => this.setState({ modaledit: false })}>
                     <ModalHeader>

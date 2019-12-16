@@ -4,6 +4,10 @@ import {connect} from 'react-redux'
 import {Table} from 'reactstrap'
 // import { countCart } from './../redux/actions'
 import {APIURL} from '../support/ApiUrl'
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+
+const MySwal = withReactContent(Swal)
 
 class Cart extends Component {
     state = {
@@ -14,14 +18,14 @@ class Cart extends Component {
     componentDidMount(){
         Axios.get(`${APIURL}/orders?_expand=movie&userId=${this.props.UserId}&bayar=false`)
         .then(res=>{
-            // console.log('res.data', res.data)
+            console.log('res.data', res.data)
             var datacart=res.data
             var qtyarr=[]
             res.data.forEach(element => {
                 // console.log(element)
                 qtyarr.push(Axios.get(`${APIURL}/ordersDetails?orderId=${element.id}`))
             })
-            // console.log('qtyarr',qtyarr)
+            console.log('qtyarr',qtyarr)
 
             var qtyarrfinal=[]
             Axios.all(qtyarr)
@@ -29,12 +33,12 @@ class Cart extends Component {
                 res1.forEach((val) =>{
                     qtyarrfinal.push(val.data)
                 })
-                // console.log('qtyarrfinal',qtyarrfinal)
+                console.log('qtyarrfinal ',qtyarrfinal)
                 var datafinal=[]
                 datacart.forEach((val,index)=>{
                     datafinal.push({...val, qty: qtyarrfinal[index]})
                 })
-                // console.log(datafinal.length)
+                console.log('datafinal ',datafinal)
                 this.setState({
                     datacart:datafinal,
                     datacartLength:datafinal.length
@@ -53,9 +57,43 @@ class Cart extends Component {
         return arr + ':00PM'
     }
 
+    onCancelClick=(val)=>{
+        console.log(this.state.datacart[val])
+        // console.log(this.state.datacart[val].movie)
+        // console.log(this.state.datacart[val].qty)
+        // this.state.datacart.splice(val,1)
+        
+        // MySwal.fire({
+        //     title: `Are you sure want to delete <br/> ${val.title}?`,
+        //     text: "",
+        //     icon: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, delete it!'
+        // }).then((result) => {
+        //     if (result.value) {
+        //         Swal.fire(
+        //             'Deleted!',
+        //             'Your file has been deleted.',
+        //             'success'
+        //         )
+        //         Axios.delete(`${APIURL}/orders/${val.id}`, this.state.datacart)
+        //             .then((res) => {
+        //                 Axios.get(`${APIURL}/orders`)
+        //                     .then((res) => {
+        //                         this.setState({ datacart: res.data})
+        //                     })
+        //             }).catch((err) => {
+        //                 console.log(err)
+        //             })
+        //     }
+        // })
+    }
+
     renderCart(){
-        console.log(this.state.datacart)
-        console.log(this.state.datacartLength)
+        console.log("datacart ",this.state.datacart)
+        // console.log(this.state.datacartLength)
         // this.props.countCart(this.state.datacartLength)
 
         if (this.state.datacart!==null) {
@@ -75,6 +113,7 @@ class Cart extends Component {
                         <td style={{ width: 100 }}>{this.jadwalWithEmbelEmbel(val.jadwal)}</td>
                         <td style={{ width: 100 }}>{val.qty.length}</td>
                         <td style={{ width: 100 }}><button>Details</button></td>
+                        <td style={{ width: 100 }} onClick={()=>this.onCancelClick(index)} ><button>Cancel</button></td>
                     </tr>
                 )
                 
@@ -87,7 +126,6 @@ class Cart extends Component {
     }
 
     render() { 
-        
         if (this.props.UserId) {
             return (
                 <div>
@@ -100,6 +138,7 @@ class Cart extends Component {
                                     <th style={{ width: 100 }}>Jadwal</th>
                                     <th style={{ width: 100 }}>Jumlah</th>
                                     <th style={{ width: 100 }}>Detail</th>
+                                    <th style={{ width: 100 }}>Cancel</th>
                                 </tr>
                             </thead>
                             <tbody>
