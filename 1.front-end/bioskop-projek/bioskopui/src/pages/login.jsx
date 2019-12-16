@@ -78,11 +78,11 @@ class Login extends Component {
     }
 }
 
-const MapStateToProps=(state)=>{
+const mapStateToProps=(state)=>{
     return {
         AuthLog:state.Auth.login,
         Auth:state.Auth
     }
 }
  
-export default connect(MapStateToProps, {LoginSuccessAction, Loginthunk, Login_error}) (Login);
+export default connect(mapStateToProps, {LoginSuccessAction, Loginthunk, Login_error}) (Login);

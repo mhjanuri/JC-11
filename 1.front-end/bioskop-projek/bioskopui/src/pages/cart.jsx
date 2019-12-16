@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import Axios from 'axios'
 import {connect} from 'react-redux'
 import {Table} from 'reactstrap'
+// import { countCart } from './../redux/actions'
 import {APIURL} from '../support/ApiUrl'
 
 class Cart extends Component {
     state = {
-        datacart:null
+        datacart:null,
+        datacartLength:0
     }
 
     componentDidMount(){
         Axios.get(`${APIURL}/orders?_expand=movie&userId=${this.props.UserId}&bayar=false`)
         .then(res=>{
-            console.log('res.data', res.data)
+            // console.log('res.data', res.data)
             var datacart=res.data
             var qtyarr=[]
             res.data.forEach(element => {
                 // console.log(element)
                 qtyarr.push(Axios.get(`${APIURL}/ordersDetails?orderId=${element.id}`))
             })
-            console.log('qtyarr',qtyarr)
+            // console.log('qtyarr',qtyarr)
 
             var qtyarrfinal=[]
             Axios.all(qtyarr)
@@ -27,21 +29,24 @@ class Cart extends Component {
                 res1.forEach((val) =>{
                     qtyarrfinal.push(val.data)
                 })
-                console.log('qtyarrfinal',qtyarrfinal)
+                // console.log('qtyarrfinal',qtyarrfinal)
                 var datafinal=[]
                 datacart.forEach((val,index)=>{
                     datafinal.push({...val, qty: qtyarrfinal[index]})
                 })
-                // console.log(datafinal)
+                // console.log(datafinal.length)
                 this.setState({
-                    datacart:datafinal
+                    datacart:datafinal,
+                    datacartLength:datafinal.length
                 })
+                // console.log(this.state.datacart)
             }).catch(err1=>{
                 console.log('err1', err1)
             })
         }).catch(err=>{
             console.log('err', err)
         })
+        
     }
 
     jadwalWithEmbelEmbel = (arr) => {
@@ -49,6 +54,10 @@ class Cart extends Component {
     }
 
     renderCart(){
+        console.log(this.state.datacart)
+        console.log(this.state.datacartLength)
+        // this.props.countCart(this.state.datacartLength)
+
         if (this.state.datacart!==null) {
             if (this.state.datacart.length===0) {
                 return (
@@ -58,7 +67,7 @@ class Cart extends Component {
                 )
             }
             return this.state.datacart.map((val,index)=>{
-                console.log('VAL.JADWAL '+val.jadwal)
+                // console.log('VAL.JADWAL '+val.jadwal)
                 return (
                     <tr key={index}>
                         <td style={{ width: 100 }}>{index + 1}</td>
@@ -68,11 +77,17 @@ class Cart extends Component {
                         <td style={{ width: 100 }}><button>Details</button></td>
                     </tr>
                 )
+                
             })
+        } else {
+            // console.log('state.datacart is empty:null')
+            // console.log(this.state.datacart)
+            // console.log(this.state.datacartLength)
         }
     }
 
     render() { 
+        
         if (this.props.UserId) {
             return (
                 <div>
@@ -104,11 +119,11 @@ class Cart extends Component {
     }
 }
 
-const MapStateToProps=(state)=>{
+const mapStateToProps=(state)=>{
     return{
         AuthLog:state.Auth.login,
         UserId:state.Auth.id
     }
 }
- 
-export default connect(MapStateToProps) (Cart);
+export default connect(mapStateToProps)(Cart);
+// export default connect(mapStateToProps, {countCart}) (Cart);

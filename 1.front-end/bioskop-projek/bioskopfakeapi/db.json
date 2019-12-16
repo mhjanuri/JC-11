@@ -198,6 +198,13 @@
       "jadwal": 12,
       "bayar": false,
       "id": 11
+    },
+    {
+      "movieId": 3,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 12
     }
   ],
   "ordersDetails": [
@@ -212,6 +219,12 @@
       "seat": 5,
       "row": 2,
       "id": 4
+    },
+    {
+      "orderId": 12,
+      "seat": 6,
+      "row": 2,
+      "id": 5
     }
   ],
   "transactions": [],

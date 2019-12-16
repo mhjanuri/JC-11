@@ -1,5 +1,6 @@
 import Axios from "axios"
 import { APIURL } from "../../support/ApiUrl"
+
 export const LoginSuccessAction=(datauser)=>{
     return{
         type:'LOGIN_SUCCESS',
@@ -28,5 +29,12 @@ export const Loginthunk=(username,password)=>{
 export const Login_error=()=>{
     return(dispatch)=>{
         dispatch({type:'LOGIN_ERROR',payload:'Login_error'})
+    }
+}
+
+export const countCart = (number) => {
+    return {
+        type: 'COUNT_CART',
+        payload: number
     }
 }

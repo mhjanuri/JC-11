@@ -24,7 +24,7 @@ class Belitiket extends Component {
     componentDidMount(){
         this.onJamchange()
     }
-    
+
     onJamchange=()=>{
         var studioId=this.props.location.state.studioID
         var movieId=this.props.location.state.id
@@ -32,7 +32,6 @@ class Belitiket extends Component {
         .then((res1)=>{
             Axios.get(`${APIURL}/orders?movieId=${movieId}&jadwal=${this.state.jam}`)
             .then((res2)=>{
-                console.log(this.state.jam)
                 var arrAxios=[]
                 res2.data.forEach((val)=>{
                     arrAxios.push(Axios.get(`${APIURL}/ordersDetails?orderId=${val.id}`))
@@ -202,7 +201,7 @@ class Belitiket extends Component {
     }
     render(){
         if(this.props.location.state &&this.props.AuthLog){
-            if (this.props.Auth.role==="admin") {
+            if (this.props.UserRole==="admin") {
                 return <Redirect to={'/404'} />
             }
             if (this.state.redirectHome) {
@@ -248,11 +247,11 @@ class Belitiket extends Component {
     }
 }
 
-const MapstateToprops=(state)=>{
+const mapStateToProps=(state)=>{
     return{
         AuthLog:state.Auth.login,
-        Auth:state.Auth
+        UserRole:state.Auth.role
     }
 }
 
-export default connect(MapstateToprops) (Belitiket);
+export default connect(mapStateToProps) (Belitiket);

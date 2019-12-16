@@ -13,14 +13,26 @@ import {
 } from 'reactstrap';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import { countCart } from './../redux/actions'
 import { URL } from '../support/Url';
+import { APIURL } from '../support/ApiUrl';
 import { FaShoppingCart } from 'react-icons/fa'
+import Axios from 'axios';
 
 
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+
+    console.log(props.Cart)
+
+    Axios.get(`${APIURL}/orders`)
+        .then((res) => {
+            props.countCart(res.data.length)
+        }).catch((err) => {
+            console.log(err)
+        })
 
     return (
         <div>
@@ -34,6 +46,9 @@ const Header = (props) => {
                         </NavItem>
                         <NavItem className='mr-2 pt-2'>
                             <Link to={"/cart"}> <FaShoppingCart/> </Link>
+                        </NavItem>
+                        <NavItem className='mr-2 pt-2'>
+                            {props.Cart}
                         </NavItem>
                         {props.namauser===''?
                             <NavItem className='mr-2 pt-2'>
@@ -73,10 +88,11 @@ const onSignOutClick=()=>{
     window.location.assign(`${URL}/`)
 }
 
-const MapStateToProps=(state)=>{
+const mapStateToProps=(state)=>{
     return{
-        namauser:state.Auth.username
+        namauser:state.Auth.username,
+        Cart:state.Cart
     }
 }
 
-export default connect(MapStateToProps) (Header);
+export default connect(mapStateToProps,{countCart}) (Header);

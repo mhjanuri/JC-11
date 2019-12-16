@@ -271,9 +271,9 @@ class ManageAdmin extends Component {
         const {datafilm,indexedit}=this.state
         const {length}=datafilm
 
-        if (this.props.Auth.id === '') {
-            return (<Redirect to='/'/>)
-        }
+        // if (this.props.Auth.id === '') {
+        //     return (<Redirect to='/'/>)
+        // }
         if (this.props.Auth.role !== 'admin') {
             return (<Redirect to='/404'/>)
             // return (<Pagenotfound />)

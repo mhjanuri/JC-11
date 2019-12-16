@@ -91,9 +91,9 @@ class MovieDetail extends Component {
         );
     }
 }
-const MapstateToprops = (state) => {
+const mapstateToprops = (state) => {
     return {
         AuthLog: state.Auth.login
     }
 }
-export default connect(MapstateToprops)(MovieDetail);
+export default connect(mapstateToprops)(MovieDetail);

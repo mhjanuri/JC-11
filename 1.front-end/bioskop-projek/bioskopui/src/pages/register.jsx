@@ -117,14 +117,14 @@ onRegisterClick = (e) => {
     }
 }
 
-const MapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         AuthLog: state.Auth.login,
         Auth: state.Auth
     }
 }
 
-export default connect(MapStateToProps, { LoginSuccessAction, Loginthunk, Login_error })(Register);
+export default connect(mapStateToProps, { LoginSuccessAction, Loginthunk, Login_error })(Register);
 
 
 
