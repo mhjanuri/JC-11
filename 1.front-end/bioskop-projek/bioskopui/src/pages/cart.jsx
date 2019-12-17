@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
 import {connect} from 'react-redux'
-import {Table} from 'reactstrap'
-// import { countCart } from './../redux/actions'
+import { Table, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 import {APIURL} from '../support/ApiUrl'
+import Numeral from 'numeral'
+// import { countCart } from './../redux/actions'
 // import Swal from "sweetalert2"
 // import withReactContent from "sweetalert2-react-content"
 
@@ -12,7 +13,9 @@ import {APIURL} from '../support/ApiUrl'
 class Cart extends Component {
     state = {
         datacart:null,
-        datacartLength:0
+        datacartLength:0,
+        modaldetail:false,
+        indexdetail:0
     }
 
     componentDidMount(){
@@ -57,8 +60,12 @@ class Cart extends Component {
         return arr + ':00PM'
     }
 
+    onDetailClick=()=>{
+
+    }
+
     onCancelClick=(val)=>{
-        console.log(this.state.datacart[val])
+        console.log(this.state.datacart[val].movie)
         // console.log(this.state.datacart[val].movie)
         // console.log(this.state.datacart[val].qty)
         // this.state.datacart.splice(val,1)
@@ -112,7 +119,8 @@ class Cart extends Component {
                         <td style={{ width: 300 }}>{val.movie.title}</td>
                         <td style={{ width: 100 }}>{this.jadwalWithEmbelEmbel(val.jadwal)}</td>
                         <td style={{ width: 100 }}>{val.qty.length}</td>
-                        <td style={{ width: 100 }}><button>Details</button></td>
+                        <td style={{ width: 800 }}>{'Rp. ' + Numeral(val.totalharga).format('0,0') + ',00'}</td>
+                        <td style={{ width: 100 }}><button onClick={() => this.setState({ modaldetail: true, indexdetail: index })}>Details</button></td>
                         <td style={{ width: 100 }} onClick={()=>this.onCancelClick(index)} ><button>Cancel</button></td>
                     </tr>
                 )
@@ -129,6 +137,39 @@ class Cart extends Component {
         if (this.props.UserId) {
             return (
                 <div>
+                    <Modal isOpen={this.state.modaldetail} toggle={() => this.setState({ modaldetail: false })}>
+                        <ModalHeader>
+                            Detail Seat
+                        </ModalHeader>
+                        <ModalBody>
+                            <Table>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Seat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.state.datacart !== null && this.state.datacart.length !== 0
+                                        ? this.state.datacart[this.state.indexdetail].qty.map((val, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{"abcdefghijklmnopqrstuvwxyz".toUpperCase()[val.row] + [val.seat + 1]}</td>
+                                                </tr>
+                                            );
+                                        })
+                                        : null}
+                                </tbody>
+                                
+                            </Table>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button className='btn btn-primary' onClick={() => this.setState({ modaldetail: false })}>Ok</button>
+                        </ModalFooter>
+                    </Modal>
+
+
                     <center>
                         <Table style={{width:600}}>
                             <thead>
@@ -137,6 +178,7 @@ class Cart extends Component {
                                     <th style={{ width: 300 }}>Judul</th>
                                     <th style={{ width: 100 }}>Jadwal</th>
                                     <th style={{ width: 100 }}>Jumlah</th>
+                                    <th style={{ width: 800 }}>Total Harga</th>
                                     <th style={{ width: 100 }}>Detail</th>
                                     <th style={{ width: 100 }}>Cancel</th>
                                 </tr>

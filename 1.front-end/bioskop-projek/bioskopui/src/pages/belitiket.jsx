@@ -117,6 +117,10 @@ class Belitiket extends Component {
         })
     }
 
+    onClearClick=()=>{
+        this.setState({ pilihan: [] })
+    }
+
     renderHargadanQuantity=()=>{
         var jumlahtiket=this.state.pilihan.length
         var harga=jumlahtiket*25000
@@ -211,7 +215,7 @@ class Belitiket extends Component {
             if (this.state.redirectHome) {
                 return <Redirect to={'/'} />
             } 
-
+            console.log(this.state.pilihan)
             return (
                 
                 <div>
@@ -229,9 +233,14 @@ class Belitiket extends Component {
                         {this.state.loading?null:this.renderbutton()}
                         <div>
                             {this.state.pilihan.length? (
-                                <button className='btn btn-primary mt-3' onClick={this.onOrderClick}>
-                                    Order
-                                </button>
+                                <div>
+                                    <button className='btn btn-primary mt-3 mr-3' onClick={this.onOrderClick}>
+                                        Order
+                                    </button>
+                                    <button className='btn btn-danger mt-3' onClick={this.onClearClick}>
+                                        Clear
+                                    </button>
+                                </div>
                             ) : null
                         }
                         </div>
