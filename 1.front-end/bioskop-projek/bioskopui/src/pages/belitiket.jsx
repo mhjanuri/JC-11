@@ -24,6 +24,7 @@ class Belitiket extends Component {
 
     componentDidMount(){
         this.onJamchange()
+
     }
 
     onJamchange=()=>{
@@ -91,7 +92,7 @@ class Belitiket extends Component {
         Axios.post(`${APIURL}/orders`,dataorders)
         .then((res)=>{
             // console.log(res.data.id)
-            const dataordersdetail=[]
+            var dataordersdetail=[]
             pilihan.forEach((val)=>{
                 dataordersdetail.push({
                     orderId:res.data.id,
@@ -210,6 +211,7 @@ class Belitiket extends Component {
             if (this.state.redirectHome) {
                 return <Redirect to={'/'} />
             } 
+
             return (
                 
                 <div>
@@ -258,7 +260,8 @@ class Belitiket extends Component {
         const mapStateToProps=(state)=>{
             return{
                 AuthLog:state.Auth.login,
-                UserRole:state.Auth.role
+                UserRole:state.Auth.role,
+                UserId:state.Auth.id
             }
         }
         
