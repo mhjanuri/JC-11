@@ -18,8 +18,8 @@ class Register extends Component {
         toLoginPage:false
     }
 
-onRegisterClick = (e) => {
-    e.preventDefault()
+onRegisterClick = () => {
+    // e.preventDefault()
     var username = this.refs.username.value;
     var password = this.refs.password.value;
     var repassword = this.refs.repassword.value;

@@ -5,6 +5,7 @@ import Home from './pages/home';
 import './App.css';
 import {Switch,Route} from 'react-router-dom'
 import ManageAdmin from './pages/manageadmin';
+import ManageStudio from './pages/managestudio'
 import Login from './pages/login';
 import Register from "./pages/register";
 import MovieDetail from './pages/moviedetail'
@@ -52,6 +53,7 @@ class App extends Component {
       <Switch>
         <Route exact path={"/"}> <Home /> </Route>
         <Route exact path={"/manageadmin"}> <ManageAdmin /> </Route>
+        <Route exact path="/managestudio" component={ManageStudio} />
         <Route exact path="/moviedetail/:id" component={MovieDetail} />
         <Route exact path="/belitiket" component={BeliTiket} />
         <Route exact path={"/login"} component={Login} />
@@ -59,6 +61,7 @@ class App extends Component {
         <Route exact path={"/cart"} component={Cart} />
         <Route exact path='/history' component={History} />
         <Route exact path='/404' component={Pagenotfound} />
+
         <Route path='/*' component={Pagenotfound} />
       </Switch>
     </div>

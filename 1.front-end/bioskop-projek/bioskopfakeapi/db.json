@@ -29,6 +29,12 @@
       "password": "qwe",
       "role": "user",
       "id": 5
+    },
+    {
+      "username": "jamal2",
+      "password": "qwe",
+      "role": "user",
+      "id": 6
     }
   ],
   "studios": [
@@ -43,9 +49,14 @@
       "jumlahKursi": 240
     },
     {
-      "id": 3,
       "nama": "Studio 3",
-      "jumlahKursi": 200
+      "jumlahKursi": 200,
+      "id": 3
+    },
+    {
+      "nama": "Studio ajkshdkasd",
+      "jumlahKursi": "100",
+      "id": 4
     }
   ],
   "movies": [

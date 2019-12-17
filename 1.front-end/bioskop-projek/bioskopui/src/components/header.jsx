@@ -41,9 +41,20 @@ const Header = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
+                        {props.Auth.role!=="admin"?
+                            null
+                            :
                         <NavItem className='mr-2 pt-2'>
-                            <Link to={"/manageadmin/"}>Manage</Link>
+                            <Link to={"/manageadmin/"}>Manage Movie</Link>
                         </NavItem>
+                        }
+                        {props.Auth.role!=="admin"?
+                            null
+                            :
+                        <NavItem className='mr-2 pt-2'>
+                            <Link to={"/managestudio/"}>Manage Studio</Link>
+                        </NavItem>
+                        }
                         <NavItem className='mr-2 pt-2'>
                             <Link to={"/cart"}> <FaShoppingCart/> </Link>
                         </NavItem>
@@ -95,7 +106,8 @@ const mapStateToProps=(state)=>{
     return{
         namauser:state.Auth.username,
         Cart:state.Auth.cart,
-        AuthLog:state.Auth.login
+        AuthLog:state.Auth.login,
+        Auth:state.Auth
     }
 }
 
