@@ -34,7 +34,7 @@ class ManageAdmin extends Component {
     onSaveAddDataClick = () => {
         var iniref = this.refs
         var nama = iniref.namastudio.value
-        var jumlahKursi = iniref.jumlahkursi.value
+        var jumlahKursi = parseInt(iniref.jumlahkursi.value)
 
         var data = {
             nama,
@@ -65,7 +65,7 @@ class ManageAdmin extends Component {
         var id = this.state.datastudio[this.state.indexedit].id
         var iniref = this.refs
         var nama = iniref.editnama.value
-        var jumlahKursi = iniref.editjumlahkursi.value
+        var jumlahKursi = parseInt(iniref.editjumlahkursi.value)
 
         var data = {
             nama,
