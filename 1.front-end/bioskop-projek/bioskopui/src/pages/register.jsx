@@ -3,7 +3,8 @@ import Axios from 'axios';
 import { APIURL } from '../support/ApiUrl';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { LoginSuccessAction, Loginthunk, Login_error } from './../redux/actions'
+import { LoginSuccessAction, Login_error } from './../redux/actions'
+
 // import Loader from 'react-loader-spinner'
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
@@ -124,7 +125,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { LoginSuccessAction, Loginthunk, Login_error })(Register);
+export default connect(mapStateToProps, { LoginSuccessAction, Login_error })(Register);
 
 
 

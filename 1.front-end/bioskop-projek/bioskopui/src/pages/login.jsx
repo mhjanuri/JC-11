@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-// import Axios from 'axios';
-// import { APIURL } from '../support/ApiUrl';
+import Axios from 'axios';
+import { URL } from '../support/Url';
+import { APIURL } from '../support/ApiUrl';
 import {Link,Redirect} from 'react-router-dom';
 import {connect} from 'react-redux'
-import {LoginSuccessAction,Loginthunk,Login_error} from './../redux/actions'
+import {LoginSuccessAction,Login_error} from './../redux/actions'
+// import { LoginSuccessAction, Loginthunk, Login_error } from './../redux/actions'
+
 import Loader from 'react-loader-spinner'
 
 class Login extends Component {
@@ -15,23 +18,25 @@ class Login extends Component {
     onLoginClick=()=>{
         var username=this.refs.username.value 
         var password=this.refs.password.value
-        this.props.Loginthunk(username,password)
+        // this.props.Loginthunk(username,password)
         
-        // this.setState({loading:true})
-        // Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
-        // .then(res=>{
-        //     if(res.data.length){
-        //         localStorage.setItem('dino',res.data[0].id)
-        //         this.props.LoginSuccessAction(res.data[0])
-        //         // this.setState(login)
-        //     }else{
-        //         this.setState({error:'salah masukkan password'})
-        //     }
-        //     this.setState({ loading: false })
-        // }).catch((err)=>{
-        //     console.log(err)
-        //     this.setState({loading:false})
-        // })
+        this.setState({loading:true})
+        Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
+        .then(res=>{
+            if(res.data.length){
+                localStorage.setItem('dino',res.data[0].id)
+                this.props.LoginSuccessAction(res.data[0])
+                window.location.reload()
+                window.location.assign(`${URL}/`)
+                // this.setState(login)
+            }else{
+                this.setState({error:'salah masukkan password'})
+            }
+            this.setState({ loading: false })
+        }).catch((err)=>{
+            console.log(err)
+            this.setState({loading:false})
+        })
     }
 
     render() {
@@ -85,4 +90,5 @@ const mapStateToProps=(state)=>{
     }
 }
  
-export default connect(mapStateToProps, {LoginSuccessAction, Loginthunk, Login_error}) (Login);
+export default connect(mapStateToProps, {LoginSuccessAction, Login_error}) (Login);
+// export default connect(mapStateToProps, {LoginSuccessAction, Loginthunk, Login_error}) (Login);

@@ -13,7 +13,7 @@ import Cart from './pages/cart';
 import History from './pages/history'
 import Pagenotfound from './pages/pagenotfound'
 import {connect} from 'react-redux'
-import {LoginSuccessAction} from './redux/actions'
+import {LoginSuccessAction,countCart} from './redux/actions'
 import Axios from 'axios';
 import { APIURL } from './support/ApiUrl';
 
@@ -27,7 +27,13 @@ class App extends Component {
 	Axios.get(`${APIURL}/users/${id}`)
 	  .then(res => {
 		this.props.LoginSuccessAction(res.data);
-		this.setState({ loading: false });
+    this.setState({ loading: true });
+      Axios.get(`${APIURL}/orders?userId=${id}`)
+      .then(res1=>{
+        this.props.countCart(res1.data.length)
+      }).catch(err1 => {
+        console.log(err1);
+      })
 	  })
 	  .catch(err => {
 		  console.log(err);
@@ -66,4 +72,4 @@ const MapStateToProps=(state)=>{
   }
 }
 
-export default connect(MapStateToProps, {LoginSuccessAction}) (App);
+export default connect(MapStateToProps, {LoginSuccessAction,countCart}) (App);

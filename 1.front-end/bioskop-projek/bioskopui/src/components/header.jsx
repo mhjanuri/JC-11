@@ -15,9 +15,9 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { countCart } from './../redux/actions'
 import { URL } from '../support/Url';
-import { APIURL } from '../support/ApiUrl';
 import { FaShoppingCart } from 'react-icons/fa'
-import Axios from 'axios';
+// import { APIURL } from '../support/ApiUrl';
+// import Axios from 'axios';
 
 
 const Header = (props) => {
@@ -27,12 +27,12 @@ const Header = (props) => {
 
     console.log(props.Cart)
 
-    Axios.get(`${APIURL}/orders`)
-        .then((res) => {
-            props.countCart(res.data.length)
-        }).catch((err) => {
-            console.log(err)
-        })
+    // Axios.get(`${APIURL}/orders`)
+    //     .then((res) => {
+    //         props.countCart(res.data.length)
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
 
     return (
         <div>
@@ -91,11 +91,10 @@ const onSignOutClick=()=>{
     window.location.reload()
     window.location.assign(`${URL}/`)
 }
-
 const mapStateToProps=(state)=>{
     return{
         namauser:state.Auth.username,
-        Cart:state.Cart,
+        Cart:state.Auth.cart,
         AuthLog:state.Auth.login
     }
 }

@@ -4,10 +4,10 @@ import {connect} from 'react-redux'
 import {Table} from 'reactstrap'
 // import { countCart } from './../redux/actions'
 import {APIURL} from '../support/ApiUrl'
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
+// import Swal from "sweetalert2"
+// import withReactContent from "sweetalert2-react-content"
 
-const MySwal = withReactContent(Swal)
+// const MySwal = withReactContent(Swal)
 
 class Cart extends Component {
     state = {

@@ -27,7 +27,7 @@ class Belitiket extends Component {
     }
 
     onJamchange=()=>{
-        var studioId=this.props.location.state.studioID
+        var studioId=this.props.location.state.studioId
         var movieId=this.props.location.state.id
         Axios.get(`${APIURL}/studios/${studioId}`)
         .then((res1)=>{

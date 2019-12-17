@@ -1,0 +1,232 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "1234",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "dobleh",
+      "password": "qwe",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "username": "jamal",
+      "password": "qwe",
+      "role": "user"
+    },
+    {
+      "username": "kabur",
+      "password": "qwe",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "username": "hendri",
+      "password": "qwe",
+      "role": "user",
+      "id": 5
+    }
+  ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "Studio 1",
+      "jumlahKursi": 260
+    },
+    {
+      "id": 2,
+      "nama": "Studio 2",
+      "jumlahKursi": 240
+    },
+    {
+      "id": 3,
+      "nama": "Studio 3",
+      "jumlahKursi": 200
+    }
+  ],
+  "movies": [
+    {
+      "title": "Jumanji: The Next Level",
+      "sutradara": "Jack Kasdan",
+      "durasi": "123",
+      "jadwal": [
+        12,
+        16,
+        18
+      ],
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157422945871583_287x421.jpg",
+      "genre": "Action, Adventure, Comedy",
+      "produksi": "Columbia Pictures",
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
+      "studioID": "1",
+      "id": 1
+    },
+    {
+      "title": "Star Wars: The Rise of Skywalker",
+      "sutradara": "J.J. Abrams",
+      "durasi": "155",
+      "jadwal": [
+        12,
+        14,
+        16
+      ],
+      "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
+      "genre": "Action, Adventure, Fantasy",
+      "produksi": "Walt Disney Pictures",
+      "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg",
+      "studioID": "1",
+      "id": 2
+    },
+    {
+      "title": "Frozen II",
+      "sutradara": "Chris Buck, Jennifer Lee",
+      "durasi": "103",
+      "jadwal": [
+        12,
+        16
+      ],
+      "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+      "genre": "Animation, Adventure, Comedy",
+      "produksi": "Walt Disney Pictures",
+      "trailer": "https://www.youtube.com/embed/Zi4LMpSDccc",
+      "studioID": "1",
+      "id": 3
+    },
+    {
+      "title": "Ford v Ferrari",
+      "sutradara": "James Mangold",
+      "durasi": "152",
+      "jadwal": [
+        12,
+        16,
+        20
+      ],
+      "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
+      "genre": "Action, Biography, Drama",
+      "produksi": "20th Century Fox",
+      "trailer": "https://www.youtube.com/embed/I3h9Z89U9ZA",
+      "studioID": "1",
+      "id": 4
+    },
+    {
+      "title": "Knives Out",
+      "sutradara": "Rian Johnson",
+      "durasi": "120",
+      "jadwal": [
+        18,
+        20
+      ],
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.  Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.  Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "genre": "Comedy, Crime, Drama",
+      "produksi": "Mongrel Media",
+      "trailer": "https://www.youtube.com/embed/qGqiHJTsRkQ",
+      "studioID": "1",
+      "id": 5
+    },
+    {
+      "title": "21 Bridges",
+      "sutradara": "Brian Kirk",
+      "durasi": "99",
+      "jadwal": [
+        16,
+        18
+      ],
+      "sinopsis": "Pasca terbunuhnya delapan kepolisian NYPD. Andre Davis (Chadwick Boseman) memutuskan menyegel pulau Manhattan. 21 Jembatan, 3 jalur sungai dan kereta ditutup demi menangkap pelaku pembunuhan.\nNamun dibalik pengejaran ini terungkap konspirasi besar yang menghubungkan kejadian masa lalu Davis dan kasus yang sedang dikerjakannya.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157018191975549_287x421.jpg",
+      "genre": "Action, Crime, Drama",
+      "produksi": "VVS Films",
+      "trailer": "https://www.youtube.com/embed/qaZoSTG10lw",
+      "studioID": "1",
+      "id": 6
+    },
+    {
+      "title": "Rumah Kentang: The Beginning",
+      "sutradara": "Rizal Mantovani",
+      "durasi": "102",
+      "jadwal": [
+        18,
+        20
+      ],
+      "sinopsis": "Adrian adalah seorang penulis novel horor yang buku-bukunya mulai ditinggalkan pembacanya.\nUntuk menulis novel terbarunya, ia bersama istrinya, Sophie,\nmemutuskan kembali ke rumah masa kecil Sophie yang sudah lama tidak dikunjungi Sophie,\nsejak kedua orang tua Sophie tiba-tiba menghilang tanpa jejak. Kini ditemani Uwa-nya dan ketiga anaknya;\nNina, Nala dan Bayu; Sophie akhirnya menginjakkan kaki kembali di rumah tersebut.\nNamun sesampainya mereka disana, gangguan demi gangguan segera menyerang mereka.\nGangguan yang mereka hiraukan pada awalnya sampai akhirnya anak tertua mereka, Nina,\ntiba-tiba juga menghilang tanpa jejak.\nKini demi mendapatkan kembali Nina,\nSophie dan Adrian harus mencari tahu apa yang sebenarnya terjadi di rumah ini,\nsebuah rumah yang berdiri di perkebunan kentang orang tua Sophie,\nterlebih ketika Uwa diberitahu oleh seorang warga desa,\nDadang, bahwa rumah itu lebih buruk dari apa yang mereka bayangkan.\nBahwa tidak hanya Nina yang berada dalam bahaya. Tapi mereka semua.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157129577038373_287x421.jpg",
+      "genre": "Horror",
+      "produksi": "Hitmaker Studios",
+      "trailer": "https://www.youtube.com/embed/GlF3cMCh2mk",
+      "studioID": "1",
+      "id": 7
+    },
+    {
+      "title": "Habibie & Ainun 3",
+      "sutradara": "Hanung Bramantyo",
+      "durasi": "121",
+      "jadwal": [
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "sinopsis": "Kisah Ainun (Maudy Ayunda) sebagaimana remaja di usianya ,punya kisah kasih yang cukup unik, menggelitik dan menarik.Saat di SMA, Ainun dikenal sebagai sosok cerdas yang menjadi pujaan di sekolahnya dan menjadi incaran banyak siswa laki-laki, termasuk Habibie. Hubungan mereka bermula dari sebuah pertemanan. Di bangku kuliah Ainun, Sebagai mahasiswi kedokteran menjadi sosok yang popular di lingkungan kampusnya dan menjadi sosok dambaan setiap pria.Ahmad (Jefri Nichols), Pria tampan yang berasal dari keluarga terpandang dan kawan sekampus Ainun adalah pria yang akhirnya ia berani menyatakan cintanya kepada Ainun. Lantas apa yang membuat BJ Habibie menjadi pelabuhan terakhir perjalanan cinta Ainun. Habibie Ainun 3, Terinspirasi dari masa muda almarhumah Hasri Ainun Besari Habibie dan kenangan BJ Habibie atas belahan jiwanya.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
+      "genre": "Drama",
+      "produksi": "MD Pictures",
+      "trailer": "https://www.youtube.com/embed/CIP0esJ6MMs",
+      "studioID": "1",
+      "id": 8
+    }
+  ],
+  "orders": [
+    {
+      "movieId": 4,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 1
+    },
+    {
+      "movieId": 2,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 2
+    },
+    {
+      "movieId": 1,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 3
+    }
+  ],
+  "ordersDetails": [
+    {
+      "orderId": 1,
+      "seat": 8,
+      "row": 2,
+      "id": 1
+    },
+    {
+      "orderId": 2,
+      "seat": 11,
+      "row": 0,
+      "id": 2
+    },
+    {
+      "orderId": 3,
+      "seat": 3,
+      "row": 0,
+      "id": 3
+    }
+  ],
+  "transactions": [],
+  "transactionsDetails": []
+}
