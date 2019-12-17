@@ -180,7 +180,7 @@ class ManageAdmin extends Component {
                 {/* ADD DATA START */}
                 <Modal isOpen={this.state.modaladd} toggle={() => this.setState({ modaladd: false })}>
                     <ModalHeader>
-                        Add Data
+                        Add Data Studio
                     </ModalHeader>
                     <ModalBody>
                         <input type="text" ref='namastudio' placeholder='Nama Studio' className='form-control mt-2' />
