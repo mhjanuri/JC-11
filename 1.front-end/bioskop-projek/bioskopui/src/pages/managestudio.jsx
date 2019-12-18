@@ -149,7 +149,7 @@ class ManageAdmin extends Component {
         //     return (<Redirect to='/'/>)
         // }
         if (this.props.Auth.role !== 'admin') {
-            return (<Redirect to='/404' />)
+            return (<Redirect to='/pagenotfound' />)
             // return (<Pagenotfound />)
         }
 
@@ -235,7 +235,7 @@ export default connect(mapStateToProps)(ManageAdmin);
 //     state = {  }
 //     render() { 
 //         if (this.props.Auth.role !== 'admin') {
-//             return (<Redirect to='/404' />)
+//             return (<Redirect to='/pagenotfound' />)
 //             // return (<Pagenotfound />)
 //         }else{
 //             return (

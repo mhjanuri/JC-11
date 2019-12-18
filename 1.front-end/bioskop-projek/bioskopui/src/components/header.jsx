@@ -11,6 +11,7 @@ import {
     DropdownMenu,
     DropdownItem,
 } from 'reactstrap';
+import Logo from '../support/img/Logo.png'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { countCart } from './../redux/actions'
@@ -37,7 +38,10 @@ const Header = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">BIOSKOP</NavbarBrand>
+                <NavbarBrand href="/">
+                    <img src={Logo} alt="" style={{ height: '30px' }}/>
+                    {/* BIOSKOP */}
+                </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
@@ -55,16 +59,28 @@ const Header = (props) => {
                             <Link to={"/managestudio/"}>Manage Studio</Link>
                         </NavItem>
                         }
-                        <NavItem className='mr-2 pt-2'>
-                            <Link to={"/cart"}> <FaShoppingCart/> </Link>
-                        </NavItem>
-                        {props.Cart===0 || props.AuthLog===false?
+                        {props.Auth.role === 'user' ?
+                            <NavItem className='mr-2 pt-2'>
+                                <Link to={"/history"}> History </Link>
+                            </NavItem>
+                            :
+                            null
+                        }
+                        {props.Auth.role === 'user' ?
+                            <NavItem className='mr-2 pt-2'>
+                                <Link to={"/cart"}> <FaShoppingCart/> </Link>
+                                {props.Cart}
+                            </NavItem>
+                            :
+                            null
+                        }
+                        {/* {props.Cart===0 || props.AuthLog===false?
                             null
                             :
                             <NavItem className='mr-2 pt-2'>
                                 {props.Cart}
                             </NavItem>
-                        }
+                        } */}
                         {props.namauser===''?
                             <NavItem className='mr-2 pt-2'>
                                 <Link to="/login">Login</Link>
@@ -72,24 +88,33 @@ const Header = (props) => {
                             :
                             null
                         }
+                        {props.namauser === '' ?
+                            <NavItem className='mr-2 pt-2'>
+                                <Link to="/register">Register</Link>
+                            </NavItem>
+                            :
+                            null
+                        }
 
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                {props.namauser}
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    Option 1
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Option 2
-                                </DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>
-                                    <Link to='/login' onClick={()=>onSignOutClick()} >Logout</Link>
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                        {props.AuthLog === false?
+                            null
+                            :
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    Halo, {props.namauser}
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem>
+                                        User Setting
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem  onClick={()=>onSignOutClick()}>
+                                        <Link to='/login' onClick={()=>onSignOutClick()} >Logout</Link>
+                                    </DropdownItem>
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                        }
+                        
                     </Nav>
                 </Collapse>
             </Navbar>

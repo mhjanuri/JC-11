@@ -60,7 +60,7 @@ class App extends Component {
         <Route exact path={"/register"} component={Register} />
         <Route exact path={"/cart"} component={Cart} />
         <Route exact path='/history' component={History} />
-        <Route exact path='/404' component={Pagenotfound} />
+        <Route exact path='/pagenotfound' component={Pagenotfound} />
 
         <Route path='/*' component={Pagenotfound} />
       </Switch>

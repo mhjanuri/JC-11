@@ -15,6 +15,7 @@ const MySwal = withReactContent(Swal)
 class ManageAdmin extends Component {
     state = {
         datafilm: [],
+        studio:[],
         readmoreSelected:-1,
         modaladd:false,
         modaledit:false,
@@ -26,13 +27,18 @@ class ManageAdmin extends Component {
     componentDidMount() {
         Axios.get(`${APIURL}/movies`)
             .then((res) => {
-                this.setState({ datafilm: res.data })
+            this.setState({ datafilm: res.data })
+            }).catch((err) => {
+                console.log(err)
+            })
+        Axios.get(`${APIURL}/studios`)
+            .then((res1) => {
+            this.setState({ studio: res1.data })
             }).catch((err) => {
                 console.log(err)
             })
     }
     
-
     jadwalWithEmbelEmbel = (arr) => {
         var tempArr = []
         for (var i = 0; i < arr.length; i++) {
@@ -58,7 +64,7 @@ class ManageAdmin extends Component {
         var genre = iniref.genre.value
         var durasi = iniref.durasi.value
         var trailer = iniref.trailer.value
-        var studioID = iniref.studio.value
+        var studioId = iniref.studio.value
         var produksi = iniref.produksi.value
 
         var data = {
@@ -71,7 +77,7 @@ class ManageAdmin extends Component {
             genre,
             produksi,
             trailer,
-            studioID
+            studioId
         }
         Axios.post(`${APIURL}/movies`, data)
             .then(() => {
@@ -111,7 +117,7 @@ class ManageAdmin extends Component {
         var genre = iniref.editgenre.value
         var durasi = iniref.editdurasi.value
         var trailer = iniref.edittrailer.value
-        var studioID = iniref.editstudio.value
+        var studioId = iniref.editstudio.value
         var produksi = iniref.editproduksi.value
 
         var data = {
@@ -124,7 +130,7 @@ class ManageAdmin extends Component {
             genre,
             produksi,
             trailer,
-            studioID
+            studioId
         }
         Axios.put(`${APIURL}/movies/${id}`, data)
             .then(() => {
@@ -148,6 +154,7 @@ class ManageAdmin extends Component {
     }
 
     onDeleteClick = (val) => {
+        console.log(val.id)
         MySwal.fire({
             title: `Are you sure want to delete <br/> ${val.title}?`,
             text: "",
@@ -205,7 +212,7 @@ class ManageAdmin extends Component {
                     <TableCell>{val.sutradara}</TableCell>
                     <TableCell>{val.genre}</TableCell>
                     <TableCell>{val.durasi}</TableCell>
-                    <TableCell>{val.studioID}</TableCell>
+                    <TableCell>{val.studioId}</TableCell>
                     <TableCell>{val.produksi}</TableCell>
                     <TableCell style={{ width: '100px' }}>
                         <button className='btn btn-outline-primary mb-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>
@@ -270,19 +277,29 @@ class ManageAdmin extends Component {
         })
     }
 
+    // renderStudio=()=>{
+    //     return this.state.studio.map((val, index) => {
+    //         return (
+    //             <option key={index} value={val.nama}>{val.nama}</option>
+    //         )
+    //     })
+    // }
+    
+
     render() {
         const {datafilm,indexedit}=this.state
         const {length}=datafilm
+        // console.log(this.state.studio)
 
         // if (this.props.Auth.id === '') {
         //     return (<Redirect to='/'/>)
         // }
         if (this.props.Auth.role !== 'admin') {
-            return (<Redirect to='/404'/>)
+            return (<Redirect to='/pagenotfound'/>)
             // return (<Pagenotfound />)
         }
 
-        console.log(this.state.datafilm)
+        // console.log(this.state.datafilm[1])
         if (length===0) {
             return <div>Loading..</div>
         }
@@ -305,10 +322,13 @@ class ManageAdmin extends Component {
                             {this.renderEditCheckbox(indexedit)}
                         </div>
                         <input type="text" defaultValue={datafilm[indexedit].trailer} ref='edittrailer' placeholder='link trailer' className='form-control mt-2' />
-                        <select ref="editstudio" className='form-control mt-2'>
-                            <option value="1">Studio 1</option>
-                            <option value="2">Studio 2</option>
-                            <option value="3">Studio 3</option>
+                        <select defaultValue={datafilm[indexedit].studioId} ref="editstudio" className='form-control mt-2'>
+                            {this.state.studio.map((val) => {
+                                return (
+                                    <option value={val.id}>{val.nama}</option>
+                                )
+                            })
+                            }
                         </select>
                         <input type="text" defaultValue={datafilm[indexedit].sutradara} ref='editsutradara' placeholder='sutradara' className='form-control mt-2' />
                         <input type="text" defaultValue={datafilm[indexedit].genre} ref='editgenre' placeholder='genre' className='form-control mt-2' />
@@ -336,9 +356,13 @@ class ManageAdmin extends Component {
                         </div>
                         <input type="text" ref='trailer' placeholder='trailer url' className='form-control mt-2' />
                         <select ref="studio" className='form-control mt-2'>
-                            <option value="1">Studio 1</option>
-                            <option value="2">Studio 2</option>
-                            <option value="3">Studio 3</option>
+                            {this.state.studio.map((val)=>{
+                                return(
+                                    <option value={val.id}>{val.nama}</option>
+                                )
+                            })
+                            }
+                                             
                         </select>
                         <input type="text" ref='sutradara' placeholder='sutradara' className='form-control mt-2' />
                         <input type="text" ref='genre' placeholder='genre' className='form-control mt-2' />

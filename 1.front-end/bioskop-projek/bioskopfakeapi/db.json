@@ -23,18 +23,6 @@
       "password": "qwe",
       "role": "user",
       "id": 4
-    },
-    {
-      "username": "hendri",
-      "password": "qwe",
-      "role": "user",
-      "id": 5
-    },
-    {
-      "username": "jamal2",
-      "password": "qwe",
-      "role": "user",
-      "id": 6
     }
   ],
   "studios": [
@@ -52,11 +40,6 @@
       "nama": "Studio 3",
       "jumlahKursi": 200,
       "id": 3
-    },
-    {
-      "nama": "Studio Abbey Road",
-      "jumlahKursi": 100,
-      "id": 4
     }
   ],
   "movies": [
@@ -74,7 +57,7 @@
       "genre": "Action, Adventure, Comedy",
       "produksi": "Columbia Pictures",
       "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
-      "studioId": "1",
+      "studioId": "2",
       "id": 1
     },
     {

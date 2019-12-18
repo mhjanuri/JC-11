@@ -29,6 +29,12 @@
       "password": "qwe",
       "role": "user",
       "id": 5
+    },
+    {
+      "username": "jamal2",
+      "password": "qwe",
+      "role": "user",
+      "id": 6
     }
   ],
   "studios": [
@@ -43,9 +49,14 @@
       "jumlahKursi": 240
     },
     {
-      "id": 3,
       "nama": "Studio 3",
-      "jumlahKursi": 200
+      "jumlahKursi": 200,
+      "id": 3
+    },
+    {
+      "nama": "Studio Abbey Road",
+      "jumlahKursi": 100,
+      "id": 4
     }
   ],
   "movies": [
@@ -63,7 +74,7 @@
       "genre": "Action, Adventure, Comedy",
       "produksi": "Columbia Pictures",
       "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 1
     },
     {
@@ -80,7 +91,7 @@
       "genre": "Action, Adventure, Fantasy",
       "produksi": "Walt Disney Pictures",
       "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 2
     },
     {
@@ -96,7 +107,7 @@
       "genre": "Animation, Adventure, Comedy",
       "produksi": "Walt Disney Pictures",
       "trailer": "https://www.youtube.com/embed/Zi4LMpSDccc",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 3
     },
     {
@@ -113,7 +124,7 @@
       "genre": "Action, Biography, Drama",
       "produksi": "20th Century Fox",
       "trailer": "https://www.youtube.com/embed/I3h9Z89U9ZA",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 4
     },
     {
@@ -129,7 +140,7 @@
       "genre": "Comedy, Crime, Drama",
       "produksi": "Mongrel Media",
       "trailer": "https://www.youtube.com/embed/qGqiHJTsRkQ",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 5
     },
     {
@@ -145,7 +156,7 @@
       "genre": "Action, Crime, Drama",
       "produksi": "VVS Films",
       "trailer": "https://www.youtube.com/embed/qaZoSTG10lw",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 6
     },
     {
@@ -161,7 +172,7 @@
       "genre": "Horror",
       "produksi": "Hitmaker Studios",
       "trailer": "https://www.youtube.com/embed/GlF3cMCh2mk",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 7
     },
     {
@@ -180,51 +191,45 @@
       "genre": "Drama",
       "produksi": "MD Pictures",
       "trailer": "https://www.youtube.com/embed/CIP0esJ6MMs",
-      "studioID": "1",
+      "studioId": "Studio 1",
       "id": 8
+    },
+    {
+      "title": "",
+      "sutradara": "",
+      "durasi": "",
+      "jadwal": [],
+      "sinopsis": "",
+      "image": "",
+      "genre": "",
+      "produksi": "",
+      "trailer": "",
+      "studioId": "Studio Abbey Road",
+      "id": 9
     }
   ],
   "orders": [
     {
-      "movieId": 4,
-      "totalharga": 25000,
+      "userId": 3,
+      "movieId": 1,
+      "totalharga": 50000,
       "jadwal": 12,
       "bayar": false,
       "id": 1
-    },
-    {
-      "movieId": 2,
-      "totalharga": 25000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 2
-    },
-    {
-      "movieId": 1,
-      "totalharga": 25000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 3
     }
   ],
   "ordersDetails": [
     {
       "orderId": 1,
-      "seat": 8,
-      "row": 2,
+      "seat": 0,
+      "row": 0,
       "id": 1
     },
     {
-      "orderId": 2,
-      "seat": 11,
+      "orderId": 1,
+      "seat": 1,
       "row": 0,
       "id": 2
-    },
-    {
-      "orderId": 3,
-      "seat": 3,
-      "row": 0,
-      "id": 3
     }
   ],
   "transactions": [],

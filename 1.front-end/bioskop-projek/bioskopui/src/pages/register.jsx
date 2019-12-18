@@ -15,7 +15,7 @@ class Register extends Component {
     state = {
         error: '',
         loading: false,
-        toLoginPage:false
+        toHomePage:false
     }
 
 onRegisterClick = () => {
@@ -48,9 +48,9 @@ onRegisterClick = () => {
                                 MySwal.fire({
                                     icon: "success",
                                     title: "Success!",
-                                    text: "Your are success Registered! Please Login"
+                                    text: "Your are success Registered!"
                                 });
-                                this.setState({ toLoginPage: true });
+                                this.setState({ toHomePage: true });
 
                             })
                             .catch(err1 => {
@@ -72,8 +72,8 @@ onRegisterClick = () => {
 }
 
     render() {
-        if (this.state.toLoginPage) {
-            return <Redirect to={'/login'} />
+        if (this.state.toHomePage) {
+            return <Redirect to={'/'} />
         }
         return (
             <div>
@@ -163,7 +163,7 @@ export default connect(mapStateToProps, { LoginSuccessAction, Login_error })(Reg
 //                                     title: "Success!",
 //                                     text: "Your are success Registered! Please Login"
 //                                 });
-//                                 this.setState({ toLoginPage: true });
+//                                 this.setState({ toHomePage: true });
 
 //                             })
 //                             .catch(err1 => {

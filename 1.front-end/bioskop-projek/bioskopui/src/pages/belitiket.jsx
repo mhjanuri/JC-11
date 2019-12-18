@@ -29,6 +29,7 @@ class Belitiket extends Component {
 
     onJamchange=()=>{
         var studioId=this.props.location.state.studioId
+        console.log(studioId)
         var movieId=this.props.location.state.id
         Axios.get(`${APIURL}/studios/${studioId}`)
         .then((res1)=>{
@@ -210,7 +211,7 @@ class Belitiket extends Component {
     render(){
         if(this.props.location.state &&this.props.AuthLog){
             if (this.props.UserRole==="admin") {
-                return <Redirect to={'/404'} />
+                return <Redirect to={'/pagenotfound'} />
             }
             if (this.state.redirectHome) {
                 return <Redirect to={'/'} />
@@ -256,7 +257,7 @@ class Belitiket extends Component {
               );
             }
             return(
-                <Redirect to={'/404'} />
+                <Redirect to={'/pagenotfound'} />
                 )
             }
         }

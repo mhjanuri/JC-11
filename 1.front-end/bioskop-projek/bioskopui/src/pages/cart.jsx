@@ -3,6 +3,7 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import { Table, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 import {APIURL} from '../support/ApiUrl'
+import { Redirect } from 'react-router-dom' 
 import Numeral from 'numeral'
 // import { countCart } from './../redux/actions'
 // import Swal from "sweetalert2"
@@ -134,6 +135,9 @@ class Cart extends Component {
     }
 
     render() { 
+        if (this.props.UserRole==='admin') {
+            return <Redirect to={'/pagenotfound'} />
+        }
         if (this.props.UserId) {
             return (
                 <div>
@@ -194,16 +198,15 @@ class Cart extends Component {
                 </div>
             );
         }
-        return (
-            <div>404 not found</div>
-        )
+        return <Redirect to={'/pagenotfound'} />
     }
 }
 
 const mapStateToProps=(state)=>{
     return{
         AuthLog:state.Auth.login,
-        UserId:state.Auth.id
+        UserId:state.Auth.id,
+        UserRole:state.Auth.role
     }
 }
 export default connect(mapStateToProps)(Cart);
