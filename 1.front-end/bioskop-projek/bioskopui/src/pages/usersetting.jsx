@@ -94,19 +94,19 @@ class UserSetting extends Component {
                     <h2 style={{ textAlign: 'center', paddingTop: '50px' }}>Change Password</h2>
                     <center>
                         <div className='settinguser'>
-                            <Form.Group style={{ textAlign: 'center'}} controlId="formBasicPassword">
+                            <Form.Group style={{ textAlign: 'center', width: '300px' }} controlId="formBasicPassword">
                                 <Form.Label style={{ fontWeight: 'bold' }}>Username</Form.Label>
-                                <Form.Control style={{ textAlign: 'center'}} type="text" defaultValue={this.props.usernamelog}
+                                <Form.Control style={{ textAlign: 'center', width: '300px' }} type="text" defaultValue={this.props.usernamelog}
                                     ref="user" disabled />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control style={{ textAlign: 'center'}} type="password" ref='passwordlama' placeholder="Current Password" />
+                                <Form.Control style={{ textAlign: 'center', width: '300px' }} type="password" ref='passwordlama' placeholder="Current Password" />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control style={{ textAlign: 'center'}} type="password" ref='passwordbaru' placeholder="New Password" />
+                                <Form.Control style={{ textAlign: 'center', width: '300px' }} type="password" ref='passwordbaru' placeholder="New Password" />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control style={{ textAlign: 'center'}} type="password" ref='konfirmasipassword' placeholder="Confirm New Password" />
+                                <Form.Control style={{ textAlign: 'center', width: '300px' }} type="password" ref='konfirmasipassword' placeholder="Confirm New Password" />
                             </Form.Group>
 
 

@@ -33,6 +33,7 @@ class App extends Component {
       Axios.get(`${APIURL}/orders?userId=${id}`)
       .then(res1=>{
         this.props.countCart(res1.data.length)
+        console.log(res1.data.length);
       }).catch(err1 => {
         console.log(err1);
       })

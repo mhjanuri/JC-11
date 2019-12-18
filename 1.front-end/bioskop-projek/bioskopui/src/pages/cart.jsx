@@ -122,7 +122,7 @@ class Cart extends Component {
                         <td style={{ width: 100 }}>{val.qty.length}</td>
                         <td style={{ width: 800 }}>{'Rp. ' + Numeral(val.totalharga).format('0,0') + ',00'}</td>
                         <td style={{ width: 100 }}><button onClick={() => this.setState({ modaldetail: true, indexdetail: index })}>Details</button></td>
-                        <td style={{ width: 100 }} onClick={()=>this.onCancelClick(index)} ><button>Cancel</button></td>
+                        {/* <td style={{ width: 100 }} onClick={()=>this.onCancelClick(index)} ><button>Cancel</button></td> */}
                     </tr>
                 )
                 
@@ -184,7 +184,7 @@ class Cart extends Component {
                                     <th style={{ width: 100 }}>Jumlah</th>
                                     <th style={{ width: 800 }}>Total Harga</th>
                                     <th style={{ width: 100 }}>Detail</th>
-                                    <th style={{ width: 100 }}>Cancel</th>
+                                    {/* <th style={{ width: 100 }}>Cancel</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -210,4 +210,3 @@ const mapStateToProps=(state)=>{
     }
 }
 export default connect(mapStateToProps)(Cart);
-// export default connect(mapStateToProps, {countCart}) (Cart);
