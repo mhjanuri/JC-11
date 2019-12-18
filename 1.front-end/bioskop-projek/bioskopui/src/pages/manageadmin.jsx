@@ -47,6 +47,11 @@ class ManageAdmin extends Component {
         return tempArr
         
     }
+    studioWithEmbelEmbel=(arr)=>{
+        var tempArr=[]
+        tempArr.push('Studio ' + arr)
+        return tempArr
+    }
 
     onSaveAddDataClick = () => {
         var jadwaltemplate = [12, 14, 16, 18, 20]
@@ -212,7 +217,7 @@ class ManageAdmin extends Component {
                     <TableCell>{val.sutradara}</TableCell>
                     <TableCell>{val.genre}</TableCell>
                     <TableCell>{val.durasi}</TableCell>
-                    <TableCell>{val.studioId}</TableCell>
+                    <TableCell style={{ width: '100px' }}>{this.studioWithEmbelEmbel(val.studioId)}</TableCell>
                     <TableCell>{val.produksi}</TableCell>
                     <TableCell style={{ width: '100px' }}>
                         <button className='btn btn-outline-primary mb-1' style={{ width: '72.25px' }} onClick={()=>this.setState({modaledit:true, indexedit:index})}>Edit</button>

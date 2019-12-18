@@ -20,17 +20,18 @@ class Login extends Component {
         var password=this.refs.password.value
         // this.props.Loginthunk(username,password)
         
-        this.setState({loading:true})
+        // this.setState({loading:true})
         Axios.get(`${APIURL}/users?username=${username}&password=${password}`)
         .then(res=>{
             if(res.data.length){
+                console.log(res.data)
                 localStorage.setItem('dino',res.data[0].id)
                 this.props.LoginSuccessAction(res.data[0])
                 window.location.reload()
                 window.location.assign(`${URL}/`)
                 // this.setState(login)
             }else{
-                this.setState({error:'salah masukkan password'})
+                this.setState({error:'Incorrect password'})
             }
             this.setState({ loading: false })
         }).catch((err)=>{
@@ -48,17 +49,20 @@ class Login extends Component {
                 <div className="mt-3 d-flex justify-content-center">
                     <div style={{width:'500px',border:'1px solid black'}} className='rounded p-2'>
                         <h1>Login</h1>
+
                         <div className='p-1' style={{borderBottom:'1px solid black'}}>
                             <input type='text' className='username' style={{border:'transparent',width:'100%',fontsize:'20px'}} ref='username' placeholder='input username' />
                         </div>
+
                         <div className='p-1' style={{ borderBottom: '1px solid black' }}>
                             <input type='password' className='username' style={{ border: 'transparent', width: '100%', fontsize: '20px' }} ref='password' placeholder='input password' />
                         </div>
-                        {this.props.Auth.error === ''?
+
+                        {this.state.error === ''?
                             null
                             :
                             <div className="alert alert-danger mt-2">
-                                {this.props.Auth.error} <span onClick={this.props.Login_error} className='float-right font-weight-bold'>x</span>
+                                {this.state.error} <span style={{cursor:'pointer'}} onClick={()=>{this.setState({error:''})}} className='float-right font-weight-bold'>x</span>
                             </div>
                         }
                         <div className='mt-4'>

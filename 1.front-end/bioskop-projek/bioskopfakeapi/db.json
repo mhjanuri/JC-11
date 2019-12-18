@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "admin",
       "password": "1234",
-      "role": "admin"
+      "username": "admin",
+      "role": "admin",
+      "id": 1
     },
     {
       "id": 2,
@@ -13,10 +13,10 @@
       "role": "user"
     },
     {
-      "id": 3,
-      "username": "jamal",
       "password": "qwe",
-      "role": "user"
+      "username": "jamal",
+      "role": "user",
+      "id": 3
     },
     {
       "username": "kabur",
@@ -186,6 +186,14 @@
       "jadwal": 12,
       "bayar": false,
       "id": 1
+    },
+    {
+      "userId": 3,
+      "movieId": 1,
+      "totalharga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 2
     }
   ],
   "ordersDetails": [
@@ -200,6 +208,12 @@
       "seat": 1,
       "row": 0,
       "id": 2
+    },
+    {
+      "orderId": 2,
+      "seat": 0,
+      "row": 1,
+      "id": 3
     }
   ],
   "transactions": [],

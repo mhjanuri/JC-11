@@ -40,7 +40,7 @@ onRegisterClick = () => {
                         MySwal.fire({
                             icon: "error",
                             title: "Oops...",
-                            text: "Password must match"
+                            text: "Both password didn't match"
                         });
                     } else {
                         Axios.post(`${APIURL}/users`, newUser)
@@ -48,7 +48,7 @@ onRegisterClick = () => {
                                 MySwal.fire({
                                     icon: "success",
                                     title: "Success!",
-                                    text: "Your are success Registered!"
+                                    text: "You have been registered, please login"
                                 });
                                 this.setState({ toHomePage: true });
 

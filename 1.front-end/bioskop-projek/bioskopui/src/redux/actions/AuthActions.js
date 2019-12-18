@@ -38,3 +38,10 @@ export const countCart = (number) => {
         payload: number
     }
 }
+
+export const GantiPassword = (passwordbaru) => {
+    return {
+      type: "GANTI_PASSWORD",
+      payload: passwordbaru
+    };
+};

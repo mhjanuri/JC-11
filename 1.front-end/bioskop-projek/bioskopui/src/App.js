@@ -13,6 +13,7 @@ import BeliTiket from './pages/belitiket';
 import Cart from './pages/cart';
 import History from './pages/history'
 import Pagenotfound from './pages/pagenotfound'
+import UserSetting from './pages/usersetting'
 import {connect} from 'react-redux'
 import {LoginSuccessAction,countCart} from './redux/actions'
 import Axios from 'axios';
@@ -60,6 +61,7 @@ class App extends Component {
         <Route exact path={"/register"} component={Register} />
         <Route exact path={"/cart"} component={Cart} />
         <Route exact path='/history' component={History} />
+        <Route exact path='/settings' component={UserSetting} />
         <Route exact path='/pagenotfound' component={Pagenotfound} />
 
         <Route path='/*' component={Pagenotfound} />

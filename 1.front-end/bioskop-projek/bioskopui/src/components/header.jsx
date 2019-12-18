@@ -104,8 +104,8 @@ const Header = (props) => {
                                     Halo, {props.namauser}
                                 </DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>
-                                        User Setting
+                                    <DropdownItem >
+                                        <Link to='/settings' >User Settings</Link>
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem  onClick={()=>onSignOutClick()}>
