@@ -21,4 +21,4 @@ var objekku={
     }
 }
 
-console.log(objekku.bobi()[2].fakhran[2].dzaky().ragiel[1]().kartika(' :p')[3])c
+console.log(objekku.bobi()[2].fakhran[2].dzaky().ragiel[1]().kartika(' :p')[3])
