@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
 import {
     Collapse,
     Navbar,
@@ -50,6 +51,9 @@ const Header = (props) => {
                             :
                         <NavItem className='mr-2 pt-2'>
                             <Link to={"/manageadmin/"}>Manage Movie</Link>
+                            {/* <Button href="/manageadmin/" variant="outlined" color="primary">
+                                Manage Movie
+                            </Button> */}
                         </NavItem>
                         }
                         {props.Auth.role!=="admin"?
@@ -57,6 +61,9 @@ const Header = (props) => {
                             :
                         <NavItem className='mr-2 pt-2'>
                             <Link to={"/managestudio/"}>Manage Studio</Link>
+                            {/* <Button href="/managstudio/" variant="outlined" color="secondary">
+                                Manage Studio
+                            </Button> */}
                         </NavItem>
                         }
                         {props.Auth.role === 'user' ?
@@ -82,15 +89,19 @@ const Header = (props) => {
                             </NavItem>
                         } */}
                         {props.namauser===''?
-                            <NavItem className='mr-2 pt-2'>
-                                <Link to="/login">Login</Link>
+                            <NavItem className='mr-2 '>
+                                {/* <Link to="/login">Login</Link> */}
+                                <Button href="/login" variant="contained" color="secondary">
+                                    Login
+                                </Button>
                             </NavItem>
                             :
                             null
                         }
                         {props.namauser === '' ?
-                            <NavItem className='mr-2 pt-2'>
-                                <Link to="/register">Register</Link>
+                            <NavItem className='mr-2 '>
+                                {/* <Link to="/register">Register</Link> */}
+                                <Button href="/register" variant="contained">Register</Button>
                             </NavItem>
                             :
                             null
