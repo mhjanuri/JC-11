@@ -1,20 +1,40 @@
 import React, { useEffect, Fragment, useState} from 'react';
 import './App.css';
 import Axios from 'axios'
-import { Table } from 'reactstrap';
+import { APIURL, APIURLimage } from './helper/apiurl';
+import { Table,CustomInput } from 'reactstrap';
 import Modal from './component/modal'
 
-import { APIURL, APIURLimage } from './helper/apiurl';
 
 function App() {
 
   const [datausers,setdatausers]=useState([])
-  const [roles, setroles] = useState([])
-  const [modal, setModal] = useState(false)
-  const [modaldelete, setModaldelete] = useState(false)
+  const [datausersedit,setdatausersedit]=useState([])
+  const [roles,setroles]=useState([])
+  const [modal, setModal] = useState(false);
+  const [modaldelete, setModaldelete] = useState(false);
+  const [modaladd, setmodaladd] = useState(false);
+  const [addimagefile,setimageadd]=useState({
+    addImageFileName:'Select Image....',
+    addImageFile:undefined,
+  })
+  const [dataadd,setdataadd]=useState({
+    username:useRef(),
+    email:useRef(),
+    usia:useRef(),
+    roleid:useRef()
+  })
+  const toggle = () =>{
+    setModal(!modal)
+  };
+  const opentogel = (index) =>{
+    setdatausersedit(datausers[index])
+    setModal(true)
+  };
 
-  const  modal = () => setModal(!modal)
-  const  modaldelete =  () => setModaldelete(!modaldelete)
+
+  const toggledelete=()=>setModaldelete(!modaldelete)
+  const toggleadd=()=>setmodaladd(!modaladd)
 
   useEffect(()=>{
     console.log('didmount')
@@ -27,8 +47,6 @@ function App() {
       console.log(err)
     })
   },[])
-
-  const 
 
   const renderusers=()=>{
    return datausers.map((val,index)=>{
