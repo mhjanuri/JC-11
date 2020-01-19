@@ -27,7 +27,10 @@ app.get('/', (req, res) => {
 app.get('/users',(req,res)=>{
     mysqldb.query('select u.*,r.nama as rolename from users u left join roles r on r.role_id=r.id;',(err,result)=>{
         if(err) res.status(500).send(err)
-        res.status(200).send(result)
+        mysqldb.query('select * from roles',(err,result1)=>{
+            if (err) res.status(500).send(err)
+            res.status(200).send({datauser:result,datarole:result1})
+        })
     })
 })
 
