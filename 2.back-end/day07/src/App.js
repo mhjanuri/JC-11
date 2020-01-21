@@ -18,7 +18,11 @@ function App() {
     addImageFileName: 'Select Image....',
     addImageFile: undefined,
   })
-  const [dataadd, setdataadd] = useState({
+  const [editimagefile, setimageedit] = useState({
+    editimagefilename: 'Select Image....',
+    editImageFile: undefined,
+  })
+  const [dataadd] = useState({
     username: useRef(),
     email: useRef(),
     usia: useRef(),
@@ -59,7 +63,7 @@ function App() {
         <tr key={index}>
           <th scope="row">{index + 1}</th>
           <td>{val.username}</td>
-          <td><img src={`${APIURLimage + val.image}`} height='150px' /></td>
+          <td><img src={`${APIURLimage + val.image}`} alt={index} height='150px' /></td>
           <td>{val.email}</td>
           <td>{val.phone}</td>
           <td>{val.usia}</td>
@@ -82,13 +86,22 @@ function App() {
 
   const Updatedata = () => {
     // console.log(datausersedit)
+    var formdata = new FormData()
     var data = {
       username: datausersedit.username,
       email: datausersedit.email,
       usia: datausersedit.usia,
       roleid: datausersedit.roleid,
     }
-    Axios.put(`${APIURL}user/users/${datausersedit.id}`, data)
+    var Headers = {
+      headers:
+      {
+        'Content-Type': 'multipart/form-data',
+      }
+    }
+    formdata.append('image', editimagefile.editImageFile)
+    formdata.append('data', JSON.stringify(data))
+    Axios.put(`${APIURL}user/users/${datausersedit.id}`, formdata, Headers)
       .then((res) => {
         setdatausers(res.data.datauser)
         setroles(res.data.datarole)
@@ -97,7 +110,6 @@ function App() {
         console.log(err)
       })
   }
-
   const onAddImageFileChange = (event) => {
     // console.log(document.getElementById('addImagePost').files[0])
     console.log(event.target.files[0])
@@ -108,7 +120,16 @@ function App() {
       setimageadd({ ...addimagefile, addImageFileName: 'Select Image...', addImageFile: undefined })
     }
   }
-
+  const oneditImageFileChange = (event) => {
+    // console.log(document.getElementById('addImagePost').files[0])
+    console.log(event.target.files[0])
+    var file = event.target.files[0]
+    if (file) {
+      setimageedit({ ...editimagefile, editimagefilename: file.name, editImageFile: event.target.files[0] })
+    } else {
+      setimageedit({ ...editimagefile, editimagefilename: 'Select Image...', editImageFile: undefined })
+    }
+  }
   const adddata = () => {
     var formdata = new FormData()
     const { username, roleid, usia, email } = dataadd
@@ -131,23 +152,22 @@ function App() {
       .then((res) => {
         setdatausers(res.data.datauser)
         setroles(res.data.datarole)
-        
+        setmodaladd(!modaladd)
       }).catch((err) => {
         console.log(err)
       })
   }
-
   if (datausers.length === 0) {
     return <div>loading</div>
   }
-  
   return (
     <Fragment>
       <button onClick={toggleadd}>add data</button>
-      <Modal title='edit data' toggle={toggle} modal={modal} actionfunc={Updatedata}>
+      <Modal title={`edit data ${datausersedit.username}`} toggle={toggle} modal={modal} actionfunc={Updatedata}>
         <input type='text' className='form-control' value={datausersedit.username} onChange={e => setdatausersedit({ ...datausersedit, username: e.target.value })} />
         <input type='text' className='form-control' value={datausersedit.email} onChange={e => setdatausersedit({ ...datausersedit, email: e.target.value })} />
         <input type='number' className='form-control' value={datausersedit.usia} onChange={e => setdatausersedit({ ...datausersedit, usia: e.target.value })} />
+        <CustomInput type='file' label={editimagefile.editimagefilename} id='editmodal' className='form-control' onChange={oneditImageFileChange} />
         <select className='form-control' value={datausersedit.roleid} onChange={e => setdatausersedit({ ...datausersedit, roleid: e.target.value })}>
           <option hidden>piliih category</option>
           {
@@ -161,7 +181,6 @@ function App() {
           }
         </select>
       </Modal>
-
       <Modal title='add data' toggle={toggleadd} modal={modaladd} actionfunc={adddata} >
         <input type='text' placeholder='username' className='form-control' ref={dataadd.username} />
         <input type='text' placeholder='email' className='form-control' ref={dataadd.email} />
@@ -180,11 +199,9 @@ function App() {
           }
         </select>
       </Modal>
-
       <Modal title='delete data' toggle={toggledelete} modal={modaldelete}>
         fsdasd delete
       </Modal>
-
       <Table striped>
         <thead>
           <tr>

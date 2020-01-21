@@ -1,41 +1,46 @@
-const express = require("express");
-const app = express();
-const BodyParser = require("body-parser");
-const cors = require('cors') //library untuk menghubungkan backend dan frontend
+const express = require('express')
+const app = express()
+const BodyParser = require('body-parser')
+const cors = require('cors') //npm ini gunanaya untuk mengbungkan backend dan frontend
 // connection
 // const {uploader}=require('./helper/uploader')
-// const {mysqldb} = require('./connection');
+// const {mysqldb}=require('./connection')
+// const fs=require('fs')
 
-const PORT = 2020;
+const PORT = 2020
 
 app.use(cors())
 
-app.use(BodyParser.urlencoded({extended:false}))
+app.use(BodyParser.urlencoded({ extended: false }));
 app.use(BodyParser.json())
-app.use(express.static("public"));
+app.use(express.static('public'))
 
-const {userRouters}=require('./routers')
-
-app.use('/user',userRouters)
+const { userRouters,AuthRouters} = require('./routers')
 
 app.get('/', (req, res) => {
-    return res.status(200).send(
-        '<h1>List of Endpoint</h1>'
-    )
+    return res.status(200).send('<h1>Selamat datang di api ini</h1>')
 })
 
+app.use('/auth', AuthRouters)
 
+app.use('/user', userRouters)
+
+
+
+
+
+
+app.listen(PORT, () => console.log(`aktif di port ${PORT}`))
 // app.get('/prod',(req,res)=>{
-//     var sql= `select * from transaction;`
-//     db.query(sql,(err,result)=>{
+//     var sql= `select * from product;`
+//     mysqldb.query(sql,(err,result)=>{
 //         if (err) res.status(500).send(err)
-//         console.log(result)
 //         res.status(200).send(result)
 //     })
 // })
 
 // app.get('/users',(req,res)=>{
-//     mysqldb.query(`select u.*,r.nama as rolename from users u left join roles r on u.roleid=r.id`,(err,result)=>{
+//     mysqldb.query(`select u.*,r.nama as rolename from users u left join roles r on u.roleid=r.id order by u.id`,(err,result)=>{
 //         if (err) res.status(500).send(err)
 //         mysqldb.query('select * from roles',(err,result1)=>{
 //             if (err) res.status(500).send(err)
@@ -43,6 +48,7 @@ app.get('/', (req, res) => {
 //         })
 //     })
 // })
+
 
 // app.put('/users/:id',(req,res)=>{
 //     mysqldb.query(`update users set ? where id=${req.params.id}`,req.body,(err,result)=>{
@@ -85,9 +91,9 @@ app.get('/', (req, res) => {
 //                     fs.unlinkSync('./public' + imagePath);
 //                     return res.status(500).json({ message: "There's an error on the server. Please contact the administrator.", error: err.message });
 //                 }
-               
+
 //                 console.log(results);
-//                 mysqldb.query(`select u.*,r.nama as rolename from users u left join roles r on u.roleid=r.id`,(err,result4)=>{
+//                 mysqldb.query(`select u.*,r.nama as rolename from users u left join roles r on u.roleid=r.id order by u.id`,(err,result4)=>{
 //                     if (err) res.status(500).send(err)
 //                     mysqldb.query('select * from roles',(err,result5)=>{
 //                         if (err) res.status(500).send(err)
@@ -146,5 +152,3 @@ app.get('/', (req, res) => {
 //         }
 //     }) 
 // })
-
-app.listen(PORT,()=>console.log(`aktif di port ${PORT}`))
