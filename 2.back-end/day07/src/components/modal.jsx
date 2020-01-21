@@ -10,6 +10,8 @@ const ModalExample = (props) => {
     actionfunc
   } = props;
 
+
+
   return (
     <div>
       {/* <Button color="danger" onClick={toggle}>{buttonLabel}</Button> */}
