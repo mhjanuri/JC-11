@@ -20,12 +20,12 @@ function App() {
   const [modaldelete, setModaldelete] = useState(false)
   const toggledelete = ()=> {setModaldelete(!modaldelete)}
 
-  const editoggle = (index)=> {
+  const edittoggle = (index)=> {
     setdatauseredit(datausers[index])
     setModaledit(!modaledit)
   }
 
-  const deleteoggle = (index)=> {
+  const deletetoggle = (index)=> {
     setdatauserdelete(datausers[index])
     setModaldelete(!modaldelete)
   }
@@ -156,8 +156,8 @@ function App() {
           <td>{val.email}</td>
           <td><img src={`${APIIMAGE+val.image}`} height='150px' /></td>  
           <td>
-            <Button onClick={()=>editoggle(index)} className='mr-2'>Edit</Button>
-            <Button onClick={()=>deleteoggle(index)} >Delete</Button>
+            <Button onClick={()=>edittoggle(index)} className='mr-2'>Edit</Button>
+            <Button onClick={()=>deletetoggle(index)} >Delete</Button>
           </td>       
         </tr>
 

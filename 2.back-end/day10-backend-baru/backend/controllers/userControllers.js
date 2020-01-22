@@ -103,20 +103,25 @@ module.exports = {
         })   
     },
     deleteUser: (req, res)=> {
-        var sql = `delete from users where id=${req.params.id}`;
-        
-        mysqldb.query(sql, (err, results) => {
-            if(err) {
-                console.log(err.message)
-                return res.status(500).json({ message: "There's an error on the server. ", error: err.message });
+        let sql = `select * from users where id=${req.params.id}`
+        mysqldb.query(sql, (err, result) => {
+            if(err) res.status(500).send.err
+            if (result.length) {
+                var sql = `delete from users where id=${req.params.id}`
+                mysqldb.query(sql, (err,result1)=>{
+                    if (err) res.status(500).send(err)
+                    if (result[0].image) {
+                        fs.unlinkSync('./public' + result[0].image)
+                    }
+                    mysqldb.query(`select * from users`,(err,result3)=>{
+                        if (err) res.status(500).send(err)
+                        res.status(200).send({datauser:result3})
+                    })
+                })
+            }else{
+                return res.status(500).send({ message: 'nggak ada woy idnya' })
             }
-            
-            console.log(results);
-            mysqldb.query(`select * from users`,(err,result3)=>{
-                if (err) res.status(500).send(err)
-                res.status(200).send({datauser:result3})
-            })   
-        }) 
+        })      
     }
 
 }
