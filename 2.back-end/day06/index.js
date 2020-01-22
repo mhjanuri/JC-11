@@ -1,13 +1,13 @@
-const express = require('express')
-const app = express()
-const BodyParser = require('body-parser')
-const cors = require('cors') //npm ini gunanaya untuk mengbungkan backend dan frontend
+const express=require('express')
+const app=express()
+const BodyParser=require('body-parser')
+const cors=require('cors') //npm ini gunanaya untuk mengbungkan backend dan frontend
 // connection
 // const {uploader}=require('./helper/uploader')
 // const {mysqldb}=require('./connection')
 // const fs=require('fs')
 
-const PORT = 2020
+const PORT=2020
 
 app.use(cors())
 
@@ -15,22 +15,24 @@ app.use(BodyParser.urlencoded({ extended: false }));
 app.use(BodyParser.json())
 app.use(express.static('public'))
 
-const { userRouters,AuthRouters} = require('./routers')
+const {
+    userRouters,
+    AuthRouters
+}=require('./routers')
 
-app.get('/', (req, res) => {
+app.get('/',(req,res)=>{
     return res.status(200).send('<h1>Selamat datang di api ini</h1>')
 })
 
-app.use('/auth', AuthRouters)
-
-app.use('/user', userRouters)
-
+app.use('/auth',AuthRouters)
+app.use('/user',userRouters)
 
 
 
 
 
-app.listen(PORT, () => console.log(`aktif di port ${PORT}`))
+
+app.listen(PORT,()=>console.log(`aktif di port ${PORT}`))
 // app.get('/prod',(req,res)=>{
 //     var sql= `select * from product;`
 //     mysqldb.query(sql,(err,result)=>{
@@ -91,7 +93,7 @@ app.listen(PORT, () => console.log(`aktif di port ${PORT}`))
 //                     fs.unlinkSync('./public' + imagePath);
 //                     return res.status(500).json({ message: "There's an error on the server. Please contact the administrator.", error: err.message });
 //                 }
-
+               
 //                 console.log(results);
 //                 mysqldb.query(`select u.*,r.nama as rolename from users u left join roles r on u.roleid=r.id order by u.id`,(err,result4)=>{
 //                     if (err) res.status(500).send(err)
