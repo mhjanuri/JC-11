@@ -91,6 +91,7 @@ module.exports={
                 // data.userId=req.user.userid
     
                 var sql = 'INSERT INTO users SET ?';
+                
                 mysqldb.query(sql, data, (err, results) => {
                     if(err) {
                         console.log(err.message)

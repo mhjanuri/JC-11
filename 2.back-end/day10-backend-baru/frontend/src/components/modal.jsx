@@ -20,7 +20,7 @@ const ModalExample = (props) => {
           {props.children}
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={actionfunc}>Do Something</Button>{' '}
+          <Button color="primary" onClick={actionfunc}>Submit</Button>{' '}
           <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>

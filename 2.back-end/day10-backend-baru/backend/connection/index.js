@@ -1,5 +1,7 @@
-const mysqldb = require("./mysqldb");
+const mysqldb=require('./mysqldb')
 
-module.exports = {
-  mysqldb
-};
+
+module.exports={
+    mysqldb
+    
+}

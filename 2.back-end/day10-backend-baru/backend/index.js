@@ -1,20 +1,22 @@
-const express = require('express')
-const app = express()
-const BodyParser=require('body-parser')
+const express=require('express')
+const app=express()
+const BodyParser=require('body-parser');
+const cors=require('cors') // menghubungkan backend dan front end
 
-const mysql = require('mysql')
 
 app.use(BodyParser.urlencoded({ extended: false }));
 app.use(BodyParser.json());
+app.use(cors())
+app.use(express.static('public'))
+const PORT = 5500
 
-const PORT = 2000
+app.get('/',(req,res)=>{
+    return res.status(200).send('<h1>Selamat datang di api ini</h1>')
+})
 
 const {userRouters}=require('./routers')
 
-app.get('/',(req,res)=>{
-    return res.status(500).send('<h1> CUKKKKK </h1>')
-})
+app.use('/users', userRouters);
 
-app.use("/user", userRouters);
 
-app.listen(PORT, () => console.log(`aktif di port ${PORT}`));
+app.listen(PORT,()=>console.log(`aktif di port ${PORT}`))
