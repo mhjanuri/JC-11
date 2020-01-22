@@ -40,8 +40,8 @@ const Example = (props) => {
                 <DropdownItem>
                   Option 1
                 </DropdownItem>
-                <DropdownItem>
-                  Option 2
+                <DropdownItem href='/register'>
+                  Register
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>

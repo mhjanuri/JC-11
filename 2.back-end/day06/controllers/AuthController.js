@@ -48,9 +48,9 @@ module.exports={
         console.log(x)
         // res.send(x)
         var mailoptions={
-            from:'kamutea terserahlu <aldinorahman36@gmail.com>',
-            to:'aldinorahman36@gmail.com',
-            subject:`verifikasi Email instagrin`,
+            from:'kamutea terserahlu <hendrijanuri@gmail.com>',
+            to:'hendrijanuri@gmail.com',
+            subject:`verifikasi Email TERSERAH`,
             html:x
         }
         transporter.sendMail(mailoptions,(err,result)=>{
@@ -88,9 +88,9 @@ module.exports={
                     }
                     var LinkVerifikasi=`http://localhost:3000/verified?username=${username}&password=${hashpassword}`
                     var mailoptions={
-                        from:'hokage <aldinorahman36@gmail.com>',
+                        from:'hokage <hendrijanuri@gmail.com>',
                         to:email,
-                        subject:`verifikasi Email app iniitu`,
+                        subject:`verifikasi Email app TERSERAH.CO`,
                         html:`tolong klik link ini untuk verifikasi :
                                 <a href=${LinkVerifikasi}>Join apps ini</a>`
                     }
