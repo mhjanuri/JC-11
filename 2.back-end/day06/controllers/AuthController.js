@@ -1,10 +1,11 @@
 const cryptogenerate=require('./../helper/encrypt')
 const {mysqldb}=require('./../connection')
+const transporter=require('./../helper/mailer')
+const fs=require('fs')
 
 module.exports={
     belajarcrypto:(req,res)=>{
         console.log(req.query)
-
         const hashpassword=cryptogenerate(req.query.password)
         // const hashpassword1=crypto.createHmac('sha256','jc11').update(req.query.password).digest('hex')
         // 83aa90211d9d2bb7b133a4772e9a5129f98209847f58b3fca72d8bb33307b74d puripuri
@@ -43,15 +44,66 @@ module.exports={
         })
     },
     sendmail:(req,res)=>{
-        var html=fs.readFileSync('./../helper/satu.html','utf8')
-        res.send(html)
-        // val mailoptions={
-        //     from: 'terserah <hendrijanuri@gmail.com>',
-        //     to: 'hendrijanuri@gmail.com',
-        //     subject: 'verifikasi email cukkkk',
-        //     html: '<h1>verifikasi email cukkkk</h1>'
-        // }
-        transporter 
-
-    }
+        var x=fs.readFileSync('./satu.html','utf8')
+        console.log(x)
+        // res.send(x)
+        var mailoptions={
+            from:'kamutea terserahlu <aldinorahman36@gmail.com>',
+            to:'aldinorahman36@gmail.com',
+            subject:`verifikasi Email instagrin`,
+            html:x
+        }
+        transporter.sendMail(mailoptions,(err,result)=>{
+            if(err){
+                console.log(err)
+                return res.status(500).send({message:err})
+            }
+            console.log(result)
+            return res.status(200).send({message:'berhasil kirim',result})
+        })
+    },
+    registerver:(req,res)=>{
+        var {username,password,email}=req.body
+        var sql=`select username from users where username='${username}'`
+        mysqldb.query(sql,(err,results)=>{
+            if(err){
+                return res.status(500).send({status:'error',err})
+            }
+            if(results.length>0){
+                return res.status(200).send({status:'error',message:'username has been taken'})
+            }else{
+                var hashpassword=cryptogenerate(password)
+                var dataUser={
+                    username,
+                    password:hashpassword,
+                    email,
+                    usia:20,
+                    status:'unverified',
+                    lastlogin:new Date()
+                }
+                sql=`insert into users set ?`
+                mysqldb.query(sql,dataUser,(err1,res1)=>{
+                    if(err1){
+                        return res.status(500).send({status:'error',err:err1})
+                    }
+                    var LinkVerifikasi=`http://localhost:3000/verified?username=${username}&password=${hashpassword}`
+                    var mailoptions={
+                        from:'hokage <aldinorahman36@gmail.com>',
+                        to:email,
+                        subject:`verifikasi Email app iniitu`,
+                        html:`tolong klik link ini untuk verifikasi :
+                                <a href=${LinkVerifikasi}>Join apps ini</a>`
+                    }
+                    transporter.sendMail(mailoptions,(err2,res2)=>{
+                        if(err2){
+                            console.log(err2)
+                            return res.status(500).send({status:'error',err:err2})
+                        }
+                        console.log(`success`)
+                        return res.status(200).send({username,email,status:'unverified'})
+                    })
+                })
+            }
+        })
+    }       
 }

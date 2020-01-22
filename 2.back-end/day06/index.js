@@ -1,7 +1,8 @@
 const express=require('express')
 const app=express()
 const BodyParser=require('body-parser')
-const cors=require('cors') //npm ini gunanaya untuk mengbungkan backend dan frontend
+const cors=require('cors')
+const fs=require('fs') //npm ini gunanaya untuk mengbungkan backend dan frontend
 // connection
 // const {uploader}=require('./helper/uploader')
 // const {mysqldb}=require('./connection')
@@ -10,7 +11,6 @@ const cors=require('cors') //npm ini gunanaya untuk mengbungkan backend dan fron
 const PORT=2020
 
 app.use(cors())
-
 app.use(BodyParser.urlencoded({ extended: false }));
 app.use(BodyParser.json())
 app.use(express.static('public'))
