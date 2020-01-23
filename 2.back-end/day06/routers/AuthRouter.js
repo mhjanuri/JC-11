@@ -9,5 +9,6 @@ router.post('/register',AuthController.register)
 router.get('/login',AuthController.login)
 router.get('/sendmail',AuthController.sendmail)
 router.post('/registerver',AuthController.registerver)
+router.put('/verifikasiemail',AuthController.emailverifikasi)
 
 module.exports=router

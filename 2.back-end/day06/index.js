@@ -3,6 +3,7 @@ const app=express()
 const BodyParser=require('body-parser')
 const cors=require('cors')
 const fs=require('fs') //npm ini gunanaya untuk mengbungkan backend dan frontend
+const bearerToken=require('express-bearer-token')
 // connection
 // const {uploader}=require('./helper/uploader')
 // const {mysqldb}=require('./connection')
@@ -11,6 +12,7 @@ const fs=require('fs') //npm ini gunanaya untuk mengbungkan backend dan frontend
 const PORT=2020
 
 app.use(cors())
+app.use(bearerToken())
 app.use(BodyParser.urlencoded({ extended: false }));
 app.use(BodyParser.json())
 app.use(express.static('public'))
