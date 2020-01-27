@@ -1,10 +1,10 @@
 const mysql=require('mysql')
 
 const db=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'!Anakharam123',
-    database:'day07',
+    host:'db4free.net',
+    user:'hendrijanuri',
+    password:'4aG5DA!WWKwwDDK',
+    database:'testdbbioskop',
     port:'3306'
 })
 
