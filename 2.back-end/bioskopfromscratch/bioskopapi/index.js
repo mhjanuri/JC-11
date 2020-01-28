@@ -21,9 +21,9 @@ app.use('/user',Authrouter)
 
 const hashpassword = require('./helper/encrypt')
 app.get('/encrypt', (req, res) => {
-    const {pass} = req.query
-    var hasilencrypt=hashpassword(pass)
-    return res.status(200).send({encrypt:hasilencrypt, passlama:pass})
+    const {password} = req.query
+    var hasilencrypt=hashpassword(password)
+    return res.status(200).send({encrypt:hasilencrypt, passlama:password})
 })
 
 app.listen(PORT, () => console.log(`aktif di port ${PORT}`))
