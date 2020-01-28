@@ -1,6 +1,6 @@
-const mysqldb=require('./mysqldb')
+const db=require('./mysqldb')
 
 
 module.exports={
-    mysqldb
+    db
 }
