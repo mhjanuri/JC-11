@@ -29,5 +29,11 @@ module.exports={
     },
     register:(req,res)=>{
         
+    },
+    getUsers: (req, res) => {
+        db.query(`select * from users`, (err, result) => {
+            if (err) res.status(500).send(err)
+            res.status(200).send(result)
+        })
     }
 }

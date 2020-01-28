@@ -1,8 +1,6 @@
 import {combineReducers} from 'redux'
-import AuthReducers from './AuthReducers'
-// import CartReducers from './CartReducers'
+import AuthReducers from './Authreducers'
 
 export default combineReducers({
-    Auth:AuthReducers,
-    // Cart:CartReducers
+    Auth:AuthReducers
 })

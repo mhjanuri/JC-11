@@ -13,7 +13,7 @@ app.use(BodyParser.json())
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    return res.status(200).send('<h1>Selamat datang di api ini</h1>')
+    return res.status(200).send(`<h1>Selamat datang di PORT ${PORT}</h1>`)
 })
 
 const {Authrouter} = require('./router')
