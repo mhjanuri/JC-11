@@ -24,5 +24,8 @@ module.exports={
                 return res.status(200).send(result)
             })
         }
+    },
+    register:(req,res)=>{
+        
     }
 }
