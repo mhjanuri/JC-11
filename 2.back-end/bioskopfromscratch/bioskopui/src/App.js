@@ -14,7 +14,9 @@ import History from './pages/history'
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
 import Axios from 'axios';
-import { APIURL } from './support/ApiUrl';
+import { APIURL,apiRealUrl } from './support/ApiUrl';
+import Verified from './pages/verified';
+import waitingverified from './pages/waitingverified';
 
 
 class App extends Component{
@@ -24,16 +26,22 @@ class App extends Component{
 
   componentDidMount(){
     var id=localStorage.getItem('dino')
-    console.log('lewat')
-    Axios.get(`${APIURL}users/${id}`)
-    .then((res)=>{
-      this.props.LoginSuccessAction(res.data)
-    }).catch((err)=>{
-      console.log(err)
-    })
-    .finally(()=>{
+    console.log(id)
+    if(id){
+      Axios.get(`${apiRealUrl}user/authlog/${id}`)
+      .then((res)=>{
+        localStorage.setItem('token',res.data.token)
+        this.props.LoginSuccessAction(res.data.result)
+      }).catch((err)=>{
+        console.log(err)
+      })
+      .finally(()=>{
+        this.setState({loading:false})
+      })
+    }else{
       this.setState({loading:false})
-    })
+    }
+
   }
 
 
@@ -58,6 +66,8 @@ class App extends Component{
           <Route path='/history' component={History} exact/>
           <Route path={'/login'} exact component={Login}/>
           <Route path={'/register'} exact component={Register}/>
+          <Route path={'/verified'} exact component={Verified} />
+          <Route path={'/waitingverified'} exact component={waitingverified} />
         </Switch>
       </div>
     );

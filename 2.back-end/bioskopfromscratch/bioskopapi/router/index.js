@@ -1,4 +1,4 @@
-const Authrouter = require('./Authrouter')
+const Authrouter=require('./Authrouter')
 
 module.exports={
     Authrouter

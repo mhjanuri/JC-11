@@ -49,7 +49,7 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
           { 
-              props.Auth.role==='user'?
+              props.Auth.roleid===1?
                 null
               :
               props.Auth.username===''?
@@ -61,7 +61,7 @@ const Header = (props) => {
             }
             
             { 
-              props.Auth.role==='user'?
+              props.Auth.roleid===1?
                 null
               :
               props.Auth.username===''?
@@ -71,7 +71,7 @@ const Header = (props) => {
                 <Link to={'/managestudio'}><button className='btn btn-outline-primary'>Manage Studio</button></Link>
               </NavItem>
             }
-            { props.Auth.role==='user'?
+            { props.Auth.roleid===1?
               <NavItem className='mr-2 pt-1'>
                 <Link to={'/history'}><button className='btn btn-outline-primary'>History</button></Link>
               </NavItem>
@@ -79,7 +79,7 @@ const Header = (props) => {
               null
             }
           {
-            props.Auth.role==='user'?
+            props.Auth.roleid===1?
             <NavItem className='mr-2 pt-2'>
             <Link to={'/cart'}><FaCartArrowDown style={{color:'pink', fontSize:28}}/> {props.Auth.cart}</Link>
             </NavItem>
