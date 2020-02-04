@@ -51,5 +51,21 @@ module.exports = {
             if (err) res.status(500).send(err)
             res.status(200).send(result)
         })
-    }
+    },
+    userAddProduct: (req, res) => {
+        const {storeId, productName, productPrice} = req.body
+
+        let data = {
+            storeId,
+            productName,
+            productPrice
+        }
+
+        let sql = `INSERT INTO product SET ?`
+
+        db.query(sql, [data], (err, result)=>{
+            if (err) res.status(500).send(err)
+            res.status(200).send(result)
+        })
+    },
 }
