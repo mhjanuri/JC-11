@@ -24,7 +24,8 @@ module.exports = {
         })
     },
     userUpdateStore:(req,res)=> {
-        let {storeId, storeName} = req.body
+        const storeId = req.params.id
+        let {storeName} = req.body
 
         let data = {
             // storeId,
