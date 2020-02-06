@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 // import './supports/fontawesome-free/css/fontawesome.min.css'
 // import './supports/fontawesome-free/css/all.css'
 // import './supports/css/style.css'
