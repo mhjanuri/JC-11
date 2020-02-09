@@ -37,13 +37,30 @@ module.exports={
                 data.paymentimg = imagePath
                 data.tanggal = new Date()
                 data.status = 'onWaitingPay'
-                console.log(data)
-
-
+                console.log(data,'2')
+                var sql=`INSERT INTO transaksi SET ?`
+                db.query(sql,data,(err,result)=>{
+                    if (err) {
+                        fs.unlinkSync('./public'+imagePath);
+                        return res.status(500).json({ message: "there's an error on the server. Please try again", err })
+                    }
+                    sql= `SELECT * FROM transaksi`
+                    db.query(sql, (err,result1)=>{
+                        if (err) return res.status(500).send(err1)
+                        return res.status(200).send(result1)
+                    })
+                })
             })
         } catch (error) {
-            console.log(error)
+            return res.status(500).send(error)
         }
+    },
+    getTransaksi:(req,res)=>{
+        var sql= `SELECT * FROM transaksi`
+        db.query(sql, (err,result)=>{
+            if (err) return res.status(500).send(err)
+            return res.status(200).send(result)
+        })
     }
 
 }
