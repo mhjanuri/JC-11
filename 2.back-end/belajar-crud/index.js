@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const PORT = process.env.PORT || 4000
-
+const front = require('./connections/front')
 const db = require("./connections/index")
 const {userRouter} = require('./routes')
 
@@ -19,11 +19,8 @@ db.connect(err => {
     console.log('MySQL connected...')
 })
 
-app.get('/', (req,res)=> res.send(
-    `<h1>Hello from the server siiiiiiiiiiiide!</h1> 
-    <img src="https://pbs.twimg.com/profile_images/657199367556866048/EBEIl2ol.jpg" />`
-))
+app.get('/', (req,res)=> res.send(front))
 
 app.use('/users', userRouter)
 
-app.listen(PORT, console.log(`Server berjalan di port ${PORT}`))
+app.listen(PORT, console.log(`Server running on port ${PORT}`))
