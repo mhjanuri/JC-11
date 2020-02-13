@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,91 +24,49 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+import gaya from './src/components/gaya'
+
+const App = () => {
+  const [nama] = useState(['DAVID', 'DZAKY', 'HAFIZ', 'AYA', 'TIKA']);
+  const [namateman] = useState("REZA ARAP")
+  console.log('halooooo')
+  const rendertext=()=>{
+    return nama.map((val,index)=>{
+      return (
+        <Text style={gaya.text} key={index}>
+          Halo Gaes nama saya {val}, nama teman saya {namateman}
+        </Text>
+      );
+    })
+  }
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+      <View style={{flexDirection: 'column', flex: 1}}>
+        
+        <View style={gaya.kotak1}></View>
+
+        <View style={gaya.kotak2}>
+          <ScrollView>
+            <View style={{backgroundColor: 'pink', height: 200, borderStyle:'solid', borderColor:'black' }}></View>
+            <View style={{flexDirection:'row', flex:1, flexWrap:'wrap'}}>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'black'}}></View>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'yellow'}}></View>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'white'}}></View>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'green'}}></View>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'red'}}></View>
+              <View style={{height: 125, width:'33.3%', backgroundColor:'blue'}}></View>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:hendri
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+            <View style={{backgroundColor: 'grey', height: 200}}></View>
+          </ScrollView>
+        </View>
+
+        <View style={gaya.kotak3}></View>
+        
+      </View>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+
 
 export default App;
