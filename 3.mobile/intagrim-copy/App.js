@@ -6,6 +6,7 @@ import reducers from './src/redux/reducers'
 import AppInit from './AppInit'
 
 const App = () => {
+  console.disableYellowBox=true
   return (
     <Provider store={createStore(reducers, {}, applyMiddleware(reduxThunk))}>
       <AppInit />
