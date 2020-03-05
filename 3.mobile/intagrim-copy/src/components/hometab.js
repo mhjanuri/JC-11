@@ -9,7 +9,8 @@ import Home from './home'
 import Search from './search'
 import Add from './add'
 import Like from './like'
-import Profile from './profile'
+
+import StackProfile from './Stackprofile'
 
 const Tab = createBottomTabNavigator();
 const Tabnavigation=()=>{
@@ -23,7 +24,7 @@ const Tabnavigation=()=>{
                         iconName = focused
                             ? 'home'
                             : 'home';
-                    } else if (route.name === 'Profile') {
+                    } else if (route.name === 'StackProfile') {
                         iconName = focused ? 'account-box' : 'account-box';
                     }else if(route.name==='Search'){
                         iconName=focused?'search':'search'
@@ -48,36 +49,9 @@ const Tabnavigation=()=>{
             <Tab.Screen name='Search' component={Search}/>
             <Tab.Screen name='Add' component={Add}/>
             <Tab.Screen name='Like' component={Like}/>
-            <Tab.Screen name='Profile' component={Profile}/>
+            <Tab.Screen name='StackProfile' component={StackProfile}/>
         </Tab.Navigator>
 
-        // <Tab.Navigator 
-        //     initialRouteName='Home'
-        //     screenOptions={({ route }) => ({
-        //         tabBarIcon: ({ focused, color, size }) => {
-        //             let iconName;
-        
-        //             if (route.name === 'Home') {
-        //                 iconName = focused
-        //                     ? 'home'
-        //                     : 'home';
-        //             } else if (route.name === 'Profiledraw') {
-        //                 iconName = focused ? 'settings' : 'settings';
-        //             }
-        
-        //             // You can return any component that you like here!
-        //             return <Icon name={iconName} size={size} color={color} />;
-        //         },
-        //     })}
-        //     tabBarOptions={{
-        //         activeTintColor: 'tomato',
-        //         inactiveTintColor: 'gray',
-        //         showLabel:false
-        //     }}
-        // >
-        //     <Tab.Screen name="Home" component={Home} />
-        //     <Tab.Screen name="Profiledraw" component={Profiledraw} />
-        // </Tab.Navigator>
     )
 }
 
